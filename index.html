@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VTO.rs — Uskoro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #4a4a4a;
+    --ink-muted: #7a7a7a;
+    --bg: #faf8f5;
+    --bg-warm: #f3efe9;
+    --accent: #b4533e;
+    --accent-hover: #963f2d;
+    --accent-light: #f8eeeb;
+    --border: #e2ddd6;
+    --border-light: #ece8e2;
+    --teal: #2a7d6e;
+    --teal-light: #eaf5f2;
+    --display: Georgia, 'Times New Roman', serif;
+    --body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(ellipse, rgba(180,83,62,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.1em;
+    margin-bottom: 3rem;
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .logo-mark {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.15s forwards;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-scroll {
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+
+  .hero-scroll a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: gap 0.3s;
+  }
+
+  .hero-scroll a:hover { gap: 0.75em; }
+
+  .hero-scroll svg {
+    animation: bobDown 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bobDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+
+  /* ===== MANIFESTO SECTIONS ===== */
+  .manifesto {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Section: opening statement */
+  .m-opening {
+    padding: 6rem 0 5rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .m-opening p {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+
+  .m-opening p + p { margin-top: 1.25rem; }
+
+  .m-opening em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* Separator */
+  .m-sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    color: var(--border);
+  }
+
+  .m-sep-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  /* Section: promises */
+  .m-promises {
+    padding: 5rem 0;
+  }
+
+  .m-promises-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .m-promises-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  .promise {
+    display: flex;
+    gap: 1.35rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .promise:last-child { margin-bottom: 0; }
+
+  .promise-marker {
+    flex-shrink: 0;
+    width: 3px;
+    border-radius: 2px;
+    background: var(--border);
+    transition: background 0.3s;
+    margin-top: 0.3rem;
+  }
+
+  .promise:hover .promise-marker { background: var(--accent); }
+
+  .promise h3 {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.45rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .promise p {
+    font-size: 0.95rem;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* Section: who is this for */
+  .m-for {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .m-for-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .m-for-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  .for-item {
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .for-item:last-child { border-bottom: none; }
+
+  .for-item-marker {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    color: var(--border);
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 0.15rem;
+  }
+
+  .for-item p {
+    font-size: 1.02rem;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  .for-item strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Section: origin */
+  .m-origin {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .m-origin-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .m-origin-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  .m-origin p {
+    font-size: 1.02rem;
+    color: var(--ink-light);
+    line-height: 1.8;
+    margin-bottom: 1.15rem;
+  }
+
+  .m-origin p:last-child { margin-bottom: 0; }
+
+  .m-origin strong { color: var(--ink); font-weight: 600; }
+
+  /* Section: not-this */
+  .m-not {
+    padding: 4rem 2.5rem;
+    background: var(--bg-warm);
+    border-radius: 14px;
+    margin: 1rem 0 5rem;
+    border: 1px solid var(--border-light);
+  }
+
+  .m-not h3 {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+
+  .m-not-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 3rem;
+  }
+
+  .m-not-col-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid;
+  }
+
+  .m-not-col-title.yes { color: var(--teal); border-color: var(--teal); }
+  .m-not-col-title.no { color: #b91c1c; border-color: #b91c1c; }
+
+  .m-not-item {
+    font-size: 0.88rem;
+    color: var(--ink-light);
+    line-height: 1.5;
+    padding: 0.4rem 0;
+  }
+
+  .m-not-item.yes::before { content: '✓  '; color: var(--teal); font-weight: 700; }
+  .m-not-item.no::before { content: '✗  '; color: #b91c1c; font-weight: 700; }
+
+  /* Newsletter CTA */
+  .m-newsletter {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+  }
+
+  .m-newsletter h2 {
+    font-family: var(--display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.015em;
+  }
+
+  .m-newsletter > p {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    max-width: 440px;
+    margin: 0 auto 2rem;
+  }
+
+  .m-newsletter-form {
+    display: flex;
+    gap: 0.6rem;
+    max-width: 420px;
+    margin: 0 auto 0.85rem;
+  }
+
+  .m-newsletter-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-family: var(--body);
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .m-newsletter-input:focus { border-color: var(--accent); }
+
+  .m-newsletter-btn {
+    padding: 0.75rem 1.5rem;
+    font-family: var(--body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .m-newsletter-btn:hover { background: var(--accent-hover); }
+
+  .m-newsletter-note {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+  }
+
+  /* Closing */
+  .m-closing {
+    padding: 5rem 0 6rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+  }
+
+  .m-closing blockquote {
+    font-family: var(--display);
+    font-size: 1.45rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    font-style: italic;
+  }
+
+  .m-closing-sig {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  .m-closing-sig strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+  }
+
+  /* Bottom bar */
+  .m-bottom {
+    padding: 1.75rem 2rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+  }
+
+  .m-bottom-logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.1em;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .m-bottom-logo .logo-mark { font-size: 1rem; }
+  .m-bottom-logo .logo-suffix { font-size: 1rem; }
+  .m-bottom-logo .logo-tld { font-size: 0.6rem; }
+
+  .m-bottom p {
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 2.5rem 1.5rem; min-height: 90vh; }
+    .hero h1 { font-size: 2.1rem; }
+    .hero-sub { font-size: 1rem; }
+    .manifesto { padding: 0 1.5rem; }
+    .m-opening { padding: 4rem 0 3.5rem; }
+    .m-opening p { font-size: 1.25rem; }
+    .m-promises, .m-for, .m-origin { padding: 3.5rem 0; }
+    .m-not { padding: 2.5rem 1.5rem; margin: 1rem -0.25rem 3.5rem; }
+    .m-not-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .m-newsletter { padding: 3.5rem 0; }
+    .m-newsletter h2 { font-size: 1.35rem; }
+    .m-newsletter-form { flex-direction: column; }
+    .m-newsletter-btn { width: 100%; }
+    .m-closing { padding: 3.5rem 0 4.5rem; }
+    .m-closing blockquote { font-size: 1.2rem; }
+    .promise h3 { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <h1>Niste sami na ovom putu.</h1>
+    <p class="hero-sub">Gradimo mesto gde ćete pronaći sve što treba da znate o vantelesnoj oplodnji - napisano za vas, ne za lekare. Sajt je u izradi. Evo zašto nastaje.</p>
+    <div class="hero-scroll">
+      <a href="#manifesto">
+        Pročitajte naš manifesto
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MANIFESTO ===== -->
+<div class="manifesto" id="manifesto">
+
+  <!-- Opening -->
+  <section class="m-opening">
+    <p>Znamo kako izgleda kada u dva ujutru guglate „šta znači AMH 0.8" i ne možete da pronađete jasan odgovor na srpskom jeziku.</p>
+    <p>Znamo osećaj kada razmatraš da kupiš svaki suplement, vitamin, preparat... o kome se piše, samo da bi nešto upalilo.</p>
+    <p>Znamo kako je čitati forumske postove sa dijametralno suprotnim iskustvima i ne znati čemu da verujete.</p>
+    <p>Znamo kako je osećati se <em>potpuno sam</em> usred nečega što menja ceo život.</p>
+    <p>Znamo - jer smo <em>bili tu</em>.</p>
+  </section>
+
+  <div class="m-sep"><span class="m-sep-dot"></span><span class="m-sep-dot"></span><span class="m-sep-dot"></span></div>
+
+  <!-- Origin story -->
+  <section class="m-origin">
+    <div class="m-origin-label">Kako je počelo</div>
+    <p>VTO.rs nije nastao u kancelariji. Nastao je iz <strong>ličnog iskustva sa neplodnošću</strong> - godina borbe, neuspeha i konačno sreće.</p>
+    <p>Oligoastenospermija. Policistični jajnici. Tri pokušaja inseminacije. Četiri spontana pobačaja. Dve kiretaže. Priprema za VTO postupak. I onda - peta trudnoća koja je konačno donela bebu.</p>
+    <p>Danas smo porodica sa dva dečaka. Put koji smo prošli nas je promenio - i naučio nas jednu stvar iznad svega: <strong>koliko je važno imati pristup tačnim, razumljivim informacijama u najtežim trenucima.</strong></p>
+    <p>Tokom celog tog puta, jedna stvar nam je konstantno nedostajala: jedno mesto sa svim informacijama, objašnjenim tako da ih razume svako. VTO.rs je sajt koji bismo sami želeli da imamo pre pet godina.</p>
+  </section>
+
+  <div class="m-sep"><span class="m-sep-dot"></span><span class="m-sep-dot"></span><span class="m-sep-dot"></span></div>
+
+  <!-- Promises -->
+  <section class="m-promises">
+    <div class="m-promises-label">Šta gradimo za vas</div>
+
+    <div class="promise">
+      <div class="promise-marker"></div>
+      <div>
+        <h3>Sve na jednom mestu - konačno</h3>
+        <p>Od osnova vantelesne oplodnje do najnaprednijih procedura. Od prvog pregleda do beta testa. Umesto da otvarate 30 tabova i čitate kontradiktorne forumske postove - jedno pouzdano mesto sa svim odgovorima.</p>
+      </div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-marker"></div>
+      <div>
+        <h3>Napisano za vas, ne za lekare</h3>
+        <p>Svaki tekst objašnjava medicinske pojmove u kontekstu, bez pretpostavki. Konsultujemo stručnu literaturu i lekare, ali pišemo za ljude koji se prvi put susreću sa ovim temama. Jer informacija koja se ne razume - ne pomaže.</p>
+      </div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-marker"></div>
+      <div>
+        <h3>Emocionalna podrška, a ne samo medicina</h3>
+        <p>VTO nije samo medicinski postupak. To je emocionalni maraton. Pišemo i o onom delu koji se ne vidi na ultrazvuku - o strahu, čekanju, dvonedeljnoj pauzi, razočaranjima i onome što partneri prolaze u tišini.</p>
+      </div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-marker"></div>
+      <div>
+        <h3>Uvek ažurirano, uvek recenzirano</h3>
+        <p>Medicina se menja - i mi se menjamo sa njom. Svaki tekst nosi datum poslednjeg ažuriranja. Sadržaj recenziraju stručnjaci. Ako nismo sigurni - ne objavljujemo.</p>
+      </div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-marker"></div>
+      <div>
+        <h3>Besplatno. Bez registracije. Bez skrivenih uslova.</h3>
+        <p>Sav edukativni sadržaj je i biće besplatan. Ne tražimo ime, ne tražimo broj telefona, ne tražimo registraciju. Dođite, pročitajte, naučite. To je to.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who is this for -->
+  <section class="m-for">
+    <div class="m-for-label">Za koga je VTO.rs</div>
+
+    <div class="for-item">
+      <div class="for-item-marker">—</div>
+      <p>Za parove koji su <strong>tek saznali da imaju problem</strong> i ne znaju odakle da počnu.</p>
+    </div>
+    <div class="for-item">
+      <div class="for-item-marker">—</div>
+      <p>Za žene koje su <strong>usred VTO postupka</strong> i traže odgovor na „da li je ovo normalno" u dva ujutru.</p>
+    </div>
+    <div class="for-item">
+      <div class="for-item-marker">—</div>
+      <p>Za muškarce koji žele da <strong>razumeju šta njihova partnerka prolazi</strong> i kako da budu tu za nju.</p>
+    </div>
+    <div class="for-item">
+      <div class="for-item-marker">—</div>
+      <p>Za žene koje <strong>razmišljaju o zamrzavanju jajnih ćelija</strong> i žele da razumeju proces i opcije.</p>
+    </div>
+    <div class="for-item">
+      <div class="for-item-marker">—</div>
+      <p>Za majke, očeve, sestre i prijatelje koji žele da <strong>razumeju i pruže podršku</strong> nekome ko prolazi kroz VTO.</p>
+    </div>
+    <div class="for-item">
+      <div class="for-item-marker">—</div>
+      <p>Za svakoga ko se oseća <strong>usamljeno na putu</strong> koji ne razumeju ljudi oko njega.</p>
+    </div>
+  </section>
+
+  <!-- What we are / What we're not -->
+  <div class="m-not">
+    <h3>Bitna razlika</h3>
+    <div class="m-not-grid">
+      <div>
+        <div class="m-not-col-title yes">VTO.rs jeste</div>
+        <div class="m-not-item yes">Edukativni resurs zasnovan na stručnoj literaturi</div>
+        <div class="m-not-item yes">Direktorijum klinika za lakši izbor</div>
+        <div class="m-not-item yes">Podrška da razumete šta vam lekar govori</div>
+        <div class="m-not-item yes">Pomoć da pripremite prava pitanja za pregled</div>
+        <div class="m-not-item yes">Mesto gde niste sami sa svojim strahovima</div>
+      </div>
+      <div>
+        <div class="m-not-col-title no">VTO.rs nije</div>
+        <div class="m-not-item no">Zamena za lekara ili medicinsku konsultaciju</div>
+        <div class="m-not-item no">Osnov za samostalno lečenje ili dijagnozu</div>
+        <div class="m-not-item no">Preporuka za uzimanje lekova ili suplemenata</div>
+        <div class="m-not-item no">Garancija ishoda bilo kog postupka</div>
+        <div class="m-not-item no">Forum ili mesto za razmenu neproverernih saveta</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Closing -->
+  <section class="m-closing">
+    <blockquote>„Put do roditeljstva nekada nije pravolinijski - ali vi ste sposobni da ga prođete. I ne morate da ga prođete sami."</blockquote>
+    <div class="m-closing-sig">
+      <strong>Tim iza VTO.rs</strong>
+      Par koji razume jer je bio tamo gde ste vi sada.
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== BOTTOM ===== -->
+<div class="m-bottom">
+  <p>&copy; 2026 VTO.rs</p>
+</div>
+
+</body>
+</html>
