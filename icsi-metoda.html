@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICSI - Intracitoplazmatska injekcija spermatozoida | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">VTO metode</span>
+      <h1 class="article-title">ICSI - Intracitoplazmatska injekcija spermatozoida</h1>
+      <p class="article-subtitle">Šta je, kako se izvodi i kome je namenjena</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je ICSI?</a></li>
+        <li><a href="#s2">ICSI i klasičan IVF - u čemu je razlika?</a></li>
+        <li><a href="#s3">Kome je ICSI namenjen? Indikacije za primenu</a></li>
+        <li><a href="#s4">ICSI postupak korak po korak</a></li>
+        <li><a href="#s5">Stope uspešnosti - šta realno očekivati?</a></li>
+        <li><a href="#s6">Mogući rizici i komplikacije</a></li>
+        <li><a href="#s7">Česta pitanja i dodatni saveti</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <!-- ========== SECTION 1 ========== -->
+      <h2 id="s1">Šta je ICSI?</h2>
+
+      <p>ICSI (čita se „iksi") je skraćenica od engleskog naziva <em>Intracytoplasmic Sperm Injection</em>, što u prevodu znači <strong>intracitoplazmatska injekcija spermatozoida</strong>. Reč je o jednoj od najnaprednijih metoda asistirane reprodukcije - medicinski potpomognutog začeća - koja se koristi u okviru postupka vantelesnog oplođenja (IVF).</p>
+
+      <p>Suština ICSI metode je jednostavna: umesto da se spermatozoidi i jajna ćelija ostave zajedno u laboratorijskoj posudi i čeka da do oplođenja dođe spontano (kao kod klasičnog IVF-a), embriolog pod mikroskopom <strong>pažljivo bira jedan jedini spermatozoid i pomoću izuzetno tanke staklene iglice - mikropipete - ubacuje ga direktno u unutrašnjost jajne ćelije</strong> (u njen citoplazmu, otuda i naziv „intracitoplazmatska").</p>
+
+      <p>Zamislite to ovako: klasičan IVF je kao da otvorite vrata i pustite da gosti sami pronađu svoj sto, dok je ICSI postupak u kome domaćin lično odvede svakog gosta do njegovog mesta. Kontrola je potpuna, a šanse za oplođenje znatno veće u situacijama kada prirodni put ne funkcioniše.</p>
+
+      <p>ICSI je prvi put uspešno primenjen <strong>1992. godine u Briselu</strong>, u timu belgijskog naučnika Đanpiera Palerma (Gianpiero Palermo) na Slobodnom univerzitetu u Briselu. Od tada je metoda prošla kroz decenije usavršavanja i danas predstavlja rutinski deo rada gotovo svake klinike za vantelesno oplođenje širom sveta.</p>
+
+      <!-- ========== SECTION 2 ========== -->
+      <h2 id="s2">ICSI i klasičan IVF - u čemu je razlika?</h2>
+
+      <p>Da biste razumeli ICSI, korisno je najpre znati kako funkcioniše klasičan IVF (vantelesno oplođenje, od engleskog <em>In Vitro Fertilization</em> - doslovno „oplođenje u staklu").</p>
+
+      <p>Kod <strong>klasičnog IVF-a</strong>, jajne ćelije se nakon prikupljanja stavljaju u laboratorijsku posudu zajedno sa pripremljenim spermatozoidima - obično nekoliko desetina hiljada njih. Ideja je da spermatozoidi sami „pronađu" jajnu ćeliju i da jedan od njih prodre kroz njenu opnu i izvrši oplođenje, slično onome što se dešava u prirodnim uslovima, samo u kontrolisanom laboratorijskom okruženju.</p>
+
+      <p>Kod <strong>ICSI postupka</strong>, embriolog preuzima potpunu kontrolu nad procesom oplođenja. Koraci pre i posle same mikroinjekcije (stimulacija jajnika, prikupljanje jajnih ćelija, kultivacija embriona, embriotransfer) identični su klasičnom IVF-u. Ključna razlika je upravo u <strong>načinu na koji spermatozoid ulazi u jajnu ćeliju</strong> - kod ICSI-ja to nije prepušteno slučaju, već se spermatozoid fizički ubacuje u nju.</p>
+
+      <p>Zbog toga je ICSI naročito dragocen u situacijama kada:</p>
+
+      <ul>
+        <li>Spermatozoida ima veoma malo ili su slabog kvaliteta</li>
+        <li>Spermatozoidi nemaju sposobnost da sami prodru u jajnu ćeliju</li>
+        <li>Prethodni pokušaji klasičnog IVF-a nisu doveli do oplođenja</li>
+        <li>Koriste se spermatozoidi dobijeni hirurškim putem iz testisa ili epididimisa</li>
+      </ul>
+
+      <p>Važno je naglasiti da ICSI <strong>ne zamenjuje</strong> IVF - on je njegov sastavni deo, posebna tehnika koja se primenjuje unutar IVF postupka kada za to postoji medicinska indikacija.</p>
+
+      <!-- ========== SECTION 3 ========== -->
+      <h2 id="s3">Kome je ICSI namenjen? Indikacije za primenu</h2>
+
+      <p>ICSI postupak preporučuje se u nizu kliničkih situacija. Evo najčešćih:</p>
+
+      <h3>Teški oblici muškog infertiliteta</h3>
+
+      <p>Ovo je daleko najčešći razlog za primenu ICSI-ja. Uključuje:</p>
+
+      <ul>
+        <li><strong>Oligozoospermija</strong> - veoma mali broj spermatozoida u ejakulatu. Kod teških oblika, u celom uzorku može biti svega nekoliko hiljada ili čak samo nekoliko stotina spermatozoida, što je nedovoljno za klasično IVF oplođenje.</li>
+        <li><strong>Astenozoospermija</strong> - spermatozoidi su prisutni, ali se slabo ili nikako kreću (smanjena pokretljivost). Čak i ako ih ima dovoljno, ne mogu samostalno doplivati do jajne ćelije i prodreti u nju.</li>
+        <li><strong>Teratozoospermija</strong> - većina spermatozoida ima nepravilan oblik (abnormalna morfologija), što otežava ili onemogućava prirodno oplođenje.</li>
+        <li><strong>Kombinovani poremećaji</strong> - često se ovi problemi javljaju istovremeno (npr. oligoastenoteratozoospermija - mali broj, slaba pokretljivost i loša morfologija u isto vreme).</li>
+      </ul>
+
+      <h3>Opstruktivna i neopstruktivna azoospermija</h3>
+
+      <p><strong>Azoospermija</strong> je stanje u kome u ejakulatu nema spermatozoida - ni jednog. To ne mora značiti da se spermatozoidi uopšte ne proizvode; ponekad je uzrok „začepljenje" (opstrukcija) kanala kroz koje spermatozoidi prolaze, a ponekad je proizvodnja spermatozoida znatno smanjena ili ograničena na pojedine delove testisa.</p>
+
+      <p>U ovakvim slučajevima, spermatozoidi se mogu dobiti hirurškim putem:</p>
+
+      <ul>
+        <li><strong>TESA</strong> (<em>Testicular Sperm Aspiration</em>) - aspiracija spermatozoida iglom direktno iz tkiva testisa</li>
+        <li><strong>MESA</strong> (<em>Microsurgical Epididymal Sperm Aspiration</em>) - mikrohirurško prikupljanje spermatozoida iz epididimisa (pasemenik - struktura koja se nalazi na zadnjoj strani testisa i u kojoj spermatozoidi sazrevaju)</li>
+        <li><strong>Micro-TESE</strong> (<em>Microsurgical Testicular Sperm Extraction</em>) - najsloženiji pristup, pri kome urolog pod operativnim mikroskopom pretražuje tkivo testisa i traži zone u kojima se proizvode spermatozoidi</li>
+      </ul>
+
+      <p>Spermatozoidi dobijeni na bilo koji od ovih načina obično nemaju sposobnost samostalnog oplođenja jajne ćelije, pa je ICSI jedini način da se ostvari začeće.</p>
+
+      <h3>Prethodni neuspeli pokušaji klasičnog IVF-a</h3>
+
+      <p>Ako su u ranijem IVF ciklusu jajne ćelije i spermatozoidi stavljeni zajedno u laboratorijsku posudu, ali do oplođenja <strong>nije došlo</strong> ili je stopa oplođenja bila izuzetno niska, ICSI se preporučuje kao sledeći korak. On značajno povećava verovatnoću da će do oplođenja doći.</p>
+
+      <h3>Korišćenje zamrznutih spermatozoida ili jajnih ćelija</h3>
+
+      <p>Postupak zamrzavanja (krioprezervacije) i odmrzavanja može uticati na kvalitet spermatozoida - naročito na njihovu pokretljivost. Slično, kada se koriste prethodno zamrznute jajne ćelije, proces odmrzavanja može učiniti njihovu opnu nešto tvrđom. U oba slučaja, ICSI pomaže da se prevaziđu ove prepreke.</p>
+
+      <h3>Preimplantaciono genetsko testiranje (PGT)</h3>
+
+      <p>PGT je postupak kojim se embrioni pre vraćanja u matericu testiraju na prisustvo genetskih ili hromozomskih nepravilnosti. Da bi rezultati bili pouzdani, važno je da na površini jajne ćelije ne ostanu „zarobljeni" spermatozoidi koji bi mogli da kontaminiraju uzorak genetskog materijala. ICSI obezbeđuje da se u jajnu ćeliju ubaci tačno jedan spermatozoid, čime se eliminiše taj rizik.</p>
+
+      <h3>Neobjašnjeni infertilitet</h3>
+
+      <p>Ponekad svi nalazi izgledaju uredno - spermiogram je u granicama normale, jajne ćelije su dobrog kvaliteta, jajovodi su prohodni - ali do trudnoće ipak ne dolazi, čak ni nakon više pokušaja klasičnog IVF-a. U takvim situacijama, ICSI može ponuditi rešenje jer eliminiše eventualne „nevidljive" prepreke u procesu oplođenja.</p>
+
+      <!-- ========== SECTION 4 ========== -->
+      <h2 id="s4">ICSI postupak korak po korak</h2>
+
+      <p>Celokupan ICSI postupak se odvija u nekoliko jasno definisanih faza. Svaka od njih je jednako važna za konačan ishod.</p>
+
+      <h3>Korak 1: Stimulacija jajnika</h3>
+
+      <p>U prirodnom ciklusu, ženski organizam mesečno proizvede i oslobodi jednu jajnu ćeliju. Za postupak vantelesnog oplođenja potrebno je više jajnih ćelija - idealno između 8 i 15 - jer neće svaka biti zrela, neće se svaka oploditi i neće svaki embrion biti odgovarajućeg kvaliteta za transfer.</p>
+
+      <p>Zato se primenjuje <strong>kontrolisana ovarijalna stimulacija (KOS)</strong> - hormonska terapija u vidu svakodnevnih potkožnih injekcija koje stimulišu jajnike da istovremeno razviju više folikula (meškova ispunjenih tečnošću u kojima sazrevaju jajne ćelije). Terapija obično traje <strong>10 do 14 dana</strong>.</p>
+
+      <p>Tokom tog perioda, pacijentkinja dolazi na <strong>redovne ultrazvučne kontrole</strong> (obično svaka 2–3 dana) i vađenje krvi, kako bi lekar pratio rast folikula i nivoe hormona i prilagodio dozu lekova. Kada folikuli dostignu odgovarajuću veličinu (obično 17–20 mm), daje se takozvani <strong>„triger"</strong> - injekcija hormona (najčešće hCG ili agonist GnRH) koja pokreće završno sazrevanje jajnih ćelija.</p>
+
+      <h3>Korak 2: Aspiracija jajnih ćelija (punkcija)</h3>
+
+      <p>Tačno <strong>34 do 36 sati</strong> nakon triger injekcije - pre nego što bi ovulacija nastupila prirodno - vrši se <strong>punkcija folikula</strong>, postupak prikupljanja jajnih ćelija.</p>
+
+      <p>Pacijentkinja je u kratkoj sedaciji ili blagoj anesteziji. Lekar, vođen ultrazvučnim prikazom, uvodi tanku iglu kroz zid vagine do jajnika i jednog po jednog aspirira (usisava) sadržaj folikula. Folikularna tečnost sa jajnim ćelijama odmah se predaje embriologu u laboratoriju.</p>
+
+      <p>Ceo postupak traje <strong>15 do 30 minuta</strong>. Većina žena oseća samo blagu nelagodnost ili pritisak u donjem delu stomaka koji prolazi tokom istog dana.</p>
+
+      <h3>Korak 3: Priprema spermatozoida</h3>
+
+      <p>Dok se vrši punkcija, partner daje uzorak sperme (ili se koristi prethodno zamrznut uzorak, odnosno hirurški dobijeni spermatozoidi).</p>
+
+      <p>Uzorak prolazi kroz postupak <strong>preparacije</strong> - laboratorijsko „prečišćavanje" kojim se izdvajaju najpokretljiviji i morfološki najkvalitetniji spermatozoidi, odvajajući ih od semene plazme, nepokretnih spermatozoida i drugih ćelija.</p>
+
+      <p>Za ICSI postupak, embriolog zatim pod velikim uvećanjem mikroskopa (200–400x) pažljivo <strong>bira pojedinačne spermatozoide</strong> - po jednog za svaku zrelu jajnu ćeliju. Kriterijumi selekcije uključuju oblik glave, oblik i pokretljivost repa, i ukupnu vitalnost spermatozoida.</p>
+
+      <h3>Korak 4: Mikroinjekcija - srce ICSI postupka</h3>
+
+      <p>Ovo je centralni i najsloženiji korak, koji zahteva izuzetnu veštinu i preciznost embriologa.</p>
+
+      <p>Procedura se odvija uz pomoć <strong>mikromanipulacionog sistema</strong> - sofisticiranog uređaja koji se postavlja na mikroskop visokog uvećanja i omogućava izuzetno precizne pokrete na mikrometarskom nivou (hiljaditom delu milimetra).</p>
+
+      <p>Evo kako to izgleda u praksi:</p>
+
+      <ol>
+        <li><strong>Imobilizacija spermatozoida</strong> - Embriolog najpre blago dodiruje rep spermatozoida injekcionom pipetom, čime ga imobiliše (zaustavi mu kretanje). Ovo je neophodno kako bi spermatozoid mogao da se usisa u mikropipetu.</li>
+        <li><strong>Aspiracija spermatozoida u mikropipetu</strong> - Spermatozoid se pažljivo usisava u izuzetno tanku staklenu iglu (mikropipetu), repom napred.</li>
+        <li><strong>Fiksiranje jajne ćelije</strong> - Jajna ćelija se pridržava na mestu pomoću blagog usisavanja kroz širu, držeću pipetu. Ćelija se pozicionira tako da polarno telo (mala struktura koja ukazuje na raspored genetskog materijala unutar jajne ćelije) bude na poziciji „12 sati" ili „6 sati", čime se smanjuje rizik od oštećenja genetskog aparata.</li>
+        <li><strong>Probijanje membrane i injekcija</strong> - Embriolog iglom prodire kroz omotač jajne ćelije (zona pelucida) i ćelijsku membranu, i nežno ubacuje spermatozoid u citoplazmu jajne ćelije. Potom pažljivo izvlači iglu.</li>
+      </ol>
+
+      <p>Ceo postupak mikroinjekcije jedne jajne ćelije traje svega <strong>nekoliko minuta</strong>, ali zahteva apsolutnu koncentraciju. U jednom ciklusu, embriolog ponavlja ovu proceduru za svaku zrelu jajnu ćeliju koja je prikupljena.</p>
+
+      <h3>Korak 5: Kultivacija embriona</h3>
+
+      <p>Nakon mikroinjekcije, jajne ćelije se stavljaju u <strong>inkubator</strong> - uređaj koji simulira uslove unutar ženskog tela: temperaturu od 37°C, precizno kontrolisane nivoe kiseonika, ugljen-dioksida i vlažnosti.</p>
+
+      <p>Već <strong>16 do 18 sati nakon ICSI postupka</strong> embriolog proverava da li je došlo do oplođenja. Znak uspešnog oplođenja je prisustvo <strong>dva pronukleusa</strong> (dva mala jezgra vidljiva u centru ćelije) - jedno poreklom od jajne ćelije, drugo od spermatozoida. To znači da je genetski materijal oba roditelja prisutan i da se embrion počeo formirati.</p>
+
+      <p>U narednim danima, embriolog prati razvoj embriona:</p>
+
+      <ul>
+        <li><strong>Dan 2–3:</strong> Embrion bi trebalo da ima 4 do 8 ćelija</li>
+        <li><strong>Dan 5–6:</strong> Embrion dostiže stadijum blastociste - strukture od oko 100–200 ćelija sa jasnom unutrašnjom masom (iz koje se razvija beba) i spoljašnjim omotačem (iz kojeg nastaje posteljica)</li>
+      </ul>
+
+      <p>Savremene laboratorije sve češće koriste <strong>time-lapse monitoring sisteme</strong> - kamere koje snimaju razvoj embriona u inkubatoru bez potrebe da ih embriolog vadi i posmatra pod mikroskopom, čime se embrionima obezbeđuju stabilniji uslovi.</p>
+
+      <h3>Korak 6: Embriotransfer</h3>
+
+      <p>Transfer embriona u matericu je <strong>bezbolan i kratak postupak</strong> koji se izvodi bez anestezije.</p>
+
+      <p>Lekar uz pomoć ultrazvuka i tankog, mekanog katetera postavlja embrion (ili embrione) u šupljinu materice. Cela procedura traje svega <strong>nekoliko minuta</strong> i po osećaju podseća na ginekološki pregled. Pacijentkinja nakon toga obično provede kratko vreme u ležećem položaju, a zatim odlazi kući.</p>
+
+      <p>U savremenim protokolima, <strong>preporučuje se transfer jednog embriona</strong> (tzv. eSET - elektivni transfer jednog embriona), naročito kod žena mlađih od 35 godina ili kada je na raspolaganju embrion visokog kvaliteta. Ovo značajno smanjuje rizik od višeplodne trudnoće, a istovremeno zadržava dobre šanse za uspeh.</p>
+
+      <p>Preostali kvalitetni embrioni mogu se <strong>zamrznuti</strong> (krioprezervovati) za eventualne buduće pokušaje, bez potrebe za ponovnom stimulacijom jajnika.</p>
+
+      <p>Oko <strong>10 do 14 dana</strong> nakon transfera radi se <strong>test na trudnoću</strong> (beta-hCG iz krvi), koji daje konačan odgovor.</p>
+
+      <!-- ========== SECTION 5 ========== -->
+      <h2 id="s5">Stope uspešnosti - šta realno očekivati?</h2>
+
+      <p>Jedno od najčešćih pitanja koje parovi postavljaju jeste: „Kolike su nam šanse?" Odgovor, kao i u medicini uopšte, zavisi od niza faktora.</p>
+
+      <h3>Prosečne stope oplođenja i trudnoće</h3>
+
+      <p>ICSI tehnika postiže <strong>stopu oplođenja od 70 do 85%</strong> - što znači da će od, recimo, 10 zrelih jajnih ćelija kojima je izvršena mikroinjekcija, u proseku 7 do 8 biti uspešno oplođeno. Ovo je značajno visok procenat i predstavlja jednu od najvećih prednosti ICSI-ja.</p>
+
+      <p>Međutim, stopa oplođenja i stopa trudnoće nisu isto. Stopa kliničke trudnoće po ciklusu varira i u proseku iznosi <strong>40 do 50% po transferu</strong> kod žena mlađih od 35 godina, dok sa godinama opada.</p>
+
+      <h3>Od čega zavisi uspeh?</h3>
+
+      <ul>
+        <li><strong>Starost žene</strong> - Ovo je pojedinačno najvažniji faktor. Jajne ćelije žena mlađih od 35 godina imaju bolji kvalitet i manji procenat hromozomskih nepravilnosti. Nakon 35. godine, šanse postepeno opadaju, a nakon 40. godine pad je izraženiji.</li>
+        <li><strong>Kvalitet jajnih ćelija i embriona</strong> - Nije važan samo broj, već i kvalitet. Embrioni koji dostignu stadijum blastociste petog dana imaju statistički veće šanse za implantaciju.</li>
+        <li><strong>Uzrok infertiliteta</strong> - Parovi kod kojih je jedini problem muški faktor infertiliteta često imaju bolje rezultate ICSI-ja u poređenju sa parovima kod kojih postoje dodatni faktori (npr. smanjena rezerva jajnih ćelija ili endometrioza).</li>
+        <li><strong>Iskustvo i opremljenost laboratorije</strong> - ICSI je tehnika koja izuzetno zavisi od veštine embriologa i kvaliteta laboratorijske opreme. Razlike u stopama uspeha između klinika mogu biti značajne.</li>
+        <li><strong>Stil života</strong> - Pušenje, prekomerna telesna težina, visok nivo stresa i nedostatak fizičke aktivnosti mogu negativno uticati na kvalitet i jajnih ćelija i spermatozoida.</li>
+      </ul>
+
+      <h3>Realna očekivanja</h3>
+
+      <p>Statistički posmatrano, većina parova koji prođu kroz ICSI postupak ostvaruje trudnoću unutar <strong>1 do 3 ciklusa</strong>. Pojedini parovi uspeju iz prvog pokušaja, dok drugima treba više vremena i strpljenja. Važno je da neuspeh jednog ciklusa <strong>ne znači</strong> da sledeći neće biti uspešan - svaki pokušaj donosi nove informacije koje lekar i embriolog koriste da prilagode pristup.</p>
+
+      <!-- ========== SECTION 6 ========== -->
+      <h2 id="s6">Mogući rizici i komplikacije</h2>
+
+      <p>Kao i svaki medicinski postupak, ICSI nosi određene rizike. Važno je biti informisan, ali isto tako znati da su ozbiljne komplikacije retke i da se većina postupaka odvija bez problema.</p>
+
+      <h3>Sindrom hiperstimulacije jajnika (OHSS)</h3>
+
+      <p>OHSS (<em>Ovarian Hyperstimulation Syndrome</em>) je stanje u kome jajnici preterano reaguju na hormonsku stimulaciju. Jajnici se uvećavaju, a tečnost može da se nakuplja u stomaku. Blagi oblici (nadutost, nelagodnost) su relativno česti i prolaze sami. Teški oblici su <strong>retki</strong> (javljaju se u manje od 2% slučajeva) i zahtevaju medicinsko praćenje, ponekad i hospitalizaciju. Savremeni protokoli stimulacije značajno su smanjili učestalost ovog stanja.</p>
+
+      <h3>Višeplodna trudnoća</h3>
+
+      <p>Ako se u matericu vrati više od jednog embriona, postoji mogućnost blizanačke ili, ređe, trojke trudnoće. Višeplodna trudnoća nosi povećan rizik za prevremeni porođaj i komplikacije. Upravo zato se danas sve više praktikuje transfer jednog embriona, čime se ovaj rizik svodi na minimum.</p>
+
+      <h3>Rizici vezani za samu mikroinjekciju</h3>
+
+      <p>U malom procentu slučajeva (oko 1–3%), jajna ćelija može biti oštećena tokom postupka mikroinjekcije. Ovo je inherentan rizik tehnike, ali iskusni embriolozi ga svode na minimum. Takođe, postoji mali procenat jajnih ćelija koje se nakon ICSI-ja neće oploditi, čak i kada je postupak tehnički izveden besprekorno - to je prirodna varijabilnost biološkog procesa.</p>
+
+      <h3>Emocionalni i psihološki aspekti</h3>
+
+      <p>Ovo je aspekt o kome se nedovoljno govori, a koji je izuzetno važan. Postupak vantelesnog oplođenja - sa svim čekanjima, nadanjima, neizvesnostima i mogućim razočaranjima - predstavlja značajno emocionalno opterećenje. Hormoni koji se koriste u stimulaciji mogu dodatno uticati na raspoloženje. Osećanja anksioznosti, tuge, frustracije, pa čak i krivice potpuno su normalna i ne treba ih potiskivati.</p>
+
+      <!-- ========== SECTION 7 ========== -->
+      <h2 id="s7">Česta pitanja i dodatni saveti</h2>
+
+      <h3>„Da li ICSI boli?"</h3>
+
+      <p>Sama mikroinjekcija se izvodi u laboratoriji, na jajnim ćelijama izvan tela - dakle, pacijentkinja ništa ne oseća tokom tog dela. Punkcija jajnih ćelija se radi u sedaciji, pa je nelagodnost minimalna. Embriotransfer je bezbolan. Najveća fizička nelagodnost obično je vezana za svakodnevne potkožne injekcije tokom stimulacije, ali većina žena navikne na njih nakon prvih par dana.</p>
+
+      <h3>„Koliko ICSI ciklusa je obično potrebno?"</h3>
+
+      <p>Ne postoji univerzalan odgovor. Statistički, kumulativna stopa uspeha (šansa za trudnoću kroz više ciklusa) značajno raste sa svakim pokušajem. Mnogi lekari preporučuju plan od <strong>tri ciklusa</strong> kao početni okvir, nakon čega se vrši procena i eventualno prilagođavanje strategije.</p>
+
+      <h3>„Kako se pripremiti za ICSI postupak?"</h3>
+
+      <p>Priprema može značajno uticati na ishod:</p>
+
+      <ul>
+        <li><strong>Zdrava ishrana</strong> bogata antioksidansima, folnom kiselinom i omega-3 masnim kiselinama</li>
+        <li><strong>Prestanak pušenja</strong> - idealno najmanje 3 meseca pre postupka, za oba partnera</li>
+        <li><strong>Umerenost u konzumaciji alkohola i kofeina</strong></li>
+        <li><strong>Redovna, umerena fizička aktivnost</strong> - šetnja, joga, plivanje</li>
+        <li><strong>Kontrola telesne težine</strong> - i prekomerena težina i nedovoljna uhranjenost mogu uticati na plodnost</li>
+        <li><strong>Dodaci ishrani</strong> - lekar može preporučiti folnu kiselinu, vitamin D, koenzim Q10 i druge suplemente, u zavisnosti od individualnih potreba</li>
+        <li><strong>Smanjenje stresa</strong> - tehnike opuštanja, mindfulness, razgovor sa partnerom ili psihologom</li>
+      </ul>
+
+      <h3>„Deca začeta ICSI-jem - da li su zdrava?"</h3>
+
+      <p>Ovo je pitanje koje brine mnoge parove. Dugogodišnje praćenje dece začete ICSI postupkom širom sveta pokazuje da su ona <strong>jednako zdrava</strong> kao deca začeta prirodnim putem. Učestalost urođenih anomalija kod ICSI trudnoća blago je veća u odnosu na opštu populaciju, ali istraživanja ukazuju da je to verovatno povezano sa samim uzrocima neplodnosti kod roditelja, a ne sa tehnikom ICSI-ja.</p>
+
+      <h3>„Koliko košta ICSI postupak?"</h3>
+
+      <p>Troškovi variraju u zavisnosti od klinike, zemlje, broja potrebnih lekova i dodatnih procedura (zamrzavanje embriona, PGT, hirurško dobijanje spermatozoida). U Srbiji, jedan ciklus IVF/ICSI postupka može koštati od nekoliko stotina do nekoliko hiljada evra, u zavisnosti od protokola. Važno je informisati se i o mogućnostima finansiranja koje nudi Republički fond za zdravstveno osiguranje (RFZO), koji u Srbiji pokriva određeni broj pokušaja vantelesnog oplođenja za parove koji ispunjavaju uslove.</p>
+
+      <h3>Psihološka podrška - nije luksuz, već potreba</h3>
+
+      <p>Lečenje neplodnosti može biti jedan od najstresnijih perioda u životu para. Neizvesnost ishoda, fizičke tegobe, finansijski pritisak i uticaj na partnerski odnos mogu biti veoma teški. Mnoge klinike danas nude <strong>psihološko savetovanje</strong> kao deo tretmana, i preporučujemo da ga iskoristite - razgovor sa stručnjakom koji razume specifičnosti ovog procesa može napraviti ogromnu razliku.</p>
+
+      <p>Jednako je važna <strong>međusobna podrška partnera</strong>. Otvorena komunikacija o strahovima, očekivanjima i granicama pomaže da se ovaj put prođe zajedno, bez obzira na ishod.</p>
+
+      <!-- Closing -->
+      <div class="empathy-box" style="margin-top: 3rem;">
+        <p>ICSI je metoda koja je milionima parova širom sveta omogućila da ostvare ono što su mislili da nije moguće. Nauka i medicina napredovale su do tačke u kojoj čak i najozbiljniji oblici muškog infertiliteta ne moraju da budu prepreka za roditeljstvo.</p>
+        <p>Ako razmišljate o ICSI postupku, najvažniji prvi korak je <strong>razgovor sa specijalistom za reproduktivnu medicinu</strong> koji će na osnovu vaših nalaza i vaše priče napraviti individualni plan. Informišite se, postavljajte pitanja, budite strpljivi prema sebi i jedni prema drugima.</p>
+        <p>Put do roditeljstva nekada nije pravolinijski - ali nije ni nemoguć.</p>
+      </div>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">ICSI</a>
+        <a href="#" class="article-tag">Muški faktor infertiliteta</a>
+        <a href="#" class="article-tag">Mikroinjekcija</a>
+        <a href="#" class="article-tag">VTO procedure</a>
+        <a href="#" class="article-tag">Oplođenje</a>
+        <a href="#" class="article-tag">Spermatozoidi</a>
+        <a href="#" class="article-tag">Embriolog</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kultivacija embriona - razvoj embriona u laboratoriji | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Tokom VTO postupka</span>
+      <h1 class="article-title">Kultivacija embriona - razvoj embriona u laboratoriji</h1>
+      <p class="article-subtitle">Šta se dešava u embriološkoj laboratoriji tokom pet dana razvoja embriona - od oplođenja do blastociste</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je kultivacija embriona?</a></li>
+        <li><a href="#s2">Uslovi u embriološkoj laboratoriji</a></li>
+        <li><a href="#s3">Razvoj embriona dan po dan</a></li>
+        <li><a href="#s4">Gradiranje embriona - kako embriolog ocenjuje kvalitet</a></li>
+        <li><a href="#s5">Šta se dešava na kraju kultivacije</a></li>
+        <li><a href="#s6">Emocionalna dimenzija - period čekanja</a></li>
+        <li><a href="#s7">Česta pitanja parova</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <h2 id="s1">Šta je kultivacija embriona?</h2>
+
+      <p>Kultivacija embriona je period od 1 do 5 (ponekad 6) dana nakon oplođenja, tokom koga se embrioni razvijaju u posebnim uslovima u embriološkoj laboratoriji, pod pažljivim nadzorom embriologa - stručnjaka koji brine o vašim embrionima od trenutka oplođenja. Na kraju tog perioda, embrion koji se najbolje razvio biće vraćen u matericu (postupak poznat kao embriotransfer), dok se preostali kvalitetni embrioni mogu zamrznuti (krioprezervacija) za kasniju upotrebu.</p>
+
+      <p>Da biste razumeli gde se kultivacija nalazi u celom VTO procesu, zamislite je kao most između dva ključna koraka:</p>
+
+      <p><strong>Pre kultivacije</strong> dolazi punkcija jajnih ćelija - kratka procedura tokom koje lekar uz pomoć ultrazvuka izvlači zrele jajne ćelije iz jajnika. Istog dana, te jajne ćelije se oplođuju u laboratoriji, bilo klasičnim IVF postupkom (jajne ćelije i spermatozoidi se stave zajedno u posudu i oplođenje se desi spontano) ili ICSI metodom (embriolog ubacuje jedan pažljivo odabrani spermatozoid direktno u svaku jajnu ćeliju).</p>
+
+      <p><strong>Posle kultivacije</strong> sledi embriotransfer - vraćanje embriona u matericu, ili zamrzavanje embriona ako transfer nije planiran u tom ciklusu.</p>
+
+      <p>Između ta dva koraka odvija se nešto izvanredno: od jedne jedine oplođene ćelije, za samo pet dana, nastaje složena struktura od preko sto ćelija - blastocista - spremna da se ugnjezdi u sluznicu materice i započne trudnoću. Kultivacija je period u kome se ta transformacija dešava, a embriološka laboratorija je mesto gde embriolog nadgleda svaki korak tog razvoja.</p>
+
+      <h2 id="s2">Uslovi u embriološkoj laboratoriji</h2>
+
+      <p>Embriološka laboratorija je jedno od najkontrolisanijih okruženja u celoj medicini. Svaki detalj - od temperature vazduha do kvaliteta svetlosti - pažljivo je podešen da embrionima pruži uslove što sličnije onima u ženskom telu.</p>
+
+      <h3>Inkubator - veštačka materica</h3>
+
+      <p>Inkubator je uređaj u kome embrioni provode najveći deo vremena tokom kultivacije. Možete ga zamisliti kao malu, visokotehnološku „veštačku matericu" koja reprodukuje uslove unutar ženskog tela:</p>
+
+      <ul>
+        <li><strong>Temperatura</strong> je konstantnih 37°C - isto koliko iznosi telesna temperatura.</li>
+        <li><strong>Atmosfera</strong> je pažljivo kontrolisana: nizak nivo kiseonika (oko 5–6%, slično uslovima u jajovodu i materici, a ne 21% koliko ima u sobnom vazduhu) i povišen nivo ugljen-dioksida (CO₂, oko 6%), što održava pravilnu kiselost (pH) sredine u kojoj embrioni rastu.</li>
+        <li><strong>Vlažnost</strong> je visoka, kako bi se sprečilo isparavanje hranljivih medijuma u kojima se nalaze embrioni.</li>
+        <li><strong>Stabilnost</strong> je ključna: svako otvaranje vrata inkubatora, čak i na nekoliko sekundi, menja temperaturu i sastav gasova unutra, što može predstavljati stres za embrione. Zato embriolog otvara inkubator samo kada je to zaista neophodno i radi to što brže i kraće.</li>
+      </ul>
+
+      <h3>Kultura medijumi - hrana za embrione</h3>
+
+      <p>Embrioni u laboratoriji ne „plutaju u vazduhu" - oni se nalaze u malim kapljicama specijalne tečnosti koja se naziva kultura medijum. Ove tečnosti su pažljivo formulisane da sadrže sve što embrion treba za rast: aminokiseline, šećere, vitamine i proteine.</p>
+
+      <p>Savremene laboratorije koriste takozvane sekvencijalne medijume - to znači da se sastav tečnosti menja tokom kultivacije, prilagođen svakoj fazi razvoja embriona. Medijum koji je optimalan za embrion sa 2–4 ćelije nije isti kao onaj koji je potreban blastocisti sa preko sto ćelija. Kvalitet ovih medijuma je kritičan - oni su proizvedeni u strogo kontrolisanim uslovima i svaka serija prolazi testiranje pre upotrebe.</p>
+
+      <h3>Time-lapse tehnologija - pogled u razvoj bez ometanja</h3>
+
+      <p>Jedan od najznačajnijih napredaka u embriologiji poslednjih godina jeste time-lapse tehnologija. Radi se o inkubatorima koji imaju ugrađene minijaturne kamere. Ove kamere automatski fotografišu svaki embrion na svakih 10–20 minuta, 24 sata dnevno, tokom čitave kultivacije.</p>
+
+      <p>Šta to znači u praksi? Embriolog može da posmatra celokupan razvoj embriona - kao ubrzani film - a da pritom nijednom ne otvori inkubator i ne izlaže embrione promenama uslova. Na time-lapse snimcima, embriolog vidi tačno kada se embrion podelio, da li su deobe bile pravilne i simetrične, da li je bilo neuobičajnih obrazaca - informacije koje su ranije bile nedostupne jer se embrion posmatrao samo jednom ili dva puta dnevno.</p>
+
+      <p>Ova tehnologija pomaže embriologu da preciznije proceni koji embrioni imaju najveći potencijal za razvoj u zdravu trudnoću, čime se poboljšava selekcija embriona za transfer.</p>
+
+      <h3>Strogi laboratorijski standardi</h3>
+
+      <p>Embriološka laboratorija mora zadovoljiti izuzetno stroge standarde:</p>
+
+      <ul>
+        <li><strong>Kvalitet vazduha</strong> se kontroliše pomoću HEPA filtera (koji uklanjaju čestice prašine i mikroorganizme) i VOC filtera (koji uklanjaju isparljiva organska jedinjenja - hemikalije koje mogu biti toksične za embrione, a dolaze iz materijala, nameštaja ili sredstava za čišćenje).</li>
+        <li><strong>Sterilnost</strong> je apsolutni prioritet - embriolog radi u sterilnim uslovima, sa sterilnim instrumentima, u prostoriji sa kontrolisanim pritiskom vazduha.</li>
+        <li><strong>Dvostruka identifikacija uzoraka (witnessing sistem)</strong> osigurava da se jajne ćelije, spermatozoidi i embrioni svakog para ispravno identifikuju u svakom koraku. Svaki kritični korak - od oplođenja do zamrzavanja - potvrđuje dva stručnjaka ili elektronski sistem, kako bi se eliminisala mogućnost zamene.</li>
+      </ul>
+
+      <h2 id="s3">Razvoj embriona dan po dan</h2>
+
+      <p>Ovo je deo koji parove najviše zanima: šta se tačno dešava sa njihovim embrionima svakog dana? Hajde da prođemo kroz to, dan po dan.</p>
+
+      <h3>Dan 0 - dan oplođenja</h3>
+
+      <p>Na dan punkcije (dan 0) embriolog preuzima jajne ćelije koje je lekar izvadio iz jajnika. Jajne ćelije se pregledaju, procenjuje se njihova zrelost, a zatim se oplođuju - klasičnim IVF-om (spermatozoidi se dodaju u posudu sa jajnim ćelijama) ili ICSI metodom (jedan spermatozoid se mikro-iglom ubacuje direktno u svaku zrelu jajnu ćeliju).</p>
+
+      <p>Nakon oplođenja, jajne ćelije se stavljaju u inkubator. Sada počinja čekanje - da li će se sutradan pojaviti prvi znaci uspešnog oplođenja?</p>
+
+      <h3>Dan 1 - provera oplođenja (fertilizacije)</h3>
+
+      <p>Otprilike 16–18 sati nakon oplođenja, embriolog prvi put posmatra jajne ćelije pod mikroskopom. Traži dva sićušna kružića unutar svake ćelije - to su pronukleusi (jednine: pronukleus). Jedan pronukleus potiče od jajne ćelije (sadrži maminu DNK), a drugi od spermatozoida (sadrži tatinu DNK). Prisustvo dva pronukleusa (skraćenica: 2PN) potvrđuje da je oplođenje uspelo normalno.</p>
+
+      <p>Šta ako embriolog ne vidi dva pronukleusa?</p>
+
+      <ul>
+        <li><strong>0PN (bez vidljivih pronukleusa):</strong> Nekada to znači da do oplođenja nije došlo, ali u nekim slučajevima pronukleusi su se već stopili pre posmatranja, pa takve ćelije nisu nužno neoplođene. Time-lapse tehnologija ovde posebno pomaže jer može da zabeleži pronukleuse i ako su bili vidljivi samo kratko.</li>
+        <li><strong>1PN (jedan pronukleus):</strong> Abnormalan nalaz koji ukazuje na nepravilan proces oplođenja.</li>
+        <li><strong>3PN (tri pronukleusa):</strong> Obično nastaje kada dva spermatozoida uđu u jednu jajnu ćeliju (poliospermija) ili usled greške u sazrevanju jajne ćelije. Embrioni sa tri pronukleusa imaju previše hromozoma i ne mogu se koristiti za transfer.</li>
+      </ul>
+
+      <p><strong>Koliko jajnih ćelija se normalno oplodi?</strong> Tipično, kod ICSI metode oplođenje uspe u oko 60–80% zrelih jajnih ćelija. Kod klasičnog IVF-a stope su varijabilnije. Ako je punktirano, na primer, 10 zrelih jajnih ćelija, normalno je očekivati da se 6–8 uspešno oplodi. Ovo je najčešće prvi „pad broja" koji parovi dožive - i potpuno je normalan.</p>
+
+      <h3>Dan 2 - prva deoba (2–4 ćelije)</h3>
+
+      <p>Dvadeset četiri sata nakon oplođenja, embrion treba da se podeli na 2 ćelije, a do kraja drugog dana obično ima 2 do 4 ćelije. Ove ćelije se zovu blastomere.</p>
+
+      <p>Na Dan 2 embriolog procenjuje:</p>
+
+      <ul>
+        <li><strong>Broj ćelija</strong> - da li se embrion delio očekivanom brzinom</li>
+        <li><strong>Simetriju blastomera</strong> - da li su ćelije približno iste veličine (što je poželjno) ili je jedna znatno veća od druge</li>
+        <li><strong>Fragmentaciju</strong> - ovo je jedan od najčešćih pojmova koji ćete čuti od embriologa. Fragmenti su sićušni delići ćelijskog materijala koji se odvajaju tokom deobe i nalaze se između blastomera. Mala količina fragmentacije (do 10–15%) je normalna i ne utiče značajno na razvoj embriona. Veća fragmentacija može smanjiti šanse embriona, ali ne mora nužno značiti da embrion neće uspeti.</li>
+      </ul>
+
+      <h3>Dan 3 - stadijum od 6–8 ćelija</h3>
+
+      <p>Do trećeg dana, embrion treba da ima 6 do 8 ćelija. Embriolog ponovo procenjuje broj ćelija, stepen fragmentacije i simetriju.</p>
+
+      <p>Dan 3 je historijski bio dan kada se embriotransfer najčešće radio. Međutim, u poslednjih petnaestak godina, mnoge klinike su prešle na transfer na dan 5 (stadijum blastociste). Razlog je sledeći: čekajući do dana 5, embriolog može bolje da razlikuje embrione sa najvećim potencijalom, jer samo najjači embrioni uspevaju da se razviju do stadijuma blastociste. U laboratoriji se, zapravo, odvija selekcija slična onoj koja se dešava u prirodnom začeću tokom putovanja embriona kroz jajovod ka materici.</p>
+
+      <p>Ipak, transfer na dan 3 i dalje ima svoje mesto - posebno kada je broj embriona mali (na primer, 1–2 embriona), jer u tom slučaju nema potrebe za dodatnom selekcijom, a neki stručnjaci smatraju da materica može biti bolja sredina za dalji razvoj od laboratorije.</p>
+
+      <p>Ako je planiran transfer na dan 3, tog jutra embriolog pažljivo procenjuje sve embrione, gradira ih i bira najbolji za transfer.</p>
+
+      <h3>Dan 4 - stadijum morule</h3>
+
+      <p>Na četvrti dan dešava se jedna od najfascinantnijih promena. Embrion prelazi iz faze u kojoj se jasno vide pojedinačne ćelije u kompaktnu strukturu gde se ćelije čvrsto spajaju jedna za drugu. Ovaj proces se naziva kompakcija, a embrion u ovom stadijumu se naziva morula (od latinske reči za „dudinja" - jer podseća na ovo voće).</p>
+
+      <p>Na stadijumu morule, granice između ćelija više nisu jasno vidljive pod mikroskopom. Embrion izgleda kao jedna kompaktna loptica. Upravo zbog toga se morula obično ne procenjuje i ne gradira - teško je oceniti kvalitet na ovom prelaznom stadijumu. Većina klinika preskače ovaj dan u komunikaciji sa parovima.</p>
+
+      <h3>Dan 5 (i dan 6) - stadijum blastociste</h3>
+
+      <p>Peti dan kultivacije je dan velikih promena i velikih odluka. Embrion koji je uspešno prošao sve prethodne faze sada dostiže stadijum blastociste - najnapredniji stadijum razvoja koji se postiže u laboratorijskim uslovima.</p>
+
+      <p>Blastocista je struktura potpuno drugačija od onoga što je embrion bio dan ranije. Ona se sastoji od:</p>
+
+      <ul>
+        <li><strong>Blastocoela</strong> - šupljine ispunjene tečnošću unutar embriona. Embrion počinje da se širi kao mali balon.</li>
+        <li><strong>Unutrašnje ćelijske mase (ICM - skraćenica od engleskog „Inner Cell Mass")</strong> - to je grupa zbijenih ćelija na jednoj strani blastociste. Od ICM-a će nastati beba - svi organi i tkiva budućeg deteta.</li>
+        <li><strong>Trofektoderma (TE)</strong> - to je spoljašnji sloj ćelija koji obavija celu blastocistu. Od trofektoderma će nastati posteljica (placenta), koja će hraniti bebu tokom trudnoće.</li>
+      </ul>
+
+      <p>Zamislite blastocistu kao loptu ispunjenu tečnošću: spoljašnji omotač lopte je trofektoderm, a unutar nje, sa jedne strane, nalazi se mala grupa ćelija - to je unutrašnja ćelijska masa.</p>
+
+      <p>Blastociste su preferirane za transfer i zamrzavanje iz nekoliko razloga:</p>
+
+      <ul>
+        <li>Embrioni koji dostignu stadijum blastociste prošli su prvu veliku „prirodnu selekciju" - oni su pokazali sposobnost da aktiviraju sopstvene gene i nastave razvoj.</li>
+        <li>Transfer blastociste je bolje usklađen sa prirodnim procesom - u prirodnom začeću, embrion stiže u matericu upravo na stadijumu blastociste.</li>
+        <li>Stope implantacije (ugnjezdivanja) po prenesenom embrionu su veće kod blastocista nego kod Day 3 embriona.</li>
+      </ul>
+
+      <p>Važno je znati da nemaju svi embrioni potencijal da dostignu ovaj stadijum. Od svih normalno oplođenih embriona, otprilike 40–60% se razvije do blastociste. To ne znači da je nešto pogrešno urađeno u laboratoriji - ovo je biološka realnost.</p>
+
+      <p>Neki embrioni koji se sporije razvijaju dostignu stadijum blastociste tek na dan 6. Blastociste koje se formiraju na dan 6 takođe mogu dovesti do zdrave trudnoće, mada su statistički šanse nešto niže u poređenju sa onima formiranim na dan 5.</p>
+
+      <h2 id="s4">Gradiranje embriona - kako embriolog ocenjuje kvalitet</h2>
+
+      <p>Gradiranje (ocenjivanje) embriona je sistem kojim embriolog opisuje izgled i razvojni stadijum embriona. Važno je razumeti da je gradiranje statistički alat - ono govori o verovatnoći uspeha, ali ne može sa sigurnošću predvideti da li će određeni embrion dovesti do trudnoće ili ne.</p>
+
+      <h3>Gradiranje embriona na dan 3</h3>
+
+      <p>Embrioni na dan 3 se ocenjuju na osnovu tri glavna kriterijuma:</p>
+
+      <ul>
+        <li><strong>Broj ćelija:</strong> Idealno 7–8 ćelija na dan 3. Embrioni sa manje ili više ćelija od očekivanog mogu imati nešto niži potencijal, ali to nije pravilo.</li>
+        <li><strong>Stepen fragmentacije:</strong> Obično se označava od Grade 1 (minimalna ili bez fragmentacije - manje od 10%) do Grade 4 (teška fragmentacija - preko 50%). Grade 1 i Grade 2 embrioni smatraju se dobrog kvaliteta.</li>
+        <li><strong>Simetrija blastomera:</strong> Ćelije približno iste veličine su poželjne.</li>
+      </ul>
+
+      <p>Kada embriolog kaže da je embrion „osmocelijskog gradusa 1", to znači da embrion ima 8 ćelija, sa minimalnom fragmentacijom i simetričnim ćelijama - što je odličan rezultat na dan 3.</p>
+
+      <h3>Gradiranje blastocista (Gardner sistem)</h3>
+
+      <p>Blastociste se gradiraju složenijim sistemom koji se sastoji od tri elementa. Kada čujete, na primer, da je vaša blastocista ocenjena kao <strong>„4AA"</strong>, evo šta svaki deo znači:</p>
+
+      <p><strong>Broj (1–6) - stepen ekspanzije:</strong></p>
+      <ul>
+        <li>1 - rana blastocista, tek se formira šupljina</li>
+        <li>2 - šupljina je veća, zauzima više od polovine embriona</li>
+        <li>3 - blastocista koja je potpuno ispunila svoju zonu (zaštitni omotač oko embriona)</li>
+        <li>4 - ekspandirana blastocista, veća od prvobitne veličine, zona se istanjuje</li>
+        <li>5 - blastocista koja je počela da se „izvlači" iz zone (hatching)</li>
+        <li>6 - blastocista koja je potpuno izašla iz zone</li>
+      </ul>
+
+      <p><strong>Prvo slovo (A, B ili C) - kvalitet unutrašnje ćelijske mase (ICM):</strong></p>
+      <ul>
+        <li>A - dobro definisana, kompaktna grupa ćelija (odlično)</li>
+        <li>B - nešto manje definisana, labavija grupa ćelija (dobro)</li>
+        <li>C - vrlo malo ćelija ili teško uočljiva grupa (lošije)</li>
+      </ul>
+
+      <p><strong>Drugo slovo (A, B ili C) - kvalitet trofektoderma (TE):</strong></p>
+      <ul>
+        <li>A - mnogo ćelija koje formiraju pravilan, kohezivan sloj (odlično)</li>
+        <li>B - manje ćelija ili nešto nepravilniji sloj (dobro)</li>
+        <li>C - vrlo malo ćelija, nepravilan sloj (lošije)</li>
+      </ul>
+
+      <p>Tako, <strong>4AA blastocista</strong> je ekspandirana blastocista sa odličnom unutrašnjom ćelijskom masom i odličnim trofektodermom - to je embrion vrhunskog kvaliteta. <strong>3BB blastocista</strong> je potpuno formirana blastocista sa dobrim, solidnim kvalitetom. Čak i <strong>3BC</strong> ili <strong>4CB</strong> blastociste mogu dovesti do zdrave trudnoće.</p>
+
+      <h3>Važna napomena za parove</h3>
+
+      <p>Ovo je možda najvažnija poruka o gradiranju: <strong>embrion „nižeg kvaliteta" ne znači nezdrava beba.</strong> Mnoge, mnoge zdrave bebe rođene su iz embriona koji nisu bili ocenjeni kao „savršeni". Gradiranje je alat koji embriologu pomaže da odabere embrion sa statistički najvećom šansom za implantaciju, ali svaki embrion koji se razvija nosi u sebi potencijal za život. Priroda ume da iznenadi, i embriolog to dobro zna.</p>
+
+      <h2 id="s5">Šta se dešava na kraju kultivacije</h2>
+
+      <p>Kada kultivacija dođe do kraja (najčešće dan 5 ili dan 6), moguće je nekoliko ishoda:</p>
+
+      <h3>Embriotransfer svežeg embriona</h3>
+
+      <p>Ako su uslovi povoljni, embriolog bira embrion najboljeg kvaliteta za transfer. Transfer je bezbolan postupak koji traje svega nekoliko minuta - lekar pomoću tankog katetera stavlja embrion u matericu. U većini slučajeva prenosi se jedan embrion (elektivni transfer jednog embriona - eSET), čime se smanjuje rizik od višestruke trudnoće.</p>
+
+      <h3>Zamrzavanje (vitrifikacija) preostalih kvalitetnih embriona</h3>
+
+      <p>Embrioni koji su se dobro razvili, a nisu korišćeni za transfer, mogu se zamrznuti za kasniju upotrebu. Savremena tehnika zamrzavanja zove se vitrifikacija - to je metoda ultrabrzog zamrzavanja u kojoj se embrion za delić sekunde „stakli" (prelazi iz tečnog u staklasto stanje), čime se sprečava formiranje kristala leda koji bi mogli oštetiti ćelije.</p>
+
+      <p>Vitrifikacija je revolucionarna tehnika sa visokim stopama preživljavanja embriona nakon odmrzavanja - preko 90–95% embriona uspešno preživi proces odmrzavanja. Zamrznuti embrioni mogu biti čuvani godinama (teoretski neograničeno) bez gubitka kvaliteta, jer je na temperaturi tečnog azota (-196°C) sva biološka aktivnost potpuno zaustavljena.</p>
+
+      <h3>Freeze-all strategija - zamrzavanje svih embriona</h3>
+
+      <p>U nekim situacijama, lekar donosi odluku da se svi kvalitetni embrioni zamrznu, bez svežeg transfera u tom ciklusu. Ovo se radi kada:</p>
+
+      <ul>
+        <li>Postoji rizik od sindroma hiperstimulacije jajnika (OHSS) - ozbiljnog stanja koje može nastati nakon stimulacije, a trudnoća ga može pogoršati</li>
+        <li>Endometrijum (sluznica materice) nije optimalan za prijem embriona u tom ciklusu</li>
+        <li>Planira se preimplantaciono genetsko testiranje (PGT) embriona, za čije rezultate je potrebno vreme</li>
+        <li>Nivo progesterona je bio povišen na dan punkcije, što može uticati na receptivnost endometrijuma</li>
+      </ul>
+
+      <p>Važno je znati: freeze-all strategija ne umanjuje šanse za trudnoću. Naprotiv, studije pokazuju da su stope trudnoće nakon transfera odmrznutog embriona uporedive sa, a u nekim slučajevima čak i bolje od, stopa nakon svežeg transfera.</p>
+
+      <h3>Preimplantaciono genetsko testiranje (PGT)</h3>
+
+      <p>PGT je postupak u kome se na dan 5 uzima biopsija - embriolog pažljivo odvoji nekoliko ćelija trofektoderma (spoljašnjeg sloja blastociste koji formira posteljicu) i šalje ih na genetsku analizu. Sama biopsija ne oštećuje unutrašnju ćelijsku masu od koje nastaje beba. Embrion se nakon biopsije zamrzava, a rezultati analize stižu obično za 1–3 nedelje.</p>
+
+      <p>PGT može otkriti hromozomske nepravilnosti embriona (višak ili manjak hromozoma - najčešći uzrok neuspešnog ugnjezdivanja i ranih pobačaja). Preporučuje se u određenim situacijama: kod žena starijih od 35–37 godina, nakon ponovljenih neuspešnih transfera, nakon ponovljenih pobačaja, ili kada postoji poznato genetsko oboljenje u porodici.</p>
+
+      <h3>Kada nijedan embrion ne dostigne stadijum blastociste</h3>
+
+      <p>Ovo je jedan od najtežih ishoda, i važno je govoriti o njemu otvoreno. Dešava se da se nijedan embrion ne razvije do stadijuma blastociste. Embrioni mogu usporiti razvoj ili se potpuno zaustaviti na dan 2, 3 ili 4.</p>
+
+      <p>Zašto se to dešava? Najčešći razlog je kvalitet jajnih ćelija, na koji najveći uticaj ima starost žene. Drugi razlozi mogu biti kvalitet spermatozoida, ili jednostavno biološka varijabilnost - čak i parovi sa prethodno uspešnim ciklusima mogu imati ciklus u kome embrioni ne napreduju.</p>
+
+      <p>Koliko je to učestalo? Kod mlađih žena sa normalnim nalazima to se dešava retko, ali rizik raste sa godinama. Kod žena starijih od 40 godina, ova situacija nije neuobičajena.</p>
+
+      <p>Šta to znači za dalje lečenje? Jedan neuspešan ciklus ne definiše vaš celokupan put. Lekar i embriolog će analizirati šta se desilo i prilagoditi plan za sledeći pokušaj - možda promenom protokola stimulacije, metode oplođenja ili dodavanjem dodatnih procedura. Važno je dati sebi vremena za oporavak - i fizički i emotivno - i znati da jedan ciklus ne govori celu priču.</p>
+
+      <h2 id="s6">Emocionalna dimenzija - period čekanja</h2>
+
+      <p>Period kultivacije embriona je za parove verovatno jedan od najemotivno intenzivnijih delova celokupnog VTO procesa. Punkcija je iza vas, lekovi su završeni, transfer još nije - i vi čekate. Čekate da vaši embrioni urade nešto nad čim nemate nikakvu kontrolu.</p>
+
+      <h3>Čekanje na izveštaj embriologa</h3>
+
+      <p>Većina klinika komunicira sa parovima tokom kultivacije - obično telefonskim pozivom ili porukom. Tipičan raspored je:</p>
+
+      <ul>
+        <li><strong>Dan 1:</strong> Obaveštenje o rezultatu oplođenja - koliko se jajnih ćelija normalno oplodilo</li>
+        <li><strong>Dan 3:</strong> Informacija o tome kako se embrioni razvijaju, koliko ih napreduje</li>
+        <li><strong>Dan 5:</strong> Konačni izveštaj - koliko embriona je dostiglo stadijum blastociste, kakav im je kvalitet, šta je plan dalje</li>
+      </ul>
+
+      <p>Svaki od ovih poziva nosi mešavinu nade i straha. Mnogi parovi opisuju da im ruke drhte dok podižu telefon.</p>
+
+      <h3>„Embriološki rolerkoster"</h3>
+
+      <p>Zamislite sledeći scenario: na punkciji je dobijeno 12 jajnih ćelija. „Dvanaest! To je odlično!", pomislite. Sutradan vas zovu - 8 se normalno oplodilo. Osam je i dalje dobar broj, ali već osećate blagi pad. Na dan 3 saznajete da se 6 dobro razvija. Na dan 5, tri su stigla do blastociste.</p>
+
+      <p>Od 12 do 3 - matematički to izgleda kao ogroman pad. Ali tri kvalitetne blastociste je zapravo veoma dobar rezultat. Problem je u tome što parovi doživljavaju svaki broj kao gubitak, a ne kao normalnu biološku selekciju. Ovaj emocionalni uspon i pad - od početnog broja jajnih ćelija, preko broja oplođenih, do konačnog broja blastocista - poznat je kao „embriološki rolerkoster."</p>
+
+      <h3>Vezivanje za embrione</h3>
+
+      <p>Mnogi parovi počinju da se emocionalno vezuju za svoje embrione dok su oni još u laboratoriji. Neki im daju imena ili nadimke. Neki zamišljaju kako bi ta deca izgledala. Neki gledaju slike embriona koje im je klinika dala i osećaju nešto duboko, neobjašnjivo.</p>
+
+      <p>Ova osećanja su potpuno normalna i razumljiva. To su vaši embrioni - nastali od vas i vašeg partnera. Nema pravog ili pogrešnog načina da se osećate tokom ovog perioda.</p>
+
+      <h3>Suočavanje sa padom broja embriona</h3>
+
+      <p>Važno je znati da se gubitak embriona tokom kultivacije dešava i u prirodnom začeću - samo što ga ne vidimo. Procenjuje se da se u prirodnim uslovima čak 50–70% oplođenih jajnih ćelija ne razvije do stadijuma koji omogućava implantaciju. Laboratorija vam jednostavno pruža uvid u proces koji bi se inače odigrao neopaženo.</p>
+
+      <p>Embrioni koji se zaustave u razvoju najčešće imaju genetske abnormalnosti koje bi sprečile normalan razvoj. Njihovo zaustavljanje, koliko god bolno bilo za parove, zapravo je prirodni mehanizam selekcije koji postoji da zaštiti od trudnoća koje ne bi mogle da se normalno razvijaju.</p>
+
+      <h2 id="s7">Česta pitanja parova</h2>
+
+      <h3>„Zašto su se svi (ili skoro svi) embrioni zaustavili u razvoju?"</h3>
+
+      <p>Najčešći razlog je kvalitet jajnih ćelija, koji je uglavnom povezan sa godinama žene. Jajne ćelije naginju hromozomskim greškama koje se ne mogu videti pod mikroskopom, ali koje sprečavaju normalan razvoj embriona. Kvalitet spermatozoida takođe može igrati ulogu, naročito ako postoji visok stepen oštećenja DNK u spermatozoidima. Ponekad je razlog kombinacija više faktora, a ponekad jednostavno „loš ciklus" - biološka varijabilnost koja se ne može u potpunosti objasniti.</p>
+
+      <h3>„Da li embriolog može nešto da uradi da pomogne embrionima da se razvijaju?"</h3>
+
+      <p>Embriolog obezbeđuje optimalne uslove - ali ne može promeniti genetski potencijal embriona. Može se uporediti sa vrtlarom: vrtlar može obezbediti najbolje zemljište, dovoljno vode i svetlosti, ali ne može naterati seme da proklija ako nema tu sposobnost. Embriolog se stara o savršenim uslovima - temperatura, medijumi, atmosfera - ali sam razvoj zavisi od biologije embriona.</p>
+
+      <h3>„Da li je blastocista uvek bolja od Day 3 embriona za transfer?"</h3>
+
+      <p>Ne uvek. Transfer blastociste ima prednosti u selekciji - ali kod parova sa malim brojem embriona (1–3), transfer na dan 3 može biti jednako dobra opcija. Razlog je što neki embrioni koji bi se „zaustavili" u laboratoriji možda bi preživeli u materici, koja je ipak njihovo prirodno okruženje. Vaš lekar i embriolog doneće najbolju odluku na osnovu vaše konkretne situacije.</p>
+
+      <h3>„Koliko embriona je normalno da preživi do dana 5?"</h3>
+
+      <p>Okvirno pravilo: od svih normalno oplođenih embriona, očekuje se da 40–60% dostigne stadijum blastociste. Ovo varira u zavisnosti od starosti žene, kvaliteta jajnih ćelija i spermatozoida, i laboratorijskih uslova. Kod mlađih žena (ispod 35), procenat može biti viši; kod žena iznad 40, znatno niži.</p>
+
+      <h3>„Da li kvalitet embriona zavisi više od jajne ćelije ili spermatozoida?"</h3>
+
+      <p>Jajne ćelije igraju dominantnu ulogu u ranom razvoju embriona. One obezbeđuju ne samo polovinu hromozoma, već i svu ćelijsku mašineriju, energiju (mitohondrije) i molekularne „instrukcije" koje upravljaju prvim deobama. Genomu oca počinje da se aktivira tek oko dana 3 (aktivacija embrionalnog genoma). To ne znači da spermatozoidi nisu važni - kvalitet DNK spermatozoida utiče na razvoj embriona posebno od dana 3 nadalje, a oštećena DNK u spermatozoidima može biti razlog zaustavljanja embriona.</p>
+
+      <h3>„Šta ako imamo samo jedan embrion - da li ima šanse?"</h3>
+
+      <p>Apsolutno da. Jedan kvalitetan embrion je sve što je potrebno za trudnoću. Mnoge, mnoge bebe su se rodile iz jednog jedinog embriona. Broj embriona povećava statističku šansu jer imate više pokušaja, ali svaki pojedinačni embrion ima svoju šansu, nezavisno od toga koliko ih ukupno imate.</p>
+
+      <h3>Razlika između embrioloških laboratorija</h3>
+
+      <p>Nije svaka laboratorija ista. Kvalitet embriološke laboratorije - oprema, iskustvo embriologa, strogi protokoli, savremene tehnologije - direktno utiče na to koliko embriona će se razviti do stadijuma blastociste. Razlika između odlične i prosečne laboratorije može se ogledati u značajno različitim stopama razvoja do blastociste. Kada birate kliniku za VTO, pitajte o iskustvu embriološkog tima, o opremi koju koriste (da li imaju time-lapse inkubatore), o njihovim stopama razvoja do blastociste i o laboratorijskim akreditacijama.</p>
+
+      <h3>Pogled ka budućnosti</h3>
+
+      <p>Embriologija ne stoji u mestu. Veštačka inteligencija (AI) se sve više koristi kao pomoć u selekciji embriona - algoritmi obučeni na hiljadama time-lapse snimaka mogu pomoći embriologu u identifikaciji embriona sa najvećim potencijalom. Istraživanja u oblasti produžene kultivacije (razvoj embriona u laboratoriji duže od 5–6 dana) donose nova saznanja o ranom ljudskom razvoju. Neinvazivno genetsko testiranje - analiza DNK koju embrion prirodno otpušta u medijum - moglo bi u budućnosti zameniti invazivnu biopsiju. Sve ovo znači da će VTO postupak u narednim godinama postajati sve precizniji i uspešniji.</p>
+
+      <div class="empathy-box">
+        <p>Ovaj tekst je namenjen edukaciji i informisanju parova koji prolaze kroz VTO postupak. Svaka medicinska situacija je jedinstvena - za odluke o vašem lečenju uvek se konsultujte sa svojim lekarom i embriologom, koji poznaju vaš konkretan slučaj.</p>
+      </div>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">Kultivacija embriona</a>
+        <a href="#" class="article-tag">Razvoj embriona</a>
+        <a href="#" class="article-tag">Blastocista</a>
+        <a href="#" class="article-tag">Embriolog</a>
+        <a href="#" class="article-tag">VTO laboratorija</a>
+        <a href="#" class="article-tag">Gradiranje embriona</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

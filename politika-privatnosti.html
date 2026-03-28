@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politika privatnosti | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+  <article>
+    <div class="article-meta">
+      <h1 class="article-title">Politika privatnosti</h1>
+      <div class="article-meta-row">
+        <span>Poslednje ažuriranje: 20. mart 2026.</span>
+      </div>
+    </div>
+
+    <div class="article-content">
+
+      <p>VTO.rs (u daljem tekstu: „sajt", „mi" ili „nas") posvećen je zaštiti privatnosti svojih korisnika. Ova Politika privatnosti objašnjava koje informacije prikupljamo, kako ih koristimo, sa kim ih delimo i koja prava imate u vezi sa svojim podacima. Korišćenjem sajta prihvatate prakse opisane u ovom dokumentu.</p>
+
+      <p>Sajt je u vlasništvu kompanije <strong>Blueberry Digital</strong>, Merošinska 7, Beograd, Republika Srbija (matični broj: 65800195, PIB: 111999973), koja je ujedno i rukovalac podataka u smislu važećih propisa o zaštiti podataka o ličnosti.</p>
+
+      <h2>1. Osnovni princip - anonimnost poseta</h2>
+
+      <p>VTO.rs <strong>ne prikuplja podatke o ličnosti posetilaca sajta</strong>. Sve posete sajtu su anonimne. Ne zahtevamo registraciju, ne tražimo ime, prezime, adresu, JMBG, broj telefona niti bilo koje druge lične podatke kako biste pristupili sadržaju sajta.</p>
+
+      <p>Jedini izuzetak je dobrovoljno ostavljanje email adrese prilikom prijave na newsletter, što je detaljno opisano u sekciji 3 ovog dokumenta.</p>
+
+      <h2>2. Informacije koje automatski prikupljamo</h2>
+
+      <p>Prilikom posete sajtu, automatski se prikupljaju određene tehničke i analitičke informacije koje ne omogućavaju identifikaciju pojedinačnog korisnika. Ove informacije prikupljamo isključivo u svrhe standardne veb analitike i poboljšanja korisničkog iskustva.</p>
+
+      <h3>Šta prikupljamo</h3>
+
+      <ul>
+        <li>Anonimizovana IP adresa (poslednji oktet se uklanja pre skladištenja)</li>
+        <li>Tip i verzija internet pregledača (browser)</li>
+        <li>Operativni sistem uređaja</li>
+        <li>Rezolucija ekrana i tip uređaja (desktop, mobilni, tablet)</li>
+        <li>Izvor posete (odakle ste došli na sajt - pretraživač, društvena mreža, direktan pristup)</li>
+        <li>Stranice koje ste posetili na sajtu i redosled poseta</li>
+        <li>Vreme provedeno na pojedinim stranicama</li>
+        <li>Datum i vreme posete</li>
+        <li>Geografska lokacija na nivou države i grada (bez precizne lokacije)</li>
+      </ul>
+
+      <h3>Šta merimo kao konverzije</h3>
+
+      <p>Pored standardne analitike (broj poseta, najposećenije stranice, stopa napuštanja), pratimo i određene anonimne interakcije korisnika koje nam pomažu da razumemo kako se sajt koristi i kako možemo da ga poboljšamo:</p>
+
+      <ul>
+        <li>Popunjavanje i slanje kontakt forme</li>
+        <li>Preuzimanje dokumenata (PDF vodiči i drugi materijali)</li>
+        <li>Klikovi na odlazne linkove (linkove ka spoljnim sajtovima, uključujući profile klinika)</li>
+        <li>Klikovi na profile društvenih mreža</li>
+        <li>Klikovi na email adrese i telefonske brojeve</li>
+      </ul>
+
+      <p>Sve navedene interakcije se mere anonimno - ne znamo ko je konkretno izvršio koju akciju, već pratimo samo agregirane podatke (na primer, koliko puta je ukupno preuzet određeni dokument u datom periodu).</p>
+
+      <h2>3. Newsletter - prikupljanje email adresa</h2>
+
+      <p>VTO.rs nudi mogućnost prijave na email newsletter. Prijava je u potpunosti dobrovoljna i zahteva samo jednu informaciju: <strong>vašu email adresu</strong>.</p>
+
+      <h3>Kako koristimo vašu email adresu</h3>
+
+      <p>Email adresa prikupljena putem newsletter prijave koristi se <strong>isključivo za slanje newslettera</strong> - periodičnih email poruka sa novim člancima, vodičima, savetima i informacijama vezanim za tematiku sajta. Vašu email adresu nećemo koristiti za bilo kakvu drugu komunikaciju, nećemo je deliti sa trećim stranama u komercijalne svrhe i nećemo je koristiti za slanje neželjenih poruka koje nisu u vezi sa sadržajem na koji ste se prijavili.</p>
+
+      <h3>Odjava sa newslettera</h3>
+
+      <p>Svaki email newsletter koji pošaljemo sadrži jasno vidljivu opciju za odjavu (<em>Unsubscribe</em>) na dnu poruke. Klikom na ovu opciju, vaša email adresa se uklanja iz naše mailing liste i nećete primati dalje poruke. Odjava je trenutna i besplatna. Takođe nas možete kontaktirati na <a href="mailto:info@vtovodic.rs">info@vtovodic.rs</a> sa zahtevom za odjavu ili brisanje vaše email adrese iz naše baze.</p>
+
+      <h3>Pravni osnov za obradu</h3>
+
+      <p>Pravni osnov za prikupljanje i obradu vaše email adrese u svrhe slanja newslettera je vaš <strong>izričit pristanak</strong> (član 12 stav 1 tačka 1 Zakona o zaštiti podataka o ličnosti Republike Srbije), dat aktivnim činom prijave na newsletter. Ovaj pristanak možete povući u svakom trenutku putem opcije za odjavu u svakom poslatom emailu, bez ikakvih negativnih posledica.</p>
+
+      <h2>4. Kolačići (Cookies)</h2>
+
+      <p>VTO.rs koristi kolačiće - male tekstualne datoteke koje se skladište u vašem internet pregledaču prilikom posete sajtu. Kolačići nam pomažu da razumemo kako koristite sajt, da poboljšamo korisničko iskustvo i da obezbedimo pravilno funkcionisanje pojedinih funkcija sajta.</p>
+
+      <h3>Cookie Consent - vaš pristanak</h3>
+
+      <p>Prilikom prve posete sajtu prikazuje se <strong>Cookie Consent popup</strong> (iskačući prozor za saglasnost sa kolačićima) u kome možete odabrati koje kategorije kolačića prihvatate. Vaš izbor se čuva u trajanju od <strong>12 meseci</strong>, nakon čega ćete ponovo biti upitani za saglasnost. Svoj izbor možete promeniti u bilo kom trenutku putem podešavanja kolačića dostupnih u podnožju sajta.</p>
+
+      <h3>Kategorije kolačića koje koristimo</h3>
+
+      <p><strong>Neophodni kolačići</strong> - ovi kolačići su neophodni za osnovno funkcionisanje sajta i ne mogu se isključiti. Uključuju kolačić koji pamti vaš izbor u Cookie Consent popupu. Ne prikupljaju podatke o ličnosti.</p>
+
+      <p><strong>Analitički kolačići</strong> - kolačići koje postavljaju analitički alati (Google Analytics) u cilju prikupljanja anonimnih podataka o korišćenju sajta. Pomažu nam da razumemo koje stranice su najposećenije, odakle dolaze posetioci i kako se kreću kroz sajt. Svi podaci su agregirani i anonimni.</p>
+
+      <p><strong>Marketinški kolačići</strong> - kolačići koje postavljaju oglašivačke platforme (Google Ads, Meta Pixel, LinkedIn Pixel) u cilju prikazivanja relevantnih oglasa korisnicima na drugim platformama i merenja efikasnosti oglašivačkih kampanja. Ovi kolačići mogu pratiti vašu aktivnost na drugim sajtovima.</p>
+
+      <h3>Upravljanje kolačićima</h3>
+
+      <p>Pored Cookie Consent popupa na našem sajtu, kolačićima možete upravljati i putem podešavanja vašeg internet pregledača. Većina pregledača omogućava blokiranje ili brisanje kolačića. Imajte u vidu da blokiranje svih kolačića može uticati na funkcionalnost pojedinih delova sajta.</p>
+
+      <h2>5. Alati trećih strana koje koristimo</h2>
+
+      <p>VTO.rs koristi sledeće alate i servise trećih strana koji mogu postavljati kolačiće ili prikupljati anonimne podatke:</p>
+
+      <h3>Google Analytics</h3>
+
+      <p>Koristimo Google Analytics za analizu posećenosti sajta. Google Analytics prikuplja anonimne podatke o ponašanju korisnika na sajtu (posećene stranice, vreme na sajtu, izvor posete i slično). Koristimo funkciju anonimizacije IP adresa, čime se poslednji oktet vaše IP adrese uklanja pre bilo kakve obrade ili skladištenja. Google Analytics podatke obrađuje kompanija Google LLC (sedište: 1600 Amphitheatre Parkway, Mountain View, CA 94043, SAD). Više informacija: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politika privatnosti Google-a</a>.</p>
+
+      <h3>Google Tag Manager</h3>
+
+      <p>Google Tag Manager je alat za upravljanje oznakama (tagovima) na sajtu. Sam po sebi ne prikuplja podatke o korisnicima, ali služi kao tehnički posrednik za pokretanje drugih alata (Google Analytics, Google Ads i drugih). Ne postavlja kolačiće nezavisno od alata kojima upravlja.</p>
+
+      <h3>Google Ads (remarketing)</h3>
+
+      <p>Koristimo Google Ads remarketing kolačiće koji nam omogućavaju da posetiocima našeg sajta prikažemo relevantne oglase na drugim sajtovima unutar Google Display mreže i Google pretrage. Ovi kolačići ne sadrže podatke o ličnosti. Možete isključiti personalizovane Google oglase putem <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads podešavanja</a>.</p>
+
+      <h3>Meta Pixel (Facebook/Instagram)</h3>
+
+      <p>Na sajtu je instaliran Meta Pixel - alat kompanije Meta Platforms, Inc. koji nam omogućava da merimo efikasnost oglasa na Facebook-u i Instagram-u i da posetiocima sajta prikažemo relevantne oglase na ovim platformama. Meta Pixel prikuplja anonimne podatke o poseti sajtu i interakcijama. Više informacija: <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta Politika privatnosti</a>. Možete upravljati podešavanjima oglasa na <a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener">Facebook Ad Preferences</a> stranici.</p>
+
+      <h3>LinkedIn Insight Tag</h3>
+
+      <p>Koristimo LinkedIn Insight Tag - alat kompanije LinkedIn Corporation koji nam omogućava da merimo efikasnost oglasa na LinkedIn-u i da posetiocima sajta prikažemo relevantne oglase na LinkedIn platformi. Prikupljaju se anonimni podaci o poseti. Više informacija: <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener">LinkedIn Politika privatnosti</a>.</p>
+
+      <h3>Newsletter platforma</h3>
+
+      <p>Za slanje newslettera koristimo specijalizovanu email platformu koja obrađuje email adrese pretplatnika u naše ime (kao obrađivač podataka). Ova platforma je obavezana ugovorom o obradi podataka i ne sme koristiti email adrese naših pretplatnika u sopstvene svrhe. Platforma može prikupljati anonimne podatke o interakciji sa poslatim emailovima (stopa otvaranja, klikovi na linkove) u cilju poboljšanja kvaliteta naše komunikacije.</p>
+
+      <h2>6. Kontakt forme</h2>
+
+      <p>Ukoliko koristite kontakt formu na sajtu, podaci koje unesete (ime, email adresa, sadržaj poruke) biće korišćeni isključivo za odgovor na vaš upit. Ove informacije ne koristimo u marketinške svrhe, ne dodajemo ih na newsletter listu bez vaše izričite saglasnosti i ne delimo ih sa trećim stranama. Podatke iz kontakt formi čuvamo onoliko koliko je potrebno za obradu vašeg upita, nakon čega se brišu.</p>
+
+      <h2>7. Direktorijum klinika - podaci klinika i lekara</h2>
+
+      <p>Direktorijum klinika na VTO.rs sadrži podatke o klinikama za vantelesnu oplodnju i lekarima specijalistima (naziv, adresa, kontakt telefon, email, veb-sajt, usluge, radno vreme i slično). Ovi podaci su javno dostupnog karaktera ili su dostavljeni od strane samih klinika za potrebe objavljivanja u direktorijumu.</p>
+
+      <p>Klinike i lekari čiji su podaci objavljeni u direktorijumu mogu u svakom trenutku zatražiti ispravku, ažuriranje ili uklanjanje svojih podataka kontaktiranjem na <a href="mailto:info@vtovodic.rs">info@vtovodic.rs</a>.</p>
+
+      <h2>8. Deljenje podataka sa trećim stranama</h2>
+
+      <p>VTO.rs ne prodaje, ne iznajmljuje i ne deli podatke o ličnosti korisnika sa trećim stranama u komercijalne svrhe. Anonimni analitički podaci mogu biti dostupni pružaocima usluga koje koristimo (Google, Meta, LinkedIn) u skladu sa njihovim politikama privatnosti, isključivo u obimu neophodnom za funkcionisanje alata opisanih u sekciji 5 ovog dokumenta.</p>
+
+      <p>Podaci mogu biti dostavljeni nadležnim državnim organima isključivo ako to zahteva zakon ili pravosnažna sudska odluka.</p>
+
+      <h2>9. Međunarodni prenos podataka</h2>
+
+      <p>Neki od alata trećih strana koje koristimo (Google, Meta, LinkedIn) obrađuju podatke na serverima lociranim izvan Republike Srbije, uključujući Sjedinjene Američke Države i zemlje Evropske unije. Ove kompanije su obavezane odgovarajućim mehanizmima zaštite podataka (standardne ugovorne klauzule, Data Privacy Framework i slično) koji obezbeđuju adekvatan nivo zaštite podataka u skladu sa međunarodnim standardima.</p>
+
+      <h2>10. Bezbednost podataka</h2>
+
+      <p>Preduzimamo razumne tehničke i organizacione mere za zaštitu podataka kojima raspolažemo od neovlašćenog pristupa, gubitka, zloupotrebe ili uništenja. Sajt koristi HTTPS enkripciju za bezbedan prenos podataka između vašeg pregledača i našeg servera. Međutim, nijedan sistem elektronskog prenosa ili skladištenja podataka nije apsolutno bezbedan i ne možemo garantovati potpunu sigurnost.</p>
+
+      <h2>11. Prava korisnika</h2>
+
+      <p>U skladu sa Zakonom o zaštiti podataka o ličnosti Republike Srbije, imate sledeća prava u vezi sa vašim podacima:</p>
+
+      <ul>
+        <li><strong>Pravo na informisanje</strong> - pravo da znate koje podatke prikupljamo i kako ih koristimo (što je predmet ovog dokumenta)</li>
+        <li><strong>Pravo na pristup</strong> - pravo da zatražite informaciju o tome da li obrađujemo vaše podatke i da dobijete kopiju tih podataka</li>
+        <li><strong>Pravo na ispravku</strong> - pravo da zatražite ispravku netačnih podataka</li>
+        <li><strong>Pravo na brisanje</strong> - pravo da zatražite brisanje vaših podataka (npr. email adrese sa newsletter liste)</li>
+        <li><strong>Pravo na povlačenje pristanka</strong> - pravo da u svakom trenutku povučete pristanak za obradu podataka (npr. odjava sa newslettera, izmena cookie podešavanja), bez negativnih posledica</li>
+        <li><strong>Pravo na prigovor</strong> - pravo da uložite prigovor na obradu vaših podataka</li>
+        <li><strong>Pravo na pritužbu</strong> - pravo da podnesete pritužbu Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti Republike Srbije</li>
+      </ul>
+
+      <p>Za ostvarivanje bilo kog od ovih prava, kontaktirajte nas na <a href="mailto:info@vtovodic.rs">info@vtovodic.rs</a>. Na vaš zahtev ćemo odgovoriti u roku od 30 dana.</p>
+
+      <h2>12. Deca i maloletna lica</h2>
+
+      <p>VTO.rs nije namenjen licima mlađim od 18 godina i svesno ne prikupljamo podatke o maloletnim licima. Ako saznamo da smo nenamerno prikupili podatke maloletnog lica, preduzećemo korake da ih odmah obrišemo.</p>
+
+      <h2>13. Izmene Politike privatnosti</h2>
+
+      <p>VTO.rs zadržava pravo da ovu Politiku privatnosti izmeni u bilo kom trenutku. Izmenjeni dokument stupa na snagu danom objavljivanja na ovoj stranici. Datum poslednje izmene naveden je na vrhu dokumenta. U slučaju značajnih izmena koje utiču na način obrade vaših podataka, obavestićemo vas putem istaknutog obaveštenja na sajtu ili, ukoliko je primenjivo, putem email poruke.</p>
+
+      <p>Preporučujemo korisnicima da povremeno provere ovu stranicu radi upoznavanja sa aktuelnom verzijom Politike privatnosti.</p>
+
+      <h2>14. Kontakt</h2>
+
+      <p>Za sva pitanja, zahteve ili primedbe u vezi sa zaštitom vaše privatnosti i obradom podataka, možete nas kontaktirati:</p>
+
+      <ul>
+        <li><strong>Blueberry Digital</strong></li>
+        <li>Merošinska 7, Beograd, Republika Srbija</li>
+        <li>Matični broj: 65800195</li>
+        <li>PIB: 111999973</li>
+        <li>Email: <a href="mailto:info@vtovodic.rs">info@vtovodic.rs</a></li>
+      </ul>
+
+      <p>Ako smatrate da je vaše pravo na zaštitu podataka o ličnosti povređeno, možete podneti pritužbu <strong>Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti</strong>, Bulevar kralja Aleksandra 15, 11000 Beograd (<a href="https://www.poverenik.rs" target="_blank" rel="noopener">www.poverenik.rs</a>).</p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer" style="margin-top: 3rem;">
+        Ovaj dokument je poslednji put ažuriran 20. marta 2026. godine. Važeća verzija Politike privatnosti je uvek ona koja je objavljena na ovoj stranici.
+      </div>
+
+    </div>
+  </article>
+</main>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uvod u VTO - šta je vantelesno oplođenje | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  .breathing-widget { margin: 1.5rem 0; padding: 1.5rem; background: var(--color-teal-light); border-radius: 10px; border: 1px solid rgba(42,125,110,0.15); text-align: center; }
+  .breathing-title { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.25rem; }
+  .breathing-sub { font-size: 0.82rem; color: var(--color-ink-muted); margin-bottom: 1.25rem; }
+  .breathing-circle { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--color-teal); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; color: var(--color-teal); transition: all 1s ease; opacity: 0.6; }
+  .breathing-circle.inhale { transform: scale(1.25); opacity: 1; }
+  .breathing-circle.hold { transform: scale(1.25); opacity: 0.85; }
+  .breathing-circle.exhale { transform: scale(1); opacity: 0.6; }
+  .breathing-phase { font-size: 0.85rem; color: var(--color-teal); font-weight: 600; min-height: 1.3em; margin-bottom: 0.85rem; }
+  .breathing-btn { background: var(--color-teal); color: #fff; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.25rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+  .breathing-btn:hover { background: #236b5e; }
+
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .breathing-circle { width: 90px; height: 90px; font-size: 1.2rem; }
+    .timeline-rail { width: 32px; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">VTO osnove</span>
+      <h1 class="article-title">Šta je vantelesna oplodnja (VTO/IVF) - Uvod za početnike</h1>
+      <p class="article-subtitle">Najteži deo VTO puta: biologija, simptomi, emocije i konkretni saveti za period čekanja</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">1. Šta je vantelesna oplodnja?</a></li>
+        <li><a href="#s2">2. Kome je VTO namenjen?</a></li>
+        <li><a href="#s3">3. Celokupan VTO postupak - korak po korak</a></li>
+        <li><a href="#s4">4. Klasični IVF i ICSI - u čemu je razlika?</a></li>
+        <li><a href="#s5">5. Stope uspešnosti - realistična očekivanja</a></li>
+        <li><a href="#s6">6. Finansijski aspekti VTO postupka</a></li>
+        <li><a href="#s7">7. Fizičko i emocionalno iskustvo - šta vas zaista čeka</a></li>
+        <li><a href="#s8">8. Mitovi i zablude o VTO-u</a></li>
+        <li><a href="#s9">9. Praktični saveti za parove koji razmatraju ili započinju VTO</a></li>
+        <li><a href="#s10">10. Česta pitanja parova na početku puta</a></li>
+        <li><a href="#s11">Rečnik osnovnih pojmova</a></li>
+        <li><a href="#s12">VTO u kontekstu srpskog zdravstvenog sistema</a></li>
+        <li><a href="#s13">Umesto zaključka</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+      <h2 id="s1">1. Šta je vantelesna oplodnja?</h2>
+      <p>Vantelesna oplodnja - skraćeno VTO - je metoda potpomognute (asistirane) reprodukcije. Asistirana reprodukcija je grana medicine koja pomaže parovima i pojedincima da ostvare trudnoću kada to nije moguće prirodnim putem ili kada su šanse za prirodno začeće značajno smanjene.</p>
+      <p>Postupak u svojoj suštini izgleda ovako: jajne ćelije se izvade iz jajnika žene, a zatim se u embriološkoj laboratoriji (dakle, van tela - otuda naziv "vantelesna") oplode spermatozoidima partnera ili donora. Nastali embrioni se nakon nekoliko dana razvoja u laboratoriji vrate u matericu žene, gde treba da se ugnjezde (implantiraju) u sluzokožu materice i započnu trudnoću.</p>
+      <p>Međunarodni naziv za ovaj postupak je <strong>IVF</strong> - skraćenica od engleskog <em>In Vitro Fertilization</em>, što doslovno znači "oplodnja u staklu", odnosno oplodnja u laboratorijskim uslovima. U srpskom jeziku koriste se oba termina ravnopravno - i VTO i IVF - pa nemojte da vas zbuni ako na jednom mestu pročitate jedno, a na drugom drugo. Reč je o potpuno istom postupku.</p>
+      <p>Ako vam sve ovo zvuči komplikovano ili čak zastrašujuće - razumljivo je. Ali evo jedne ohrabrujuće činjenice: vantelesna oplodnja nije nova, eksperimentalna niti neispitana procedura. Reč je o medicinskom postupku koji se primenjuje već skoro pet decenija, koji je pomogao milionima porodica širom sveta i koji je danas jedna od najčešćih i najbezbednijih procedura u reproduktivnoj medicini.</p>
+      <h3>Kratka istorija VTO-a - od "bebe iz epruvete" do rutinske medicine</h3>
+      <p>Priča o vantelesnoj oplodnji počinje jednim istorijskim datumom: <strong>25. jul 1978. godine</strong>, kada se u Engleskoj rodila <strong>Luis Braun</strong> (Louise Brown) - prvo dete na svetu začeto postupkom IVF-a. Tim koji je to omogućio činili su britanski naučnik <strong>Robert Edvards</strong> (Robert Edwards) i ginekolog <strong>Patrik Steptou</strong> (Patrick Steptoe). Edvards je za ovaj rad 2010. godine dobio Nobelovu nagradu za medicinu - priznanje koje je potvrdilo koliko je ovaj postupak promenio svet medicine i život miliona ljudi.</p>
+      <p>U to vreme, mediji su Luis Braun nazvali "bebom iz epruvete", a postupak je bio okružen kontroverzama, nerazumevanjem i skepticizmom. Mnogi su sumnjali u bezbednost, etičnost i smislenost cele ideje. Danas, gotovo pola veka kasnije, VTO je prešao put od kontroverznog eksperimenta do jedne od najrutinskih medicinskih procedura na svetu. Prema podacima relevantnih medicinskih organizacija, <strong>više od 10 miliona dece širom sveta</strong> rođeno je zahvaljujući VTO postupku - i taj broj raste svakom godinom.</p>
+      <p>Luis Braun, ta prva "beba iz epruvete", danas je odrasla žena koja je i sama postala majka - prirodnim putem. Njena priča je možda najbolji dokaz da deca začeta vantelesnom oplodnjom žive potpuno normalne, zdrave živote.</p>
+      <h3>VTO u Srbiji</h3>
+      <p>Vantelesna oplodnja u Srbiji ima svoju istoriju koja traje već nekoliko decenija. Postupak se primenjuje od osamdesetih godina prošlog veka, a danas je dostupan kako u državnim zdravstvenim ustanovama, tako i u privatnim klinikama za reproduktivnu medicinu.</p>
+      <p>Republika Srbija, preko Republičkog fonda za zdravstveno osiguranje (RFZO), finansira VTO postupke za parove koji ispunjavaju određene uslove. Ovo finansiranje obično obuhvata određeni broj pokušaja, a pravo na VTO o trošku države vezano je za starosnu granicu žene i medicinsku dokumentaciju koja potvrđuje indikaciju za postupak. Važno je naglasiti da se <strong>uslovi finansiranja periodično menjaju</strong> - menjaju se starosne granice, broj pokušaja koje država finansira, kao i procedura za dobijanje upućivanja. Zato je neophodno proveriti aktuelne propise kod svog ginekologa, na sajtu RFZO-a ili u klinici za reproduktivnu medicinu.</p>
+      <p>Pored državnog sektora, u Srbiji postoji i niz privatnih klinika za lečenje neplodnosti koje nude VTO postupke. Privatne klinike često nude kraće vreme čekanja i fleksibilnije termine, ali troškove snosi pacijent, osim u slučajevima kada se postupak obavlja u privatnoj ustanovi koja ima ugovor sa RFZO-om.</p>
+      <h2 id="s2">2. Kome je VTO namenjen?</h2>
+      <p>Jedno od najčešćih pitanja koje parovi imaju na početku jeste: "Da li je VTO za nas?" Odgovor zavisi od konkretne situacije, dijagnoze i preporuke lekara, ali evo pregleda najčešćih indikacija - situacija u kojima je VTO metoda koja nudi najveće šanse za ostvarenje trudnoće.</p>
+      <h3>Ženski faktor infertiliteta</h3>
+      <p><strong>Neprohodnost ili oštećenje jajovoda</strong> (tubarni faktor) - Jajovodi su tanki kanali koji povezuju jajnike sa matericom, i kroz njih jajne ćelije putuju ka mestu gde se u prirodnim uslovima susreću sa spermatozoidima. Ako su jajovodi začepljeni, oštećeni ili uklonjeni, taj susret se jednostavno ne može desiti prirodnim putem. Ovo je istorijski bila prva i najklasičnija indikacija za VTO - upravo za ovaj problem je postupak i razvijen.</p>
+      <p><strong>Endometrioza</strong> - Endometrioza je stanje u kome se tkivo slično sluznici materice (endometrijum) nalazi van materice - na jajovodima, jajnicima, u karlici. Posebno teži stadijumi endometrioze mogu značajno uticati na plodnost, stvarajući priraslice i oštećujući reproduktivne organe. Za mnoge žene sa endometriozom, VTO je najefikasniji put do trudnoće.</p>
+      <p><strong>Poremećaji ovulacije koji ne reaguju na jednostavnije terapije</strong> - Ovulacija je proces u kome jajnik otpušta zrelu jajnu ćeliju. Kod nekih žena ovulacija se ne dešava redovno ili se uopšte ne dešava. Kada jednostavniji lekovi poput klomifena ili letrozola (tableta koje podstiču ovulaciju) ne daju rezultat, VTO postaje sledeći logičan korak.</p>
+      <p><strong>Smanjena ovarijalna rezerva</strong> - Ovarijalna rezerva je pojam koji opisuje koliko jajnih ćelija žena još ima na raspolaganju. Meri se pomoću hormona AMH (anti-Milerijanskog hormona) - koji se određuje iz krvi - i AFC-a (broja antralnih folikula - malih folikula vidljivih na ultrazvuku jajnika). Kada su ove vrednosti niske, vreme radi protiv pacijentkinje i VTO se preporučuje ranije u procesu lečenja, jer omogućava da se od dostupnih jajnih ćelija izvuče maksimum.</p>
+      <p><strong>Neobjašnjeni infertilitet</strong> - Ponekad su svi nalazi uredni - i kod žene i kod muškarca - ali do trudnoće jednostavno ne dolazi. Nakon dužeg pokušavanja i jednostavnijih metoda lečenja, VTO se preporučuje jer zaobilazi mnoge potencijalne prepreke začeću koje postojećim dijagnostičkim metodama ne možemo da identifikujemo.</p>
+      <h3>Muški faktor infertiliteta</h3>
+      <p>Muški faktor je uzrok ili doprinoseći faktor neplodnosti u gotovo polovini slučajeva, a to je nešto o čemu se u našem društvu još uvek nedovoljno otvoreno govori.</p>
+      <p><strong>Teški poremećaji spermiograma</strong> - Spermiogram je osnovni test kojim se analizira kvalitet sperme. Kada postoje teški oblici oligozoospermije (mali broj spermatozoida), astenozoospermije (smanjena pokretljivost spermatozoida) ili teratozoospermije (povećan procenat spermatozoida nenormalne građe), prirodno začeće je znatno otežano ili nemoguće. U tim situacijama koristi se posebna tehnika pod nazivom ICSI (o čemu će biti reči kasnije), koja omogućava oplodnju čak i sa veoma malim brojem kvalitetnih spermatozoida.</p>
+      <p><strong>Azoospermija</strong> - Azoospermija je stanje u kome u ejakulatu uopšte nema spermatozoida. Čak ni ova dijagnoza ne mora da znači kraj puta. Kod nekih muškaraca spermatozoidi se mogu dobiti hirurškim putem - postupcima poput TESA ili micro-TESE (hirurške metode kojima se spermatozoidi izoluju direktno iz tkiva testisa) - i potom koristiti u VTO postupku.</p>
+      <h3>Kombinovani faktor</h3>
+      <p>Neredak je slučaj da istovremeno postoje problemi kod oba partnera - na primer, blago snižen kvalitet sperme u kombinaciji sa endometriozom ili smanjenom ovarijalnom rezervom. U tim situacijama, VTO je često najefikasniji pristup jer adresira oba faktora istovremeno.</p>
+      <h3>Starost žene</h3>
+      <p>Plodnost žene prirodno opada sa godinama, a taj pad postaje izraženiji nakon 35. godine. Ženama iznad 35–38 godina kojima ne uspeva da zatrudne, VTO se preporučuje ranije u procesu dijagnostike i lečenja - jer je vreme kritičan faktor koji se ne može povratiti.</p>
+      <h3>Genetske indikacije</h3>
+      <p>Parovi koji nose rizik od prenošenja ozbiljnih genetskih bolesti na potomstvo (na primer, cistična fibroza, talasemija, spinalna mišićna atrofija i druge) mogu koristiti VTO u kombinaciji sa <strong>PGT-om</strong> (preimplantacionim genetskim testiranjem). Ovo je postupak u kome se embrioni pre vraćanja u matericu testiraju na određena genetska oboljenja, čime se omogućava selekcija genetski zdravih embriona za transfer.</p>
+      <h3>Očuvanje plodnosti</h3>
+      <p>VTO tehnologija se koristi i za očuvanje plodnosti - zamrzavanje jajnih ćelija ili embriona. Ovo je naročito važno za žene koje se suočavaju sa onkološkim lečenjem (hemioterapija ili radioterapija mogu oštetiti jajnike), ali i za žene koje iz ličnih razloga žele da sačuvaju svoje jajne ćelije za kasniji period (takozvano "socijalno zamrzavanje").</p>
+      <h3>Donacija gameta i surogat materinstvo</h3>
+      <p>VTO postupak omogućava i korišćenje doniranih jajnih ćelija ili spermatozoida za parove kojima je to potrebno. Takođe, u zemljama gde je to zakonski regulisano, VTO se koristi i u programima surogat materinstva (gestacijska zamena).</p>
+      <h2 id="s3">3. Celokupan VTO postupak - korak po korak</h2>
+      <p>Ako biste celokupan VTO postupak zamislili kao putovanje, to bi otprilike izgledalo ovako: u prvih nedelju ili dve pripremate se - radite analize, upoznajete lekara, pravite plan. Narednih 10–12 dana svaki dan dajete sebi jednu malu injekciju u stomak i svakih par dana dolazite na kratku kontrolu. Jednog jutra dolazite na punkciju - zahvat traje 15 minuta i spavate tokom njega. Narednih pet dana embriolog brine o vašim embrionima dok vi čekate kod kuće. Onda dolazite na embriotransfer - bez narkoze, pet minuta, kao ginekološki pregled. I onda čekate dve nedelje da saznate da li ste trudni. Ukupno, od početka do kraja, oko mesec dana vašeg života za jednu šansu da ostvarite ono što najviše želite.</p>
+      <p>Evo sada tog puta razloženog na korake - bez ulaženja u duboke detalje svake faze (jer svaka od njih zaslužuje i ima poseban tekst), ali dovoljno da stekneš jasnu mentalnu mapu celokupnog procesa.</p>
+      <h3>Korak 1 - Inicijalna dijagnostika i konsultacija</h3>
+      <p>Pre nego što se VTO postupak uopšte započne, neophodno je da i žena i muškarac prođu kroz niz pregleda i analiza. Cilj je utvrditi uzrok neplodnosti, proceniti šanse za uspeh i napraviti individualni plan lečenja.</p>
+      <p><strong>Pregledi za ženu</strong> obično uključuju: ginekološki pregled, ultrazvučni pregled jajnika i materice (koji pokazuje stanje jajnika, broj antralnih folikula i stanje sluznice materice - endometrijuma), hormonski profil (iz krvi se određuju AMH, FSH, LH, estradiol, hormoni štitaste žlezde - TSH, prolaktin), proveru prohodnosti jajovoda - HSG (histerosalpingografija - rendgenski pregled sa kontrastom) ili SIS (sono-infuziona salpingografija - ultrazvučna provera sa fiziološkim rastvorom), briseve grlića materice, kompletnu krvnu sliku i infektivne markere (hepatitis B i C, HIV, sifilis).</p>
+      <p><strong>Pregledi za muškarca</strong> uključuju pre svega spermiogram - analizu sperme koja procenjuje broj, pokretljivost i građu spermatozoida. Po potrebi se rade i hormonski testovi, infektivni markeri, kao i pregled kod urologa ili androloga (lekara specijalizovanog za mušku reproduktivnu zdravstvenu zaštitu).</p>
+      <p>Na osnovu svih rezultata, sledi <strong>konsultacija sa lekarom reproduktivne medicine</strong> - razgovor u kome lekar pravi individualni plan lečenja, bira protokol stimulacije, objašnjava očekivanja i realne šanse za uspeh. Ovo je momenat kada treba postaviti sva pitanja koja imate.</p>
+      <h3>Korak 2 - Stimulacija jajnika (8–14 dana)</h3>
+      <p>U prirodnom ciklusu, jajnik svaki mesec proizvede jednu zrelu jajnu ćeliju. Za VTO postupak je potrebno više jajnih ćelija - jer ne svaka jajana ćelija uspešno sazri, ne svaka se uspešno oplodi, i ne svaki embrion se uspešno razvije. Zato se jajnici stimulišu lekovima.</p>
+      <p>Stimulacija podrazumeva <strong>svakodnevne potkožne injekcije gonadotropina</strong> - hormona koji podstiču jajnike da proizvedu veći broj jajnih ćelija nego što bi to bio slučaj u prirodnom ciklusu. Gonadotropini su lekovi koji se daju malim iglicama u predeo stomaka - slično kao insulin kod dijabetesa. Većina žena nauči da sama sebi daje ove injekcije kod kuće, uz obuku koju dobije u klinici.</p>
+      <p>Tokom stimulacije, žena dolazi u kliniku na <strong>redovne kontrole</strong> - obično svakih 2–3 dana - gde se ultrazvukom prati rast folikula (folikuli su male tečnošću ispunjene strukture u jajnicima u kojima sazrevaju jajne ćelije) i iz krvi određuje nivo hormona. Na osnovu ovih nalaza, lekar prilagođava dozu lekova.</p>
+      <p>Stimulacija traje obično 8 do 14 dana, a završava se <strong>trigger injekcijom</strong> - posebnom injekcijom koja daje signal za završno sazrevanje jajnih ćelija. Ova injekcija se daje u tačno određeno vreme - obično 36 sati pre planirane punkcije.</p>
+      <h3>Korak 3 - Aspiracija jajnih ćelija (punkcija)</h3>
+      <p>Punkcija je kratak zahvat koji se radi u klinici, pod kratkom sedacijom (plitkim uspavljivanjem) - što znači da žena spava tokom zahvata i ne oseća bol. Zahvat traje obično 10 do 20 minuta.</p>
+      <p>Lekar pomoću tanke igle, pod kontrolom vaginalnog ultrazvuka, aspirira (izvlači) tečnost iz folikula u jajnicima, a u toj tečnosti se nalaze jajne ćelije. Embriolog odmah u laboratoriji proverava koliko je jajnih ćelija dobijeno.</p>
+      <p>Istog dana, partner daje uzorak sperme (ili se koristi prethodno zamrznut uzorak, odnosno donirana sperma, u zavisnosti od situacije).</p>
+      <h3>Korak 4 - Oplodnja u laboratoriji</h3>
+      <p>Ovo je korak koji se dešava u embriološkoj laboratoriji - tamo gde VTO dobija svoje ime - "van tela".</p>
+      <p>Postoje dva načina oplodnje:</p>
+      <p><strong>Klasični IVF</strong> - Spermatozoidi se dodaju jajnim ćelijama u laboratorijskoj posudi (petri šolji) i oplodnja se dešava spontano - spermatozoidi sami pronalaze i prodiru u jajnu ćeliju, slično kao u prirodnom procesu, samo u kontrolisanim laboratorijskim uslovima.</p>
+      <p><strong>ICSI</strong> (intracitoplazmatska injekcija spermatozoida) - Embriolog pod mikroskopom bira jedan spermatozoid i mikroinjekcijom ga ubacuje direktno u jajnu ćeliju. Ova tehnika se koristi kada je kvalitet sperme snižen ili kada postoje drugi razlozi za direktnu oplodnju (više o ovome u posebnom odeljku).</p>
+      <p>Sledećeg dana (dan 1 nakon punkcije), embriolog proverava koliko jajnih ćelija je uspešno oplođeno.</p>
+      <h3>Korak 5 - Kultivacija embriona (dan 1 do dan 5 ili 6)</h3>
+      <p>Oplođene jajne ćelije - sada embrioni - postavljaju se u inkubator, uređaj koji simulira uslove u ženinom telu (temperaturu, vlažnost, nivo ugljen-dioksida i kiseonika). Tokom narednih dana, embriolog prati razvoj embriona i procenjuje njihov kvalitet.</p>
+      <p>Cilj je da embrioni stignu do <strong>stadijuma blastociste</strong> - dan 5 ili dan 6 nakon oplodnje. Blastocista je stadijum u kome embrion ima oko 100–200 ćelija i strukturu koja je optimalna za ugnjezdenje u matericu. Danas je transfer na stadijumu blastociste najčešći pristup u savremenim klinikama, jer omogućava bolji izbor embriona i veće šanse za implantaciju.</p>
+      <p>Nije neobično da od ukupnog broja oplođenih jajnih ćelija samo deo uspešno stigne do stadijuma blastociste. To je normalan deo procesa i ne znači da je nešto pošlo po zlu - jednostavno, ne razvije se svaki embrion.</p>
+      <h3>Korak 6 - Embriotransfer</h3>
+      <p>Embriotransfer je kratak postupak koji traje 5 do 15 minuta, <strong>ne zahteva anesteziju</strong> i u većini slučajeva je potpuno bezbolan - uporediv sa običnim ginekološkim pregledom.</p>
+      <p>Lekar tankim, mekim kateterom (cevčicom), pod kontrolom ultrazvuka, ubacuje embrion kroz grlić materice u šupljinu materice. Žena je budna tokom celog postupka i može da prati sve na ekranu ultrazvuka.</p>
+      <p>U savremenom VTO-u, trend je <strong>transfer jednog embriona</strong> - čime se značajno smanjuje rizik od višeplodne trudnoće (blizanačke ili trudnoće sa trojkama), koja nosi veće rizike i za majku i za decu.</p>
+      <p>Postoji i alternativa: <strong>zamrzavanje svih embriona</strong> (takozvani <em>freeze-all</em> protokol) i transfer u kasnijem ciklusu. Ovo se naziva <strong>FET</strong> (<em>frozen embryo transfer</em> - transfer zamrznutog embriona). Zamrzavanje embriona vrši se tehnikom vitrifikacije (ultrabrzo zamrzavanje koje čuva strukturu ćelija), a embrioni mogu biti skladišteni godinama bez gubitka kvaliteta. Lekar odlučuje o strategiji - sveži transfer ili freeze-all - na osnovu konkretne situacije, pre svega na osnovu stanja endometrijuma i rizika od hiperstimulacije jajnika.</p>
+      <h3>Korak 7 - Lutealna podrška i dvonedeljna pauza</h3>
+      <p>Nakon embriotransfera, žena započinje <strong>lutealnu podršku</strong> - terapiju progesteronom (hormonom koji priprema i održava sluzokožu materice za prihvatanje embriona). Progesteron se najčešće daje u vidu vaginalnih tableta ili uložaka, a ponekad i injekcijama.</p>
+      <p>Sledi period čekanja od <strong>10 do 14 dana</strong> do testa na trudnoću. Ovaj period mnogi parovi opisuju kao najteži deo celokupnog postupka - jer je sve što ste mogli da uradite već urađeno, a preostaje samo čekanje i neizvesnost. Nema testa, pregleda niti znaka koji bi sa sigurnošću mogao da vam kaže da li se embrion ugnjezdio ili ne. Fizički simptomi koje žena oseća u ovom periodu (nadutost, napetost grudi, promene raspoloženja) posledica su progesteronske terapije i ne mogu da posluže kao pouzdan pokazatelj trudnoće.</p>
+      <h3>Korak 8 - Beta hCG test i dalje</h3>
+      <p>Na zakazani dan, žena radi <strong>beta hCG test</strong> - vađenje krvi koje meri nivo hormona hCG (humanog horionskog gonadotropina). Ovaj hormon proizvodi embrion nakon ugnjezdenja, pa njegov nivo u krvi pokazuje da li je trudnoća nastala.</p>
+      <p><strong>Ako je test pozitivan</strong> - sledi kontrolno vađenje beta hCG-a (obično nakon 48 sati, da se potvrdi da vrednost pravilno raste), zatim prvi ultrazvuk (obično dve do tri nedelje nakon pozitivnog testa) na kome se potvrđuje klinička trudnoća i srčana radnja embriona, i prelazak na redovno praćenje trudnoće.</p>
+      <p><strong>Ako je test negativan</strong> - što se, nažalost, dešava češće nego što bi svi mi želeli - sledi razgovor sa lekarom. Lekar analizira prethodni ciklus (odgovor jajnika na stimulaciju, kvalitet jajnih ćelija i embriona, tok transfera) i na osnovu toga planira sledeći korak - da li je potrebna promena protokola, dodatna dijagnostika, ili pokušaj ponovo sa sličnim pristupom. Negativan rezultat je bolan, ali nije kraj puta.</p>
+      <h3>Vremenski okvir</h3>
+      <p>Od početka stimulacije do beta hCG testa protekne oko <strong>4 do 6 nedelja</strong> za sveži transfer. Ako se radi freeze-all sa kasnijim FET-om, celokupan proces traje duže - obično dodatnih mesec do dva za pripremu endometrijuma i transfer zamrznutog embriona. Dodajte tome i dijagnostiku koja prethodi postupku, koja može trajati od nekoliko nedelja do nekoliko meseci, u zavisnosti od klinike i obima analiza.</p>
+      <h2 id="s4">4. Klasični IVF i ICSI - u čemu je razlika?</h2>
+      <p>Parovi često čuju oba termina - IVF i ICSI - i mešaju ih ili misle da je u pitanju potpuno različit postupak. U stvari, ICSI je posebna tehnika oplodnje <em>unutar</em> VTO postupka. Svi ostali koraci (stimulacija, punkcija, kultivacija embriona, transfer) identični su u oba slučaja - razlika je samo u načinu na koji se jajne ćelije oplode u laboratoriji.</p>
+      <p><strong>Klasični IVF</strong> - Spermatozoidi i jajne ćelije se stave zajedno u laboratorijsku posudu, i oplodnja se dešava spontano, bez intervencije embriologa. Spermatozoidi sami prodiru u jajnu ćeliju, baš kao u prirodnom procesu. Ova tehnika se koristi kada je kvalitet sperme dobar i kada nema prepreka za spontanu oplodnju.</p>
+      <p><strong>ICSI</strong> (intracitoplazmatska injekcija spermatozoida) - Embriolog pod jakim mikroskopom bira jedan morfološki najbolji spermatozoid, hvata ga specijalizovanom mikropipetom i ubacuje ga direktno u citoplazmu (unutrašnjost) jajne ćelije. Ova tehnika je revolucionarni napredak koji je omogućio da i muškarci sa veoma lošim parametrima sperme - čak i sa svega nekoliko pronađenih spermatozoida - mogu da postanu očevi.</p>
+      <p>ICSI se koristi kod teškog muškog faktora infertiliteta, nakon prethodnog neuspelog klasičnog IVF-a (kada do oplodnje nije došlo ili je stopa oplodnje bila niska), kod korišćenja hirurški dobijenih spermatozoida (TESA, micro-TESE), kod zamrznutih jajnih ćelija, ili iz drugih razloga koje embriolog i lekar procene kao opravdane.</p>
+      <p>U praksi, većina savremenih klinika danas koristi ICSI u najvećem broju slučajeva jer daje predvidljivije rezultate oplodnje - eliminiše neizvesnost da li će spermatozoidi uspeti da sami prodru u jajnu ćeliju. Pacijenti ne moraju da brinu o izboru između ove dve tehnike - lekar i embriolog donose tu odluku na osnovu konkretne situacije, kvaliteta sperme i drugih faktora.</p>
+      <h2 id="s5">5. Stope uspešnosti - realistična očekivanja</h2>
+      <p>Jedno od prvih pitanja koje svaki par postavi jeste: "Kolika je šansa da uspe?" Odgovor na ovo pitanje zahteva iskrenost, jer lažna obećanja nikome ne koriste.</p>
+      <h3>Prosečne stope po jednom ciklusu</h3>
+      <p>Najvažniji faktor koji utiče na uspešnost VTO postupka je <strong>starost žene</strong> - tačnije, starost njenih jajnih ćelija. Orijentacione stope kliničke trudnoće po jednom ciklusu embriotransfera izgledaju otprilike ovako:</p>
+      <ul>
+        <li><strong>Do 35 godina:</strong> 40–55%</li>
+        <li><strong>35–37 godina:</strong> 30–40%</li>
+        <li><strong>38–40 godina:</strong> 20–30%</li>
+        <li><strong>41–42 godine:</strong> 10–20%</li>
+        <li><strong>Iznad 42 godine:</strong> ispod 10% sa sopstvenim jajnim ćelijama</li>
+      </ul>
+      <p>Ove brojke mogu delovati obeshrabrujuće, pogotovo za starije pacijentkinje. Ali važno je razumeti dve stvari.</p>
+      <h3>Kumulativna stopa uspešnosti</h3>
+      <p>Šanse za uspeh značajno rastu sa brojem pokušaja. Nije isto imati jednu šansu od 45% i tri šanse od po 45%. Kumulativna stopa uspešnosti nakon 3 kompletna ciklusa za žene do 35 godina može dostići <strong>70–80%</strong>. Drugim rečima, ako ne uspete iz prvog pokušaja - a mnogi parovi ne uspevaju - to ne znači da postupak ne funkcioniše. Često je potrebno više ciklusa, i to je normalan deo procesa.</p>
+      <h3>Od čega još zavise šanse</h3>
+      <p>Starost žene je najvažniji, ali ne jedini faktor. Na uspeh utiču i: uzrok neplodnosti, ovarijalna rezerva (koliko jajnih ćelija jajnici mogu da proizvedu), kvalitet sperme, kvalitet embriona, stanje endometrijuma (sluzokože materice), iskustvo lekara i embriologa, opremljenost laboratorije, životne navike (pušenje, telesna masa, ishrana), pa čak i protokol stimulacije i strategija transfera.</p>
+      <h3>Važna napomena</h3>
+      <p>Statistike su proseci - izvedeni iz velikog broja pacijenata različitih profila. Vaše individualne šanse mogu biti značajno više ili niže od proseka. Lekar koji poznaje vašu kompletnu medicinsku sliku jedini je koji može da vam da realnu procenu za vašu konkretnu situaciju. Ne poredite se sa statistikama - razgovarajte sa svojim lekarom.</p>
+      <h2 id="s6">6. Finansijski aspekti VTO postupka</h2>
+      <p>Finansije su tema o kojoj se manje govori, a koja značajno utiče na odluke i mogućnosti parova. VTO postupak nije jeftin, i važno je da znate šta vas finansijski čeka pre nego što započnete.</p>
+      <h3>Finansiranje od strane RFZO-a u Srbiji</h3>
+      <p>Republički fond za zdravstveno osiguranje (RFZO) finansira VTO postupke za parove koji ispunjavaju propisane uslove. Ti uslovi tipično uključuju starosnu granicu za ženu, medicinski utvrđenu indikaciju za VTO, određeni broj pokušaja koji se finansira, i proceduru koja podrazumeva upućivanje od strane nadležne lekarske komisije.</p>
+      <p>Međutim, <strong>ovi uslovi se periodično menjaju</strong> - menjaju se starosne granice, broj finansiranih pokušaja, lista klinika sa kojima RFZO ima ugovor, kao i administrativna procedura. Zato je apsolutno neophodno da pre donošenja bilo kakvih odluka proverite aktuelne propise. Najbolji izvori informacija su vaš ginekolog, klinika za reproduktivnu medicinu kojoj se obraćate i zvanični sajt RFZO-a.</p>
+      <p>Čekanje na red za državno finansiran VTO može trajati izvesno vreme, u zavisnosti od klinike i broja pacijenata na listi čekanja. Za neke parove, posebno one kod kojih je faktor vremena kritičan (starija životna dob, smanjena ovarijalna rezerva), čekanje može biti neprihvatljivo, što ih vodi ka privatnom sektoru.</p>
+      <h3>VTO u privatnim klinikama</h3>
+      <p>Troškovi VTO postupka u privatnim klinikama variraju, a zavise od klinike, obima dijagnostike, protokola stimulacije, potrebe za dodatnim procedurama (ICSI, PGT, zamrzavanje embriona) i drugih faktora. Bez navođenja preciznih cena (jer se menjaju i razlikuju se od klinike do klinike), tipična struktura troškova obuhvata: konsultacije i dijagnostiku, lekove za stimulaciju jajnika, monitoring tokom stimulacije (ultrazvuci i hormoni), punkciju i anesteziju, embriološki rad (klasični IVF ili ICSI, kultivacija embriona), embriotransfer, te lutealnu podršku.</p>
+      <p>Dodatni troškovi koji se često naplaćuju posebno uključuju: zamrzavanje embriona (vitrifikaciju), godišnje skladištenje zamrznutih embriona, ICSI (ako se naplaćuje kao posebna stavka), preimplantaciono genetsko testiranje (PGT), te korišćenje doniranih gameta.</p>
+      <h3>Troškovi lekova za stimulaciju</h3>
+      <p>Lekovi za stimulaciju jajnika su često <strong>najskuplji pojedinačni segment</strong> celokupnog postupka. Doza i vrsta lekova zavise od protokola stimulacije i individualnog odgovora jajnika - žene sa smanjenom ovarijalnom rezervom mogu zahtevati veće doze, što povećava troškove. Raspitajte se u klinici koji lekovi će vam biti propisani i koliko okvirno koštaju, i proverite da li postoje povoljnije opcije u različitim apotekama.</p>
+      <h3>Troškovi o kojima se ređe govori</h3>
+      <p>Pored direktnih medicinskih troškova, postoje i indirektni: odsustva sa posla (česte jutarnje kontrole, dan punkcije, dan transfera), troškovi putovanja do klinike (posebno za parove koji ne žive u gradu gde se klinika nalazi), troškovi psihološke podrške (koja je izuzetno preporučljiva), suplementi i vitamini.</p>
+      <h3>Finansijsko planiranje</h3>
+      <p>Pre započinjanja postupka, preporučuje se da se detaljno raspitate o svim troškovima - tražite pisanu ponudu ili cenovnik od klinike. Pitajte da li klinika nudi paketne cene koje uključuju više elemenata postupka, da li postoji mogućnost plaćanja u ratama, i koliko bi koštao eventualni drugi ili treći pokušaj. Finansijska pripremljenost smanjuje stres i omogućava vam da se fokusirate na ono što je najvažnije - sam postupak.</p>
+      <h2 id="s7">7. Fizičko i emocionalno iskustvo - šta vas zaista čeka</h2>
+      <p>Medicinski aspekti VTO-a su jedno, ali fizičko i emocionalno iskustvo parova koji prolaze kroz postupak je nešto o čemu se retko dovoljno govori pre nego što se krene u proces. Ovde ćemo biti iskreni - jer pripremljenost za ono što sledi čini celokupan put lakšim.</p>
+      <h3>Fizičko iskustvo</h3>
+      <p><strong>Svakodnevne injekcije tokom stimulacije</strong> - Ovo je za mnoge žene najstrašniji deo kada o njemu čuju prvi put. U praksi, iglice su veoma tanke (slične onima za insulin), a injekcije se daju potkožno u predeo stomaka. Prvih par dana može biti neugodno - više psihički nego fizički - ali većina žena se iznenadi koliko brzo postane rutina. Saveti: menjajte stranu stomaka, blago ohladite kožu pre uboda, i pustite partnera da vam pomaže ako vam je to lakše.</p>
+      <p><strong>Česte posete klinici</strong> - Tokom stimulacije dolazite na kontrolu svakih 2–3 dana, obično ujutru. To zahteva reorganizaciju posla i dnevnih obaveza. Pregledi su kratki (ultrazvuk i vađenje krvi), ali sama logistika odlaska u kliniku, čekanja i povratka može biti zamorna.</p>
+      <p><strong>Punkcija</strong> - Kratak zahvat pod sedacijom. Većina žena se oseća pomalo ošamućeno i umorno ostatak dana, a neke osećaju blagu bol ili nelagodnost u predelu karlice narednih dan ili dva. Predvidite dan za odmor.</p>
+      <p><strong>Nadutost i nelagodnost tokom stimulacije</strong> - Kako folikuli rastu, jajnici se uvećavaju, što može izazvati osećaj nadutosti, punoće, blagu bol u donjem delu stomaka i nelagodnost. Ovo je normalno i prolazi nakon punkcije. Neke žene osećaju i promene raspoloženja, umor, glavobolje - posledice hormonske stimulacije.</p>
+      <p><strong>Embriotransfer</strong> - Fizički bezbolan, ali emocionalno intenzivan. Mnoge žene opisuju ovaj momenat kao uzbudljiv, pomalo surelano - jer prvi put "vidite" embrion na ultrazvuku i znate da je upravo vraćen u vašu matericu.</p>
+      <p><strong>Dvonedeljna pauza</strong> - Fizički, progesteron može izazvati nadutost, bolne grudi, pospanost, promene raspoloženja. Ovi simptomi su identični ranim simptomima trudnoće, što dodatno otežava čekanje jer ne možete znati da li su simptomi od leka ili od moguće trudnoće.</p>
+      <h3>Emocionalno iskustvo</h3>
+      <p>VTO je emocionalni rolerkoster u punom smislu te reči. U roku od nekoliko nedelja, proživljavate ceo spektar emocija: nada kada započnete postupak, anksioznost na svakoj kontroli ("da li folikuli rastu dovoljno?"), uzbuđenje na dan punkcije ("koliko jajnih ćelija smo dobili?"), iščekivanje dok čekate vest od embriologa ("koliko se oplodilo? koliko se razvilo?"), i konačno - najteži deo - dvonedeljna pauza u kojoj svaki dan traje kao nedelja.</p>
+      <p><strong>Pritisak na partnerski odnos</strong> - VTO testira i najjače veze. Planirani intimni odnosi, finansijski pritisak, hormonske promene, strah od neuspeha - sve to utiče na komunikaciju i dinamiku između partnera. Parovi koji otvoreno razgovaraju o svojim strahovima i potrebama kroz ovaj proces prolaze lakše od onih koji ćute i pretpostavljaju.</p>
+      <p><strong>Izolacija</strong> - Mnogi parovi odluče da ne dele sa širom okolinom da prolaze VTO. Razlozi su različiti - strah od neželjenih saveta, pritiska, sažaljenja ili nerazumevanja. Ali ta tajnost može stvoriti osećaj usamljenosti i izolacije, posebno nakon neuspešnog pokušaja, kada parovi tuguju u tišini.</p>
+      <p><strong>Finansijski stres</strong> - Kada se VTO ne pokrije u celosti od strane države, ili kada je potrebno više ciklusa, finansijski teret postaje realan i ozbiljan izvor stresa. Novac koji se ulaže nosi sa sobom i pritisak - "šta ako i ovaj pokušaj ne uspe?"</p>
+      <p><strong>Stigma i nerazumevanje okoline</strong> - Komentari poput "Opusti se i doći će samo", "Moja drugarica je zatrudnela čim je prestala da razmišlja o tome" ili "Zašto ne usvojite dete?" mogu biti neverovatno bolni, čak i kada su izrečeni sa dobrom namerom. Neplodnost je medicinski problem, a ne posledica nedovoljne opuštenosti. Nema sramote u tome da vam treba medicinska pomoć da biste ostvarili porodicu - baš kao što nema sramote u nošenju naočara ili uzimanju leka za pritisak.</p>
+      <p><strong>Mentalno zdravlje</strong> - Anksioznost, tuga, frustracija, pa čak i depresija su normalne reakcije na ono kroz šta prolazite. To ne znači da ste slabi - znači da ste ljudski. Profesionalna psihološka podrška nije luksuz - ona je legitiman i važan deo lečenja neplodnosti. Mnoge klinike imaju psihologa u timu ili mogu da vas upute na stručnjaka koji se bavi ovom oblašću.</p>
+      <h3>Iskustvo partnera</h3>
+      <p>Partner koji ne prolazi fizički deo postupka (najčešće muškarac) često se oseća na margini procesa - nemoćno, jer ne može da preuzme deo fizičkog tereta, i ponekad krivo, posebno ako je muški faktor razlog za VTO. Ova osećanja su razumljiva i zaslužuju prostor.</p>
+      <p>Kako partner može da pomogne? Praktično - učestvovanjem u davanju injekcija, preuzimanjem kućnih obaveza u danima kada je žena umorna, organizovanjem logistike oko poseta klinici. Emocionalno - prisutnošću, strpljenjem, razumevanjem da su hormonske promene realne i da žena ne bira da bude raspoložena ili neraspoložena. Zajedničkim prisustvom na kontrolama i konsultacijama, koje šalje poruku: "U ovome smo zajedno."</p>
+      <p>Otvorena komunikacija između partnera tokom VTO procesa nije samo korisna - ona je ključna. Razgovarajte o strahovima, očekivanjima, granicama ("Koliko pokušaja smo spremni da prođemo?"), i podržavajte jedno drugo bez osuđivanja.</p>
+      <h2 id="s8">8. Mitovi i zablude o VTO-u</h2>
+      <p>Parovi koji započinju VTO put okruženi su mnoštvom dezinformacija - od dobronamernih ali netačnih saveta prijatelja i rodbine, do pogrešnih informacija na internetu. Evo najčešćih mitova i činjenica koje ih razbijaju.</p>
+      <p><strong>"VTO je poslednja opcija, kada više ništa ne pomaže."</strong> - Netačno. Za neke dijagnoze - na primer, obostrano začepljene jajovode ili tešku mušku neplodnost - VTO je prva i najefikasnija opcija, a ne poslednji izbor. Pokušavanje jednostavnijih metoda u takvim situacijama samo troši dragoceno vreme.</p>
+      <p><strong>"Bebe iz epruvete su nekako drugačije od prirodno začete dece."</strong> - Netačno. Višedecenijska istraživanja su potvrdila da se deca začeta VTO-om ne razlikuju od ostale dece - niti u fizičkom razvoju, niti u intelektualnim sposobnostima, niti u zdravlju. Jedina razlika je u načinu začeća, a taj razlika nema nikakve posledice po dete.</p>
+      <p><strong>"VTO uvek znači blizance ili trojke."</strong> - Ovaj mit potiče iz ranijih decenija VTO-a, kada se rutinski vraćalo dva ili tri embriona. Danas je trend prenosa jednog embriona, čime se višeplodne trudnoće svode na minimum. Lekar može preporučiti transfer dva embriona u specifičnim situacijama, ali cilj savremene reproduktivne medicine je jedna zdrava trudnoća sa jednim detetom.</p>
+      <p><strong>"VTO uvek uspe iz prvog pokušaja."</strong> - Često ne. Kao što smo videli iz statistika, stope uspešnosti po jednom ciklusu kreću se u zavisnosti od starosti i drugih faktora. Mnogi parovi prolaze kroz dva, tri ili više ciklusa pre nego što ostvare trudnoću. To nije neuspeh postupka - to je realnost reproduktivne medicine.</p>
+      <p><strong>"Stimulacija jajnika troši jajne ćelije i dovodi do rane menopauze."</strong> - Netačno, i ovo je jedan od najraširenijih i najupornijih mitova. Evo šta se zaista dešava: svaki mesec, žena prirodno počne da razvija grupu folikula, ali samo jedan dospe do zrelosti i ovulira - ostali propadnu i nestanu. Stimulacija u VTO-u "spasava" upravo te folikule koji bi ionako propali - daje im šansu da sazru umesto da budu izgubljeni. Stimulacija ne dira rezervu folikula za buduće cikluse i ne ubrzava nastupanje menopauze.</p>
+      <p><strong>"VTO je bolan postupak."</strong> - Najveći deo postupka je bezbolan ili praćen minimalnom nelagodom. Injekcije su sa tankim iglama i brzo postaju rutina. Punkcija se radi u kratkoj sedaciji - žena spava i ne oseća ništa. Transfer je bezbolan. Jedina prava nelagodnost je nadutost tokom stimulacije, koja je prolazna.</p>
+      <p><strong>"Samo žena prolazi kroz VTO."</strong> - Netačno. Muškarac ima svoju ulogu - i medicinsku (pregledi, spermiogram, davanje uzorka) i emocionalnu (podrška, prisutnost, razumevanje). A muški faktor je uzrok ili suuzročnik neplodnosti u gotovo polovini slučajeva.</p>
+      <p><strong>"Stres sprečava trudnoću - samo se opustite."</strong> - Ovo je možda najfrustrirajuća stvar koju parovi sa problemom neplodnosti čuju. Nema čvrstih naučnih dokaza da svakodnevni stres sprečava začeće ili implantaciju embriona. Ova izjava trivijalizuje ozbiljan medicinski problem i prebacuje krivicu na osobu koja se ionako bori. Neplodnost je medicinski problem - ne problem nedovoljne opuštenosti.</p>
+      <p><strong>"Ako ste mladi i zdravi, VTO vam ne treba."</strong> - Infertilitet pogađa parove svih uzrasta i zdravstvenih profila. Neplodnost nije pitanje izbora, životnog stila niti kazna. Mladi, zdravi ljudi se svakodnevno suočavaju sa neplodnošću, i nema ničeg sramnog u tome da im treba medicinska pomoć.</p>
+      <p><strong>"VTO je veštački i neprirodan."</strong> - VTO pomaže prirodnom procesu tamo gde postoji prepreka. Dete nastaje od genetskog materijala roditelja (ili donora), trudnoća se razvija u materici, porođaj je potpuno prirodan. Jedini deo koji se dešava "van tela" jeste spajanje jajne ćelije i spermatozoida - i to u laboratoriji koja imitira uslove u telu. Sve ostalo je priroda.</p>
+      <h2 id="s9">9. Praktični saveti za parove koji razmatraju ili započinju VTO</h2>
+      <h3>Izbor klinike</h3>
+      <p>Izbor klinike je jedna od najvažnijih odluka na ovom putu. Na šta obratiti pažnju: stope uspešnosti klinike (tražite transparentne podatke - ali imajte u vidu da klinike koje prihvataju teže slučajeve mogu imati niže prosečne stope), iskustvo lekara i embriologa, opremljenost embriološke laboratorije (savremeni inkubatori, oprema za vitrifikaciju, time-lapse monitoring), dostupnost lekara za pitanja i nedoumice, kvalitet komunikacije i odnos osoblja prema pacijentima, recenzije i iskustva drugih pacijenata, geografska blizina i pristupačnost (česte posete su neizbežne).</p>
+      <h3>Priprema pre prvog ciklusa</h3>
+      <p>Dok čekate na početak postupka, postoje stvari koje možete aktivno da uradite. Optimizujte životne navike: uravnotežena, nutritivno bogata ishrana, umirena fizička aktivnost, prestanak pušenja (za oba partnera - pušenje dokazano smanjuje šanse za uspeh), ograničavanje ili izbegavanje alkohola. Razgovarajte sa lekarom o suplementima - najčešće preporučeni su folna kiselina (obavezna za svaku ženu koja planira trudnoću), vitamin D, koenzim Q10 (CoQ10), omega-3 masne kiseline - ali uvek uz konsultaciju sa lekarom. Mentalno se pripremite - čitajte, edukujte se, razgovarajte sa partnerom o očekivanjima i strahovima.</p>
+      <h3>Pitanja za lekara na prvoj konsultaciji</h3>
+      <p>Dođite pripremljeni. Evo pitanja koja bi bilo dobro da postavite:</p>
+      <ul>
+        <li>Koja je naša dijagnoza i zašto nam preporučujete VTO?</li>
+        <li>Koji protokol stimulacije preporučujete i zašto baš taj?</li>
+        <li>Koliki su naši realni izgledi za uspeh, s obzirom na našu situaciju?</li>
+        <li>Koliko pokušaja preporučujete pre nego što razmotrimo alternativne pristupe?</li>
+        <li>Koliki su ukupni troškovi - uključujući lekove, dodatne procedure i eventualne komplikacije?</li>
+        <li>Da li preporučujete klasični IVF ili ICSI, i zašto?</li>
+        <li>Koja je vaša strategija za embriotransfer - sveži ili zamrznuti?</li>
+        <li>Šta ako ne bude embriona za transfer?</li>
+      </ul>
+      <h3>Sistem podrške</h3>
+      <p>Identifikujte ljude kojima možete da se poverite - bilo da je to bliska prijateljica, član porodice, ili neko ko je prošao sličan put. Razmorite grupe za podršku - online zajednice parova koji prolaze VTO mogu biti izvor ogromne utehe, jer razgovarate sa ljudima koji zaista razumeju šta prolazite. Profesionalna psihološka podrška nije znak slabosti - ona je pametna odluka.</p>
+      <h3>Radna prava</h3>
+      <p>Informišite se o pravu na bolovanje tokom VTO postupka u Srbiji. Postupak zahteva česte posete klinici u jutarnjim satima, dan oporavka nakon punkcije i fleksibilnost u danima transfera. Ako se odlučite da razgovarate sa poslodavcem - to je vaš lični izbor i niko vas ne može obavezati da delite ovu informaciju, ali razumevanje sa posla može značajno smanjiti stres.</p>
+      <h2 id="s10">10. Česta pitanja parova na početku puta</h2>
+      <p><strong>Koliko dugo treba da pokušavamo prirodno pre nego što se obratimo lekaru?</strong></p>
+      <p>Opšta preporuka je: ako ste mlađi od 35 godina i trudnoća ne nastaje posle godinu dana redovnih odnosa bez kontracepcije, vreme je da se obratite lekaru. Ako imate 35 ili više godina, taj period se skraćuje na šest meseci. A ako postoji poznat medicinski razlog koji može uticati na plodnost (neredovne menstruacije, poznata endometrioza, prethodni hirurški zahvati, poznati muški faktor), nema razloga za čekanje - obratite se lekaru odmah.</p>
+      <p><strong>Da li odmah idemo na VTO ili postoje jednostavnije opcije?</strong></p>
+      <p>VTO nije uvek prvi korak. U zavisnosti od dijagnoze, lekar može preporučiti jednostavnije metode: indukciju ovulacije (stimulaciju ovulacije tabletama ili injekcijama uz praćenje i planirane odnose), IUI (intrauterinu inseminaciju - postupak u kome se pripremljena sperma unosi direktno u matericu), ili hirurško lečenje (na primer, laparoskopska operacija endometrioze ili varikokelektomija kod muškarca). Ove metode su manje invazivne i jeftinije, ali imaju niže stope uspešnosti od VTO-a. Za neke dijagnoze (tubarni faktor, teški muški faktor, smanjenu ovarijalnu rezervu kod starijih pacijentkinja), VTO je prvi preporučeni korak jer jednostavnije metode nemaju realne šanse za uspeh.</p>
+      <p><strong>Da li VTO garantuje trudnoću?</strong></p>
+      <p>Ne. Nijedna medicinska procedura ne može garantovati trudnoću. VTO značajno povećava šanse u poređenju sa prirodnim pokušajima ili jednostavnijim metodama, ali uspeh nikada nije zagarantovan. Ono što VTO nudi jeste najbolju moguću šansu u datim okolnostima - i sa svakim pokušajem, ta šansa se kumulativno povećava.</p>
+      <p><strong>Da li je VTO bezbedan za moje zdravlje?</strong></p>
+      <p>VTO je bezbedna procedura sa dugom istorijom primene. Kao i svaka medicinska procedura, nosi određene rizike - najznačajniji je sindrom hiperstimulacije jajnika (OHSS - preterana reakcija jajnika na stimulaciju, koja u blagim oblicima izaziva nadutost i nelagodnost, a u retkim teškim oblicima može zahtevati hospitalizaciju). Savremeni protokoli stimulacije su značajno smanjili incidenciju teškog OHSS-a. Rizik od infekcije ili krvarenja nakon punkcije je minimalan. Lekar procenjuje rizike za svakog pacijenta individualno i prilagođava postupak kako bi ih minimizovao.</p>
+      <p><strong>Da li VTO povećava rizik od raka?</strong></p>
+      <p>Ovo je pitanje koje mnoge žene zabrinjava. Dosadašnja istraživanja nisu pokazala jasnu uzročnu vezu između VTO-a i povećanog rizika od raka dojke, jajnika ili bilo kog drugog raka. Važno je da svoju medicinsku istoriju podelite sa lekarom i da redovno idete na preventivne preglede, kao i svaka druga žena.</p>
+      <p><strong>Koliko traje ceo proces od prvog pregleda do testa na trudnoću?</strong></p>
+      <p>Realistično, od prvog pregleda do testa na trudnoću može proći od dva do četiri meseca, a ponekad i duže - u zavisnosti od obima dijagnostike, brzine dobijanja rezultata, liste čekanja u klinici i izabranog protokola. Sam VTO ciklus (od početka stimulacije do testa na trudnoću) traje oko 4–6 nedelja.</p>
+      <p><strong>Da li mogu da radim normalno tokom VTO-a?</strong></p>
+      <p>Većina žena nastavlja da radi tokom VTO postupka. Ipak, budite spremni na česte jutarnje posete klinici tokom stimulacije, dan pauze nakon punkcije, i potrebu za fleksibilnošću. Ako vam posao dozvoljava, smanjite obaveze u periodu dvonedeljne pauze - ne zato što fizička aktivnost škodi, već zato što smanjenje stresa pomaže vašem opštem blagostanju.</p>
+      <p><strong>Da li VTO pokriva moje zdravstveno osiguranje?</strong></p>
+      <p>U Srbiji, RFZO finansira VTO postupke za parove koji ispunjavaju određene uslove (o čemu smo govorili u odeljku o finansijama). Ako ispunjavate uslove, deo ili celokupan postupak može biti pokriven. Za detalje, obratite se svom ginekologu ili direktno RFZO-u. Privatno zdravstveno osiguranje u Srbiji najčešće ne pokriva VTO, ali proverite uslove vaše polise.</p>
+      <h2 id="s11">Rečnik osnovnih pojmova</h2>
+      <p>Na VTO putu ćete se susresti sa mnoštvom novih termina. Evo kratkih objašnjenja onih koje ćete čuti najčešće:</p>
+      <ul>
+        <li><strong>AMH (anti-Milerijanski hormon)</strong> - hormon koji se meri iz krvi i služi kao pokazatelj ovarijalne rezerve (broja preostalih jajnih ćelija u jajnicima)</li>
+        <li><strong>AFC (broj antralnih folikula)</strong> - broj malih folikula vidljivih ultrazvukom na jajnicima; zajedno sa AMH, pokazuje ovarijalnu rezervu</li>
+        <li><strong>Asistirana reprodukcija</strong> - grana medicine koja obuhvata postupke poput VTO-a, IUI-a i drugih metoda pomoći u ostvarivanju trudnoće</li>
+        <li><strong>Beta hCG</strong> - hormon koji proizvodi embrion nakon ugnjezdenja; test iz krvi koji potvrđuje ili isključuje trudnoću</li>
+        <li><strong>Blastocista</strong> - stadijum embriona 5–6 dana nakon oplodnje, sa oko 100–200 ćelija; najčešći stadijum za transfer ili zamrzavanje</li>
+        <li><strong>Embriotransfer</strong> - postupak vraćanja embriona u matericu</li>
+        <li><strong>Endometrijum</strong> - sluznica materice u koju se embrion ugnjezduje</li>
+        <li><strong>FET (frozen embryo transfer)</strong> - transfer prethodno zamrznutog embriona</li>
+        <li><strong>Folikul</strong> - struktura u jajniku ispunjena tečnošću u kojoj sazreva jajana ćelija</li>
+        <li><strong>FSH (folikulostimulišući hormon)</strong> - hormon koji stimuliše rast folikula u jajnicima</li>
+        <li><strong>Gonadotropini</strong> - hormoni (lekovi) koji se koriste za stimulaciju jajnika u VTO postupku</li>
+        <li><strong>HSG (histerosalpingografija)</strong> - rendgenski pregled sa kontrastom kojim se proverava prohodnost jajovoda</li>
+        <li><strong>ICSI (intracitoplazmatska injekcija spermatozoida)</strong> - tehnika oplodnje u kojoj se jedan spermatozoid ubacuje direktno u jajnu ćeliju</li>
+        <li><strong>Implantacija</strong> - ugnjezdenje embriona u sluzokožu materice</li>
+        <li><strong>IUI (intrauterina inseminacija)</strong> - postupak u kome se pripremljena sperma unosi direktno u matericu</li>
+        <li><strong>Krioprezervacija/vitrifikacija</strong> - zamrzavanje jajnih ćelija ili embriona za kasniju upotrebu; vitrifikacija je savremena tehnika ultrabrzog zamrzavanja</li>
+        <li><strong>Lutealna podrška</strong> - hormonska terapija (najčešće progesteron) nakon transfera, koja pomaže ugnjezdenje embriona</li>
+        <li><strong>OHSS (sindrom hiperstimulacije jajnika)</strong> - preterana reakcija jajnika na stimulaciju; u blagim oblicima izaziva nadutost, u retkim teškim oblicima zahteva medicinsku intervenciju</li>
+        <li><strong>Ovarijalna rezerva</strong> - procena broja i kvaliteta preostalih jajnih ćelija u jajnicima žene</li>
+        <li><strong>PGT (preimplantaciono genetsko testiranje)</strong> - testiranje embriona na genetske abnormalnosti pre transfera</li>
+        <li><strong>Punkcija</strong> - zahvat u kome se jajne ćelije izvlače iz jajnika</li>
+        <li><strong>Spermiogram</strong> - laboratorijska analiza sperme (broj, pokretljivost, morfologija spermatozoida)</li>
+      </ul>
+      <h2 id="s12">VTO u kontekstu srpskog zdravstvenog sistema</h2>
+      <p>Za parove u Srbiji, put do VTO-a kroz državni sistem tipično izgleda ovako: sve počinje od izabranog ginekologa koji, nakon inicijalne dijagnostike, upućuje par na dalju obradu u ustanovu koja se bavi lečenjem neplodnosti. Na osnovu kompletne dijagnostike, lekar specijalista za reproduktivnu medicinu postavlja indikaciju za VTO i priprema medicinsku dokumentaciju. Dokumentacija se podnosi nadležnoj lekarskoj komisiji RFZO-a koja odobrava finansiranje postupka.</p>
+      <p>Razlika između državnog i privatnog sektora ogleda se pre svega u vremenu čekanja, fleksibilnosti termina, i troškovima. Državni sektor nudi VTO bez direktnih troškova za pacijenta (za one koji ispunjavaju uslove), ali sa potencijalno dužim vremenom čekanja. Privatni sektor nudi brži pristup, veću fleksibilnost u zakazivanju, ali uz finansijsko opterećenje za pacijenta.</p>
+      <p>Bez obzira na to koji put izaberete, imate pravo na poštovanje, informisanost i kvalitetnu medicinsku negu. Pitajte, raspitujte se, tražite drugo mišljenje ako vam je potrebno - ovo je vaše telo, vaša odluka i vaša porodica.</p>
+      <h2 id="s13">Umesto zaključka</h2>
+      <p>Ako ste stigli do kraja ovog teksta, već ste napravili važan korak - informisali ste se. Znanje je najbolji lek protiv straha od nepoznatog.</p>
+      <p>VTO nije lak put - to nećemo ni pokušavati da vam kažemo. Fizički je zahtevan, emocionalno iscrpljujuć, finansijski opterećujuć, i neizvesnost je stalan pratilac. Ali to je put koji svake godine pomaže milionima parova širom sveta da ostvare ono što žele - svoju porodicu. Više od 10 miliona dece na ovom svetu duguje svoj život upravo ovom postupku.</p>
+      <p>Vi niste sami u ovome. Iza vas stoji decenijama usavršavana medicina, timovi lekara i embriologa koji su posvetili karijere pomaganju parova poput vas, i milioni porodica koje su prošle isti put i stigle na cilj.</p>
+      <p>Budite informisani. Budite strpljivi. Budite blagi prema sebi i jedno prema drugom. I ne odustajte od razgovora - sa lekarom, sa partnerom, sa ljudima kojima verujete.</p>
+      <p>Ovaj tekst je prvi korak. Sledeći je razgovor sa lekarom reproduktivne medicine - i za taj korak ste sada spremni.</p>
+    </div>
+
+    <!-- Closing -->
+      <div class="empathy-box" style="margin-top: 3rem;">
+        <p>Dvonedeljna pauza je najtežih 14 dana VTO puta - ali vi ste sposobni da ih prođete. Ne zato što ste savršeni, ne zato što radite sve „po pravilima," već zato što ste već pokazali neverovatnu snagu time što ste uopšte krenuli na ovaj put.</p>
+        <p>Šta god da donese beta - prošli ste kroz nešto ogromno, i to zaslužuje poštovanje.</p>
+      </div>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">Dvonedeljna pauza</a>
+        <a href="#" class="article-tag">2WW</a>
+        <a href="#" class="article-tag">Embrotransfer</a>
+        <a href="#" class="article-tag">Beta HCG</a>
+        <a href="#" class="article-tag">Implantacija</a>
+        <a href="#" class="article-tag">Simptomi</a>
+        <a href="#" class="article-tag">Emocionalna podrška</a>
+        <a href="#" class="article-tag">Progesteron</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+<script>
+  let breathingInterval = null;
+  function startBreathing() {
+    const circle = document.getElementById('breathCircle');
+    const phase = document.getElementById('breathPhase');
+    const btn = document.getElementById('breathBtn');
+    if (breathingInterval) {
+      clearTimeout(breathingInterval);
+      breathingInterval = null;
+      circle.className = 'breathing-circle';
+      circle.textContent = '4:7:8';
+      phase.innerHTML = '&nbsp;';
+      btn.textContent = 'Započni vežbu';
+      return;
+    }
+    btn.textContent = 'Zaustavi';
+    let cycles = 0;
+    function runCycle() {
+      if (cycles >= 4) {
+        circle.className = 'breathing-circle';
+        circle.textContent = '4:7:8';
+        phase.textContent = 'Završeno. Kako se osećate?';
+        btn.textContent = 'Započni ponovo';
+        breathingInterval = null;
+        return;
+      }
+      circle.className = 'breathing-circle inhale';
+      phase.textContent = 'Udahnite...';
+      let count = 4;
+      circle.textContent = count;
+      let countDown = setInterval(() => { count--; if(count>0) circle.textContent = count; }, 1000);
+      breathingInterval = setTimeout(() => {
+        clearInterval(countDown);
+        circle.className = 'breathing-circle hold';
+        phase.textContent = 'Zadržite dah...';
+        count = 7;
+        circle.textContent = count;
+        countDown = setInterval(() => { count--; if(count>0) circle.textContent = count; }, 1000);
+        breathingInterval = setTimeout(() => {
+          clearInterval(countDown);
+          circle.className = 'breathing-circle exhale';
+          phase.textContent = 'Polako izdahnite...';
+          count = 8;
+          circle.textContent = count;
+          countDown = setInterval(() => { count--; if(count>0) circle.textContent = count; }, 1000);
+          breathingInterval = setTimeout(() => {
+            clearInterval(countDown);
+            cycles++;
+            runCycle();
+          }, 8000);
+        }, 7000);
+      }, 4000);
+    }
+    cycles = 0;
+    runCycle();
+  }
+</script>
+</body>
+</html>

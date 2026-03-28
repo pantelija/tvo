@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zamrzavanje embriona (vitrifikacija) - vodič za parove | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  .breathing-widget { margin: 1.5rem 0; padding: 1.5rem; background: var(--color-teal-light); border-radius: 10px; border: 1px solid rgba(42,125,110,0.15); text-align: center; }
+  .breathing-title { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.25rem; }
+  .breathing-sub { font-size: 0.82rem; color: var(--color-ink-muted); margin-bottom: 1.25rem; }
+  .breathing-circle { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--color-teal); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; color: var(--color-teal); transition: all 1s ease; opacity: 0.6; }
+  .breathing-circle.inhale { transform: scale(1.25); opacity: 1; }
+  .breathing-circle.hold { transform: scale(1.25); opacity: 0.85; }
+  .breathing-circle.exhale { transform: scale(1); opacity: 0.6; }
+  .breathing-phase { font-size: 0.85rem; color: var(--color-teal); font-weight: 600; min-height: 1.3em; margin-bottom: 0.85rem; }
+  .breathing-btn { background: var(--color-teal); color: #fff; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.25rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+  .breathing-btn:hover { background: #236b5e; }
+
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .breathing-circle { width: 90px; height: 90px; font-size: 1.2rem; }
+    .timeline-rail { width: 32px; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Tokom VTO postupka</span>
+      <h1 class="article-title">Zamrzavanje embriona - vitrifikacija i krioprezervacija u VTO postupku</h1>
+      <p class="article-subtitle">Najteži deo VTO puta: biologija, simptomi, emocije i konkretni saveti za period čekanja</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Plan teksta</a></li>
+        <li><a href="#s2">1. Šta je krioprezervacija embriona</a></li>
+        <li><a href="#s3">2. Od sporog zamrzavanja do vitrifikacije - kako se tehnika razvijala</a></li>
+        <li><a href="#s4">3. Vitrifikacija korak po korak - šta embriolog radi u laboratoriji</a></li>
+        <li><a href="#s5">4. Čuvanje u kriobanki - skladištenje, bezbednost i trajanje</a></li>
+        <li><a href="#s6">5. Zašto se embrioni zamrzavaju - sve indikacije</a></li>
+        <li><a href="#s7">6. Odmrzavanje (warming) - šta se dešava kada dođe vreme za FET</a></li>
+        <li><a href="#s8">7. Bezbednost zamrzavanja - zdravlje dece rođene iz zamrznutih embriona</a></li>
+        <li><a href="#s9">8. Etički, pravni i emocionalni aspekti zamrzavanja embriona</a></li>
+        <li><a href="#s10">9. Mitovi i zablude o zamrzavanju embriona</a></li>
+        <li><a href="#s11">10. Česta pitanja parova i praktični saveti</a></li>
+        <li><a href="#s12">Umesto zaključka</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+      <h2 id="s1">Plan teksta</h2>
+      <ol>
+        <li>Šta je krioprezervacija embriona - definicija i mesto u VTO procesu</li>
+        <li>Istorijski razvoj - od sporog zamrzavanja do vitrifikacije</li>
+        <li>Vitrifikacija korak po korak - šta se dešava u laboratoriji</li>
+        <li>Čuvanje u kriobanki - skladištenje, bezbednost i trajanje</li>
+        <li>Zašto se embrioni zamrzavaju - sve indikacije</li>
+        <li>Odmrzavanje i priprema za transfer zamrznutog embriona (FET)</li>
+        <li>Naučni dokazi o bezbednosti - zdravlje dece rođene iz zamrznutih embriona</li>
+        <li>Etički, pravni i emocionalni aspekti</li>
+        <li>Mitovi i zablude o zamrzavanju embriona</li>
+        <li>Česta pitanja parova i praktični saveti</li>
+      </ol>
+      <h2 id="s2">1. Šta je krioprezervacija embriona</h2>
+      <p>Krioprezervacija embriona je postupak zamrzavanja i dugotrajnog čuvanja embriona nastalih u ciklusu vantelesne oplodnje (VTO) na izuzetno niskoj temperaturi - tačnije na minus 196 stepeni Celzijusa, u tečnom azotu. Na toj temperaturi svi biološki procesi u embrionima potpuno prestaju. Nema ćelijskih deoba, nema metabolizma, nema starenja, nema propadanja. Embrion se praktično „konzerviše" u tačno onom stanju u kome je bio u trenutku zamrzavanja - i ostaje u njemu, nepromenjen, sve dok se ne odmrzne.</p>
+      <p>To znači da vaš embrion zamrznut danas može biti odmrznut i korišćen za transfer u matericu mesecima, godinama, pa čak i decenijama kasnije - bez gubitka kvaliteta.</p>
+      <h3>Gde se zamrzavanje nalazi u celokupnom VTO procesu</h3>
+      <p>Da biste razumeli zamrzavanje embriona, korisno je sagledati gde ono tačno stoji u celokupnom putu vantelesne oplodnje.</p>
+      <p>Pre zamrzavanja odvija se niz koraka. Sve počinje hormonskom stimulacijom jajnika, čiji je cilj da jajnici u jednom ciklusu proizvedu više jajnih ćelija nego što bi to učinili prirodno. Kada su folikuli (mehurići u jajnicima u kojima sazrevaju jajne ćelije) dovoljno veliki, sledi punkcija - kratak hirurški zahvat tokom koga lekar uz pomoć ultrazvuka i tanke igle aspirira (usisava) jajne ćelije iz folikula. Zatim dolazi oplođenje - embriolog u laboratoriji spaja jajne ćelije sa spermatozoidima, bilo klasičnom inseminacijom (spajanje u laboratorijskoj posudi) ili metodom ICSI (intracitoplazmatska injekcija spermatozoida, gde se jedan spermatozoid ubacuje direktno u jajnu ćeliju). Oplođene jajne ćelije se potom kultivišu u inkubatoru pod strogo kontrolisanim uslovima tokom narednih dana - gledamo ih kako se dele i razvijaju. Ova faza se naziva kultivacija embriona i traje obično do trećeg dana (kada embrion ima 6 do 8 ćelija, tzv. Day 3 embrion) ili do petog, odnosno šestog dana (kada embrion dostiže stadijum blastociste - strukture od oko 100 do 200 ćelija sa jasnom unutrašnjom organizacijom).</p>
+      <p>I onda dolazi trenutak odluke. Jedan ili dva embriona mogu biti preneta u matericu odmah - to je „sveži transfer". Ali šta sa ostalim kvalitetnim embrionima? Ili šta ako iz medicinskih razloga sveži transfer uopšte nije moguć?</p>
+      <p>Tu nastupa zamrzavanje.</p>
+      <p>Embrioni se vitrifikuju i čuvaju u kriobanki (specijalnom skladištu sa kontejnerima tečnog azota) do trenutka kada par bude spreman za FET - transfer zamrznutog embriona (eng. Frozen Embryo Transfer). To može biti za mesec dana, za godinu, ili za pet godina.</p>
+      <p>Zamrzavanje, dakle, nije kraj puta. To je pauziranje jednog poglavlja i čuvanje mogućnosti za buduća poglavlja vaše priče.</p>
+      <h2 id="s3">2. Od sporog zamrzavanja do vitrifikacije - kako se tehnika razvijala</h2>
+      <h3>Kratak istorijski pregled</h3>
+      <p>Priča o zamrzavanju embriona počinje 1984. godine, kada je u Australiji rođena Zoe Leyland - prvo dete na svetu začeto iz zamrznutog embriona. To je bio pionirski uspeh, ali tehnologija tog doba bila je daleko od savršene.</p>
+      <p>Tokom naredne dve decenije, zamrzavanje embriona koristilo je metodu poznatú kao sporo zamrzavanje (eng. slow freezing). Iako je omogućavala čuvanje embriona, rezultati su bili skromni u poređenju sa onim što imamo danas. Sredinom 2000-ih godina u kliničku praksu ulazi vitrifikacija - metoda koja je revolucionisala reproduktivnu medicinu i postala zlatni standard širom sveta.</p>
+      <h3>Staro sporo zamrzavanje - kako je funkcionisalo i zašto je napušteno</h3>
+      <p>Sporo zamrzavanje podrazumevalo je postepeno snižavanje temperature embriona tokom nekoliko sati. Korišćeni su krioprotektanti - specijalne supstance koje štite ćelije od oštećenja ledom - ali u relativno niskim koncentracijama.</p>
+      <p>Glavni problem ove metode bio je formiranje kristala leda. Uprkos postepenom hlađenju i zaštiti krioprotektantima, voda unutar i između ćelija embriona je delimično kristalisala - a kristali leda su oštri, nepravilni i mehanički oštećuju ćelijske strukture. Zamislite to kao zamrzavanje sočnog voća u kućnom zamrzivaču: kada ga odmrznete, tekstura je narušena jer su kristali leda razorili ćelijske zidove.</p>
+      <p>Posledica su bile značajno niže stope preživljavanja embriona nakon odmrzavanja - oko 60 do 70 posto. To znači da je skoro svaki treći embrion bio oštećen ili uništen tokom procesa zamrzavanja i odmrzavanja.</p>
+      <p>Danas je sporo zamrzavanje gotovo potpuno napušteno u savremenim embriološkim laboratorijama. Zamenjeno je daleko uspešnijom metodom.</p>
+      <h3>Vitrifikacija - revolucija u zamrzavanju embriona</h3>
+      <p>Vitrifikacija (od latinske reči „vitrum", što znači staklo) je metoda ultrabrzog zamrzavanja koja je potpuno promenila igru.</p>
+      <p>Ključna razlika u odnosu na sporo zamrzavanje leži u brzini hlađenja i koncentraciji krioprotektanata. Kod vitrifikacije, embrion se hladi neverovatnom brzinom - nekoliko hiljada stepeni u sekundi. Istovremeno, koriste se znatno više koncentracije krioprotektanata nego kod sporog zamrzavanja.</p>
+      <p>Rezultat ove kombinacije je fascinantan fizički fenomen: tečnost unutar i oko ćelija embriona prelazi direktno iz tečnog stanja u čvrsto staklasto (amorfno) stanje - bez ikakve kristalizacije. Nema kristala leda. Nema oštrih struktura koje bi mogle da oštete ćelije. Tečnost jednostavno „ostakli" - postaje nešto nalik providnom, glatkom staklu na molekularnom nivou.</p>
+      <p>Eliminacija kristala leda znači minimalno ili nikakvo mehaničko oštećenje ćelija, a to se direktno odražava na rezultate. Stope preživljavanja embriona nakon vitrifikacije i odmrzavanja kreću se između 90 i 99 posto. Praktično - gotovo svaki embrion preživi proces nepromenjen.</p>
+      <p>Važno je razumeti da je vitrifikacija u široku kliničku praksu uvedena sredinom 2000-ih godina. Pre toga, rezultati zamrzavanja bili su značajno lošiji, i upravo iz tog perioda potiču mnoge zablude i strahovi koji i danas opstaju kod parova - uverenja da je zamrzavanje „opasno", „nepouzdano" ili da su „zamrznuti embrioni slabiji od svežih". Te zablude su razumljive, ali više ne odgovaraju stvarnosti.</p>
+      <h2 id="s4">3. Vitrifikacija korak po korak - šta embriolog radi u laboratoriji</h2>
+      <p>Zamislite sićušnu plastičnu pločicu, tanju od noktića vašeg malog prsta. Na njenom vrhu, u kapljici tečnosti manjoj od zrna peska, nalazi se vaš embrion - blastocista od oko 200 ćelija, nevidljiva golim okom. Embriolog uranja ovu pločicu u tečni azot i za manje od jedne sekunde temperatura pada na minus 196 stepeni. U tom trenutku se sve zaustavlja - nema ćelijskih deoba, nema starenja, nema propadanja. Vaš embrion je sada u stanju savršene pauze, i u njemu će ostati - potpuno nepromenjen - sve dok ne dođe dan kada odlučite da ga „probudite".</p>
+      <p>Ali šta sve prethodi tom trenutku uranjanja? Evo detaljnog opisa celog procesa.</p>
+      <h3>Korak 1: Selekcija embriona za zamrzavanje</h3>
+      <p>Embriolog pažljivo procenjuje koji embrioni su dovoljno kvalitetni za zamrzavanje. Ne zamrzavaju se svi embrioni - samo oni koji imaju realan razvojni potencijal za buduću trudnoću.</p>
+      <p>Kada su u pitanju blastociste (embrioni na petom ili šestom danu razvoja), embriolog ocenjuje tri parametra. Prvo, stepen ekspanzije - koliko se blastocista proširila, odnosno koliko je njena unutrašnja šupljina (blastocel) velika. Bolje ekspandirane blastociste su obično kvalitetnije. Drugo, ICM (unutrašnja ćelijska masa, eng. Inner Cell Mass) - to je grupa ćelija unutar blastociste od koje će se razviti sam fetus. Embriolog procenjuje da li je ICM kompaktna, jasno definisana i sastavljena od dovoljnog broja ćelija. Treće, trofektoderm - spoljašnji sloj ćelija blastociste od koga će nastati posteljica. Ocenjuje se da li je trofektoderm sastavljen od mnogo pravilnih ćelija ili od malog broja nepravilnih.</p>
+      <p>Na osnovu ovih parametara, svaka blastocista dobija ocenu (gradiranje). Embrioni koji su ispod minimalnog praga kvaliteta neće biti zamrznuti jer bi šanse za uspešnu trudnoću iz njih bile izuzetno male - i zamrzavanje bi predstavljalo nepotreban trošak i lažnu nadu.</p>
+      <h3>Korak 2: Stadijum zamrzavanja - blastocista ili Day 3 embrion</h3>
+      <p>U savremenim laboratorijama, embrioni se najčešće zamrzavaju u stadijumu blastociste (dan 5 ili dan 6 razvoja). Razloga za to ima nekoliko: kultivacija do blastociste omogućava bolju selekciju (embrioni koji stignu do tog stadijuma pokazali su razvojnu sposobnost), blastociste imaju višu stopu implantacije (ugnježdavanja u matericu) i bolje podnose proces zamrzavanja i odmrzavanja.</p>
+      <p>Ipak, u nekim situacijama embriolog može odlučiti da zamrzne embrion na trećem danu razvoja (Day 3 embrion, sa 6 do 8 ćelija). To se najčešće dešava kada par ima mali broj embriona - umesto da se rizikuje da nijedan embrion ne dostigne stadijum blastociste u laboratoriji (jer ne uspeju svi), sigurnije je zamrznuti embrion ranije, dok još pokazuje normalan razvoj.</p>
+      <h3>Korak 3: Ekvilibracija u krioprotektantima</h3>
+      <p>Ovo je ključna faza pripreme embriona za zamrzavanje. Embrion se postepeno izlaže rastvorima krioprotektanata (najčešće su to etilen glikol i DMSO - dimetil sulfoksid) u rastućim koncentracijama.</p>
+      <p>Šta se ovde zapravo dešava? Krioprotektanti postepeno dehidriraju ćelije - izvlače vodu iz unutrašnjosti ćelija i zamenjuju je sobom. Zašto je to važno? Zato što je upravo voda ta koja pri zamrzavanju formira kristale leda. Kada se voda zameni krioprotektantom, rizik od kristalizacije se drastično smanjuje.</p>
+      <p>Ovaj proces zahteva preciznost u tajmingu - embriolog mora da izloži embrion rastvorima tačno određeno vreme, ni prekratko (nedovoljna dehidratacija) ni predugo (toksični efekti visokih koncentracija krioprotektanata). Ceo korak traje svega nekoliko minuta.</p>
+      <h3>Korak 4: Postavljanje na nosač</h3>
+      <p>Embrion se sada postavlja na specijalan nosač - sićušan uređaj dizajniran upravo za vitrifikaciju. Najčešće korišćeni nosači nose nazive Cryotop, CryoLock ili slične komercijalne oznake. U suštini, radi se o tankom plastičnom štapiću sa izuzetno tankim filmom na vrhu - gotovo nevidljivim golim okom - na koji embriolog nanosi embrion u minimalnoj zapremini tečnosti.</p>
+      <p>Ta zapremina je zaista sićušna - manja od jednog mikrolitra (jedan mikrolitar je milioniti deo litra). Zašto je to važno? Zato što što je manja zapremina tečnosti oko embriona, to se brže postiže hlađenje pri uranjanju u tečni azot. A brže hlađenje znači manje šanse za formiranje bilo kakvih kristala.</p>
+      <h3>Korak 5: Uranjanje u tečni azot - momenat vitrifikacije</h3>
+      <p>Nosač sa embrionom se direktno uranja u tečni azot na temperaturi od minus 196 stepeni Celzijusa. Hlađenje se dešava za manje od jedne sekunde.</p>
+      <p>Ovo je taj momenat - momenat vitrifikacije. Tečnost u i oko embriona u deliću sekunde prelazi iz tečnog u staklasto stanje. Nema kristala. Nema oštećenja. Embrion je sada „ostakljen" i biološki zamrznut u vremenu.</p>
+      <h3>Korak 6: Zaštitno pakovanje i obeležavanje</h3>
+      <p>Nosač sa zamrznutim embrionom se stavlja u zaštitnu cevčicu (poznatu kao straw - slamnata cevčica) koja se hermetički zatvara kako bi se embrion zaštitio od kontaminacije i mehaničkog oštećenja.</p>
+      <p>Svaka cevčica se pažljivo obeležava identifikacionim podacima - ime i prezime pacijentkinje, datum zamrzavanja, identifikacioni broj, stadijum i kvalitet embriona. Koriste se barem dva nezavisna identifikatora radi bezbednosti (na primer, ime i jedinstveni bar-kod ili identifikacioni broj).</p>
+      <h3>Korak 7: Witnessing sistem - dvostruka verifikacija identiteta</h3>
+      <p>Tokom celog procesa, drugi embriolog ili elektronski sistem verifikuje identitet uzorka u svakom koraku. To znači da svaki put kada se embrion premesti iz jedne posude u drugu, kada se postavi na nosač, kada se zapakuje - neko ili nešto proverava da je to zaista vaš embrion.</p>
+      <p>Ovo je poznato kao witnessing sistem (svedočenje) i predstavlja jedan od najstrožih sigurnosnih protokola u celoj medicini. Cilj je sprečavanje bilo kakve zamene uzoraka - greška koja bi bila katastrofalna i koja se ovim sistemom praktično eliminiše.</p>
+      <h3>Trajanje celokupnog procesa</h3>
+      <p>Od početka ekvilibracije u krioprotektantima do uranjanja u tečni azot, ceo proces vitrifikacije jednog embriona traje oko 15 do 20 minuta. Kada se uzme u obzir da embriolog često zamrzava više embriona jednog para, ukupan rad u laboratoriji može trajati sat ili dva - ali svaki embrion dobija individualnu pažnju i preciznost.</p>
+      <h2 id="s5">4. Čuvanje u kriobanki - skladištenje, bezbednost i trajanje</h2>
+      <h3>Kontejneri sa tečnim azotom - Dewar posude</h3>
+      <p>Zamrznuti embrioni se čuvaju u specijalnim izolovanim kontejnerima poznatim kao Dewar posude (nazvane po škotskom fizičaru Džejmsu Djuaru koji je izumeo termos posudu). To su cilindrični metalni kontejneri sa dvostrukim zidovima i vakuumskom izolacijom između njih - slično principu termosa, samo mnogo sofisticiraniji.</p>
+      <p>Ono što je posebno važno: ovi kontejneri ne zahtevaju napajanje strujom. Tečni azot se prirodno održava na temperaturi od minus 196 stepeni zahvaljujući fizičkim svojstvima samog azota i kvalitetnoj izolaciji posude. Kontejneri se redovno dopunjavaju tečnim azotom kako bi nivo bio konstantan.</p>
+      <p>Veličina Dewar posuda varira - od manjih laboratorijskih kontejnera koji mogu da prime nekoliko desetina uzoraka, do velikih kriobanknih kontejnera koji mogu da skladište stotine pa i hiljade uzoraka. Unutar kontejnera, cevčice sa embrionima su organizovane u metalnim kasetama i štapovima (canes), raspoređenim po sistemu koji omogućava brzo i precizno pronalaženje svakog uzorka.</p>
+      <h3>Sigurnosni sistemi</h3>
+      <p>Čuvanje zamrznutih embriona zahteva najviši nivo bezbednosti. Savremene kriobankе koriste višestruke sisteme zaštite.</p>
+      <p>Alarmi za nivo tečnog azota prate da li je nivo tečnosti u kontejnerima adekvatan - ako padne ispod kritične granice, alarm se aktivira. Dnevne provere temperature i nivoa tečnog azota obavljaju se ručno od strane laboratorijskog osoblja, nezavisno od automatskih sistema. Backup kontejneri postoje za slučaj da neki kontejner pokaže problem - embrioni se mogu brzo prebaciti u rezervni kontejner. Generatori za slučaj nestanka struje obezbeđuju da alarmni i monitorski sistemi nastave da rade i bez električne mreže. Mnoge klinike imaju i sistem za daljinski nadzor - 24 sata dnevno, 7 dana u nedelji, odgovorna osoba prima obaveštenja ako bilo koji parametar izađe iz normale.</p>
+      <p>Ukratko: čuvanje embriona u kriobanki je izuzetno bezbedno. Sistem je dizajniran sa višestrukim sigurnosnim slojevima, tako da ni jedan jedini kvar ne može ugroziti vaše embrione.</p>
+      <h3>Organizacija i evidencija</h3>
+      <p>Svaki embrion ima svoju tačnu „adresu" unutar kriobankе - u kom kontejneru, u kom štapu, u kojoj kaseti, na kojoj poziciji. Ova evidencija se vodi i elektronski (kompjuterski sistem sa bazom podataka) i fizički (pisani zapisi, obično u duplikatu). Kada dođe vreme za odmrzavanje, embriolog tačno zna gde da potraži vaš embrion - nema nasumičnog traženja.</p>
+      <h3>Koliko dugo embrioni mogu biti zamrznuti</h3>
+      <p>Ovo je jedno od najčešćih pitanja parova, i odgovor je možda iznenađujuće ohrabrujući.</p>
+      <p>Teorijski, embrioni mogu biti zamrznuti neograničeno dugo, sve dok su na temperaturi od minus 196 stepeni. Na toj temperaturi ne postoje nikakvi biološki procesi koji bi mogli da oštete embrion. Nema hemijskih reakcija, nema raspada molekula, nema starenja. Embrion zamrznut danas i embrion zamrznut pre dvadeset godina su u identičnom biološkom stanju.</p>
+      <p>Praktično, ovo je potvrđeno uspešnim trudnoćama iz embriona zamrznutih i više od 25 godina. Naučno nema nikakvog razloga da vreme skladištenja utiče na kvalitet embriona.</p>
+      <p>Što se tiče zakonske regulative, situacija se razlikuje od države do države. Neke zemlje imaju zakonski ograničen rok čuvanja zamrznutih embriona (na primer, Velika Britanija je do nedavno imala limit od 10 godina, sa mogućnošću produženja). Za situaciju u Srbiji, preporučujemo da se parovi raspitaju u svojoj klinici o aktuelnim zakonskim odredbama iz Zakona o biomedicinski potpomognutoj oplodnji, jer regulativa može biti podložna promenama.</p>
+      <h3>Godišnji troškovi skladištenja</h3>
+      <p>Čuvanje zamrznutih embriona povezano je sa godišnjom naknadom koju par plaća klinici. Visina naknade varira od klinike do klinike i od zemlje do zemlje, ali obično pokriva troškove tečnog azota, održavanja opreme, monitoringa i administracije.</p>
+      <p>Najčešće se plaća godišnja naknada za sve zamrznute embrione jednog para, a ne za svaki embrion pojedinačno - ali ovo može da se razlikuje po klinikama.</p>
+      <p>Važno pitanje je šta se dešava ako par prestane da plaća naknadu za čuvanje. Klinike obično imaju definisan protokol - prvo pokušavaju da kontaktiraju par, šalju opomene, i daju razuman rok za regulisanje obaveza. U krajnjem slučaju, u skladu sa prethodno potpisanim informisanim pristankom, klinika može da postupi sa embrionima prema unapred definisanoj želji para (najčešće uništavanje). Sve ovo regulisano je ugovorom koji se potpisuje pre zamrzavanja.</p>
+      <h2 id="s6">5. Zašto se embrioni zamrzavaju - sve indikacije</h2>
+      <p>Postoji niz razloga zbog kojih embriolog i lekar mogu predložiti zamrzavanje embriona. Evo najčešćih.</p>
+      <h3>Višak kvalitetnih embriona nakon svežeg transfera</h3>
+      <p>Ovo je najčešći scenario. Stimulacija jajnika dala je više kvalitetnih embriona nego što je potrebno za jedan transfer (najčešće se prenosi jedan, ređe dva embriona). Preostali kvalitetni embrioni se zamrzavaju za buduće pokušaje. To znači da, ako prvi transfer ne uspe ili ako par želi još dece, ne mora se ponovo prolaziti kroz stimulaciju i punkciju - zamrznuti embrioni su tu, spremni.</p>
+      <h3>Freeze-all strategija - zamrzavanje svih embriona bez svežeg transfera</h3>
+      <p>U nekim situacijama lekar donosi odluku da se u datom ciklusu uopšte ne radi sveži transfer, već da se svi kvalitetni embrioni zamrznu. Razlozi za ovu strategiju su brojni.</p>
+      <p>Najčešća indikacija je rizik od sindroma ovarijalne hiperstimulacije (OHSS). Ovo je stanje u kome jajnici prekomereno reaguju na hormonsku stimulaciju - uvećavaju se, nastaje tečnost u trbuhu, a u težim slučajevima mogu biti ugroženi i drugi organi. Trudnoća pogoršava OHSS, pa se transfer odlaže dok se jajnici ne smire.</p>
+      <p>Prevremeni porast progesterona tokom stimulacije je drugi čest razlog. Progesteron je hormon koji priprema sluznicu materice za prihvatanje embriona, ali ako poraste prerano, endometrijum (sluznica materice) biva „pomeren" u svom razvoju u odnosu na embrion - kao da embrion stiže na zatvorena vrata. Sveži transfer u tom ciklusu imao bi značajno niže šanse za uspeh.</p>
+      <p>Neoptimalan endometrijum - tanak, neadekvatne strukture, ili sa drugim karakteristikama koje ga čine nepogodnim za prihvatanje embriona - takođe je razlog za odlaganje transfera.</p>
+      <p>Potreba za preimplantacionim genetskim testiranjem (PGT) zahteva zamrzavanje. Embrioni se bioptiraju (uzima se mali uzorak ćelija iz trofektoderma), zatim zamrzavaju, a transfer se planira tek kada stignu rezultati genetske analize - što obično traje dve do četiri nedelje.</p>
+      <p>Medicinski razlozi takođe mogu nalagati odlaganje - polipi endometrijuma (izraslina na sluznici materice), hidrosalpinks (patološko nakupljanje tečnosti u jajovodu koje može negativno uticati na implantaciju), akutna bolest pacijentkinje ili drugi zdravstveni razlozi.</p>
+      <p>Segmentacija ciklusa je rastući trend u reproduktivnoj medicini - pristup u kome se stimulacija i transfer namerno razdvajaju u dva odvojena ciklusa. Ideja je da se telo žene oporavi od stimulacije pre nego što primi embrion, čime se endometrijum nalazi u fiziološkijem, prirodnijem okruženju. Sve više studija ukazuje da ovaj pristup može poboljšati ukupne ishode.</p>
+      <h3>Očuvanje plodnosti</h3>
+      <p>Zamrzavanje embriona (ili jajnih ćelija) igra ključnu ulogu u očuvanju plodnosti u medicinskim situacijama.</p>
+      <p>Pre onkološkog lečenja (hemioterapija, radioterapija) - lečenje malignih bolesti može trajno oštetiti jajnike i plodnost. Za parove koji imaju partnera, zamrzavanje embriona je najsigurnija opcija jer su embrioni otporniji na zamrzavanje od jajnih ćelija. Za žene bez partnera, zamrzavaju se jajne ćelije.</p>
+      <p>Medicinski razlozi koji nisu onkološki - autoimune bolesti čije lečenje može ugroziti plodnost, planirani hirurški zahvati na jajnicima (na primer, uklanjanje ciste koja zahvata jajničko tkivo) i slična stanja.</p>
+      <p>Socijalno zamrzavanje - odlaganje roditeljstva iz ličnih ili profesionalnih razloga. Ovde se češće zamrzavaju jajne ćelije (jer žena možda još nema partnera), ali za parove u stabilnoj vezi zamrzavanje embriona je takođe opcija, i to sa nešto većom sigurnošću uspeha jer su embrioni otporniji na proces zamrzavanja i odmrzavanja od jajnih ćelija.</p>
+      <h3>Donacija embriona</h3>
+      <p>Parovi koji su završili sa formiranjem porodice mogu donirati zamrznute embrione drugim parovima koji se bore sa neplodnošću. Ovo je regulisano zakonom i zahteva informisani pristanak.</p>
+      <h3>Donacija za naučna istraživanja</h3>
+      <p>Uz informisani pristanak para, embrioni koji se više neće koristiti za reprodukciju mogu biti donirani za naučna istraživanja - istraživanja koja doprinose unapređenju reproduktivne medicine i razumevanju ranog embrionalnog razvoja.</p>
+      <h2 id="s7">6. Odmrzavanje (warming) - šta se dešava kada dođe vreme za FET</h2>
+      <p>Kada par donese odluku da je spreman za transfer zamrznutog embriona, u laboratoriji počinje proces odmrzavanja. U stručnom svetu, ovaj proces se sve češće naziva „warming" (zagrevanje), jer je tehnički preciznije - embrion se zagreva iz staklastog stanja nazad u tečno.</p>
+      <h3>Brzina i postupak odmrzavanja</h3>
+      <p>Proces je brz - obrnuto proporcionalan vitrifikaciji. Embrion se zagreva kroz seriju rastvora sa opadajućim koncentracijama krioprotektanata u roku od svega nekoliko minuta.</p>
+      <p>Tokom ove faze odvija se rehidratacija ćelija - krioprotektanti se postepeno uklanjaju iz ćelija i zamenjuju vodom. Ćelije se rehidriraju i vraćaju u svoj normalan oblik i zapreminu. Ovaj proces zahteva pažljivo kontrolisane korake - previše brza rehidratacija mogla bi oštetiti ćelije osmotskim šokom.</p>
+      <h3>Procena preživljavanja</h3>
+      <p>Odmah nakon odmrzavanja, embriolog posmatra embrion pod mikroskopom i procenjuje da li je preživeo proces bez oštećenja.</p>
+      <p>Šta embriolog traži? Pre svega, da li su ćelije intaktne - da li blastocista izgleda celokupno, sa jasno vidljivom strukturom. Zatim, najvažniji znak: reekspanzija. Blastocista koja je pre zamrzavanja bila ekspandirana (napunjena tečnošću u svojoj unutrašnjoj šupljini) nakon odmrzavanja je najčešće kolabirala - skupila se. Embriolog prati da li blastocista ponovo počinje da se širi, da li se blastocel ponovo puni tečnošću. Reekspanzija je sjajan znak da je embrion vitalan i spreman za transfer.</p>
+      <h3>Tajming odmrzavanja i transfera</h3>
+      <p>Embrion se najčešće odmrzava ujutru na dan planiranog transfera. Prati se u inkubatoru nekoliko sati kako bi se potvrdila reekspanzija i vitalnost. Transfer se radi istog dana, obično u popodnevnim satima.</p>
+      <h3>Šta ako embrion ne preživi odmrzavanje</h3>
+      <p>Ovo je retko, ali moguće. Kod vitrifikovanih blastocista, stopa nepreživljavanja iznosi između 1 i 5 posto. Ako embrion ne preživi, embriolog odmah obaveštava par i lekara. Ako par ima još zamrznutih embriona, odmrzava se sledeći. Ako zamrznutih embriona više nema, FET se otkazuje i zakazuje se konsultacija sa lekarom o daljem planu.</p>
+      <p>Ovo je emocionalno težak momenat, ali je važno znati da je izuzetno redak.</p>
+      <h2 id="s8">7. Bezbednost zamrzavanja - zdravlje dece rođene iz zamrznutih embriona</h2>
+      <p>Jedno od najvažnijih pitanja za svakog roditelja, postojećeg ili budućeg, jeste: da li je zamrzavanje bezbedno za moje buduće dete?</p>
+      <h3>Šta kažu studije</h3>
+      <p>Od uvođenja tehnike zamrzavanja embriona 1984. godine, milioni dece širom sveta su rođena iz zamrznutih embriona. To je ogromna baza podataka koja naučnicima omogućava da sa visokim stepenom pouzdanosti procene bezbednost ove tehnologije.</p>
+      <p>Velike studije ne pokazuju povećan rizik od urođenih anomalija, razvojnih poremećaja ili zdravstvenih problema kod dece rođene iz zamrznutih embriona u poređenju sa decom začetom svežim transferom ili prirodnim putem.</p>
+      <h3>Porođajna težina i perinatalni ishodi</h3>
+      <p>Interesantno, studije sugerišu da deca rođena iz transfera zamrznutog embriona (FET) imaju u proseku nešto višu porođajnu težinu i niži rizik od prematuriteta (prevremenog porođaja) u poređenju sa decom iz svežeg transfera. Jedno od mogućih objašnjenja je da je u FET ciklusu endometrijum u fiziološkijem okruženju - nije pod uticajem visokih nivoa hormona iz stimulacije - što može pogodovati ranom razvoju trudnoće.</p>
+      <h3>Dugoročno praćenje</h3>
+      <p>Najstarija deca rođena iz zamrznutih embriona sada su u četrdesetim godinama. Do sada prikupljeni podaci su veoma ohrabrujući - nema povećanog rizika od zdravstvenih problema u poređenju sa opštom populacijom.</p>
+      <h3>Napomena o ograničenjima</h3>
+      <p>Kao i kod svake medicinske tehnologije, nauka nastavlja da prati dugoročne ishode. Potpuno praćenje tokom celog životnog veka još uvek nije moguće jer je tehnologija relativno mlada u istorijskim razmerama. Međutim, trenutni podaci su izuzetno ohrabrujući i dosadašnji rezultati ne daju nikakav osnov za zabrinutost.</p>
+      <h2 id="s9">8. Etički, pravni i emocionalni aspekti zamrzavanja embriona</h2>
+      <p>Zamrzavanje embriona nije samo medicinska procedura - ono otvara niz pitanja koja zadiru u etiku, pravo i najdublje emocije.</p>
+      <h3>Etičke dileme</h3>
+      <p>Pitanje statusa embriona zauzima centralno mesto u etičkim raspravama. Šta embrion zapravo jeste? Za neke ljude, to je biološki materijal u najranijem stadijumu razvoja. Za druge, to je potencijalni ljudski život sa svim pravima koja iz toga proističu. Za treće - posebno one koji veruju da život počinje od začeća - embrion je već ljudsko biće.</p>
+      <p>Ove različite perspektive duboko utiču na to kako parovi doživljavaju zamrzavanje, čuvanje, i posebno - eventualnu odluku o sudbini embriona koje više ne planiraju da koriste.</p>
+      <p>Pre zamrzavanja, parovi potpisuju informisani pristanak - dokument u kome se unapred izjašnjavaju o nizu scenarija: šta se dešava sa embrionima ako jedan partner umre, ako se par razvede, ako prestanu da plaćaju naknadu za čuvanje, ako više ne žele decu. Donošenje ovih odluka unapred može biti emocionalno zahtevno, ali je neophodno.</p>
+      <p>U srpskom kontekstu, dodatnu dimenziju daju religijski i kulturološki aspekti. Srpska pravoslavna crkva nema jedinstven zvanični stav o zamrzavanju embriona u istoj meri u kojoj ga, na primer, Katolička crkva ima (koja se protivi). Mnogi verujući parovi u Srbiji pronalaze sopstveni put između vere i medicine, i to je lični izbor koji zaslužuje poštovanje bez prosuđivanja.</p>
+      <h3>Pravna pitanja</h3>
+      <p>Jedno od najkompleksnijih pravnih pitanja je: kome pripadaju zamrznuti embrioni? U slučaju razvoda ili neslaganja između partnera, situacija može postati izuzetno složena. Da li partner koji želi da koristi embrione ima pravo na to protiv volje drugog partnera? Šta ako jedan partner umre - da li preživeli partner može koristiti zajedničke embrione?</p>
+      <p>Ova pitanja su regulisana zakonom, ali odgovori se razlikuju od zemlje do zemlje. Srpski Zakon o biomedicinski potpomognutoj oplodnji reguliše osnovne aspekte, ali s obzirom na to da se zakonodavstvo može menjati, parovi bi trebalo da se informišu o aktuelnim odredbama u svojoj klinici.</p>
+      <p>Što se tiče opcija kada par ne želi više da koristi zamrznute embrione, mogućnosti obično uključuju: nastavak čuvanja (uz plaćanje godišnje naknade), donaciju drugom paru, donaciju za naučna istraživanja, ili uništavanje embriona. Sve ove opcije moraju biti regulisane pristankom koji se potpisuje unapred.</p>
+      <h3>Emocionalna dimenzija</h3>
+      <p>Emocionalni aspekti zamrzavanja embriona su možda najkompleksniji deo cele priče, a često su i najmanje diskutovani.</p>
+      <p>Vezivanje za zamrznute embrione je duboko i realno. Mnogi parovi doživljavaju zamrznute embrione kao svoju decu „na čekanju" - potencijalne sinove i ćerke koji čekaju svoj red. Neki parovi im daju imena, razmišljaju o njima, brinu o njima. Ova emotivna povezanost je potpuno razumljiva i normalna.</p>
+      <p>Sa druge strane, zamrznuti embrioni daju parovima dragocen osećaj sigurnosti. „Imamo rezervu." „Ne moramo ponovo kroz stimulaciju i punkciju." „Ako prvi pokušaj ne uspe, imamo još šansi." Za parove koji su prošli dug i težak VTO put, emocionalna vrednost tog osećaja je ogromna.</p>
+      <p>Ali zamrznuti embrioni nose i teret odgovornosti. Kada par završi sa formiranjem porodice - kada imaju decu koju su želeli i ne planiraju više trudnoća - dolazi pitanje: šta sa preostalim embrionima? Za mnoge parove, ovo je jedna od emocionalno najtežih odluka u životu. Često se odlaže godinama. Opcije - uništavanje, donacija, čuvanje na neodređeno - svaka nosi svoju emocionalnu težinu, i nema „pravog" odgovora. Postoji samo onaj koji je pravi za vas.</p>
+      <p>Strah od zamrzavanja je takođe čest i potpuno razumljiv. Neki parovi imaju otpor prema celoj ideji - strah da će embrioni biti oštećeni, da je „neprirodno", da „nije isto kao sveži transfer". Ako se prepoznajete u ovim strahovima, znajte da ste daleko od usamljenih. Ali takođe znajte da nauka i podaci koji stoje iza vitrifikacije pružaju izuzetno jake dokaze o bezbednosti i efikasnosti ove metode.</p>
+      <p>Ambivalentnost je možda najtačnija reč za ono što mnogi parovi osećaju prema zamrznutim embrionima - kompleksna mešavina nade, odgovornosti, krivice, olakšanja, tuge i praktičnih dilema, sve istovremeno. I to je sasvim u redu. Nema „ispravnog" načina da se osećate. Važno je da imate tačne informacije, podršku svog lekara i - ako je potrebno - stručnu psihološku podršku u donošenju odluka.</p>
+      <h2 id="s10">9. Mitovi i zablude o zamrzavanju embriona</h2>
+      <p>Oko zamrzavanja embriona kruži niz tvrdnji koje ne odgovaraju naučnoj stvarnosti. Hajde da ih razmotrimo jednu po jednu.</p>
+      <p><strong>„Zamrznuti embrioni su slabiji od svežih."</strong> Ovo nije tačno. Savremena vitrifikacija čuva kvalitet embriona u tako visokom procentu da su stope uspešnosti FET-a (transfera zamrznutog embriona) uporedive sa stopama svežeg transfera, a u nekim studijama čak i nešto više - verovatno zbog toga što je endometrijum u FET ciklusu u fiziološkijem stanju.</p>
+      <p><strong>„Zamrzavanje oštećuje DNK embriona."</strong> Ne postoje dokazi da pravilno sprovedena vitrifikacija oštećuje genetski materijal embriona. Istraživanja su analizirala DNK embriona pre i posle vitrifikacije i nisu pronašla značajne razlike.</p>
+      <p><strong>„Što duže su zamrznuti, to su šanse manje."</strong> Na temperaturi od minus 196 stepeni ne postoji nikakva biološka aktivnost koja bi mogla da ošteti embrion. Embrion zamrznut godinu dana i embrion zamrznut dvadeset godina su u biološki identičnom stanju. Vreme skladištenja ne utiče na kvalitet.</p>
+      <p><strong>„Deca iz zamrznutih embriona su manje zdrava."</strong> Velike epidemiološke studije ovo ne potvrđuju. Štaviše, neke studije sugerišu nešto bolje perinatalne ishode (višu porođajnu težinu, niži rizik od prematuriteta) kod dece iz FET-a.</p>
+      <p><strong>„Zamrzavanje je neprirodno i zato opasno."</strong> Ceo VTO proces uključuje tehnologije koje ne postoje u prirodi - od hormonske stimulacije, preko laboratorijskog oplođenja, do kultivacije embriona u inkubatoru. „Neprirodno" ne znači „opasno". Sve ove tehnologije su naučno potvrđene kao bezbedne i koriste se decenijama sa milionima rođene zdrave dece.</p>
+      <p><strong>„Svi embrioni prežive odmrzavanje."</strong> Stope preživljavanja kod vitrifikacije su izuzetno visoke - 90 do 99 posto - ali nisu sto posto. Mali procenat embriona ne preživi, i o tome treba znati. Ipak, ovaj procenat je daleko niži nego što je bio kod stare metode sporog zamrzavanja.</p>
+      <p><strong>„Jednom zamrznuti embrion se ne može ponovo zamrznuti."</strong> Tehnički, ponovljeno zamrzavanje (refreezing) je moguće, ali se veoma retko praktikuje. Svaki ciklus zamrzavanja i odmrzavanja nosi određeni rizik, i stope preživljavanja opadaju sa svakim ponovljenim ciklusom.</p>
+      <p><strong>„Zamrzavanje embriona je eksperimentalna tehnika."</strong> Vitrifikacija je etablirana, standardna metoda u upotrebi više od petnaest godina. Primenjuje se u svim većim klinikama za VTO širom sveta. Milioni dece su rođena zahvaljujući ovoj tehnici. To nije eksperiment - to je dokazana i pouzdana nauka.</p>
+      <h2 id="s11">10. Česta pitanja parova i praktični saveti</h2>
+      <h3>Koliko embriona mogu da zamrznem?</h3>
+      <p>Nema gornje granice - zamrzavaju se svi embrioni koji ispunjavaju kriterijume kvaliteta. Ako stimulacija proizvede deset kvalitetnih blastocista, a prenese se jedna, preostalih devet se može zamrznuti. Naravno, broj zavisi od individualnog odgovora na stimulaciju i kvaliteta embriona.</p>
+      <h3>Da li plaćam zamrzavanje svakog embriona posebno?</h3>
+      <p>Praksa varira po klinikama. Neke klinike naplaćuju zamrzavanje po embrion, neke po proceduri (bez obzira na broj embriona), neke imaju paket-cenu. Godišnja naknada za čuvanje obično pokriva sve embrione jednog para. Pitajte svoju kliniku za detaljan cenovnik pre početka postupka.</p>
+      <h3>Šta ako se pokvari kontejner sa tečnim azotom?</h3>
+      <p>Kriobankе imaju višestruke sigurnosne sisteme upravo za ovakve scenarije - alarmne sisteme, backup kontejnere, generatore, i protokole za hitno prebacivanje uzoraka. Potpuni kvar sa gubitkom uzoraka je izuzetno redak događaj u savremenim laboratorijama.</p>
+      <h3>Da li mogu da prenesem zamrznute embrione u drugu kliniku?</h3>
+      <p>Da. Transfer zamrznutih embriona iz jedne klinike u drugu je moguć i relativno uobičajen. Embrioni se transportuju u specijalnim prenosivim kontejnerima sa tečnim azotom (dry shippers - suvi kontejneri koji apsorbuju tečni azot u porozni materijal, čime se sprečava rasipanje tokom transporta). Koordinacija između dve klinike je neophodna, i postupak zahteva administrativnu pripremu, ali je tehnički bezbedan.</p>
+      <h3>Šta se dešava sa embrionima ako klinika zatvori?</h3>
+      <p>Klinike su zakonski obavezne da pre zatvaranja obezbede bezbedno prebacivanje svih zamrznutih uzoraka u drugu ovlašćenu ustanovu. Parovi se obaveštavaju unapred i učestvuju u odluci o tome gde će se njihovi embrioni premestiti. Ovo je regulisano zakonom i pravilnicima o radu klinika za VTO.</p>
+      <h3>Da li zamrznute embrione mogu da koristim za drugo dete za nekoliko godina?</h3>
+      <p>Apsolutno da. Upravo to je jedna od najvrednijih prednosti zamrzavanja. Mnogi parovi koriste zamrznute embrione iz prvog VTO ciklusa za drugo ili čak treće dete, godinama kasnije. Embrioni čekaju u stanju savršene biološke pauze - spremni kada vi budete spremni.</p>
+      <h3>Da li moram da odlučim odmah šta će biti sa embrionima koje ne koristimo?</h3>
+      <p>Ne morate odmah. Pre zamrzavanja potpisujete informisani pristanak u kome navodite svoje želje za različite scenarije, ali te odluke se mogu revidirati tokom vremena. Mnogi parovi se vraćaju ovom pitanju tek godinama kasnije, kada definitivno završe sa formiranjem porodice. Klinika čuva embrione sve dok se plaća naknada i dok je vaš pristanak na snazi.</p>
+      <h3>Koliko ciklusa FET-a mogu da uradim sa embrionima iz jednog VTO ciklusa?</h3>
+      <p>Onoliko koliko imate zamrznutih embriona. Ako imate pet zamrznutih blastocista i svaki put se prenosi po jedna, to je potencijalno pet FET ciklusa - pet šansi za trudnoću iz jednog stimulisanog ciklusa. Ovo je jedna od velikih prednosti zamrzavanja: jedna punkcija, više pokušaja.</p>
+      <h3>Zamrzavanje embriona vs. zamrzavanje jajnih ćelija - u čemu je razlika?</h3>
+      <p>Embrioni generalno bolje podnose proces zamrzavanja i odmrzavanja od jajnih ćelija, jer su strukturno otporniji. Stope preživljavanja su nešto više za embrione. Međutim, zamrzavanje jajnih ćelija ima prednost u tome što žena zadržava reproduktivnu autonomiju - ne zavisi od partnera i može odlučiti o oplođenju kada bude spremna. Za parove u stabilnom odnosu, zamrzavanje embriona je obično preporučena opcija. Za žene bez partnera, zamrzavanje jajnih ćelija je jedina opcija.</p>
+      <h3>Zamrzavanje embriona u onkofertilitetu - specifičnosti</h3>
+      <p>Kada se radi o očuvanju plodnosti pre onkološkog lečenja, vreme je ključni faktor. Onkolog i reproduktivni endokrinolog rade u tesnoj saradnji kako bi se zamrzavanje obavilo pre početka hemioterapije ili radioterapije. Stimulacija jajnika u ovim slučajevima može koristiti posebne protokole prilagođene hitnosti situacije. Svaki dan je važan, i zato je rani razgovor o očuvanju plodnosti, idealno pre početka lečenja, od suštinskog značaja.</p>
+      <h3>Pogled u budućnost - šta nas čeka u krioprezervaciji</h3>
+      <p>Nauka ne miruje. Istraživanja u oblasti krioprezervacije embriona razvijaju se u nekoliko pravaca. Automatizacija procesa vitrifikacije pomoću robotskih sistema mogla bi da smanji varijabilnost između laboratorija i embriologa. Primena veštačke inteligencije (AI) u proceni kvaliteta embriona nakon odmrzavanja obećava još precizniju selekciju embriona za transfer. Nove formulacije krioprotektanata sa manjom toksičnošću mogu dodatno poboljšati stope preživljavanja. Zatvoreni sistemi za vitrifikaciju, u kojima embrion nema direktan kontakt sa tečnim azotom, povećavaju bezbednost iz aspekta sprečavanja kontaminacije.</p>
+      <p>Sve ove inovacije idu u jednom pravcu - ka tome da zamrzavanje embriona bude još bezbednije, još efikasnije, i još pristupačnije.</p>
+      <h2 id="s12">Umesto zaključka</h2>
+      <p>Zamrzavanje embriona je jedna od najvećih tekovina reproduktivne medicine. Vitrifikacija je od neizvesnog, delimično pouzdanog postupka napravila zlatni standard - sa stopama preživljavanja koje dosežu 99 posto i milionima zdrave dece rođene širom sveta.</p>
+      <p>Vaši zamrznuti embrioni nisu „na ledu" u kolokvijalnom smislu te reči - nisu ostavljeni i zaboravljeni. Oni su pažljivo čuvani, zaštićeni višestrukim sigurnosnim sistemima, i biološki nepromenljivi koliko god da prođe vremena. Oni su vaša mogućnost, vaša rezerva, vaše buduće poglavlje - spremni da ih „probudite" kada budete spremni.</p>
+      <p>Ako imate dodatna pitanja, razgovarajte sa svojim lekarom i embriologom. Svaka situacija je individualna, i oni su tu da vam pomognu da donesete informisane odluke koje su prave za vas i vašu porodicu.</p>
+    </div>
+
+    <!-- Closing -->
+      <div class="empathy-box" style="margin-top: 3rem;">
+        <p>Dvonedeljna pauza je najtežih 14 dana VTO puta - ali vi ste sposobni da ih prođete. Ne zato što ste savršeni, ne zato što radite sve „po pravilima," već zato što ste već pokazali neverovatnu snagu time što ste uopšte krenuli na ovaj put.</p>
+        <p>Šta god da donese beta - prošli ste kroz nešto ogromno, i to zaslužuje poštovanje.</p>
+      </div>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">Dvonedeljna pauza</a>
+        <a href="#" class="article-tag">2WW</a>
+        <a href="#" class="article-tag">Embrotransfer</a>
+        <a href="#" class="article-tag">Beta HCG</a>
+        <a href="#" class="article-tag">Implantacija</a>
+        <a href="#" class="article-tag">Simptomi</a>
+        <a href="#" class="article-tag">Emocionalna podrška</a>
+        <a href="#" class="article-tag">Progesteron</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+<script>
+  let breathingInterval = null;
+  function startBreathing() {
+    const circle = document.getElementById('breathCircle');
+    const phase = document.getElementById('breathPhase');
+    const btn = document.getElementById('breathBtn');
+    if (breathingInterval) {
+      clearTimeout(breathingInterval);
+      breathingInterval = null;
+      circle.className = 'breathing-circle';
+      circle.textContent = '4:7:8';
+      phase.innerHTML = '&nbsp;';
+      btn.textContent = 'Započni vežbu';
+      return;
+    }
+    btn.textContent = 'Zaustavi';
+    let cycles = 0;
+    function runCycle() {
+      if (cycles >= 4) {
+        circle.className = 'breathing-circle';
+        circle.textContent = '4:7:8';
+        phase.textContent = 'Završeno. Kako se osećate?';
+        btn.textContent = 'Započni ponovo';
+        breathingInterval = null;
+        return;
+      }
+      circle.className = 'breathing-circle inhale';
+      phase.textContent = 'Udahnite...';
+      let count = 4;
+      circle.textContent = count;
+      let countDown = setInterval(() => { count--; if(count>0) circle.textContent = count; }, 1000);
+      breathingInterval = setTimeout(() => {
+        clearInterval(countDown);
+        circle.className = 'breathing-circle hold';
+        phase.textContent = 'Zadržite dah...';
+        count = 7;
+        circle.textContent = count;
+        countDown = setInterval(() => { count--; if(count>0) circle.textContent = count; }, 1000);
+        breathingInterval = setTimeout(() => {
+          clearInterval(countDown);
+          circle.className = 'breathing-circle exhale';
+          phase.textContent = 'Polako izdahnite...';
+          count = 8;
+          circle.textContent = count;
+          countDown = setInterval(() => { count--; if(count>0) circle.textContent = count; }, 1000);
+          breathingInterval = setTimeout(() => {
+            clearInterval(countDown);
+            cycles++;
+            runCycle();
+          }, 8000);
+        }, 7000);
+      }, 4000);
+    }
+    cycles = 0;
+    runCycle();
+  }
+</script>
+</body>
+</html>

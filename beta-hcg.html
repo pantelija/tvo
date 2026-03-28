@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beta hCG test - tumačenje rezultata i šta dalje | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+    height: 16px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  .breathing-widget { margin: 1.5rem 0; padding: 1.5rem; background: var(--color-teal-light); border-radius: 10px; border: 1px solid rgba(42,125,110,0.15); text-align: center; }
+  .breathing-title { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.25rem; }
+  .breathing-sub { font-size: 0.82rem; color: var(--color-ink-muted); margin-bottom: 1.25rem; }
+  .breathing-circle { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--color-teal); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; color: var(--color-teal); transition: all 1s ease; opacity: 0.6; }
+  .breathing-circle.inhale { transform: scale(1.25); opacity: 1; }
+  .breathing-circle.hold { transform: scale(1.25); opacity: 0.85; }
+  .breathing-circle.exhale { transform: scale(1); opacity: 0.6; }
+  .breathing-phase { font-size: 0.85rem; color: var(--color-teal); font-weight: 600; min-height: 1.3em; margin-bottom: 0.85rem; }
+  .breathing-btn { background: var(--color-teal); color: #fff; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.25rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+  .breathing-btn:hover { background: #236b5e; }
+
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .breathing-circle { width: 90px; height: 90px; font-size: 1.2rem; }
+    .timeline-rail { width: 32px; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Tokom VTO postupka</span>
+      <h1 class="article-title">Beta hCG test - tumačenje rezultata i šta dalje</h1>
+      <p class="article-subtitle">Prvi zvanični test trudnoće nakon VTO postupka: detaljno objašnjenje šta znači, kako se tumači i šta vas čeka</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je beta hCG test i gde se nalazi u VTO procesu</a></li>
+        <li><a href="#s2">hCG hormon - šta je, zašto je važan i zašto se meri baš „beta"</a></li>
+        <li><a href="#s3">Praktični aspekti beta hCG testa u VTO postupku</a></li>
+        <li><a href="#s4">Tumačenje rezultata beta hCG testa</a></li>
+        <li><a href="#s5">Šta sledi nakon pozitivnog beta hCG testa</a></li>
+        <li><a href="#s6">Šta sledi nakon negativnog beta hCG testa</a></li>
+        <li><a href="#s7">Posebne situacije i komplikacije vezane za beta hCG</a></li>
+        <li><a href="#s8">Mitovi i zablude o beta hCG testu</a></li>
+        <li><a href="#s9">Emocionalna dimenzija beta hCG testa</a></li>
+        <li><a href="#s10">Česta pitanja i saveti za period čekanja</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <h2 id="s1">1. Šta je beta hCG test i gde se nalazi u VTO procesu</h2>
+
+      <p>Beta hCG test je laboratorijska analiza krvi koja meri nivo hormona humanog horionskog gonadotropina (skraćeno hCG) u vašoj krvi. U kontekstu vantelesnog oplođenja (VTO), ovo je <strong>prvi zvanični test trudnoće</strong> nakon embriotransfera - postupka u kome je embrion prenet u vašu matericu.</p>
+
+      <p>Ovaj hormon proizvodi sam embrion, tačnije ćelije koje se zovu trofoblast - to su ćelije iz kojih će kasnije nastati posteljica (placenta). Embrion počinje da luči hCG nakon što se uspešno ugnjezdi u endometrijum (sluznicu materice), i upravo je prisustvo ovog hormona u krvi najraniji pouzdani dokaz da je implantacija (ugnježđivanje) počela.</p>
+
+      <h3>Gde je beta hCG test u celokupnom VTO putu?</h3>
+
+      <p>Pre beta hCG testa, vi ste već prošli kroz stimulaciju jajnika, punkciju (zahvat kojim su jajne ćelije izvađene), oplođenje u laboratoriji i embriotransfer. Nakon transfera sledi period čekanja koji traje obično <strong>10 do 14 dana</strong> - u međunarodnoj VTO zajednici poznat kao „two-week wait" ili skraćeno „2WW" (dvonedeljno čekanje). Tokom ovog perioda embrion se ugnjezduje u sluznicu materice i, ako je implantacija uspešna, počinje da proizvodi hCG.</p>
+
+      <p>Beta hCG test dolazi na samom kraju tog čekanja i predstavlja <strong>prekretnicu</strong> - momenat koji razdvaja neizvesnost od konkretnog odgovora:</p>
+
+      <ul>
+        <li><strong>Ako je rezultat pozitivan</strong> - sledi ponavljanje testa za potvrdu, zatim prvi ultrazvuk i postepeni prelazak ka redovnom praćenju trudnoće.</li>
+        <li><strong>Ako je rezultat negativan</strong> - sledi razgovor sa lekarom o daljem planu i priprema za sledeći korak.</li>
+      </ul>
+
+      <p>Za većinu parova, beta hCG test je jedan od emocionalno najintenzivnijih momenata celokupnog VTO procesa - momenat istine nakon nedelja ili meseci priprema, neizvesnosti i nadanja.</p>
+
+      <h2 id="s2">2. hCG hormon - šta je, zašto je važan i zašto se meri baš „beta"</h2>
+
+      <h3>Šta je hCG hormon?</h3>
+
+      <p>Humani horionski gonadotropin (hCG) je hormon koji embrion počinje da luči nakon što se ugnjezdi u endometrijum. To je, jednostavno rečeno, hemijski signal kojim embrion „javlja" telu majke da je trudnoća počela.</p>
+
+      <h3>Zašto se zove „beta"?</h3>
+
+      <p>hCG hormon se sastoji iz dve podjedinice - dva dela koji zajedno čine celinu:</p>
+
+      <ul>
+        <li><strong>Alfa podjedinica</strong> - ova podjedinica je zajednička za više hormona u telu. Ista alfa podjedinica postoji i kod LH (luteinizirajućeg hormona), FSH (folikulostimulirajućeg hormona) i TSH (hormona štitaste žlezde). Dakle, alfa deo nije jedinstven za hCG.</li>
+        <li><strong>Beta podjedinica</strong> - ova podjedinica je <strong>specifična isključivo za hCG</strong>. Nijedan drugi hormon u telu nema istu beta podjedinicu.</li>
+      </ul>
+
+      <p>Upravo zato se u laboratorijskoj analizi meri <strong>beta podjedinica</strong> - jer je ona ta koja nedvosmisleno dokazuje prisustvo hCG hormona, bez mogućnosti zamene sa drugim hormonima. Otuda i naziv testa - <strong>beta hCG</strong>.</p>
+
+      <h3>Funkcija hCG u ranoj trudnoći</h3>
+
+      <p>hCG ima ključnu ulogu u prvih nekoliko nedelja trudnoće. Njegova glavna funkcija je da <strong>održava žuto telo</strong> (lat. corpus luteum) - strukturu koja ostaje u jajniku nakon ovulacije (ili, u slučaju VTO-a, nakon punkcije).</p>
+
+      <p>Žuto telo proizvodi <strong>progesteron</strong> - hormon bez koga se trudnoća ne može održati. Progesteron priprema i održava sluznicu materice kao pogodno okruženje za razvoj embriona. Bez hCG signala, žuto telo bi se povuklo, nivo progesterona bi pao i sluznica bi se ljuštila (što bi rezultiralo menstruacijom).</p>
+
+      <p>hCG, dakle, „kaže" žutom telu: „Nastavi da radiš, trudnoća je počela, progesteron je i dalje potreban." Ova uloga hCG traje otprilike do <strong>8. do 10. nedelje trudnoće</strong>, kada posteljica (placenta) postaje dovoljno razvijena da sama preuzme proizvodnju progesterona.</p>
+
+      <h3>Kada embrion počinje da luči hCG?</h3>
+
+      <p>Embrion počinje da proizvodi hCG najranije <strong>6 do 7 dana nakon oplođenja</strong>, odnosno otprilike 1 do 2 dana nakon implantacije. U početku su količine izuzetno male, ali nivo hCG zatim raste eksponencijalno - u ranim nedeljama trudnoće duplira se otprilike svaka dva do tri dana. Upravo taj brz rast omogućava da se hormon detektuje u krvi relativno rano nakon embriotransfera.</p>
+
+      <h2 id="s3">3. Praktični aspekti beta hCG testa u VTO postupku</h2>
+
+      <h3>Kada se radi test?</h3>
+
+      <p>Beta hCG test se zakazuje obično <strong>10 do 14 dana nakon embriotransfera</strong>. Tačan dan zavisi od toga u kom stadijumu razvoja je embrion bio u momentu transfera:</p>
+
+      <ul>
+        <li><strong>Day 5 transfer</strong> (blastocista - embrion star pet dana): test se obično radi <strong>9 do 11 dana</strong> nakon transfera. Razlog je što je blastocist razvijeniji i implantacija počinje ranije.</li>
+        <li><strong>Day 3 transfer</strong> (embrion star tri dana): test se radi <strong>11 do 14 dana</strong> nakon transfera, jer je embrion mlađi i potrebno mu je nešto više vremena da se razvije do stadijuma implantacije i počne da luči merljive količine hCG.</li>
+      </ul>
+
+      <p>Zašto upravo toliko dana? Potrebno je vreme da embrion „putuje" do mesta u endometrijumu gde će se ugnjezditi, da izvrši implantaciju, da trofoblast počne da luči hCG i da se nivo hormona u krvi podigne dovoljno da bude merljiv standardnim laboratorijskim metodama. Ako se test uradi prerano, postoji rizik da nivo hCG još nije dovoljno visok - što može dati lažno negativan rezultat.</p>
+
+      <h3>Kako se test radi?</h3>
+
+      <p>Beta hCG test je standardna laboratorijska analiza krvi:</p>
+
+      <ul>
+        <li><strong>Vadi se krv iz vene</strong>, obično iz vene na savijenom delu lakta, kao i za bilo koju drugu analizu krvi.</li>
+        <li>Test se obično radi <strong>ujutru</strong>, mada hCG u krvi nije značajno podložan dnevnim varijacijama.</li>
+        <li><strong>Da li mora na prazan stomak?</strong> - U većini slučajeva ne mora, ali prakse se razlikuju među klinikama. Vaša klinika će vam dati tačnu instrukciju.</li>
+        <li><strong>Koliko brzo stižu rezultati?</strong> - Najčešće istog dana (posle nekoliko sati) ili narednog jutra. Neke laboratorije imaju brže obrade, neke sporije. Čekanje na rezultat je za većinu parova jedan od najstresnijih delova celokupnog VTO procesa.</li>
+      </ul>
+
+      <h3>Šta se meri?</h3>
+
+      <p>Ono što se meri je <strong>kvantitativni beta hCG</strong> - to znači da rezultat nije samo „pozitivan" ili „negativan", već daje <strong>tačnu numeričku vrednost</strong> hormona u krvi. Vrednost se izražava u <strong>mIU/mL</strong> (mili-internacionalnih jedinica po mililitru) ili <strong>IU/L</strong> (internacionalnih jedinica po litru), a te dve jedinice su ekvivalentne.</p>
+
+      <p>Ovo je ključna razlika u odnosu na kućni test na trudnoću, koji daje samo kvalitativni rezultat - dve crte (pozitivan) ili jednu crtu (negativan) - bez ikakve numeričke informacije.</p>
+
+      <h3>Zašto test krvi, a ne kućni test?</h3>
+
+      <p>Klinike za VTO insistiraju na testu krvi iz nekoliko važnih razloga:</p>
+
+      <ol>
+        <li><strong>Preciznost</strong> - Test krvi daje tačnu numeričku vrednost, dok kućni test samo registruje da li je hCG iznad određenog praga (obično 20–25 mIU/mL).</li>
+        <li><strong>Praćenje dinamike rasta</strong> - Samo numerička vrednost omogućava poređenje sa sledećim testom i procenu da li hCG raste pravilnim tempom.</li>
+        <li><strong>Lažno pozitivni rezultati kućnih testova</strong> - U VTO postupku se pre punkcije obično daje tzv. „trigger injekcija" koja sadrži hCG (lek koji izaziva finalnu maturaciju jajnih ćelija). Tragovi ovog hCG mogu ostati u organizmu danima nakon injekcije. Kućni test može detektovati ovaj preostali hCG i dati <strong>lažno pozitivan rezultat</strong> - pokazati trudnoću koja zapravo ne postoji.</li>
+        <li><strong>Lažno negativni rezultati kućnih testova</strong> - Ako se kućni test uradi prerano, nivo hCG može biti ispod praga detekcije testa i prikazati negativan rezultat - čak i kada je trudnoća počela ali hCG još nije dovoljno porastao da ga kućni test prepozna.</li>
+      </ol>
+
+      <h2 id="s4">4. Tumačenje rezultata beta hCG testa</h2>
+
+      <h3>Pozitivan rezultat - potvrda trudnoće</h3>
+
+      <p>Rezultat se smatra <strong>pozitivnim</strong> ako je vrednost beta hCG iznad određenog praga, koji se najčešće definiše kao <strong>iznad 5 mIU/mL</strong> (neke laboratorije koriste prag od 10 ili 25 mIU/mL - svaka laboratorija ima svoje referentne vrednosti).</p>
+
+      <p>Međutim, sam broj bez konteksta ne govori mnogo. Evo šta različite situacije mogu značiti:</p>
+
+      <ul>
+        <li><strong>Jasno pozitivan rezultat</strong> (npr. iznad 100 mIU/mL na dan testiranja) - ohrabrujući znak, ali i dalje je potrebno pratiti dinamiku rasta ponovljenim testom.</li>
+        <li><strong>Nizak ali pozitivan rezultat</strong> (npr. 20–50 mIU/mL) - ne znači nužno lošu vest. Mnoge potpuno zdrave trudnoće počinju sa nižim vrednostima, posebno ako je test urađen nešto ranije. Ključno je da se vrednost pravilno duplira u narednih 48 do 72 sata.</li>
+        <li><strong>Visok rezultat</strong> (npr. iznad 300–500 mIU/mL na prvi test) - može ukazivati na snažnu implantaciju, ali može biti i znak višeplodne trudnoće (blizanaca ili više beba). Visoka vrednost nije sama po sebi bolji ili sigurniji znak od umerene vrednosti.</li>
+      </ul>
+
+      <p><strong>Ono što je zaista važno: dinamika rasta, a ne pojedinačna vrednost.</strong> Upravo zato se uvek radi i drugi beta hCG test.</p>
+
+      <h3>Negativan rezultat - trudnoća nije nastala</h3>
+
+      <p>Vrednost beta hCG ispod <strong>5 mIU/mL</strong> obično znači da trudnoća nije nastala - implantacija se nije dogodila ili se embrion nije održao.</p>
+
+      <p>Da li postoji šansa da je test urađen prerano i da rezultat bude lažno negativan? Izuzetno retko, pod uslovom da se poštuje protokol klinike (odnosno da se test radi u zakazanom terminu, 10–14 dana nakon transfera). Ako imate bilo kakvu sumnju, razgovarajte sa svojim lekarom - u izuzetnim slučajevima može se preporučiti ponavljanje testa.</p>
+
+      <p>Negativan rezultat je za većinu parova izuzetno težak momenat. Tuga, razočaranje, ljutnja, osećaj praznine - sve su to potpuno normalne i očekivane reakcije. Više o emocionalnoj dimenziji govorimo u posebnoj sekciji ovog teksta.</p>
+
+      <h3>Granične („sive zone") vrednosti</h3>
+
+      <p>Ponekad rezultat nije jasno pozitivan ni negativan. Vrednosti beta hCG <strong>između 5 i 25 mIU/mL</strong> smatraju se graničnim - postoji prisustvo hormona, ali u količini koja ne potvrđuje sa sigurnošću da trudnoća pravilno napreduje.</p>
+
+      <p>U ovoj situaciji lekar će gotovo uvek preporučiti <strong>ponavljanje testa nakon 48 do 72 sata</strong> da bi se videlo u kom pravcu se kreće vrednost:</p>
+
+      <ul>
+        <li><strong>Ako hCG značajno poraste</strong> - to je ohrabrujući znak i test se nastavlja pratiti.</li>
+        <li><strong>Ako hCG stagnira ili minimalno raste</strong> - to može ukazivati na biohemijsku trudnoću ili ektopičnu trudnoću, i lekar će dati dalje instrukcije.</li>
+        <li><strong>Ako hCG padne</strong> - to najčešće znači da se trudnoća nije održala.</li>
+      </ul>
+
+      <p>Period čekanja na ponovljeni test nakon graničnog rezultata je za mnoge parove izuzetno stresan - neizvesnost je pojačana jer nema jasnog odgovora. Ako se nađete u ovoj situaciji, pokušajte da se oslonite na tim lekara koji vas prati i verujte procesu praćenja.</p>
+
+      <h3>Dinamika rasta - pravilo dupliranja</h3>
+
+      <p>U normalnoj ranoj trudnoći, nivo beta hCG se otprilike <strong>udvostručava svakih 48 do 72 sata</strong>. Ovo je jedno od najvažnijih pravila u tumačenju ranih beta hCG rezultata.</p>
+
+      <p>Zato se gotovo uvek radi <strong>drugi beta hCG test</strong> dva do tri dana nakon prvog. Lekar poredi dve vrednosti i procenjuje dinamiku rasta:</p>
+
+      <ul>
+        <li><strong>hCG se pravilno duplira</strong> (porast od oko 60% ili više za 48 sati) - ohrabrujući znak da trudnoća napreduje kako treba.</li>
+        <li><strong>hCG raste, ali sporije od očekivanog</strong> - to ne znači automatski lošu vest, ali zahteva dodatno praćenje. Neki od mogućih razloga su: kasna implantacija, vanmaterična trudnoća ili trudnoća koja se neće održati. Lekar će odlučiti o daljem postupku.</li>
+        <li><strong>hCG pada</strong> - to najčešće ukazuje na to da se trudnoća ne razvija (biohemijska trudnoća ili rani gubitak).</li>
+      </ul>
+
+      <p><strong>Konkretan primer:</strong> Ako je vaš prvi beta hCG test pokazao vrednost od <strong>120 mIU/mL</strong>, lekar će očekivati da za dva dana ta vrednost bude negde <strong>između 200 i 300</strong> - to je znak da trudnoća pravilno napreduje. Ali ako je prvi rezultat bio <strong>45</strong> - ne paničite. Mnoge zdrave trudnoće počinju sa nižim vrednostima, a ključno je da se broj duplira u očekivanom vremenskom okviru.</p>
+
+      <p>Važna napomena: pravilo dupliranja važi za rani period trudnoće (do otprilike 1.200 mIU/mL). Nakon toga, tempo rasta prirodno usporava - hCG i dalje raste, ali mu treba sve više vremena za dupliranje. Najviše vrednosti hCG dostiže oko 8. do 11. nedelje trudnoće, nakon čega počinje postepeno da opada i stabilizuje se.</p>
+
+      <h3>Orijentacione vrednosti po danima nakon Day 5 transfera</h3>
+
+      <p>Sledeći rasponi su <strong>orijentacioni</strong> - svaka trudnoća je individualna i veliki raspon je normalan. Ove vrednosti služe samo kao opšte smernice, a ne kao strogi kriterijumi uspeha ili neuspeha:</p>
+
+      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem;">
+        <tr style="background: var(--color-bg-warm);">
+          <th style="padding: 0.75rem; text-align: left; border: 1px solid var(--color-border);">Dan nakon Day 5 transfera</th>
+          <th style="padding: 0.75rem; text-align: left; border: 1px solid var(--color-border);">Orijentacioni raspon beta hCG (mIU/mL)</th>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">9. dan (14 DPO)</td>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">10–80</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">10. dan (15 DPO)</td>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">15–130</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">11. dan (16 DPO)</td>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">20–180</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">12. dan (17 DPO)</td>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">30–270</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">14. dan (19 DPO)</td>
+          <td style="padding: 0.75rem; border: 1px solid var(--color-border);">50–500</td>
+        </tr>
+      </table>
+
+      <p><em>DPO = dan nakon oplođenja (days past ovulation)</em></p>
+
+      <p><strong>Izuzetno važno:</strong> Pojedinačna vrednost ne određuje ishod trudnoće. Žena sa hCG od 30 na 10. dan može imati potpuno zdravu trudnoću ako se vrednost pravilno duplira, isto kao i žena sa hCG od 130 na isti dan. Ono što se prati je <strong>trend rasta</strong>, ne pojedinačan broj.</p>
+
+      <h3>Veoma visoke vrednosti hCG</h3>
+
+      <p>Kada je prva vrednost beta hCG znatno viša od prosečnog raspona, to može ukazivati na <strong>višeplodnu trudnoću</strong> - blizance, trojke ili više beba. Kod VTO postupaka, gde se ponekad prenosi više od jednog embriona, ovo nije neobično.</p>
+
+      <p>Međutim, visok hCG sam po sebi <strong>ne potvrđuje</strong> višeplodnu trudnoću - jedini siguran način da se utvrdi broj plodova je <strong>ultrazvučni pregled</strong>. Isto tako, normalna vrednost hCG ne isključuje blizanačku trudnoću.</p>
+
+      <h2 id="s5">5. Šta sledi nakon pozitivnog beta hCG testa</h2>
+
+      <h3>Drugi beta hCG test (48–72 sata nakon prvog)</h3>
+
+      <p>Odmah nakon pozitivnog prvog rezultata, lekar zakazuje ponovljeni beta hCG test za <strong>dva do tri dana</strong>. Cilj je potvrditi da se vrednost hormona pravilno udvostručava. Tek kada se potvrdi adekvatan rast, može se sa većom sigurnošću reći da trudnoća napreduje.</p>
+
+      <h3>Nastavak progesteronske (lutealne) podrške</h3>
+
+      <p>Pozitivan beta hCG test ne znači da možete prekinuti terapiju. U VTO postupku se tokom perioda čekanja i nakon njega koristi <strong>lutealna podrška</strong> - najčešće progesteron u obliku vaginalnih tableta, kapsula, gela ili injekcija. Ponekad se koristi i estradiol.</p>
+
+      <p>Ova terapija se nastavlja i nakon pozitivnog testa, obično <strong>do 8. do 12. nedelje trudnoće</strong>, kada posteljica preuzima proizvodnju dovoljnih količina progesterona. Nikada ne prekidajte terapiju samoinicijativno - uvek po instrukciji lekara.</p>
+
+      <h3>Prvi ultrazvuk</h3>
+
+      <p>Prvi ultrazvučni pregled se zakazuje obično <strong>2 do 3 nedelje nakon pozitivnog beta hCG testa</strong>, što odgovara otprilike <strong>6. do 7. nedelji trudnoće</strong> (računajući od prvog dana poslednje menstruacije ili od ekvivalentnog datuma koji klinika koristi).</p>
+
+      <p>Na ovom ultrazvuku lekar očekuje da vidi:</p>
+
+      <ul>
+        <li><strong>Gestacijsku kesicu</strong> - malu tečnošću ispunjenu šupljinu u materici koja predstavlja najraniju vidljivu strukturu trudnoće.</li>
+        <li><strong>Žumančanu kesicu</strong> (engl. yolk sac) - malu kružnu strukturu unutar gestacijske kesice koja obezbeđuje ishranu embriona u najranijoj fazi.</li>
+        <li><strong>Embrion sa srčanom radnjom</strong> - u 6. do 7. nedelji obično se može detektovati otkucaj srca embriona. Ovo je za većinu parova najemotivniji momenat - prvi put čujete ili vidite srčanu akciju vaše bebe.</li>
+      </ul>
+
+      <p><strong>Zašto se ultrazvuk ne radi ranije?</strong> Prerani ultrazvuk (npr. u 5. nedelji) često ne može da prikaže srčanu akciju jer je embrion još premali. To može izazvati nepotrebnu paniku i strah da nešto nije u redu, kada je zapravo samo prerano za vizualizaciju. Strpljenje do zakazanog termina, koliko god teško, daje mnogo informativniji i pouzdaniji nalaz.</p>
+
+      <h3>Prelazak sa VTO klinike na redovnog ginekologa</h3>
+
+      <p>Nakon potvrde srčane akcije na prvom ultrazvuku (a ponekad nakon još jednog kontrolnog ultrazvuka u 8. ili 9. nedelji), VTO klinika postepeno „predaje" praćenje trudnoće vašem redovnom ginekologu. Taj momenat tranzicije je za mnoge parove emotivan - napuštate tim koji vas je vodio kroz jedan od najintenzivnijih perioda u životu i prelazite u „regularni" režim praćenja trudnoće.</p>
+
+      <p>Tačan momenat i način prelaska razlikuju se od klinike do klinike, ali obično se dešava <strong>između 8. i 12. nedelje trudnoće</strong>.</p>
+
+      <h2 id="s6">6. Šta sledi nakon negativnog beta hCG testa</h2>
+
+      <h3>Prekid lutealne podrške</h3>
+
+      <p>Nakon potvrđenog negativnog rezultata, lekar će vam dati instrukcije za <strong>prekid progesteronske terapije</strong>. To može biti naglo ili postepeno, u zavisnosti od protokola vaše klinike. Nakon prekida lutealne podrške, <strong>menstruacija se obično javlja u roku od nekoliko dana</strong> - ovaj događaj, iako medicinski očekivan, može biti emotivno težak jer predstavlja fizičku potvrdu da trudnoća nije nastala.</p>
+
+      <h3>Razgovor sa lekarom o daljem planu</h3>
+
+      <p>Većina klinika zakazuje <strong>kontrolni razgovor</strong> sa lekarom (tzv. follow-up ili „debriefing") nakon neuspelog ciklusa. Na ovom razgovoru:</p>
+
+      <ul>
+        <li><strong>Analiza ciklusa</strong> - lekar pregleda celokupan tok postupka: kako je stimulacija protekla, koliko je jajnih ćelija dobijeno, kakav je bio kvalitet embriona, da li postoji nešto što bi se moglo prilagoditi u sledećem pokušaju.</li>
+        <li><strong>Plan za dalje</strong> - da li postoje zamrznuti embrioni za FET (frozen embryo transfer - prenos zamrznutog embriona), da li je potreban novi stimulisani ciklus, da li se razmatraju izmene u protokolu.</li>
+        <li><strong>Vremenski okvir</strong> - obično se preporučuje pauza od <strong>jednog do tri menstrualna ciklusa</strong> pre novog pokušaja, kako bi se telo oporavilo i kako bi se eventualno napravile dodatne dijagnostičke pretrage ako su potrebne.</li>
+      </ul>
+
+      <h3>Emocionalna podrška</h3>
+
+      <p>Neuspeh VTO ciklusa je <strong>legitiman gubitak</strong> koji zaslužuje žalovanje. Bez obzira na to što nije bilo klinički potvrđene trudnoće, za parove koji su prošli kroz nedelje ili mesece priprema, stimulacije, zahvata i čekanja - negativan rezultat nosi ogroman emocionalni teret.</p>
+
+      <p>Gde potražiti podršku:</p>
+
+      <ul>
+        <li><strong>Psiholog ili psihoterapeut</strong> - posebno onaj koji ima iskustva sa infertilitetom i asistiranom reprodukcijom.</li>
+        <li><strong>Grupe za podršku</strong> - online ili uživo zajednice parova koji prolaze kroz slično iskustvo mogu biti izuzetno vredne. Osećaj da niste sami u ovome čini veliku razliku.</li>
+        <li><strong>Partner</strong> - otvorena komunikacija sa partnerom je ključna. Svako tuguje drugačije i važno je dati jedno drugom prostor, ali i biti tu jedno za drugo.</li>
+        <li><strong>Bliske osobe</strong> - porodica ili prijatelji kojima verujete i od kojih možete očekivati razumevanje, a ne neželjene savete ili pritisak.</li>
+      </ul>
+
+      <p>Nema „ispravnog" načina da se nosite sa ovom vešću. Tuga, ljutnja, frustracija, osećaj nepravde, praznina, pa čak i olakšanje što je čekanje gotovo - sve su to validne reakcije.</p>
+
+      <h2 id="s7">7. Posebne situacije i komplikacije vezane za beta hCG</h2>
+
+      <h3>Biohemijska trudnoća</h3>
+
+      <p>Biohemijska trudnoća nastaje kada je beta hCG bio pozitivan - dakle, implantacija se dogodila i embrion je počeo da luči hormon - ali je zatim vrednost hCG <strong>počela da pada</strong> pre nego što se trudnoća mogla videti na ultrazvuku.</p>
+
+      <p>Jednostavno rečeno, biohemijski (u krvi) je postojala trudnoća, ali se nije razvila dovoljno daleko da postane klinički vidljiva.</p>
+
+      <p>Ovo je <strong>češće nego što većina parova misli</strong> - procenjuje se da velik procenat svih trudnoća (i prirodnih i iz VTO postupaka) završi kao biohemijska, često pre nego što žena uopšte sazna da je bila trudna. U kontekstu VTO-a, zato što se hCG prati tako rano i precizno, biohemijske trudnoće se detektuju češće nego kod prirodnog začeća.</p>
+
+      <p>Biohemijska trudnoća <strong>ne smanjuje šanse za uspeh u budućim pokušajima</strong> - naprotiv, neki lekari je smatraju ohrabrujućim znakom jer pokazuje da je implantacija bila moguća.</p>
+
+      <h3>Ektopična (vanmaterična) trudnoća</h3>
+
+      <p>Ektopična trudnoća je stanje u kome se embrion implantira <strong>van materice</strong> - najčešće u jajovodu (tubarna trudnoća). U ovom slučaju hCG obično raste, ali <strong>sporije od očekivanog</strong> ili postiže plato (stagnira na istom nivou).</p>
+
+      <p>Kada lekar posumnja na vanmateričnu trudnoću na osnovu dinamike hCG:</p>
+
+      <ul>
+        <li>Radi se <strong>ultrazvuk</strong> da se utvrdi lokacija trudnoće.</li>
+        <li>Nastavlja se <strong>praćenje nivoa hCG</strong> u intervalima.</li>
+        <li>Ako se potvrdi ektopična trudnoća, potrebna je <strong>intervencija</strong> - lekovima (najčešće metotreksat) ili hirurški, u zavisnosti od situacije.</li>
+      </ul>
+
+      <p>Ektopična trudnoća kod VTO postupaka je <strong>retka ali moguća</strong>, uprkos tome što se embrion prenosi direktno u matericu. Procenjena učestalost je oko 1–2% VTO trudnoća.</p>
+
+      <h3>Trudnoća nepoznate lokalizacije (PUL)</h3>
+
+      <p>Ponekad je beta hCG pozitivan, ali na ultrazvuku se <strong>ne vidi ni intrauterina (u materici) ni ektopična trudnoća</strong>. Ovo stanje se naziva trudnoća nepoznate lokalizacije (engl. Pregnancy of Unknown Location - PUL).</p>
+
+      <p>PUL ne znači nužno problem - može značiti da je trudnoća još previše rana da bi se videla na ultrazvuku. U ovoj situaciji se nastavlja <strong>serijski monitoring</strong> - ponavljanje beta hCG testova i ultrazvučnih pregleda sve dok se lokacija trudnoće ne utvrdi.</p>
+
+      <h3>Molarna trudnoća</h3>
+
+      <p>Molarna trudnoća (hidatiformni mol) je izuzetno retka komplikacija u kojoj dolazi do abnormalnog razvoja placentnog tkiva. hCG je obično <strong>veoma visok</strong> - neuobičajeno visok za gestacijsku starost - a na ultrazvuku se vidi karakteristična slika umesto normalnog embriona.</p>
+
+      <p>Ova komplikacija je retka i u prirodnom začeću i u VTO postupcima, ali je važno znati da postoji, jer se otkriva upravo praćenjem hCG nivoa.</p>
+
+      <h3>Heterotopična trudnoća</h3>
+
+      <p>Heterotopična trudnoća je stanje u kome <strong>istovremeno postoje i intrauterina (u materici) i ektopična (vanmaterična) trudnoća</strong>. U prirodnom začeću ovo je izuzetno retko (procena je oko 1 na 30.000 trudnoća), ali kod VTO postupaka - posebno kada je preneto više embriona - učestalost je <strong>nešto viša</strong> (procena je oko 1 na 100 do 1 na 500 VTO trudnoća).</p>
+
+      <p>Dijagnoza može biti izazovna jer prisustvo normalne intrauterine trudnoće može maskirati simptome ektopične trudnoće. Praćenje hCG dinamike i ultrazvučni pregledi su ključni za rano otkrivanje.</p>
+
+      <h2 id="s8">8. Mitovi i zablude o beta hCG testu</h2>
+
+      <h3>„Viši hCG znači zdravija trudnoća"</h3>
+
+      <p><strong>Ne nužno.</strong> Apsolutna vrednost hCG varira enormno među zdravim trudnoćama. Žena sa hCG od 80 na 12. dan nakon transfera i žena sa hCG od 300 na isti dan mogu obe imati potpuno zdravu trudnoću. <strong>Dinamika rasta</strong> (da li se vrednost pravilno duplira) je daleko važniji pokazatelj od same visine brojke.</p>
+
+      <h3>„Nizak prvi beta znači da neće uspeti"</h3>
+
+      <p><strong>Pogrešno.</strong> Mnoge trudnoće koje su počele sa niskim prvim beta hCG rezultatom uspešno su se razvile i završile rođenjem zdravog deteta. Nizak početni rezultat može jednostavno značiti da je implantacija bila malo kasnija ili da je test urađen na donjoj granici vremenskog okvira. Ključno je sačekati drugi test i videti dinamiku rasta.</p>
+
+      <h3>„Kućni test je negativan - gotovo je"</h3>
+
+      <p><strong>Ne obavezno.</strong> Kućni testovi na trudnoću imaju viši prag detekcije od laboratorijskog testa krvi. Kućni test obično detektuje hCG tek od 20–25 mIU/mL (neki „rani" testovi od 10 mIU/mL), dok laboratorijski test detektuje vrednosti od 1–2 mIU/mL. Zato je moguće da je trudnoća u toku, da hCG raste, ali da još nije dostigao nivo koji kućni test može da registruje. Negativan kućni test u ranoj fazi <strong>ne isključuje</strong> trudnoću.</p>
+
+      <h3>„Simptomi (ili njihovo odsustvo) pre testa pouzdano ukazuju na ishod"</h3>
+
+      <p><strong>Nepouzdano.</strong> U prvih 10–14 dana nakon transfera, rani simptomi trudnoće (napetost grudi, mučnina, umor) su izuzetno nepouzdani pokazatelji. Mnogi od tih simptoma su identični efektima progesteronske terapije koju uzimate u okviru lutealne podrške. Istovremeno, <strong>mnoge uspešne trudnoće prolaze bez ikakvih simptoma</strong> u ovom ranom periodu. Odsustvo simptoma ne znači neuspeh, a prisustvo simptoma ne garantuje trudnoću.</p>
+
+      <h3>„Ako sam imala krvarenje, sigurno nije uspelo"</h3>
+
+      <p><strong>Netačno.</strong> Lagano krvarenje ili mrljanje (tzv. spotting) u periodu čekanja može biti <strong>implantaciono krvarenje</strong> - pojava koja se dešava kada se embrion ugnjezduje u sluznicu materice. Implantaciono krvarenje je obično oskudno, kratko traje i bledoružičaste do svetlosmeđe boje. Takođe, progesteronska terapija može izazvati mrljanje. Krvarenje u periodu čekanja <strong>ne znači automatski</strong> da implantacija nije uspela.</p>
+
+      <h2 id="s9">9. Emocionalna dimenzija beta hCG testa</h2>
+
+      <h3>Two-week wait (2WW) - period čekanja</h3>
+
+      <p>Za većinu parova koji prolaze kroz VTO, period čekanja od embriotransfera do beta hCG testa je <strong>emocionalno najteži deo celokupnog procesa</strong>. Paradoksalno, ovo je period u kome se medicinski ne dešava ništa što zahteva vašu aktivnu ulogu - ali upravo ta pasivnost i neizvesnost čine ga tako teškim.</p>
+
+      <p>Čest je obrazac ponašanja tokom 2WW:</p>
+
+      <ul>
+        <li><strong>Analiza svakog simptoma</strong> - svaki bol u stomaku, svaka napetost u grudima, svaka promena raspoloženja tumači se kao potencijalni znak uspeha ili neuspeha.</li>
+        <li><strong>Kompulsivno pretraživanje interneta</strong> - traženje priča drugih žena sa sličnim simptomima i njihovih ishoda, upoređivanje sopstvenog iskustva sa tuđim.</li>
+        <li><strong>Nesanica i anksioznost</strong> - teško je spavati kada vam um neprestano vrti pitanje na koje ne postoji odgovor.</li>
+        <li><strong>Emocionalne oscilacije</strong> - jedan sat ste puni nade, sledeći obuzeti strahom.</li>
+      </ul>
+
+      <p>Sve ovo je <strong>potpuno normalno</strong>. Period čekanja je po svojoj prirodi situacija nad kojom nemate kontrolu, i većina ljudi teško podnosi upravo tu kombinaciju visokih uloga i potpunog odsustva mogućnosti da utiče na ishod.</p>
+
+      <h3>Dan testa - „beta dan"</h3>
+
+      <p>Dan kada se vadi krv i čeka rezultat je za mnoge parove jedan od najintenzivnijih dana u životu. Samo vađenje krvi traje par minuta, ali čekanje na rezultat - bilo da traje nekoliko sati ili do narednog jutra - protiče u emocionalnom vakuumu.</p>
+
+      <p>Mnogi parovi opisuju da tog dana ne mogu da se koncentrišu ni na šta drugo, da proveravaju telefon svakih par minuta čekajući poziv ili poruku iz klinike, da im se ruke tresu kada konačno vide broj pozivatelja na ekranu.</p>
+
+      <p><strong>Saveti za dan testa:</strong></p>
+
+      <ul>
+        <li>Ako je moguće, uzmite slobodan dan sa posla - za vas i za partnera/partnerku.</li>
+        <li>Pripremite nešto čime ćete se baviti tokom čekanja - šetnja, film, kuvanje, bilo šta što vam skreće pažnju.</li>
+        <li>Ne ostajte sami - prisustvo partnera ili bliske osobe čini čekanje podnošljivijim.</li>
+        <li>Budite spremni na bilo koji rezultat - to ne znači ne nadati se, već dopustiti sebi da budete svesni oba moguća ishoda.</li>
+      </ul>
+
+      <h3>Primanje pozitivnog rezultata</h3>
+
+      <p>Pozitivan beta hCG izaziva talase emocija koje su često kompleksnije nego što bi čovek očekivao. Prva reakcija je obično <strong>euforija, olakšanje, sreća, suze</strong> - ali ubrzo može doći i osećaj opreza.</p>
+
+      <p>Mnogi parovi nakon pozitivnog testa osećaju: „Da li je stvarno? Da li će se održati? Šta ako padne na drugom testu?" - ova oprezna radost je potpuno razumljiva, posebno za parove koji su prošli kroz prethodne neuspele pokušaje ili gubitke. Strah od biohemijske trudnoće, čekanje drugog beta testa, neizvesnost do prvog ultrazvuka - sve to može sprečavati potpuno predavanje radosti.</p>
+
+      <p>Važno je znati: <strong>u redu je radovati se</strong>. Strah od razočaranja ne treba da vam uzme pravo na radost u ovom trenutku. Ali je isto tako u redu ako se ne osećate onako srećno kao što ste mislili da ćete se osećati - mešavina emocija je normalna i ne govori ništa o ishodu trudnoće.</p>
+
+      <h3>Primanje negativnog rezultata</h3>
+
+      <p>Negativan rezultat nosi tugu koja može biti duboka i sveobuhvatna. Česta osećanja uključuju:</p>
+
+      <ul>
+        <li><strong>Intenzivnu tugu i osećaj gubitka</strong> - čak i bez klinički potvrđene trudnoće, izgubili ste nadu, plan, viziju budućnosti koju ste gradili tokom celokupnog postupka.</li>
+        <li><strong>Ljutnju</strong> - na sopstveno telo, na proces, na nepravdu situacije.</li>
+        <li><strong>Krivicu i samookrivljavanje</strong> - „Da li sam nešto pogrešila? Da li sam trebalo da više mirujem? Da li je nešto što sam pojela/uradila uticalo?" Odgovor je gotovo uvek <strong>ne</strong> - neuspeh implantacije u ogromnoj većini slučajeva nije posledica nečega što ste vi uradili ili propustili da uradite.</li>
+        <li><strong>Prazninu i umor</strong> - emocionalni i fizički umor nakon intenzivnog procesa.</li>
+        <li><strong>Osećaj izolacije</strong> - ako okolina ne razume šta prolazite ili daje neželjene savete poput „opusti se, doći će" ili „bar možete opet da probate".</li>
+      </ul>
+
+      <p>Sve ove reakcije su <strong>normalne i legitimne</strong>. Nema pogrešnog načina da tugujete. Dajte sebi vremena i prostora.</p>
+
+      <h3>Ciklična nada i razočaranje</h3>
+
+      <p>Za parove koji prolaze kroz <strong>više VTO ciklusa</strong>, iskustvo može poprimiti obrazac cikličnog nadanja i razočaranja. Svaki novi pokušaj nosi novu nadu, ali i strah baziran na prethodnom iskustvu. S vremenom, neki parovi opisuju da postaje sve teže uložiti se emocionalno jer se štite od potencijalnog bola.</p>
+
+      <p>Ovo je potpuno razumljiv zaštitni mehanizam. Međutim, važno je prepoznati kada vam je potrebna podrška - razgovor sa profesionalcem (psihologom ili psihijatrom) može pomoći u navigaciji kroz emocionalne izazove višestrukih pokušaja i u pronalaženju načina da sačuvate i nadu i vlastitu emocionalnu dobrobit.</p>
+
+      <h2 id="s10">10. Česta pitanja i saveti za period čekanja</h2>
+
+      <h3>„Mogu li da radim kućni test pre zakazanog beta testa?"</h3>
+
+      <p>Tehnički možete, ali klinike to ne preporučuju, i sa dobrim razlogom. Kućni test može dati lažno pozitivan rezultat (zbog zaostalih tragova trigger injekcije hCG) ili lažno negativan rezultat (jer je nivo hCG još ispod praga detekcije kućnog testa). U oba slučaja, rezultat vam donosi ili lažnu nadu ili nepotrebnu paniku. Ako ipak odlučite da uradite kućni test, budite svesni ovih ograničenja i znajte da <strong>samo laboratorijski test krvi daje pouzdanu informaciju</strong>.</p>
+
+      <h3>„Da li fizička aktivnost tokom čekanja utiče na rezultat?"</h3>
+
+      <p>Uobičajene svakodnevne aktivnosti - hodanje, laki kućni poslovi, kraće šetnje - <strong>ne utiču negativno</strong> na implantaciju. Većina klinika savetuje da se izbegavaju intenzivne fizičke aktivnosti (trčanje, teški treninzi, podizanje teških predmeta), ali to je više iz opreza nego na osnovu čvrstih dokaza da bi te aktivnosti ugrozile implantaciju. Najvažnije je slediti konkretne instrukcije vaše klinike.</p>
+
+      <h3>„Šta znači ako mi hCG raste ali sporije nego što bi trebalo?"</h3>
+
+      <p>Sporiji rast hCG od očekivanog može značiti nekoliko stvari - od kasne implantacije (što može biti potpuno benigno) do ektopične trudnoće ili trudnoće koja se neće održati. Sporiji rast sam po sebi <strong>nije presuda</strong> - lekar će na osnovu dinamike, ultrazvučnog nalaza i ukupne kliničke slike doneti odluku o daljem postupku. Najvažnije je ostati u kontaktu sa svojim lekarom i ne donositi zaključke na osnovu jednog broja.</p>
+
+      <h3>„Da li stres utiče na implantaciju?"</h3>
+
+      <p>Ovo je jedno od najčešćih pitanja i izvora krivice. Trenutni naučni dokazi <strong>ne podržavaju</strong> tvrdnju da normalan svakodnevni stres sprečava implantaciju. Jeste, VTO je stresan proces - ali sam stres koji osećate tokom čekanja gotovo sigurno ne utiče na to da li će se embrion ugnjezditi ili ne. Saveti da se „opustite" i „ne razmišljate o tome" su dobronamerani ali nerealni - i, što je najvažnije, vaša anksioznost nije kriva za ishod.</p>
+
+      <h3>„Kada je bezbedno da kažem drugima da sam trudna?"</h3>
+
+      <p>Na ovo pitanje ne postoji univerzalan odgovor - to je isključivo lična odluka. Neki parovi dele vest odmah sa najužim krugom (partner, najbliži prijatelj, roditelji) radi emocionalne podrške, dok sa širom okolinom čekaju do kraja prvog trimestra (oko 12. nedelje) ili do nekog drugog momenta koji im se čini siguran. Kod VTO trudnoća, neki parovi čekaju potvrdu srčane akcije na prvom ultrazvuku pre nego što ikome kažu.</p>
+
+      <p>Važno je znati: <strong>ne postoji „obavezan" momenat</strong>. Kažite kad se vi osećate spremno, i onome kome želite da kažete. Ako podelite vest ranije, prednost je da imate podršku u ranom periodu - ali i obavezu da eventualno podelite lošu vest ako dođe do komplikacija. Oboje je u redu - bira se ono što vama odgovara.</p>
+
+      <h3>„Šta ako je prvi beta pozitivan a drugi niži?"</h3>
+
+      <p>Ako drugi beta hCG test pokaže <strong>nižu vrednost od prvog</strong>, to najčešće ukazuje na biohemijsku trudnoću - trudnoću koja se nije održala. Lekar će verovatno preporučiti nastavak praćenja hCG nivoa dok se vrednost ne spusti do nule, kako bi se potvrdilo da nema zaostalih komplikacija. Ovo je emotivno veoma teška situacija - imali ste pozitivan test i nadu, a zatim je sve okrenuto. Dozvolite sebi da tugujete.</p>
+
+      <h3>Saveti za period čekanja</h3>
+
+      <ul>
+        <li><strong>Bavite se aktivnostima koje vas ispunjavaju</strong> - čitanje, gledanje serija, šetnje, hobiji, druženje sa ljudima koji vam prave prijatno društvo bez pritiska.</li>
+        <li><strong>Ograničite pretraživanje interneta</strong> - forumi i „simptom-po-simptom" pretrage retko donose mir, a gotovo uvek pojačavaju anksioznost.</li>
+        <li><strong>Razgovarajte sa partnerom</strong> - ne morate se praviti hrabri jedno pred drugim. Podelite strahove i nade otvoreno.</li>
+        <li><strong>Razmislite o slobodnim danima</strong> - ako možete, uzmite koji slobodan dan, posebno oko dana beta testa. Ne morate to objasniti nikome ako ne želite.</li>
+        <li><strong>Neka partner bude prisutan na dan testa</strong> - koliko god je to moguće, dan beta testa ne treba da provedete sami. Prisustvo partnera je važno bez obzira na ishod.</li>
+        <li><strong>Budite blagi prema sebi</strong> - ne očekujte od sebe da budete produktivni, vedri ili „pozitivni" tokom čekanja. Ako vam dan prođe u ležanju na kauču i gledanju komedija - to je sasvim dovoljno.</li>
+        <li><strong>Znajte da ne kontrolišete ishod</strong> - ovo može zvučati kao klišeana fraza, ali u kontekstu 2WW ima duboku istinu: sve što ste mogli da uradite, već ste uradili. Embrion, vaše telo i biologija sada rade svoj deo - a vi ste već bili izuzetno hrabri što ste uopšte kročili na ovaj put.</li>
+      </ul>
+
+      <h3>Zaključak</h3>
+
+      <p>Beta hCG test je mnogo više od broja na laboratorijskom nalazu. Za parove koji prolaze kroz VTO postupak, to je momenat istine - tačka u kojoj se nedelje priprema, neizvesnosti i čekanja slivaju u jedan konkretan podatak. Razumevanje šta taj broj znači, kako se tumači i šta sledi nakon njega ne može eliminisati emocije koje prate ovaj korak - ali može smanjiti strah od nepoznatog i pomoći vam da se osećate informisano, osnaženo i spremno da nastavite dalje, bez obzira na ishod.</p>
+
+      <p>Vaša hrabrost da krenete na ovaj put zaslužuje poštovanje - bez obzira na to šta test pokaže.</p>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">Beta hCG test</a>
+        <a href="#" class="article-tag">Trudnoća</a>
+        <a href="#" class="article-tag">VTO</a>
+        <a href="#" class="article-tag">Rezultati</a>
+        <a href="#" class="article-tag">Tumačenje</a>
+        <a href="#" class="article-tag">Emocionalna podrška</a>
+        <a href="#" class="article-tag">Period čekanja</a>
+        <a href="#" class="article-tag">Implantacija</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IUI - Intrauterina inseminacija, šta je i kako se radi | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+    height: 16px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  .breathing-widget { margin: 1.5rem 0; padding: 1.5rem; background: var(--color-teal-light); border-radius: 10px; border: 1px solid rgba(42,125,110,0.15); text-align: center; }
+  .breathing-title { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.25rem; }
+  .breathing-sub { font-size: 0.82rem; color: var(--color-ink-muted); margin-bottom: 1.25rem; }
+  .breathing-circle { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--color-teal); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; color: var(--color-teal); transition: all 1s ease; opacity: 0.6; }
+  .breathing-circle.inhale { transform: scale(1.25); opacity: 1; }
+  .breathing-circle.hold { transform: scale(1.25); opacity: 0.85; }
+  .breathing-circle.exhale { transform: scale(1); opacity: 0.6; }
+  .breathing-phase { font-size: 0.85rem; color: var(--color-teal); font-weight: 600; min-height: 1.3em; margin-bottom: 0.85rem; }
+  .breathing-btn { background: var(--color-teal); color: #fff; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.25rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+  .breathing-btn:hover { background: #236b5e; }
+
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .breathing-circle { width: 90px; height: 90px; font-size: 1.2rem; }
+    .timeline-rail { width: 32px; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">VTO metode</span>
+      <h1 class="article-title">IUI - Intrauterina inseminacija, šta je i kako se radi</h1>
+      <p class="article-subtitle">Vodič za parove i žene na početku puta lečenja neplodnosti: jednostavna, dostupna alternativa vantelesnoj oplodnji</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je intrauterina inseminacija (IUI)?</a></li>
+        <li><a href="#s2">IUI u kontekstu lečenja neplodnosti - gde se nalazi u odnosu na VTO?</a></li>
+        <li><a href="#s3">Kome se IUI preporučuje, a kada je VTO bolji izbor?</a></li>
+        <li><a href="#s4">IUI postupak korak po korak</a></li>
+        <li><a href="#s5">Bol, nelagodnost i period nakon inseminacije</a></li>
+        <li><a href="#s6">Stope uspešnosti - realistična očekivanja</a></li>
+        <li><a href="#s7">IUI vs. VTO - detaljno poređenje</a></li>
+        <li><a href="#s8">Rizici i komplikacije</a></li>
+        <li><a href="#s9">Česta pitanja i saveti za donošenje odluke</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <h2 id="s1">1. Šta je intrauterina inseminacija (IUI)?</h2>
+
+      <p>Zamislite ginekološki pregled koji traje svega par minuta - bez narkoze, bez operacione sale, bez igala. Ustanete, obučete se i za pola sata ste kod kuće. To je IUI - jedna od najjednostavnijih procedura u asistiranoj reprodukciji, a za mnoge parove i prvi korak ka ostvarivanju trudnoće.</p>
+
+      <p>Intrauterina inseminacija je metoda asistirane reprodukcije u kojoj se prethodno pripremljeni i koncentrovani spermatozoidi (muške reproduktivne ćelije) pomoću tankog, savitljivog katetera (cevčice) direktno unose u materičnu šupljinu - unutrašnjost materice - upravo u vreme ovulacije (oslobađanja zrele jajne ćelije iz jajnika). Na taj način se značajno skraćuje put koji spermatozoidi moraju da pređu do jajne ćelije, zaobilaze se potencijalne prepreke poput nepovoljne cervikalne sluzi (sluzi na grliću materice), a sam postupak pripreme sperme obezbeđuje da se u matericu unesu samo najkvalitetniji i najpokretljiviji spermatozoidi.</p>
+
+      <p>Ključno je razumeti sledeće: kod IUI postupka, do oplođenja dolazi prirodnim putem - unutar tela žene. Spermatozoidi i dalje moraju samostalno da stignu do jajne ćelije u jajovodu i da je oplode, baš kao i kod prirodnog začeća. IUI im samo „pomaže na tom putu" - daje im bolju startnu poziciju.</p>
+
+      <h2 id="s2">2. IUI u kontekstu lečenja neplodnosti - gde se nalazi u odnosu na VTO?</h2>
+
+      <p>Kada se par suoči sa problemom neplodnosti, lekari obično preporučuju postupno pristupanje lečenju - od jednostavnijih ka složenijim metodama. U tom spektru, IUI se nalazi negde između pokušaja prirodnog začeća (eventualno uz stimulaciju ovulacije) i vantelesnog oplođenja (VTO), koje obuhvata IVF (in vitro fertilizacija - oplođenje jajne ćelije spermatozoidom u laboratoriji) i ICSI (intracitoplazmatska injekcija spermatozoida - direktno ubacivanje jednog spermatozoida u jajnu ćeliju pod mikroskopom).</p>
+
+      <p>IUI je jednostavniji, manje invazivan i znatno jeftiniji postupak u poređenju sa VTO. Upravo zato se često preporučuje kao prvi korak u lečenju - pre nego što se pređe na složenije i zahtevnije procedure. Međutim, važno je naglasiti da IUI nije zamena za VTO u svim situacijama. Postoje dijagnoze i okolnosti u kojima je VTO jedini realan put do trudnoće, i u takvim slučajevima pokušaji sa IUI mogu predstavljati gubitak dragocenog vremena.</p>
+
+      <p>Donošenje odluke o tome koji je postupak pravi za vas uvek treba da bude rezultat razgovora sa vašim lekarom, koji poznaje vašu konkretnu situaciju - starost, dijagnozu, trajanje neplodnosti i druge faktore.</p>
+
+      <h2 id="s3">3. Kome se IUI preporučuje, a kada je VTO bolji izbor?</h2>
+
+      <h3>Kada je IUI odgovarajuća opcija</h3>
+
+      <p>IUI se najčešće preporučuje u sledećim situacijama:</p>
+
+      <p><strong>Blagi do umereni muški faktor infertiliteta.</strong> Ako spermiogram (analiza sperme) pokazuje blago smanjen ukupan broj spermatozoida ili blago smanjenu pokretljivost, ali vrednosti nisu kritično niske, IUI može značajno poboljšati šanse za začeće. Postupak pripreme sperme koncentriše najkvalitetnije spermatozoide i direktno ih postavlja bliže jajnoj ćeliji.</p>
+
+      <p><strong>Neobjašnjeni (idiopatski) infertilitet.</strong> Ovo je situacija u kojoj su svi nalazi uredni - jajovodi su prohodni, ovulacija se redovno dešava, spermiogram je u granicama normale - ali do trudnoće jednostavno ne dolazi. IUI u kombinaciji sa blagom stimulacijom ovulacije može povećati šanse za začeće kod ovakvih parova.</p>
+
+      <p><strong>Cervikalni faktor.</strong> Ponekad cervikalna sluz (sluz na grliću materice) predstavlja prepreku za spermatozoide - može biti previše gusta, nedovoljno prisutna ili sadržati antitela koja oštećuju spermatozoide. IUI u potpunosti zaobilazi ovu barijeru jer se spermatozoidi unose direktno u matericu, iznad grlića.</p>
+
+      <p><strong>Blage ovulatorne disfunkcije.</strong> Žene sa neredovnom ovulacijom, uključujući one sa sindromom policističnih jajnika (PCOS), kod kojih postoji dobar odgovor na lekove za stimulaciju ovulacije, mogu imati korist od IUI postupka. Kombinacija stimulacije i precizno tajmirane inseminacije može značajno poboljšati šanse.</p>
+
+      <p><strong>Korišćenje donor sperme.</strong> IUI je postupak izbora za samohrane žene koje žele da ostvare trudnoću uz pomoć donor sperme, kao i za istopolne ženske parove. Postupak je jednostavan, efikasan i ne zahteva invazivne procedure.</p>
+
+      <p><strong>Erektilna disfunkcija ili problemi sa ejakulacijom kod partnera.</strong> Kada par ne može da ostvari odnos ili kada postoji problem sa ejakulacijom (retrogradno - unazad, u bešiku, ili nemogućnost ejakulacije), IUI omogućava da se sperma, dobijena na odgovarajući način, iskoristi za postizanje trudnoće.</p>
+
+      <p><strong>Vaginizam ili nemogućnost ostvarivanja polnog odnosa.</strong> Kod žena koje imaju vaginizam (nevoljne grčeve mišića vagine koji onemogućavaju penetraciju) ili kod parova koji iz drugih razloga ne mogu da ostvare odnos, IUI predstavlja način da se ostvari trudnoća bez potrebe za polnim odnosom.</p>
+
+      <h3>Kada IUI nije dovoljan - situacije u kojima je VTO bolji izbor</h3>
+
+      <p>Postoje jasne okolnosti u kojima IUI ili nema smisla ili ima veoma male šanse za uspeh, i u kojima se preporučuje direktan prelazak na VTO:</p>
+
+      <p><strong>Teški oblici muškog infertiliteta.</strong> Ukoliko spermiogram pokazuje tešku oligozoospermiju (veoma mali broj spermatozoida) ili azoospermiju (potpuno odsustvo spermatozoida u ejakulatu), IUI ne može dati rezultat. U ovakvim slučajevima je neophodan ICSI postupak, kod koga je dovoljan i jedan jedini spermatozoid.</p>
+
+      <p><strong>Obostrana neprohodnost jajovoda.</strong> Da bi IUI bio uspešan, bar jedan jajovod mora biti prohodan - jer se oplođenje dešava upravo u jajovodu. Ako su oba jajovoda začepljena ili oštećena, spermatozoidi i jajna ćelija se jednostavno ne mogu sresti, i jedina opcija je VTO, gde se oplođenje dešava u laboratoriji.</p>
+
+      <p><strong>Uznapredovala starost žene.</strong> Kod žena starijih od 38–40 godina, ovarijalna rezerva (preostali broj i kvalitet jajnih ćelija) je obično značajno smanjena, a vreme postaje ključni faktor. U takvim situacijama, stope uspešnosti IUI su niske, i mnogi stručnjaci preporučuju da se ne gubi vreme na IUI već da se odmah pređe na VTO, koji nudi značajno veće šanse po ciklusu.</p>
+
+      <p><strong>Teška endometrioza (stadijum III i IV).</strong> Endometrioza je stanje u kome se tkivo slično sluznici materice nalazi van materice, što može oštetiti jajovode, jajnike i okolno tkivo. U težim oblicima, anatomija karlice može biti toliko izmenjena da IUI nema realne šanse za uspeh.</p>
+
+      <p><strong>Višestruki neuspeli IUI pokušaji.</strong> Ukoliko je sprovedeno 3–6 ciklusa IUI bez uspeha, većina stručnjaka savetuje prelazak na VTO. Nastavak sa IUI nakon ovog broja pokušaja retko donosi nove rezultate, a samo produžava emocionalno i vremenski zahtevno lečenje.</p>
+
+      <p><strong>Potreba za preimplantacionim genetskim testiranjem (PGT).</strong> Ukoliko postoji indikacija za genetsko testiranje embriona pre transfera u matericu - na primer, zbog naslednih genetskih bolesti ili ponovljenih pobačaja - ovo je moguće isključivo u okviru VTO postupka, gde se embrioni formiraju i testiraju u laboratoriji.</p>
+
+      <h2 id="s4">4. IUI postupak korak po korak</h2>
+
+      <h3>4.1 Inicijalna obrada pre prvog IUI ciklusa</h3>
+
+      <p>Pre nego što se krene sa IUI, neophodno je obaviti osnovnu dijagnostiku koja potvrđuje da su ispunjeni preduslovi za postupak:</p>
+
+      <p><strong>Provera prohodnosti jajovoda.</strong> Kako se oplođenje kod IUI dešava u jajovodu, bar jedan jajovod mora biti prohodan. Ovo se proverava putem HSG (histerosalpingografija - rendgenski snimak materice i jajovoda uz ubrizgavanje kontrasta) ili SIS (sonoinseminacija - ultrazvučni pregled uz ubrizgavanje fiziološkog rastvora). Oba pregleda se rade ambulantno i traju kratko, mada mogu biti praćeni blagom nelagodom.</p>
+
+      <p><strong>Spermiogram partnera.</strong> Analiza sperme daje informacije o broju spermatozoida, njihovoj pokretljivosti, morfologiji (obliku) i drugim parametrima. Na osnovu spermiograma lekar procenjuje da li je IUI realna opcija ili je potreban drugačiji pristup.</p>
+
+      <p><strong>Bazalni hormonski profil.</strong> Krvne analize hormona (najčešće FSH, LH, estradiol, AMH i hormoni štitaste žlezde) rade se na početku menstrualnog ciklusa (obično 2–3. dan) i daju uvid u ovarijalnu rezervu - sposobnost jajnika da proizvode zrele jajne ćelije.</p>
+
+      <p><strong>Osnovni ginekološki pregled.</strong> Ultrazvučni pregled materice i jajnika, PAPA test i eventualno bris grlića materice - standardna obrada koja isključuje strukturalne abnormalnosti ili infekcije.</p>
+
+      <h3>4.2 Prirodni ciklus vs. stimulisani IUI</h3>
+
+      <p>IUI se može raditi u okviru prirodnog ciklusa ili uz blagu ovarijalnu stimulaciju. Oba pristupa imaju svoje prednosti.</p>
+
+      <p><strong>Prirodni ciklus IUI</strong> podrazumeva praćenje spontane ovulacije bez ikakvih lekova za stimulaciju. Lekar ultrazvučno prati rast jednog dominantnog folikula (mehurastog „kućišta" u kome sazreva jajna ćelija) i na osnovu toga određuje optimalan momenat za inseminaciju. Prednosti ovog pristupa su odsustvo sporednih efekata lekova, minimalan rizik od višeplodne trudnoće i niža cena. Nedostatak je što se oslanja na samo jedan folikul, što daje nešto niže stope uspešnosti.</p>
+
+      <p><strong>Stimulisani IUI</strong> podrazumeva upotrebu lekova za blagu stimulaciju jajnika, sa ciljem da sazri jedan do dva (maksimalno tri) folikula, čime se povećavaju šanse za oplođenje. Najčešće korišćeni lekovi su:</p>
+
+      <ul>
+        <li><strong>Klomifen citrat</strong> - tablete koje se uzimaju 5 dana na početku ciklusa; podstiču lučenje hormona koji stimulišu rast folikula</li>
+        <li><strong>Letrozol</strong> - takođe tablete, slično dejstvo kao klomifen, danas sve popularniji jer ima manje sporednih efekata</li>
+        <li><strong>Niske doze gonadotropina</strong> - injekcije hormona (FSH) koje direktno stimulišu jajnike; koriste se kada tablete ne daju adekvatan odgovor</li>
+      </ul>
+
+      <p>Rizici stimulisanog ciklusa uključuju mogućnost višeplodne trudnoće (posebno blizanačke) i, ređe, sindrom ovarijalne hiperstimulacije. Upravo zato je pažljivo ultrazvučno praćenje tokom stimulisanog ciklusa izuzetno važno.</p>
+
+      <h3>4.3 Monitoring ovulacije</h3>
+
+      <p>Bez obzira na to da li se radi o prirodnom ili stimulisanom ciklusu, ključna komponenta IUI postupka je precizno praćenje ovulacije:</p>
+
+      <p><strong>Ultrazvučno praćenje.</strong> Lekar putem vaginalnog ultrazvuka prati rast folikula u jajnicima i debljinu endometrijuma (sluznice materice). Pregledi se obično rade svaka 2–3 dana od otprilike 8–10. dana ciklusa, a učestalije kako se približava ovulacija. Cilj je da se utvrdi kada je dominantni folikul dostigao zrelost (obično 17–22 mm u prečniku) i da je endometrijum dovoljne debljine (idealno iznad 7 mm) za prijem embriona.</p>
+
+      <p><strong>Praćenje LH naleta.</strong> LH (luteinizirajući hormon) je hormon čiji naglo povećanje u krvi ili urinu signalizira da će se ovulacija desiti u narednih 24–36 sati. Pacijentkinja može pratiti LH nalet pomoću kućnih testova za ovulaciju (urin trakice), ili se vrednost LH određuje iz krvi u laboratoriji.</p>
+
+      <h3>4.4 Trigger injekcija (hCG)</h3>
+
+      <p>U mnogim protokolima, kada ultrazvuk pokaže da je folikul zreo, lekar daje takozvanu trigger injekciju - injekciju hormona hCG (humani horionski gonadotropin). Ovaj hormon imitira prirodni LH nalet i precizno pokreće ovulaciju. Inseminacija se zatim zakazuje 24–36 sati nakon davanja trigger injekcije, u idealnom prozoru za oplođenje.</p>
+
+      <p>Trigger injekcija se daje potkožno (obično u predeo stomaka) i većina pacijentkinja je opisuje kao potpuno bezbolnu ili minimalno neprijatnu. Bitno je naglasiti da prisustvo hCG u organizmu nakon trigger injekcije može izazvati lažno pozitivan rezultat na kućnim testovima za trudnoću - o čemu ćemo više govoriti u delu o čekanju rezultata.</p>
+
+      <h3>4.5 Priprema sperme na dan inseminacije</h3>
+
+      <p>Na dan zakazane inseminacije, partner daje uzorak sperme u klinici, obično u posebnoj prostoriji za davanje uzorka, nakon perioda apstinencije od 2–5 dana. Alternativno, koristi se prethodno zamrznuta (krioprezervisana) sperma ili donor sperma.</p>
+
+      <p>Uzorak sperme zatim prolazi kroz laboratorijski postupak poznat kao „pranje sperme" - proces koji traje 30–60 minuta i čiji je cilj da izdvoji najkvalitetnije i najpokretljivije spermatozoide. Dve najčešće korišćene tehnike su:</p>
+
+      <ul>
+        <li><strong>Swim-up metoda</strong> - spermatozoidi se ostavljaju da sami „isplivaju" iz semene plazme u čist medijum; na ovaj način se izdvajaju samo najpokretljiviji primerci</li>
+        <li><strong>Gradijent centrifugacija</strong> - uzorak se prolazi kroz slojeve tečnosti različite gustine i centrifugira; pokretni spermatozoidi prolaze kroz ove slojeve i sakupljaju se na dnu, dok nepokretni spermatozoidi, ćelijski ostaci i semena plazma ostaju gore</li>
+      </ul>
+
+      <p>Zašto je ovaj korak neophodan? Semena plazma (tečni deo ejakulata) sadrži prostaglandine i druge supstance koje mogu izazvati bolne grčeve materice ako se direktno unesu u materičnu šupljinu. Takođe, pranje sperme uklanja nepokretne ili mrtve spermatozoide, bele krvne ćelije i bakterije, i rezultira visoko koncentrovanim uzorkom najkvalitetnijih spermatozoida.</p>
+
+      <h3>4.6 Sam postupak inseminacije</h3>
+
+      <p>Evo šta možete da očekujete tokom samog postupka:</p>
+
+      <p>Pacijentkinja leži u ginekološkom položaju, isto kao pri redovnom ginekološkom pregledu. Lekar postavlja spekulum (instrument koji omogućava vizualizaciju grlića materice) i potom lagano uvodi tanak, mekan, fleksibilan kateter kroz kanal grlića materice. Kateter je toliko tanak da većina žena njegov prolaz uopšte ne oseti ili oseti samo blagu nelagodu.</p>
+
+      <p>Kada je vrh katetera pozicioniran unutar materične šupljine, lekar nežno deponuje pripremljeni uzorak sperme. Ceo postupak traje svega 1–5 minuta od početka do kraja. Nema uboda, nema rezova, nema narkoze.</p>
+
+      <h3>4.7 Neposredno nakon inseminacije</h3>
+
+      <p>Nakon inseminacije, pacijentkinja obično ostaje da leži 10–15 minuta, mada studije nisu jednoznačno potvrdile da mirovanje nakon postupka zaista utiče na ishod. Mnoge klinike ipak preporučuju kratak odmor, jer ženama pruža osećaj sigurnosti i mira.</p>
+
+      <p>Nakon toga, pacijentkinja ustaje, oblači se i može odmah kući. Nema ograničenja u pogledu svakodnevnih aktivnosti - posao, šetnja, lake kućne obaveze - sve je dozvoljeno. Jedino se obično savetuje da se izbegavaju izuzetno naporne fizičke aktivnosti toga dana.</p>
+
+      <h2 id="s5">5. Bol, nelagodnost i period nakon inseminacije</h2>
+
+      <h3>Šta pacijentkinja oseća tokom i nakon postupka</h3>
+
+      <p>Sam postupak inseminacije je bezbolan ili praćen minimalnom nelagodom. Većina žena ga poredi sa PAPA testom ili rutinskim ginekološkim pregledom. Evo šta je uobičajeno:</p>
+
+      <ul>
+        <li>Blag osećaj pritiska ili kratkotrajan grč pri prolasku katetera - traje svega nekoliko sekundi</li>
+        <li>Moguć blag grč u donjem delu stomaka tokom ili neposredno nakon inseminacije - sličan blagom menstrualnom grču, prolazi veoma brzo</li>
+        <li>Minimalno mrljanje (spotting) istog ili narednog dana - potpuno normalna pojava, posledica prolaska katetera kroz grlić materice</li>
+        <li>Nema potrebe za anestezijom, sedacijom ili bilo kakvom posebnom pripremom</li>
+      </ul>
+
+      <p>Većina pacijentkinja opisuje postupak rečima: „To je bilo sve? Očekivala sam mnogo gore."</p>
+
+      <h3>Lutealna podrška</h3>
+
+      <p>Nakon inseminacije, neke klinike propisuju progesteron - hormon koji podržava sluzokožu materice i stvara povoljne uslove za implantaciju embriona (ugnjezdenje u zid materice). Progesteron se može davati u obliku vaginalnih kapsulica, tableta ili, ređe, injekcija. Potreba za lutealnom podrškom zavisi od protokola klinike, korišćenih lekova za stimulaciju i individualne situacije pacijentkinje.</p>
+
+      <h3>Čekanje rezultata - period od 14 dana</h3>
+
+      <p>Nakon inseminacije počinje verovatno najteži deo celokupnog procesa - čekanje. Period od inseminacije do testa na trudnoću traje obično 14 dana, koliko je potrebno da se potencijalni embrion implantira i da nivo hormona trudnoće (beta hCG) u krvi dostignu merljivu vrednost.</p>
+
+      <p><strong>Zašto ne testirati ranije?</strong> Ako je data trigger injekcija (hCG), ovaj hormon ostaje u organizmu još 10–14 dana i može izazvati lažno pozitivan rezultat na kućnom testu za trudnoću. Zato se preporučuje da se sačeka punih 14 dana od inseminacije i da se uradi test iz krvi (beta hCG), koji je precizniji od kućnog testa.</p>
+
+      <h3>Emocionalni aspekti čekanja</h3>
+
+      <p>Ovih 14 dana mogu biti emocionalni rolerkoster. Nada, anksioznost, analiziranje svakog simptoma u telu, strah od negativnog rezultata, pritisak okoline - sve su to potpuno normalna iskustva sa kojima se suočava gotovo svaka žena u ovom periodu.</p>
+
+      <p>Saveti koji mogu pomoći: pokušajte da nastavite sa svakodnevnim aktivnostima koliko je to moguće, razgovarajte sa partnerom ili bliskom osobom o tome kako se osećate, izbegavajte opsesivno guglanje simptoma rane trudnoće i budite nežni prema sebi. Ovaj proces je zahteven i imate puno pravo da se osećate onako kako se osećate.</p>
+
+      <h2 id="s6">6. Stope uspešnosti - realistična očekivanja</h2>
+
+      <p>Jedno od najčešćih pitanja koje parovi postavljaju je: „Kolike su šanse da IUI uspe?" Odgovor zavisi od više faktora, ali evo opšteg pregleda:</p>
+
+      <h3>Prosečne stope uspešnosti po ciklusu</h3>
+
+      <p>Stopa uspešnosti jednog IUI ciklusa kreće se najčešće između 10% i 20% po pokušaju. Ovo može zvučati nisko na prvi pogled, ali treba imati na umu da i kod potpuno zdravih parova šansa za začeće u jednom prirodnom ciklusu iznosi oko 15–25%.</p>
+
+      <h3>Kumulativna stopa uspešnosti</h3>
+
+      <p>Šanse za uspeh se kumuliraju sa svakim pokušajem. Nakon 3–6 ciklusa IUI, kumulativna stopa trudnoće može dostići 30–50% kod pravilno odabranih pacijenata. Drugim rečima - ako postupak ne uspe iz prvog pokušaja, to ne znači da neće uspeti uopšte.</p>
+
+      <h3>Od čega zavisi uspeh?</h3>
+
+      <p><strong>Starost žene</strong> - ovo je najznačajniji pojedinačni faktor. Kod žena mlađih od 35 godina stope uspešnosti su najviše, dok nakon 38–40. godine značajno opadaju zbog prirodnog smanjenja kvaliteta i broja jajnih ćelija.</p>
+
+      <p><strong>Dijagnoza</strong> - parovi sa neobjašnjenim infertilitetom ili cervikalnim faktorom generalno imaju bolje šanse od onih sa izraženijim muškim faktorom.</p>
+
+      <p><strong>Stimulisani vs. nestimulisani ciklus</strong> - IUI uz blagu stimulaciju ovulacije najčešće daje nešto bolje rezultate u poređenju sa IUI u prirodnom ciklusu, jer stimulacija može obezbediti sazrevanje više od jedne jajne ćelije.</p>
+
+      <p><strong>Kvalitet sperme nakon pripreme</strong> - ukupan broj pokretnih spermatozoida (TMSC - total motile sperm count) nakon postupka pranja sperme je važan prediktor uspeha. Najčešće se smatra da je minimum 5–10 miliona pokretnih spermatozoida nakon pripreme potreban za razumenu šansu za uspeh.</p>
+
+      <h3>Poređenje sa VTO</h3>
+
+      <p>Da, stope uspešnosti IUI su niže od stopa uspešnosti VTO, koji po jednom ciklusu ima stopu uspešnosti od otprilike 40–60% kod žena mlađih od 35 godina (zavisno od klinike i dijagnoze). Međutim, to ne znači da IUI nije vredan pokušaja. IUI je znatno manje invazivan, jeftiniji i emocionalno lakši, pa čak i sa nižim stopama po ciklusu, kumulativno posle nekoliko pokušaja može dati odličan rezultat za mnoge parove. Za pravilno odabrane pacijente, IUI je racionalan i opravdan prvi korak.</p>
+
+      <h2 id="s7">7. IUI vs. VTO - detaljno poređenje</h2>
+
+      <p>Da bismo pomogli u razumevanju razlika, evo pregleda ključnih parametara:</p>
+
+      <p><strong>Invazivnost postupka.</strong> IUI je minimalno invazivan - kateter se uvodi kroz grlić materice i to je jedina „procedura" koja se dešava. VTO je značajno invazivniji - uključuje intenzivnu hormonsku stimulaciju, punkciju jajnika (vađenje jajnih ćelija iglom kroz zid vagine pod ultrazvučnom kontrolom), laboratorijsko oplođenje i transfer embriona.</p>
+
+      <p><strong>Potreba za anestezijom.</strong> Kod IUI nema nikakve anestezije ni sedacije. Kod VTO se punkcija jajnika radi u kratkotrajnoj sedaciji ili anesteziji.</p>
+
+      <p><strong>Trajanje ciklusa i angažovanje pacijentkinje.</strong> IUI ciklus traje nešto kraće i zahteva manje poseta klinici. Monitoring uključuje 2–4 ultrazvučna pregleda. VTO ciklus traje duže, zahteva svakodnevne injekcije tokom 10–14 dana stimulacije i češće kontrole u klinici (ponekad svaki dan u poslednjoj fazi stimulacije).</p>
+
+      <p><strong>Broj poseta klinici.</strong> Za IUI - obično 3–5 poseta po ciklusu (uključujući monitoring i sam dan inseminacije). Za VTO - najčešće 5–10 ili čak više poseta (monitoring, punkcija, transfer i kontrole).</p>
+
+      <p><strong>Finansijski aspekt.</strong> IUI je višestruko jeftiniji od VTO. Zavisno od klinike i zemlje, cena jednog IUI ciklusa sa stimulacijom je obično 5 do 10 puta niža od cene jednog VTO ciklusa. Ovo je značajan faktor, posebno za parove koji plaćaju lečenje iz sopstvenih sredstava.</p>
+
+      <p><strong>Emocionalni i fizički teret.</strong> IUI je emocionalno i fizički lakši. Manja je količina lekova, manje injekcija (ili ih uopšte nema kod nestimulisanog ciklusa), nema punkcije, nema čekanja rezultata oplođenja i razvoja embriona u laboratoriji. VTO je zahtevniji u svim ovim aspektima.</p>
+
+      <p><strong>Stope uspešnosti po ciklusu.</strong> IUI: 10–20%. VTO: 40–60% (zavisno od starosti i dijagnoze). VTO ima značajno veću stopu uspešnosti po pojedinačnom pokušaju.</p>
+
+      <p><strong>Preporučeni broj pokušaja pre prelaska na sledeći korak.</strong> Za IUI se obično preporučuje 3–6 pokušaja pre nego što se donese odluka o prelasku na VTO. Kod parova sa uznapredovalom starošću žene ili težim dijagnozama, ovaj broj može biti i manji.</p>
+
+      <h2 id="s8">8. Rizici i komplikacije</h2>
+
+      <p>IUI je generalno veoma bezbedan postupak, ali kao i svaka medicinska intervencija, nosi određene rizike:</p>
+
+      <p><strong>Višeplodna trudnoća.</strong> Ovo je najznačajniji rizik IUI postupka, posebno kod stimulisanih ciklusa. Ako stimulacija dovede do sazrevanja većeg broja folikula, postoji mogućnost da se oplodi više od jedne jajne ćelije, što rezultira blizanačkom ili, ređe, trudnoćom sa tri ili više plodova. Višeplodne trudnoće nose veći rizik od komplikacija i za majku i za bebe (prevremeni porođaj, niska telesna težina novorođenčadi, gestacijski dijabetes i dr.).</p>
+
+      <p>Upravo zato je pažljiv ultrazvučni monitoring tokom stimulisanog ciklusa od ključnog značaja. Ako ultrazvuk pokaže da je sazrelo previše folikula (obično više od 3), lekar može doneti odluku da se ciklus otkaže - to jest da se inseminacija ne radi u tom ciklusu - kako bi se izbegao rizik od višeplodne trudnoće.</p>
+
+      <p><strong>Sindrom ovarijalne hiperstimulacije (OHSS).</strong> Ovo je stanje u kome jajnici preterano reaguju na hormonsku stimulaciju, postanu uvećani i bolni, a tečnost se može nakupljati u stomaku. Kod IUI ciklusa, u kojima se koriste niske doze lekova, OHSS je znatno ređi nego kod VTO, ali nije nemoguć. Blagi oblici se manifestuju nadutošću i nelagodom u stomaku, dok teški oblici (izuzetno retki kod IUI) zahtevaju medicinsku pažnju.</p>
+
+      <p><strong>Infekcija.</strong> Rizik od infekcije nakon IUI je izuzetno nizak, jer se postupak radi u sterilnim uslovima, a kateter se koristi samo jednom. Statistički, infekcija se javlja u manje od 1% slučajeva.</p>
+
+      <p><strong>Ektopična (vanmaterična) trudnoća.</strong> Postoji mali ali realan rizik da se oplođena jajna ćelija implantira van materice, najčešće u jajovodu. Ovaj rizik postoji i kod prirodnog začeća i kod svih vidova asistirane reprodukcije. Ektopična trudnoća zahteva hitnu medicinsku intervenciju.</p>
+
+      <h2 id="s9">9. Česta pitanja i saveti za donošenje odluke</h2>
+
+      <h3>Koliko puta treba pokušati IUI pre nego što odustanemo?</h3>
+
+      <p>Većina stručnjaka preporučuje 3–6 pokušaja IUI. Statistički, ako IUI treba da uspe, najčešće se to dešava u prvih 3–4 ciklusa. Nakon 6 neuspešnih pokušaja, šanse za uspeh u narednim ciklusima su veoma male i obično se preporučuje prelazak na VTO. Kod žena starijih od 38 godina ili kod ozbiljnijih dijagnoza, lekar može preporučiti i manji broj IUI pokušaja (1–3) pre prelaska na VTO.</p>
+
+      <h3>Da li je IUI bolan?</h3>
+
+      <p>Ne. Velika većina žena opisuje IUI kao bezbolnu proceduru ili proceduru sa minimalnom nelagodom. Najčešće poređenje je sa rutinskim ginekološkim pregledom ili PAPA testom. Možete osetiti kratak pritisak ili blag grč pri prolasku katetera, ali to traje svega nekoliko sekundi.</p>
+
+      <h3>Da li možemo imati odnose nakon inseminacije?</h3>
+
+      <p>Da. Većina lekara čak preporučuje polni odnos u periodu oko inseminacije, jer to može dodatno povećati broj spermatozoida dostupnih za oplođenje. Nema medicinskog razloga za izbegavanje odnosa nakon IUI, osim ako vaš lekar ne savetuje drugačije iz specifičnih razloga.</p>
+
+      <h3>Da li je bolje krenuti odmah sa VTO umesto da „gubimo vreme" na IUI?</h3>
+
+      <p>Ovo je jedno od najčešćih dilema sa kojima se parovi suočavaju. Odgovor zavisi od individualne situacije. Za mnoge parove, IUI je potpuno opravdan prvi korak - posebno ako je žena mlađa od 35–38 godina, dijagnoza je povoljna za IUI, i nema faktora koji bi zahtevali VTO. IUI nudi šansu za začeće uz znatno manji fizički, emocionalni i finansijski teret. Za neke parove, IUI donosi trudnoću već nakon prvog ili drugog pokušaja, i ti parovi nikada nisu ni morali da prođu kroz VTO.</p>
+
+      <p>S druge strane, ako postoje jasne indikacije za VTO od samog početka (teški muški faktor, neprohodni jajovodi, uznapredovala starost), pokušaji sa IUI zaista mogu predstavljati nepotreban gubitak vremena. Vaš lekar je najbolji savetnik u ovoj dilemi.</p>
+
+      <h3>Da li IUI funkcioniše sa donor spermom?</h3>
+
+      <p>Apsolutno. IUI sa donor spermom je veoma čest i uspešan postupak. Donor sperma prolazi kroz iste procese pripreme kao i sperma partnera i koristi se na identičan način. Stope uspešnosti su čak ponekad i više nego sa partnerovom spermom, jer su donori obično mladi muškarci sa izuzetno kvalitetnom spermom, koji prolaze detaljne zdravstvene i genetske provere.</p>
+
+      <h3>IUI kod istopolnih parova i samohranog roditeljstva</h3>
+
+      <p>IUI je postupak koji je posebno pristupačan i pogodan za samohrane žene koje žele da ostvare materinstvo i za ženske istopolne parove. Postupak je isti kao i za heteroseksualne parove - jedina razlika je što se koristi donor sperma. Mnoge klinike imaju dugogodišnje iskustvo u radu sa ovim pacijentkinjama i pružaju podršku prilagođenu njihovim specifičnim potrebama.</p>
+
+      <h3>Kratka istorija IUI metode</h3>
+
+      <p>IUI nije nova ili eksperimentalna procedura. Prve inseminacije su zabeležene još u 18. veku, a moderna intrauterina inseminacija sa pripremom sperme kakvu poznajemo danas razvila se tokom 1980-ih godina. Decenijama iskustva i milionima uspešno sprovedenih postupaka širom sveta, IUI je dobro etablirana, bezbedna i dokazana metoda asistirane reprodukcije.</p>
+
+      <h3>Psihološki aspekti izbora između IUI i VTO</h3>
+
+      <p>Mnogi parovi osećaju pritisak da „odmah krenu na VTO" jer im se čini da je to „ozbiljniji" i „efikasniji" pristup. IUI se ponekad percipira kao „slabija opcija" ili „gubljenje vremena". Važno je razumeti da ova percepcija nije tačna - IUI je legitimna i klinički dokazana metoda koja za mnoge parove predstavlja pravi put do trudnoće.</p>
+
+      <p>Istovremeno, ako IUI ne uspe nakon razumnog broja pokušaja, osećaj frustracije i želja da se pređe na VTO je potpuno razumljiva i opravdana. Ne postoji „pogrešna" odluka - postoji samo odluka koja je prava za vas, u vašoj situaciji, u ovom trenutku.</p>
+
+      <h3>Kada je pravi trenutak za prelazak sa IUI na VTO?</h3>
+
+      <p>Pravi trenutak zavisi od vaše starosti, dijagnoze, broja pokušanih IUI ciklusa i vaših ličnih osećanja. Generalno, prelazak se razmatra nakon 3–6 neuspelih IUI ciklusa, ili ranije ako postoji jasan medicinski razlog. Razgovor sa vašim lekarom o daljim koracima nije znak odustajanja - to je znak da aktivno učestvujete u donošenju odluka o sopstvenom lečenju i da tražite najbolji put ka cilju.</p>
+
+      <h3>Zaključak</h3>
+
+      <p>IUI nije „slabija verzija VTO-a" - to je drugačiji, jednostavniji i za mnoge parove sasvim dovoljan pristup. Za pravilno odabrane pacijente, IUI nudi realnu šansu za trudnoću uz minimalan fizički diskomfor, bez anestezije, bez operativnih procedura i uz znatno niže troškove.</p>
+
+      <p>Ako vam je lekar preporučio IUI, znajte da je to dobro utemeljena preporuka zasnovana na decenijama kliničkog iskustva. Dajte sebi priliku za ovaj korak - a ako bude potrebno, znanje da sledeći korak (VTO) postoji kao opcija može vam pružiti dodatnu sigurnost i mir.</p>
+
+      <p>Na ovom putu niste sami. Hiljade parova širom sveta svaki dan prolazi kroz isti proces, sa istim nadama i strepnjama. Vaš put je jedinstven, ali cilj - ostvarivanje porodice - je univerzalan. I svaki korak, pa i ovaj prvi, približava vas tom cilju.</p>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">IUI</a>
+        <a href="#" class="article-tag">Intrauterina inseminacija</a>
+        <a href="#" class="article-tag">Asistirano oplođenje</a>
+        <a href="#" class="article-tag">Infertilitet</a>
+        <a href="#" class="article-tag">Procedure</a>
+        <a href="#" class="article-tag">Plodnost</a>
+        <a href="#" class="article-tag">VTO</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+</body>
+</html>

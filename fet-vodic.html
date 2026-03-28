@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transfer zamrznutih embriona (FET) - procedura i priprema | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">VTO metode</span>
+      <h1 class="article-title">Transfer zamrznutih embriona (FET) - procedura i priprema</h1>
+      <p class="article-subtitle">Sveobuhvatan vodič za parove kojima predstoji FET ciklus</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je FET i zašto postaje sve zastupljeniji</a></li>
+        <li><a href="#s2">Vitrifikacija - kako funkcioniše zamrzavanje embriona</a></li>
+        <li><a href="#s3">Indikacije za FET - kada se primenjuje</a></li>
+        <li><a href="#s4">Priprema endometrijuma za FET - protokoli</a></li>
+        <li><a href="#s5">Dan transfera - odmrzavanje i postupak</a></li>
+        <li><a href="#s6">Period nakon FET-a i stope uspešnosti</a></li>
+        <li><a href="#s7">Posebne situacije i varijacije</a></li>
+        <li><a href="#s8">Mitovi i zablude o zamrznutim embrionima</a></li>
+        <li><a href="#s9">Emocionalna dimenzija FET procesa</a></li>
+        <li><a href="#s10">Finansijski i praktični aspekti FET-a</a></li>
+        <li><a href="#s11">Česta pitanja parova i saveti za pripremu</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <!-- ========== SECTION 1 ========== -->
+      <h2 id="s1">Šta je FET i zašto postaje sve zastupljeniji</h2>
+
+      <p>FET (skraćenica od engleskog <em>Frozen Embryo Transfer</em> - transfer zamrznutog embriona) je postupak u okviru vantelesne oplodnje (VTO) u kome se embrion koji je prethodno zamrznut nakon jednog VTO ciklusa odmrzava i vraća u matericu pacijentkinje. Ključna razlika u odnosu na tzv. sveži transfer jeste u tome što se embrion ne vraća u istom ciklusu u kome su jajne ćelije prikupljene i oplodnja obavljena, već u posebno pripremljenom, odvojenom ciklusu - često nedeljama ili mesecima kasnije.</p>
+
+      <p>Važno je odmah razbiti jednu od najčešćih zabluda: <strong>FET nije „drugi izbor" niti „plan B".</strong> Naprotiv, u savremenoj reproduktivnoj medicini FET postaje sve češće <em>preferirani</em> pristup. Mnoge klinike danas planiraju da se svi embrioni zamrznu nakon oplodnje (tzv. <em>freeze-all</em> strategija), a transfer obave tek kada se organizam pacijentkinje potpuno oporavi od hormonske stimulacije.</p>
+
+      <h3>Kako embrioni dospevaju u zamrzivač</h3>
+
+      <p>Da bismo razumeli FET, moramo se na trenutak vratiti korak unazad. U standardnom VTO ciklusu, pacijentkinja prolazi kroz više faza: hormonsku stimulaciju jajnika (kako bi sazrelo više jajnih ćelija), punkciju (zahvat u kome se jajne ćelije prikupljaju iz jajnika), oplodnju u laboratoriji i kultivaciju (gajenje) embriona tokom nekoliko dana. Ako sve prođe dobro, nastaje više kvalitetnih embriona - a za transfer se koristi obično samo jedan (ređe dva). Preostali kvalitetni embrioni se zamrzavaju metodom vitrifikacije i čuvaju u specijalnoj kriobanki, čekajući svoj trenutak.</p>
+
+      <p>U drugom scenariju, lekar donosi odluku da se <em>svi</em> embrioni zamrznu bez ijednog svežeg transfera. To je tzv. <strong>freeze-all strategija</strong>, koja se primenjuje iz više razloga o kojima će biti reči u nastavku.</p>
+
+      <h3>Zašto FET umesto svežeg transfera?</h3>
+
+      <p>Tokom hormonske stimulacije jajnika, nivo estrogena u organizmu višestruko raste. Ova hormonska oluja, iako neophodna da bi sazrelo više jajnih ćelija, može da naruši receptivnost endometrijuma - sluznice materice koja treba da primi embrion. Jednostavnije rečeno: materica posle stimulacije često nije u optimalnom stanju da „prihvati" embrion. Rastući naučni dokazi pokazuju da kada se materici da vremena da se „odmori" i vrati u prirodno stanje, šanse za implantaciju (ugnjžđivanje embriona u sluznicu) mogu biti značajno veće.</p>
+
+      <h3>FET kao planirana strategija vs. FET kao sledeći korak</h3>
+
+      <p><strong>Planirani FET (freeze-all):</strong> Lekar od početka donosi odluku da se transfer neće raditi u istom ciklusu. Svi embrioni se zamrzavaju, a transfer se zakazuje za naredni ciklus. Razlozi mogu biti medicinski (rizik od hiperstimulacije, povišen progesteron, neophodnost genetskog testiranja embriona) ili praktični (potreba za odmorom, putovanje, stres).</p>
+
+      <p><strong>FET nakon neuspelog svežeg transfera:</strong> Ako je u prethodnom ciklusu urađen sveži transfer koji nije rezultirao trudnoćom, preostali zamrznuti embrioni pružaju novu šansu bez potrebe za ponovnim prolaskom kroz stimulaciju i punkciju. Ovo je izuzetno važno jer znači da jedan ciklus stimulacije može da obezbedi materijal za više pokušaja transfera.</p>
+
+      <!-- ========== SECTION 2 ========== -->
+      <h2 id="s2">Vitrifikacija - kako funkcioniše zamrzavanje embriona</h2>
+
+      <p>Pre nego što pričamo o samom FET-u, važno je razumeti šta se desilo <em>pre</em> transfera - kako su vaši embrioni zamrznuti i zašto je to danas izuzetno siguran proces.</p>
+
+      <h3>Šta je vitrifikacija</h3>
+
+      <p><strong>Vitrifikacija</strong> (od latinske reči <em>vitrum</em> - staklo) je savremena metoda ultrabrzog zamrzavanja embriona. Princip je sledeći: embrion se pomoću specijalnih zaštitnih rastvora (krioprotektanata) zamrzava toliko brzo da voda unutar ćelija nema vremena da formira kristale leda. Umesto toga, sadržaj ćelije prelazi u staklasto stanje - otuda i naziv. Ovo je ključno jer su upravo kristali leda ti koji mogu da oštete ćelijske strukture.</p>
+
+      <p>Embrioni se čuvaju u tečnom azotu na temperaturi od –196°C. Na ovoj temperaturi, svi biološki procesi su potpuno zaustavljeni - embrion se bukvalno nalazi u stanju suspendovane animacije.</p>
+
+      <p>Starija metoda, tzv. sporo zamrzavanje, više se gotovo uopšte ne koristi jer je vitrifikacija pokazala dramatično bolje rezultate u smislu preživljavanja embriona.</p>
+
+      <h3>Kada se embrioni zamrzavaju</h3>
+
+      <p>Embrioni se najčešće zamrzavaju na stadijumu <strong>blastociste</strong> - to je embrion star 5 ili 6 dana koji se sastoji od oko 100–200 ćelija i ima jasnu strukturu sa unutrašnjom ćelijskom masom (iz koje će se razviti beba) i spoljašnjim slojem (trofoblastom, koji će postati posteljica). Stadijum blastociste je preferiran za zamrzavanje jer su embrioni koji dožive ovaj stadijum već prošli prirodnu selekciju - pokazali su da imaju kapacitet za razvoj. Ređe se embrioni zamrzavaju na treći dan razvoja, kada imaju 6–8 ćelija.</p>
+
+      <h3>Koliko dugo embrioni mogu biti zamrznuti</h3>
+
+      <p>Teorijski - <strong>neograničeno</strong> dugo, sve dok su uranjeni u tečni azot. Na –196°C nema nikakve biološke aktivnosti, pa ne dolazi do starenja niti degradacije. Zabeležene su uspešne trudnoće iz embriona koji su bili zamrznuti više od 20 godina. Nema naučnih dokaza da dužina skladištenja utiče na kvalitet embriona ili šanse za trudnoću.</p>
+
+      <h3>Stope preživljavanja nakon odmrzavanja</h3>
+
+      <p>Savremena vitrifikacija ima <strong>stope preživljavanja embriona od 90–99%</strong>. To znači da velika većina embriona preživi proces zamrzavanja i odmrzavanja bez oštećenja. Ovo je ogroman napredak u odnosu na stariju metodu sporog zamrzavanja, gde su stope preživljavanja bile značajno niže.</p>
+
+      <h3>Kako se embrioni čuvaju</h3>
+
+      <p>Zamrznuti embrioni se čuvaju u specijalnim kontejnerima koji se zovu <strong>kriobanke</strong> - velikim termos-posudama ispunjenim tečnim azotom. Svaki embrion je smešten na sićušnu slamčicu (strav) ili u posebnu kapsulu, pažljivo obeleženu identifikacionim podacima para. Klinike primenjuju stroge sigurnosne protokole: dvostruka identifikacija, elektronski sistemi praćenja, alarmi za nivo tečnog azota, redovne kontrole. Embrioni su, dakle, veoma dobro zaštićeni.</p>
+
+      <!-- ========== SECTION 3 ========== -->
+      <h2 id="s3">Indikacije za FET - kada se primenjuje</h2>
+
+      <p>FET se primenjuje u različitim kliničkim situacijama. Evo najvažnijih:</p>
+
+      <h3>Višak kvalitetnih embriona</h3>
+
+      <p>Ovo je najčešći scenario. Kada u jednom VTO ciklusu nastane više kvalitetnih embriona nego što je potrebno za jedan transfer, preostali embrioni se zamrzavaju. Ako prvi transfer ne rezultira trudnoćom, ili ako par kasnije želi još jedno dete, zamrznuti embrioni su tu - spremni za FET.</p>
+
+      <h3>Freeze-all strategija</h3>
+
+      <p>U ovom pristupu, svi embrioni se zamrzavaju bez svežeg transfera. Razlozi mogu biti:</p>
+
+      <ul>
+        <li><strong>Rizik od sindroma ovarijalne hiperstimulacije (OHSS)</strong> - ozbiljna komplikacija stimulacije jajnika. Kada postoji povišen rizik, lekar odlaže transfer dok se jajnici ne smire.</li>
+        <li><strong>Povišen progesteron na dan triggera</strong> - prerano povišenje progesterona može da naruši receptivnost sluznice materice, čineći je manje pogodnom za prijem embriona.</li>
+        <li><strong>Neoptimalan endometrijum</strong> - sluznica materice je previše tanka ili nema odgovarajuću strukturu za implantaciju.</li>
+        <li><strong>Potreba za preimplantacionim genetskim testiranjem (PGT)</strong> - nakon biopsije embriona, genetska analiza zahteva vreme, te se embrioni zamrzavaju dok se čekaju rezultati. Transfer se radi samo sa genetski ispravnim (euploidnim) embrionima.</li>
+        <li><strong>Medicinski razlozi</strong> - polip u materici, hidrosalpinks (nakupljanje tečnosti u jajovodu koje može negativno uticati na implantaciju), akutna bolest ili druga stanja koja zahtevaju lečenje pre transfera.</li>
+        <li><strong>Lični ili logistički razlozi</strong> - putovanje, intenzivan period na poslu, emocionalna potreba za pauzom.</li>
+      </ul>
+
+      <h3>Neuspeo prethodni transfer</h3>
+
+      <p>Kada sveži transfer ili prethodni FET nije rezultirao trudnoćom, preostali zamrznuti embrioni se koriste za novi pokušaj. Svaki zamrznuti embrion predstavlja novu šansu.</p>
+
+      <h3>Željeno odlaganje trudnoće</h3>
+
+      <p>Neki parovi zamrzavaju embrione radi očuvanja plodnosti (<em>fertility preservation</em>) - na primer pre onkološkog lečenja ili iz ličnih razloga. FET im omogućava da trudnoću ostvare kada budu spremni.</p>
+
+      <h3>Donacija embriona</h3>
+
+      <p>U određenim slučajevima, parovi koriste donirane zamrznute embrione. Priprema primaoca je identična standardnom FET protokolu.</p>
+
+      <!-- ========== SECTION 4 ========== -->
+      <h2 id="s4">Priprema endometrijuma za FET - protokoli</h2>
+
+      <p>Uspeh FET-a u velikoj meri zavisi od toga koliko je materica pripremljena da primi embrion. Endometrijum (sluznica materice) mora da bude odgovarajuće debljine i strukture. Postoje dva osnovna pristupa pripremi, i oba su potvrđena u praksi.</p>
+
+      <h3>Supstitucioni (medikamentozni / artificijelni) protokol - HRT ciklus</h3>
+
+      <h4>Princip</h4>
+
+      <p>Kod ovog pristupa, lekar preuzima potpunu kontrolu nad ciklusom pomoću hormona. Sopstvena ovulacija se potiskuje (najčešće lekovima) ili se jednostavno ignoriše. Sluznica materice se izgrađuje pomoću spolja unetih hormona - otuda naziv „supstitucioni" (zamena za prirodne hormone).</p>
+
+      <h4>Korak po korak</h4>
+
+      <p><strong>Estrogen (estradiol):</strong> Na početku ciklusa započinje se sa preparatima estrogena - u obliku tableta, flastera ili vaginalnih preparata. Estrogen ima zadatak da izgradi endometrijum, čineći ga debljim i bogatijim krvnim sudovima.</p>
+
+      <p><strong>Monitoring endometrijuma:</strong> Tokom narednih dana, lekar ultrazvučnim pregledima prati rast sluznice. Meri se debljina endometrijuma i procenjuje njegova struktura. Idealan endometrijum ima tzv. trilaminarni (trolinijski) izgled na ultrazvuku - tri karakteristične linije koje ukazuju na dobru receptivnost. Ciljna debljina je obično 7–8 mm ili više.</p>
+
+      <p><strong>Uvođenje progesterona:</strong> Kada endometrijum dostigne optimalnu debljinu, lekar uvodi progesteron - hormon koji simulira postovulatornu fazu ciklusa i priprema sluznicu za prijem embriona. Progesteron se može davati vaginalno (najčešće), oralno ili u obliku injekcija.</p>
+
+      <p><strong>Tajming transfera:</strong> Transfer se zakazuje precizno u odnosu na dan uvođenja progesterona. Na primer, za blastocistu (embrion star 5 dana) transfer se radi tačno 5 dana nakon početka progesterona. Ovaj tajming je kritičan jer se embrion mora vratiti u matericu upravo u trenutku kada je sluznica u svom tzv. <strong>prozoru implantacije</strong> - kratkom periodu (obično 24–48 sati) kada je endometrijum najspremniji da primi embrion.</p>
+
+      <h4>Prednosti i mane supstitucionog protokola</h4>
+
+      <p><strong>Prednosti:</strong> Potpuna kontrola nad tajmingom - transfer se može zakazati unapred, nema rizika od neplanirane ovulacije, lakše planiranje za kliniku i pacijentkinju.</p>
+
+      <p><strong>Mane:</strong> Dugotrajna hormonska terapija, potreba za nastavkom estrogena i progesterona u ranoj trudnoći (jer nema sopstvenog žutog tela koje bi prirodno proizvodilo ove hormone), mogući sporedni efekti hormonske terapije.</p>
+
+      <h3>Prirodni ciklus FET (NC-FET)</h3>
+
+      <h4>Princip</h4>
+
+      <p>Ovaj pristup koristi sopstvenu ovulaciju pacijentkinje, bez ili sa minimalnom hormonskom podrškom. Materica se priprema onako kako bi to učinila priroda - sopstveni hormoni grade sluznicu i uspostavljaju prozor implantacije.</p>
+
+      <h4>Korak po korak</h4>
+
+      <p><strong>Monitoring:</strong> Lekar prati rast dominantnog folikula (meška u jajniku u kojoj sazreva jajna ćelija) pomoću ultrazvuka. Istovremeno se prati nivo LH hormona u krvi ili urinu - LH nalet (naglo povišenje LH hormona) je signal da će se ovulacija desiti u narednih 24–36 sati.</p>
+
+      <p><strong>Tajming transfera:</strong> Transfer se zakazuje u odnosu na dan ovulacije - na primer, 5 dana nakon ovulacije za blastocistu. Sopstveno žuto telo (struktura koja nastaje u jajniku nakon ovulacije) prirodno proizvodi progesteron.</p>
+
+      <h4>Prednosti i mane prirodnog ciklusa</h4>
+
+      <p><strong>Prednosti:</strong> Minimalni ili nikakvi lekovi, fiziološkiji pristup, sopstveno žuto telo proizvodi progesteron na prirodan način.</p>
+
+      <p><strong>Mane:</strong> Zahteva redovne ovulatorne cikluse, tajming je manje predvidiv (ovulacija se ne može zakazati), više kontrolnih pregleda, rizik od otkazivanja ciklusa ako ovulacija nije detektovana ili se desi prerano.</p>
+
+      <h3>Modifikovani prirodni ciklus</h3>
+
+      <p>Ovo je kombinovani pristup: prati se prirodni rast folikula, ali se dodaje <strong>trigger injekcija (hCG)</strong> - injekcija koja „okida" ovulaciju u precizno kontrolisanom trenutku. Time se postiže predvidiviji tajming u odnosu na potpuno prirodni ciklus. Dodatno, često se daje i lutealna podrška progesteronom nakon ovulacije.</p>
+
+      <h3>Koji protokol je bolji?</h3>
+
+      <p>Trenutni naučni dokazi ne pokazuju jasnu prednost jednog protokola nad drugim kada je reč o stopama trudnoće. Izbor zavisi od vašeg profila (da li imate redovne cikluse, da li imate neko zdravstveno stanje koje favorizuje jedan pristup), preferencija lekara, vaših ličnih želja i praktičnih okolnosti. Postoji rastući trend vraćanja ka prirodnim ciklusima, jer mnogi lekari smatraju da je fiziološkije okruženje potencijalno povoljnije za implantaciju.</p>
+
+      <!-- ========== SECTION 5 ========== -->
+      <h2 id="s5">Dan transfera - odmrzavanje i postupak</h2>
+
+      <p>Dan transfera je za mnoge parove kulminacija nedelja iščekivanja. Evo šta možete da očekujete.</p>
+
+      <h3>Odmrzavanje embriona</h3>
+
+      <p>Ujutru na dan vašeg transfera, embriolog u laboratoriji pažljivo vadi sićušnu slamčicu sa vašim embrionom iz kontejnera sa tečnim azotom. U roku od svega nekoliko minuta, embrion se zagreva kroz niz rastvora precizno kontrolisane temperature. Pod mikroskopom, embriolog posmatra kako se blastocista polako ponovo ekspandira - to je znak da je embrion preživeo i da je spreman za transfer. U tom trenutku, vaš embrion je bukvalno prešao iz temperature od –196°C u okruženje koje simulira toplinu vašeg tela.</p>
+
+      <p>Embriolog pažljivo procenjuje stanje embriona: da li su sve ćelije intaktne, da li blastocista ponovo počinje da se širi, kakav je njen opšti kvalitet nakon odmrzavanja.</p>
+
+      <h3>Komunikacija sa parom</h3>
+
+      <p>Klinika vas obaveštava o statusu embriona nakon odmrzavanja - obično telefonom ili lično pre samog postupka. Dobićete informaciju da li je embrion preživeo i u kakvom je stanju. S obzirom na visoke stope preživljavanja (90–99%), u ogromnoj većini slučajeva vest je pozitivna.</p>
+
+      <h3>Assisted hatching (potpomognuto izleganje)</h3>
+
+      <p>U nekim slučajevima, embriolog pre transfera pravi mali otvor u <strong>zoni pelucidi</strong> - zaštitnoj opni koja okružuje embrion, poput ljuske. Ovaj postupak se zove assisted hatching (potpomognuto izleganje) i cilj mu je da olakša embrionu „izleganje" iz opne i kontakt sa sluznicom materice. Primenjuje se u određenim situacijama: kod starijih pacijentkinja, nakon višestrukih neuspelih transfera, ili kada je zona pelucida zadebljala nakon zamrzavanja.</p>
+
+      <h3>Sam postupak transfera</h3>
+
+      <p>Postupak FET-a je identičan svežem embriotransferu i spada među najjednostavnije procedure u reproduktivnoj medicini:</p>
+
+      <ul>
+        <li>Pacijentkinja leži u ginekološkom položaju, sa umereno punom bešikom (puna bešika pomaže bolju vizualizaciju materice na ultrazvuku).</li>
+        <li>Lekar pod kontrolom abdomenalnog ultrazvuka uvodi tanak, mekan kateter (cevčicu) kroz grlić materice.</li>
+        <li>Embriolog utačava embrion u vrh katetera zajedno sa malom količinom medijuma.</li>
+        <li>Lekar pažljivo deponuje embrion u materičnu šupljinu, na optimalno mesto.</li>
+        <li>Postupak traje 5–15 minuta, bezolan je i ne zahteva anesteziju.</li>
+        <li>Nakon postupka, embriolog pod mikroskopom proverava da li je kateter prazan - potvrda da je embrion uspešno deponovan.</li>
+      </ul>
+
+      <h3>Odluka o broju embriona za transfer</h3>
+
+      <p>Ista razmatranja važe kao i kod svežeg transfera. Savremeni trend je prema <strong>elektivnom transferu jednog embriona (eSET)</strong> - transfer jednog kvalitetnog embriona, čime se dramatično smanjuje rizik od višeplodne trudnoće, a stope uspešnosti ostaju visoke. Faktori koji utiču na odluku uključuju starost pacijentkinje, kvalitet embriona, prethodnu istoriju transfera i preporuke lekara.</p>
+
+      <!-- ========== SECTION 6 ========== -->
+      <h2 id="s6">Period nakon FET-a i stope uspešnosti</h2>
+
+      <h3>Nastavak hormonske terapije</h3>
+
+      <p><strong>Kod supstitucionog protokola:</strong> Nastavlja se sa estrogenom i progesteronom. Ovi hormoni su neophodni jer u ovom tipu ciklusa nema sopstvenog žutog tela koje bi ih proizvodilo. Ukoliko test na trudnoću bude pozitivan, terapija se obično nastavlja do 8–12. nedelje trudnoće, kada posteljica preuzima proizvodnju hormona.</p>
+
+      <p><strong>Kod prirodnog ciklusa:</strong> Eventualno se dodaje lutealna podrška progesteronom. Sopstveno žuto telo već proizvodi progesteron, ali mnogi lekari dodaju i spoljašnji progesteron kao meru predostrožnosti.</p>
+
+      <h3>Preporuke za ponašanje</h3>
+
+      <p>Normalne dnevne aktivnosti su dozvoljene - hodanje, lagane kućne aktivnosti, rad za računarom. Preporučuje se izbegavanje intenzivnih fizičkih napora, sauna i vrelih kupki. Nema naučnog dokaza da strogo mirovanje (ležanje u krevetu) poboljšava šanse - naprotiv, umerena aktivnost je podsticajna za cirkulaciju i opšte blagostanje.</p>
+
+      <h3>Beta hCG test</h3>
+
+      <p>Krvni test na beta hCG (hormon trudnoće) radi se 10–14 dana nakon FET-a. Pozitivan rezultat ukazuje na trudnoću. U slučaju pozitivnog testa, sledi kontrolni ultrazvuk za 2–3 nedelje radi potvrde kliničke trudnoće i srčane radnje embriona.</p>
+
+      <h3>Two-week wait - period čekanja</h3>
+
+      <p>Period između transfera i testa na trudnoću poznat je kao „dve nedelje čekanja" (<em>two-week wait</em>). Emocionalno, ovaj period je identičan kao nakon svežeg transfera - ispunjen nadom, strepnjom i neizvesnošću. O emocionalnoj dimenziji ovog perioda govorićemo detaljnije u posebnoj sekciji.</p>
+
+      <h3>Stope uspešnosti FET-a</h3>
+
+      <p>Savremene stope uspešnosti FET-a su <strong>uporedive sa - a u nekim studijama čak i više od - stopa svežeg transfera</strong>, posebno kada se primenjuje freeze-all strategija. To znači da zamrzavanje i odmrzavanje embriona, uz pravilan protokol pripreme materice, ne umanjuje šanse za trudnoću.</p>
+
+      <p>Faktori koji utiču na uspešnost:</p>
+
+      <ul>
+        <li><strong>Starost žene u trenutku zamrzavanja embriona</strong> - ovo je ključno: bitna je starost u trenutku kada su jajne ćelije prikupljene, ne starost u trenutku transfera. Ovo je odlična vest za žene koje su zamrzle embrione u mlađoj dobi.</li>
+        <li><strong>Kvalitet embriona</strong> - bolji kvalitet blastociste pre zamrzavanja, veće šanse.</li>
+        <li><strong>Protokol pripreme</strong> - adekvatno pripremljen endometrijum je osnova uspeha.</li>
+        <li><strong>Receptivnost endometrijuma</strong> - sinhronizacija između stadijuma embriona i stanja sluznice materice.</li>
+      </ul>
+
+      <h3>Kumulativne stope trudnoće</h3>
+
+      <p>Jedan od najvećih benefita zamrzavanja embriona je mogućnost <strong>kumulativnog povećanja šansi</strong>. Jedan ciklus stimulacije može dati dovoljno embriona za više FET pokušaja. Kada se saberu šanse iz svih transfera (svežeg i naknadnih FET-ova), kumulativna stopa trudnoće po jednom ciklusu stimulacije može premašiti 60–70%.</p>
+
+      <h3>Porođajna težina i perinatalni ishodi</h3>
+
+      <p>Interesantno, studije pokazuju da su bebe rođene iz FET trudnoća povezane sa <strong>nešto višom porođajnom težinom</strong> u poređenju sa svežim transferom. Moguće objašnjenje je fiziološkije okruženje endometrijuma u FET ciklusu - bez uticaja visokih nivoa hormona iz stimulacije. U celini, zdravlje i razvoj dece rođene iz zamrznutih embriona su uporedivi sa decom začetom prirodnim putem ili svežim transferom.</p>
+
+      <!-- ========== SECTION 7 ========== -->
+      <h2 id="s7">Posebne situacije i varijacije</h2>
+
+      <h3>ERA test (Endometrial Receptivity Analysis)</h3>
+
+      <p>ERA test je specijalizovana analiza koja određuje vaš individualni <strong>prozor implantacije</strong>. Postupak podrazumeva biopsiju (uzimanje malog uzorka) endometrijuma u simuliranom ciklusu, identičnom onom koji bi bio korišćen za FET. Uzorak se šalje na genetsku analizu koja utvrđuje da li je vaš endometrijum u tom trenutku receptivan (spreman za embrion), prereceptivan (potrebno više dana progesterona) ili postreceptivan (potrebno manje dana).</p>
+
+      <p>ERA test se preporučuje nakon višestrukih neuspelih FET-ova sa kvalitetnim embrionima - situacija koja sugeriše da problem možda nije u embrionima već u tajmingu. Na osnovu rezultata, lekar prilagođava dan transfera - ovo se naziva <strong>personalizovani embriotransfer (pET)</strong>.</p>
+
+      <h3>FET nakon PGT (preimplantacionog genetskog testiranja)</h3>
+
+      <p>Kada se embrioni genetski testiraju (PGT), embriolog uzima mali uzorak ćelija iz spoljašnjeg sloja blastociste (trofoblasta), a embrioni se zamrzavaju dok se čekaju rezultati analize. Transfer se radi samo sa embrionima koji su potvrđeni kao genetski ispravni (euploidni - sa normalnim brojem hromozoma). Ovaj pristup posebno povećava šanse za trudnoću kod starijih pacijentkinja i parova sa genetskim rizicima.</p>
+
+      <h3>FET sa donor embrionima</h3>
+
+      <p>Kada parovi koriste donirane embrione, priprema primaoca je identična standardnom FET protokolu (supstitucioni ili prirodni ciklus). Posebnosti se tiču pravnih aspekata - ugovori o donaciji, saglasnosti, pitanja anonimnosti donora, i eventualnog prava deteta da sazna poreklo.</p>
+
+      <h3>Ponovljeni neuspeli FET-ovi (recurrent implantation failure)</h3>
+
+      <p>Kada više FET pokušaja sa kvalitetnim embrionima ne rezultira trudnoćom, lekar razmatra dodatne pretrage i terapije:</p>
+
+      <ul>
+        <li><strong>ERA test</strong> - za određivanje individualnog prozora implantacije</li>
+        <li><strong>Histeroskopija</strong> - pregled unutrašnjosti materice kamerom, za isključenje polipa, mioma, pregrada ili adhezija</li>
+        <li><strong>Imunološke pretrage</strong> - analiza mogućih imunoloških faktora koji ometaju implantaciju</li>
+        <li><strong>Trombofilija panel</strong> - ispitivanje poremećaja zgrušavanja krvi</li>
+        <li><strong>Endometrial scratching</strong> - blaga povreda sluznice materice koja može da podstakne receptivnost (dokazi su mešoviti)</li>
+        <li><strong>PRP (Platelet-Rich Plasma)</strong> - ubrizgavanje plazme bogate trombocitima u matericu - noviji pristup, još u fazi istraživanja</li>
+        <li><strong>Intralipidi, heparin</strong> - terapije koje se razmatraju u određenim slučajevima na osnovu individualnog nalaza</li>
+      </ul>
+
+      <h3>FET kod adenomioze i endometrioze</h3>
+
+      <p><strong>Adenomioza</strong> (stanje u kome se tkivo sluznice materice urašta u mišićni zid materice) i <strong>endometrioza</strong> (stanje u kome se tkivo slično endometrijumu nalazi van materice) mogu otežati implantaciju. Kod ovih pacijentkinja često se primenjuju duži protokoli supresije pomoću GnRH agonista (lekova koji privremeno „gase" rad jajnika) pre započinjanja pripreme endometrijuma. Ovo smiruje bolest i stvara povoljnije uslove za implantaciju.</p>
+
+      <!-- ========== SECTION 8 ========== -->
+      <h2 id="s8">Mitovi i zablude o zamrznutim embrionima</h2>
+
+      <p>FET prati niz zabluda koje mogu nepotrebno zabrinuti parove. Vreme je da ih razjasnimo.</p>
+
+      <h3>„Zamrznuti embrioni su slabiji od svežih"</h3>
+
+      <p><strong>Nije tačno.</strong> Vitrifikacija očuvava kvalitet embriona gotovo u potpunosti. Savremene stope preživljavanja od 90–99% govore same za sebe. Štaviše, odmor materice između stimulacije i transfera može čak poboljšati šanse za implantaciju, jer je endometrijum u fiziološkijem stanju.</p>
+
+      <h3>„Što duže su embrioni zamrznuti, to su manje šanse"</h3>
+
+      <p><strong>Nema dokaza za ovo.</strong> Na –196°C nema nikakve biološke aktivnosti. Embrion zamrznut pre 20 godina ima iste šanse kao embrion zamrznut pre 2 meseca, pod uslovom da je bio kvalitetan u trenutku zamrzavanja.</p>
+
+      <h3>„FET je manje uspešan od svežeg transfera"</h3>
+
+      <p><strong>Savremeni podaci pokazuju suprotno.</strong> FET stope uspeha su uporedive sa svežim transferom, a u studijama koje porede freeze-all strategiju sa svežim transferom, FET često pokazuje čak bolje rezultate.</p>
+
+      <h3>„Deca rođena iz zamrznutih embriona su drugačija"</h3>
+
+      <p><strong>Studije ne pokazuju razlike</strong> u zdravlju, rastu i razvoju dece rođene iz FET-a u poređenju sa decom začetom prirodnim putem ili svežim transferom. Desetine hiljada beba širom sveta rođeno je iz zamrznutih embriona, i praćenje pokazuje normalan razvoj.</p>
+
+      <h3>„Ako prvi FET ne uspe, ni sledeći neće"</h3>
+
+      <p><strong>Svaki FET je nova šansa.</strong> Neuspeh jednog transfera ne znači da će sledeći biti neuspešan. Uzroci neuspeha se mogu identifikovati i korigovati - promena protokola, ERA test, dodatne pretrage. Mnogi parovi ostvare trudnoću u drugom ili trećem FET pokušaju.</p>
+
+      <!-- ========== SECTION 9 ========== -->
+      <h2 id="s9">Emocionalna dimenzija FET procesa</h2>
+
+      <p>O FET-u se često govori u medicinskim terminima - protokoli, hormoni, debljina endometrijuma. Ali FET je i duboko emotivno iskustvo, i važno je priznati i normalizovati sve što osećate tokom ovog procesa.</p>
+
+      <h3>Povratak u kliniku nakon pauze</h3>
+
+      <p>Za mnoge parove, FET predstavlja povratak u kliniku nakon perioda pauze. Taj povratak nosi mešavinu nade i straha. Nada da će ovaj put uspeti, strah od još jednog razočaranja. Ako je prethodni pokušaj bio neuspešan, te emocije mogu biti još intenzivnije. To je potpuno normalno i razumljivo.</p>
+
+      <h3>Strah od odmrzavanja</h3>
+
+      <p>Anksioznost da embrion neće preživeti odmrzavanje je jedna od najčešćih briga. Ovaj strah je razumljiv - jer, iako su stope preživljavanja izuzetno visoke (90–99%), uvek postoji ta mala neizvesnost. Važno je znati da klinike imaju izuzetno usavršene protokole odmrzavanja i da su ozbiljni problemi retki.</p>
+
+      <h3>FET je fizički lakši, ali emocionalno može biti teži</h3>
+
+      <p>Paradoksalno, FET ciklus - koji ne uključuje stimulaciju jajnika, svakodnevne injekcije i punkciju - može emocionalno biti jednako ili čak više stresan od svežeg ciklusa. Razlog je često u tome što FET dolazi nakon prethodnog iskustva (neuspešnog ili ne), pa parovi već znaju koliko može da boli razočaranje. Ponekad je upravo znanje o tome šta sledi najteži deo.</p>
+
+      <h3>Fenomen „poslednjeg embriona"</h3>
+
+      <p>Poseban emocionalni teret nosi situacija kada par ima samo jedan preostali zamrznuti embrion. Osećaj da je ovo „poslednja šansa" bez novog ciklusa stimulacije može stvoriti ogroman pritisak. Važno je razumeti da, čak i ako ovaj transfer ne uspe, to ne znači kraj puta - postoje nove opcije, novi ciklusi, nove strategije. Ali pritisak koji osećate u tom trenutku je validan i zaslužuje podršku.</p>
+
+      <h3>Kumulativna emocionalna iscrpljenost</h3>
+
+      <p>Parovi koji prolaze kroz više FET ciklusa često doživljavaju kumulativnu iscrpljenost - umor od procesa, čekanja, razočaranja, medicinskih pregleda, finansijskog tereta. Ovo je potpuno normalna reakcija na izuzetno stresan životni period. Potražite podršku - bilo od partnera, prijatelja, porodice, grupa za podršku ili profesionalnog psihologa koji se bavi reproduktivnom medicinom.</p>
+
+      <!-- ========== SECTION 10 ========== -->
+      <h2 id="s10">Finansijski i praktični aspekti FET-a</h2>
+
+      <h3>Cena FET ciklusa</h3>
+
+      <p>FET ciklus je značajno jeftiniji od kompletnog novog VTO ciklusa. Razlog je jednostavan: nema stimulacije jajnika (skupih hormona), nema punkcije (zahvata u operacionoj sali) i nema embriološkog rada na oplodnji i kultivaciji. Troškovi FET-a obično obuhvataju hormonske preparate za pripremu endometrijuma, ultrazvučne kontrole, sam postupak odmrzavanja i transfera.</p>
+
+      <h3>Troškovi skladištenja embriona</h3>
+
+      <p>Za čuvanje zamrznutih embriona plaća se godišnja naknada klinici. Ova naknada pokriva održavanje kriobanka, tečni azot, sigurnosne sisteme i administrativne troškove. Važno je biti svestan ove obaveze i planirati je u okviru ukupnog budžeta.</p>
+
+      <h3>Šta ako više ne želite da koristite zamrznute embrione?</h3>
+
+      <p>Parovi koji odluče da više ne žele da koriste zamrznute embrione imaju nekoliko opcija:</p>
+
+      <ul>
+        <li>Nastavak skladištenja - ostavljanje embriona zamrznutih za eventualnu buduću upotrebu</li>
+        <li>Donacija drugom paru - ako propisi i lična uverenja to dozvoljavaju</li>
+        <li>Donacija u naučne svrhe - za istraživanja u oblasti reproduktivne medicine</li>
+        <li>Uništavanje - prestanak skladištenja</li>
+      </ul>
+
+      <p>Ovo je duboko lična odluka i ne postoji „ispravan" odgovor. Važno je da par donese odluku zajedno, bez pritiska.</p>
+
+      <h3>Praktične prednosti FET-a</h3>
+
+      <p>FET zahteva manje odsustva sa posla i manje poseta klinici u poređenju sa punim VTO ciklusom. Nema svakodnevnih injekcija stimulacije, nema operativnog zahvata punkcije, oporavak je minimalan. Za mnoge parove, ova praktična jednostavnost je veliki olakšavajući faktor.</p>
+
+      <!-- ========== SECTION 11 ========== -->
+      <h2 id="s11">Česta pitanja parova i saveti za pripremu</h2>
+
+      <h3>Česta pitanja</h3>
+
+      <h4>Da li smo mi birali koje embrione ćemo zamrznuti?</h4>
+
+      <p>Embriološki tim zamrzava sve embrione koji dostignu odgovarajući kvalitet. Vi ne morate da birate - stručnjaci procenjuju svaki embrion i zamrzavaju one koji imaju potencijal za razvoj. Embrioni koji ne dostignu odgovarajući stadijum razvoja u laboratoriji, nažalost, nisu pogodni za zamrzavanje.</p>
+
+      <h4>Da li zamrzavanje i odmrzavanje oštećuje embrion?</h4>
+
+      <p>Savremena vitrifikacija je izuzetno bezbedna. Stope preživljavanja od 90–99% znače da velika većina embriona preživi bez ikakvih oštećenja. Retko, embrion može izgubiti jednu ili dve ćelije tokom procesa, ali blastociste imaju veliku sposobnost oporavka.</p>
+
+      <h4>Koliko FET-ova možemo da uradimo sa jednog ciklusa stimulacije?</h4>
+
+      <p>To zavisi od broja zamrznutih embriona. Ako je iz jednog ciklusa zamrznuto, na primer, 4 blastociste, imate materijal za potencijalno 4 FET pokušaja (pod uslovom da se prenosi po jedan embrion). Ovo je jedna od najvećih prednosti krioprezervacije - jedan ciklus stimulacije može pružiti višestruke šanse.</p>
+
+      <h4>Da li je bolje raditi prirodni ili medikamentozni protokol?</h4>
+
+      <p>Nema jednostavnog odgovora. Oba pristupa imaju slične stope uspešnosti. Prirodni ciklus je fiziološkiji i zahteva manje lekova, ali je manje predvidiv. Medikamentozni protokol nudi veću kontrolu tajminga, ali zahteva više hormona. Razgovarajte sa svojim lekarom o tome koji pristup najbolje odgovara vašoj situaciji.</p>
+
+      <h4>Šta ako embrion ne preživi odmrzavanje?</h4>
+
+      <p>Iako je ovo retko (dešava se u 1–10% slučajeva), može se desiti. Ako imate više zamrznutih embriona, klinika može odmrznuti sledeći embrion istog dana. Ako nemate više embriona, ciklus se nažalost otkazuje. Ovo je jedan od najtežih trenutaka za parove i važno je imati emotivnu podršku.</p>
+
+      <h4>Da li mogu da zamrznem embrione za drugo dete?</h4>
+
+      <p>Apsolutno. Mnogi parovi koji ostvare trudnoću iz prvog transfera (svežeg ili FET-a) zadržavaju preostale zamrznute embrione za eventualnu buduću trudnoću. Ovo je jedan od najvrednijih aspekata krioprezervacije - mogućnost planiranja porodice bez novog prolaska kroz stimulaciju.</p>
+
+      <h3>Saveti za parove koji se pripremaju za FET</h3>
+
+      <h4>Iskoristite pauzu između ciklusa</h4>
+
+      <p>Period između stimulacije (ili prethodnog neuspelog transfera) i FET-a nije „izgubljeno vreme" - to je prilika za oporavak, i fizički i emocionalni. Posvetite se stvarima koje vam prijaju: hodanje u prirodi, zdrava ishrana, dovoljan san, aktivnosti koje smanjuju stres.</p>
+
+      <h4>Pripremite telo</h4>
+
+      <p>Prestanite sa pušenjem, ograničite alkohol, uzmite prenatalne vitamine (posebno folnu kiselinu). Umeren fizički napor - joga, šetnje, plivanje - podržavaju cirkulaciju i opšte zdravlje, što indirektno podržava i zdravlje endometrijuma.</p>
+
+      <h4>Pripremite um</h4>
+
+      <p>Razmislite o tehnikama redukcije stresa: meditacija, vežbe disanja, razgovor sa psihologom ili u grupama podrške. Stres sam po sebi verovatno ne smanjuje šanse za trudnoću, ali značajno narušava kvalitet vašeg života tokom ovog perioda. Zaslužujete da se osećate što bolje.</p>
+
+      <h3>Pravni aspekti - šta se dešava sa embrionima u slučaju razvoda ili smrti partnera?</h3>
+
+      <p>Ovo je veoma važno pitanje koje parovi često ne razmatraju unapred. Većina klinika zahteva potpisivanje saglasnosti (informisanog pristanka) koja reguliše šta se dešava sa zamrznutim embrionima u slučaju razvoda, smrti jednog ili oba partnera, ili neslaganja partnera oko dalje upotrebe. Zakonska regulativa se razlikuje od zemlje do zemlje, pa je važno da se informišete o propisima u vašoj jurisdikciji i da donesete jasne odluke dok ste u saglasnosti.</p>
+
+      <h3>Pogled u budućnost krioprezervacije</h3>
+
+      <p>Tehnologija krioprezervacije nastavlja da napreduje. Istraživanja se fokusiraju na još efikasnije krioprotektante, automatizovane sisteme vitrifikacije, i bolje metode procene kvaliteta embriona nakon odmrzavanja. Savremeni trendovi uključuju i zamrzavanje jajnih ćelija (ne samo embriona) sa sve boljim rezultatima, što daje šire opcije za očuvanje plodnosti.</p>
+
+      <p>Jedno je sigurno: FET je danas ravnopravan, učinkovit i sve zastupljeniji put do trudnoće. Za parove koji imaju zamrznute embrione, to nije „plan B" - to je mnogo češće <strong>najbolji plan</strong>.</p>
+
+      <!-- Closing -->
+      <div class="empathy-box" style="margin-top: 3rem;">
+        <p>Putovanje kroz FET nije malo - emocionalno, fizički, finansijski. Ali tehnologija, medicinska znanja i iskustvo klinika omogućavaju vam da biste imali razumnu i često veliku šansu da postignete ono što vam je namera.</p>
+        <p>Zapamtite: svaki FET je novi početak, nova šansa. Niste sami na ovom putu, i profesionalci su tu da vas vode svakim korakom.</p>
+      </div>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">FET</a>
+        <a href="#" class="article-tag">Zamrznuti embrioni</a>
+        <a href="#" class="article-tag">Vitrifikacija</a>
+        <a href="#" class="article-tag">Transfer embriona</a>
+        <a href="#" class="article-tag">Krioprezervacija</a>
+        <a href="#" class="article-tag">VTO procedure</a>
+        <a href="#" class="article-tag">Endometrijum</a>
+        <a href="#" class="article-tag">Trudnoća</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst je pripremljen u edukativne svrhe i ne zamenjuje konsultaciju sa vašim lekarom. Svaka situacija je individualna - razgovarajte sa svojim reproduktivnim timom o specifičnostima vašeg slučaja.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+</body>
+</html>

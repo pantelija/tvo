@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aspiracija jajnih ćelija (punkcija) | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  .breathing-widget { margin: 1.5rem 0; padding: 1.5rem; background: var(--color-teal-light); border-radius: 10px; border: 1px solid rgba(42,125,110,0.15); text-align: center; }
+  .breathing-title { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.25rem; }
+  .breathing-sub { font-size: 0.82rem; color: var(--color-ink-muted); margin-bottom: 1.25rem; }
+  .breathing-circle { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--color-teal); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; color: var(--color-teal); transition: all 1s ease; opacity: 0.6; }
+  .breathing-circle.inhale { transform: scale(1.25); opacity: 1; }
+  .breathing-circle.hold { transform: scale(1.25); opacity: 0.85; }
+  .breathing-circle.exhale { transform: scale(1); opacity: 0.6; }
+  .breathing-phase { font-size: 0.85rem; color: var(--color-teal); font-weight: 600; min-height: 1.3em; margin-bottom: 0.85rem; }
+  .breathing-btn { background: var(--color-teal); color: #fff; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.25rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+  .breathing-btn:hover { background: #236b5e; }
+
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .breathing-circle { width: 90px; height: 90px; font-size: 1.2rem; }
+    .timeline-rail { width: 32px; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Tokom VTO postupka</span>
+      <h1 class="article-title">Aspiracija jajnih ćelija (punkcija)</h1>
+      <p class="article-subtitle">Detaljno objašnjenje minimalno invazivnog zahvata koji je ključan u VTO postupku</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je aspiracija jajnih ćelija i gde se nalazi u VTO procesu</a></li>
+        <li><a href="#s2">Priprema pre zahvata - šta treba znati i uraditi</a></li>
+        <li><a href="#s3">Dolazak u kliniku i prijem</a></li>
+        <li><a href="#s4">Anestezija - šta očekivati</a></li>
+        <li><a href="#s5">Sam zahvat punkcije - korak po korak</a></li>
+        <li><a href="#s6">Rad embriologa - laboratorija u realnom vremenu</a></li>
+        <li><a href="#s7">Trajanje zahvata</a></li>
+        <li><a href="#s8">Oporavak u klinici i odlazak kući</a></li>
+        <li><a href="#s9">Bol, nelagodnost i oporavak kod kuće</a></li>
+        <li><a href="#s10">Mogući rizici i komplikacije</a></li>
+        <li><a href="#s11">Posebne situacije i varijacije</a></li>
+        <li><a href="#s12">Česta pitanja i praktični saveti</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <h2 id="s1">1. Šta je aspiracija jajnih ćelija i gde se nalazi u VTO procesu</h2>
+
+      <p>Aspiracija jajnih ćelija - poznatija kao <strong>folikularna punkcija</strong> - minimalno je invazivan zahvat kojim lekar, uz pomoć ultrazvuka, prikuplja jajne ćelije iz jajnika. Konkretno, tankom iglom se punktiraju zreli folikuli (mehurići ispunjeni tečnošću u kojima sazrevaju jajne ćelije) i iz njih se usisava tečnost koja sadrži jajne ćelije. To je neizostavan korak u postupku vantelesnog oplođenja (VTO, poznatijeg i kao IVF).</p>
+
+      <p>Da biste bolje razumele gde se punkcija uklapa u celokupan proces, zamislite VTO kao putovanje u nekoliko etapa:</p>
+
+      <p><strong>Pre punkcije</strong> dolazi faza hormonske stimulacije jajnika, koja obično traje 8 do 14 dana. Tokom ove faze, pacijentkinja svakodnevno prima injekcije hormona koji podstiču jajnike da razviju više folikula nego što bi to bio slučaj u prirodnom ciklusu. Lekarski tim redovno prati rast folikula ultrazvukom i kontrolom hormona iz krvi. Kada folikuli dostignu optimalnu veličinu (obično oko 17–22 mm), daje se takozvana <strong>trigger injekcija</strong> - hormon hCG ili agonist GnRH - koji pokreće završno sazrevanje jajnih ćelija unutar folikula. Punkcija se zakazuje tačno 34 do 36 sati nakon ove injekcije, jer je to vremenski prozor u kojem su jajne ćelije zrele, ali još uvek nisu ovulirale (napustile folikul).</p>
+
+      <p><strong>Nakon punkcije</strong> jajne ćelije se predaju embriologu (stručnjaku za rad sa ćelijama u laboratoriji), koji ih istog dana spaja sa spermatozoidima partnera ili donora - bilo klasičnim IVF postupkom ili ICSI metodom (ubrizgavanjem jednog spermatozoida direktno u jajnu ćeliju). Od tog trenutka, laboratorija prati razvoj embriona sve do momenta transfera (vraćanja embriona u matericu) ili zamrzavanja.</p>
+
+      <p>Punkcija je, dakle, most između stimulacije i laboratorijskog rada - kratka ali ključna procedura koja traje svega 10 do 20 minuta, a od koje zavisi koliko jajnih ćelija će embriolog imati na raspolaganju.</p>
+
+      <h2 id="s2">2. Priprema pre zahvata - šta treba znati i uraditi</h2>
+
+      <p>Dobra priprema smanjuje stres i pomaže da dan punkcije protekne glatko. Evo šta je važno:</p>
+
+      <h3>Pravilo gladovanja</h3>
+
+      <p>Na dan punkcije primićete kratkotrajnu intravensku anesteziju (više o tome u nastavku), što znači da morate doći <strong>praznog stomaka</strong>. To podrazumeva da <strong>ne jedete čvrstu hranu najmanje 6 sati pre zakazanog vremena zahvata</strong> i <strong>ne pijete tečnost (uključujući vodu) najmanje 2 sata pre zahvata</strong>. Ako je punkcija zakazana za 8 ujutru, poslednji obrok bi trebalo da bude najkasnije u ponoć, a poslednji gutljaj vode do 6 ujutru. Pravila gladovanja su važna jer smanjuju rizik od komplikacija tokom anestezije - vaš lekar ili klinika daće vam precizna uputstva.</p>
+
+      <h3>Redovna terapija i lekovi</h3>
+
+      <p>Ako uzimate neke lekove svakodnevno (za pritisak, štitastu žlezdu i slično), pitajte svog lekara unapred da li da ih popijete ujutru na dan punkcije sa malim gutljajem vode. U većini slučajeva odgovor je da, ali to mora biti dogovoreno individualno. Terapiju za stimulaciju jajnika završili ste ranije - na dan punkcije ne primate više injekcije.</p>
+
+      <h3>Šta poneti sa sobom</h3>
+
+      <ul>
+        <li><strong>Ličnu dokumentaciju</strong>: ličnu kartu ili pasoš, zdravstveni karton, uputnice ili nalaze (ako klinika zahteva).</li>
+        <li><strong>Udobnu odeću</strong>: obucite nešto što lako skidate i oblačite - široke pantalone ili haljinu, papuče ili ravne cipele koje se lako izuvaju. Izbegavajte usku odeću koja pritiska stomak.</li>
+        <li><strong>Higijenske uloške</strong>: obične, tanje uloške za posle zahvata (moguće je blago krvarenje). Ne koristite tampone.</li>
+        <li><strong>Laku užinu i vodu</strong>: za posle zahvata, kada budete mogli da jedete - keks, voće, sendvič.</li>
+        <li><strong>Punjač za telefon i nešto za čitanje</strong>: vreme na opservaciji brže prolazi uz malu distrakciju.</li>
+      </ul>
+
+      <h3>Da li dolazim sama?</h3>
+
+      <p><strong>Ne.</strong> Obavezno dođite u pratnji - partnera, članice porodice ili prijateljice. Razlog je praktičan: nakon anestezije <strong>ne smete da vozite automobil niti da se vraćate kući sami</strong>, jer sedacija utiče na koncentraciju i reflekse još nekoliko sati nakon buđenja. Partner najčešće dolazi jer je dan punkcije ujedno i dan kada on daje uzorak sperme (osim u slučajevima korišćenja zamrznute sperme ili donorske sperme).</p>
+
+      <h3>Na dan punkcije</h3>
+
+      <ul>
+        <li>Nemojte stavljati lak za nokte - anesteziolog prati oksigenaciju preko prstiju.</li>
+        <li>Ne nosite nakit, pirsinge ni kontaktna sočiva.</li>
+        <li>Istuširajtese, ali ne koristite vaginalne kreme, lubrikante ili mirišljave proizvode.</li>
+        <li>Dođite bez šminke ili sa minimalnom šminkom.</li>
+      </ul>
+
+      <h2 id="s3">3. Dolazak u kliniku i prijem</h2>
+
+      <p>Obično ćete biti pozvane da dođete 30 do 60 minuta pre zakazanog vremena zahvata. Evo šta se dešava po dolasku:</p>
+
+      <p><strong>Prijem i administracija.</strong> Na recepciji ćete se prijaviti i predati potrebnu dokumentaciju. Medicinska sestra će vas odvesti u prostoriju za pripremu - najčešće je to soba sa krevetom, ormarićem za lične stvari i prostorom za presvlačenje.</p>
+
+      <p><strong>Presvlačenje.</strong> Dobićete bolnički mantil ili jednokratnu odeću i papuče. Svu svoju odeću, nakit i lične stvari ostavićete u ormariću.</p>
+
+      <p><strong>Razgovor sa medicinskim timom.</strong> Pre zahvata razgovaraćete sa:</p>
+
+      <ul>
+        <li><strong>Medicinskom sestrom</strong> koja će proveriti vaše lične podatke, alergije, poslednji obrok i popuniti kontrolnu listu.</li>
+        <li><strong>Anesteziologom</strong> koji će vas pitati o vašoj medicinskoj istoriji, eventualnim alergijama na lekove, prethodnim iskustvima sa anestezijom i trenutnoj terapiji. Ovo je prilika da postavite sva pitanja koja vas brinu.</li>
+        <li><strong>Ginekologom ili embriologom</strong> koji može da vam potvrdi plan za taj dan (očekivani broj folikula na osnovu poslednjeg ultrazvuka).</li>
+      </ul>
+
+      <p><strong>Postavljanje intravenske linije (braunile).</strong> Medicinska sestra ili anesteziolog će vam u venu na ruci ili podlaktici postaviti tanku kanilu - malu plastičnu cevčicu kroz koju će se tokom zahvata davati lekovi za anesteziju i, po potrebi, tečnost za hidrataciju. Ubod je kratak i sličan vađenju krvi.</p>
+
+      <p>Sve ovo obično traje 15 do 30 minuta i odvija se u mirnoj, rutinskoj atmosferi.</p>
+
+      <h2 id="s4">4. Anestezija - šta očekivati</h2>
+
+      <p>Punkcija se najčešće izvodi u <strong>kratkotrajnoj intravenskoj sedaciji</strong>, koja se ponekad naziva i „kratka opšta anestezija" ili „sumračno stanje". Šta to praktično znači?</p>
+
+      <p><strong>Kako deluje?</strong> Anesteziolog vam daje kombinaciju lekova - najčešće analgetik (za bol) i sedativ (za san). Efekat je gotovo trenutačan: u roku od 10 do 30 sekundi osetićete toplinu koja se širi rukom, laganu pospanost, a zatim - jednostavno zaspite. Nije potrebna intubacija (uvođenje cevi u dušnik) niti duboka opšta anestezija.</p>
+
+      <p><strong>Da li ću biti budna?</strong> Ne. Tokom zahvata potpuno spavate i ne osećate bol. Većina pacijentkinja se ne seća ničega od momenta kada im je rečeno „sad ćete zaspati" do trenutka buđenja.</p>
+
+      <p><strong>Koliko brzo deluje i koliko traje?</strong> Zaspaćete za manje od pola minuta. Anestezija traje tačno koliko je potrebno za sam zahvat - obično 10 do 20 minuta - a zatim se brzo povlači. Budite se postepeno, obično u roku od 5 do 10 minuta nakon završetka.</p>
+
+      <p><strong>Šta ako me je strah anestezije?</strong> Potpuno je normalno imati tremu. Recite anesteziologu o svom strahu - oni su navikli na to i mogu vam objasniti svaki korak. Lekovi koji se koriste su bezbedni i kratkodelujući, a vi ste tokom celog zahvata pod nadzorom - prate vam se puls, krvni pritisak i zasićenost krvi kiseonikom.</p>
+
+      <p>Neke klinike u posebnim situacijama nude i <strong>lokalnu anesteziju</strong> (obamljivanje samo dela tela) ili <strong>svesnu sedaciju</strong> (budni ste, ali opušteni i ne osećate bol), ali intravenska sedacija je daleko najčešći i najprijatniji izbor za pacijentkinju.</p>
+
+      <h2 id="s5">5. Sam zahvat punkcije - korak po korak</h2>
+
+      <p>Kada anestezija počne da deluje i vi mirno spavate, ginekolog započinje postupak. Evo kako to izgleda:</p>
+
+      <p><strong>Položaj tela.</strong> Ležite na ginekološkom stolu, u istom položaju kao na redovnom ginekološkom pregledu - na leđima, sa nogama oslonjenim na naslone. Zahvat podseća na ultrazvučni pregled - samo što ovog puta sonda ima i iglu.</p>
+
+      <p><strong>Uvođenje transvaginalne sonde.</strong> Ginekolog u vaginu uvodi tanku ultrazvučnu sondu - istu onu kakvu ste verovatno već koristili tokom pregleda u fazi stimulacije. Na vrh sonde pričvršćen je poseban vodič kroz koji prolazi duga, tanka igla (obično prečnika oko 0,8–1,2 mm, što je približno debljina deblje šivaće igle).</p>
+
+      <p><strong>Punktiranje folikula.</strong> Pod stalnom kontrolom ultrazvuka - ginekolog na monitoru vidi jajnike i folikule kao tamne, okrugle strukture - igla se pažljivo uvodi kroz zid vagine do jajnika. Zatim se, folikul po folikul, igla ubada u svaki zreli folikul. Kada igla uđe u folikul, folikularna tečnost (bistra ili blago žućkasta) se <strong>aspirira</strong> - usisava blagim pritiskom - kroz iglu u epruvetu koja je povezana sa sistemom za aspiraciju.</p>
+
+      <p><strong>Postupak za svaki folikul.</strong> Ginekolog sistematično punktira sve dostupne folikule, prvo na jednom jajniku, a zatim na drugom. Svaki folikul zahteva samo nekoliko sekundi. Tečnost iz svakog folikula odlazi u posebnu ili zajedničku epruvetu, u zavisnosti od prakse klinike.</p>
+
+      <p><strong>Šta se dešava sa iglom i sondom?</strong> Igla prolazi kroz zid vagine (što je meko tkivo), ne kroz kožu stomaka - zato nema reza, šavova ni vidljivih ožiljaka. Nakon punkcije jednog jajnika, ginekolog pomera sondu i iglom pristupa drugom jajniku, takođe kroz vaginalnu sluznicu.</p>
+
+      <p>Ceo postupak može da se opiše ovako: <strong>zamislite ga kao ginekološki pregled tokom kojeg spavate, a lekar pomoću ultrazvuka i tanke igle „pokuplja" tečnost iz mehurića na jajnicima</strong>. Kada se probudite, sve je gotovo.</p>
+
+      <h2 id="s6">6. Rad embriologa - laboratorija u realnom vremenu</h2>
+
+      <p>Dok ginekolog punktira folikule u operacionoj sali, u susednoj prostoriji - embriološkoj laboratoriji - embriolog radi u isto vreme, u paru sa hirurgom.</p>
+
+      <p><strong>Kako to funkcioniše?</strong> Svaka epruveta sa folikularnom tečnošću odmah se predaje embriologu kroz mali otvor ili prozor koji povezuje operacionu salu i laboratoriju. Embriolog epruvetu izliva u specijalnu posudu (Petri šolju) i pod mikroskopom pregleda tečnost - traži jajnu ćeliju, koja se na prvi pogled vidi kao sićušna, prozirna loptica okružena oblačićem ćelija (takozvani kumulus).</p>
+
+      <p><strong>Komunikacija je stalna.</strong> Embriolog posle svake epruvete obaveštava ginekologa: „Ima ćelija" ili „Ovde nema". Ova povratna informacija u realnom vremenu pomaže ginekologu da proceni da li da ispere folikul ponovo (jer se jajne ćelije ponekad „zadrže" na zidu folikula) ili da pređe na sledeći.</p>
+
+      <p><strong>Na kraju zahvata</strong> embriolog saopštava ukupan broj pronađenih jajnih ćelija. Taj podatak ćete i vi saznati čim se probudite ili malo kasnije - obično vam ga prenese medicinska sestra ili lekar.</p>
+
+      <h2 id="s7">7. Trajanje zahvata</h2>
+
+      <p>Sama punkcija najčešće traje <strong>između 10 i 20 minuta</strong>, mada može biti kraća ili duža u zavisnosti od:</p>
+
+      <ul>
+        <li><strong>Broja folikula</strong>: ako imate 5–6 folikula, zahvat može trajati manje od 10 minuta. Kod 15–20 i više folikula, može potrajati i do 25–30 minuta.</li>
+        <li><strong>Položaja jajnika</strong>: ako su jajnici lako dostupni, sve ide brže. Ako su jajnici visoko postavljeni ili pomereni zbog priraslica, ginekolog mora da prilagodi pristup, što zahteva više vremena.</li>
+        <li><strong>Ispiranja folikula</strong>: ponekad ginekolog ispira folikul iz kojeg nije dobijena jajna ćelija, što dodaje još po minut-dva.</li>
+      </ul>
+
+      <p>Ako uključimo i vreme potrebno za uvod u anesteziju i buđenje, u operacionoj sali provodite ukupno oko <strong>20 do 40 minuta</strong>. Većina pacijentkinja kaže da je zahvat trajao mnogo kraće nego što su očekivale.</p>
+
+      <h2 id="s8">8. Oporavak u klinici i odlazak kući</h2>
+
+      <h3>Buđenje iz sedacije</h3>
+
+      <p>Budite se postepeno, u prostoriji za oporavak. Možda ćete se osećati pospano, blago zbunjeno ili dezorijentisano - to je sasvim normalno i prolazi za 15 do 30 minuta. Medicinska sestra je pored vas, prati vaše vitalne parametre (pritisak, puls, oksigenaciju) i brine o vašem komforu. Neki lekari opisuju ovo buđenje kao „osećaj kao da ste samo nakratko zadremali".</p>
+
+      <h3>Opservacija</h3>
+
+      <p>Na klinici ostajete <strong>1 do 3 sata</strong> nakon zahvata. Tokom tog vremena:</p>
+
+      <ul>
+        <li>Medicinsko osoblje prati da li imate jake bolove, izraženo krvarenje ili druge znakove koji zahtevaju pažnju.</li>
+        <li>Dobićete vodu i laganu užinu kada budete spremne.</li>
+        <li>Možete da odete u toalet - moguće je da primetite blago krvarenje ili mrljanje na ulošku, što je normalno.</li>
+        <li>Primićete uputstva za naredne dane: koje lekove da uzimate, na šta da obratite pažnju, kada da pozovete kliniku.</li>
+      </ul>
+
+      <h3>Informacija o broju jajnih ćelija</h3>
+
+      <p>Pre odlaska, lekar ili sestra saopštiće vam koliko je jajnih ćelija dobijeno. Neki parovi ovu informaciju dožive sa olakšanjem, neki sa zabrinutošću - obe reakcije su normalne. Zapamtite: bitan je kvalitet, ne samo kvantitet. Čak i manji broj jajnih ćelija može dovesti do uspešnog postupka.</p>
+
+      <h3>Odlazak kući</h3>
+
+      <p>Kada vas lekar pusti, odlazite kući <strong>u pratnji</strong>. Ne vozite automobil, ne koristite javni prevoz bez pratnje i ne donosite važne odluke tog dana - anestezija može uticati na vaše rasuđivanje još nekoliko sati.</p>
+
+      <h2 id="s9">9. Bol, nelagodnost i oporavak kod kuće</h2>
+
+      <h3>Tokom zahvata</h3>
+
+      <p>Zahvaljujući anesteziji, <strong>tokom same punkcije ne osećate bol</strong>. Ovo je jedna od najčešćih briga pacijentkinja - i gotovo sve nakon zahvata kažu da se ne sećaju ničega i da su prijatno iznenađene koliko je jednostavno prošlo.</p>
+
+      <h3>Neposredno nakon zahvata</h3>
+
+      <p>Kada se probudi, većina žena oseća:</p>
+
+      <ul>
+        <li><strong>Blage do umerene bolove u donjem delu stomaka</strong> - slične menstrualnim grčevima. Ovo je posledica punktiranja folikula i blagog nadražaja jajnika.</li>
+        <li><strong>Osećaj nadutosti, punoće i pritiska</strong> u predelu karlice - posebno ako je punktiran veći broj folikula. Jajnici su tokom stimulacije uvećani i potrebno im je vreme da se vrate u normalnu veličinu.</li>
+        <li><strong>Blago vaginalno krvarenje ili mrljanje</strong> - tačkasto krvarenje iz mesta gde je igla prošla kroz vaginalni zid. Ovo obično prestaje u roku od dan-dva.</li>
+      </ul>
+
+      <p>Za ublažavanje bolova najčešće je dovoljan <strong>paracetamol</strong> (npr. Panadol). Većina klinika ne preporučuje ibuprofen (Brufen) jer postoji teorijski rizik da utiče na proces oplođenja - obavezno se pridržavajte uputstava vaše klinike.</p>
+
+      <h3>Kada se javiti doktoru?</h3>
+
+      <p>Obratite se klinici <strong>bez odlaganja</strong> ako primetite:</p>
+
+      <ul>
+        <li>Jako vaginalno krvarenje (ne mrljanje, već obilno krvarenje poput jake menstruacije ili jače)</li>
+        <li>Jake, neizdržive bolove koji ne prolaze na lekove</li>
+        <li>Povišenu telesnu temperaturu (iznad 38°C)</li>
+        <li>Otežano mokrenje ili potpunu nemogućnost mokrenja</li>
+        <li>Izraženu nadutost stomaka koja se pogoršava, mučninu, povraćanje ili otežano disanje - ovo mogu biti znaci hiperstimulacije jajnika (OHSS), o čemu više u nastavku</li>
+      </ul>
+
+      <h3>Oporavak kod kuće - prvih 24 do 48 sati</h3>
+
+      <ul>
+        <li><strong>Odmor je prioritet.</strong> Provedite ostatak dana punkcije ležeći ili poluležeći. Većina žena oseća umor i pospanost, što je kombinacija anestezije i emocionalne iscrpljenosti.</li>
+        <li><strong>Izbegavajte fizičke aktivnosti</strong> - bez trčanja, teretane, podizanja teških stvari ili napornog posla. Lagana šetnja po kući je u redu.</li>
+        <li><strong>Pijte dovoljno tečnosti</strong> - voda, nezaslađeni čajevi, bistra supa. Dobra hidratacija pomaže oporavku jajnika.</li>
+        <li><strong>Jedite laganu, lako svarljivu hranu</strong> - izbegavajte gazirane napitke i hranu koja nadima.</li>
+        <li><strong>Izbegavajte seksualne odnose</strong> barem dok vam lekar ne da odobrenje (obično do transfera embriona ili po uputstvu klinike).</li>
+        <li><strong>Ne koristite tampone</strong> - samo uloške.</li>
+      </ul>
+
+      <p>Većina žena se već <strong>sutradan ili za dva dana oseća znatno bolje</strong> i može da se vrati svakodnevnim aktivnostima, uključujući lak posao. Fizički zahtevniji poslovi i vežbanje obično se odlažu do završetka celog VTO ciklusa.</p>
+
+      <h2 id="s10">10. Mogući rizici i komplikacije</h2>
+
+      <p>Punkcija jajnih ćelija smatra se bezbednim i rutinskim zahvatom sa <strong>niskom stopom komplikacija</strong>. Ipak, kao i svaka medicinska procedura, nosi određene rizike o kojima treba da budete informisane:</p>
+
+      <p><strong>Krvarenje.</strong> Blago vaginalno krvarenje je uobičajeno i nije komplikacija. Ređe može doći do izraženijeg krvarenja iz mesta punkcije na jajniku ili okolnim krvnim sudovima. U retkim slučajevima, krvarenje u trbušnu duplju (intraabdominalno krvarenje) može zahtevati dodatnu intervenciju, ali to se dešava u manje od 0,1% slučajeva.</p>
+
+      <p><strong>Infekcija.</strong> Rizik od infekcije je izuzetno nizak (manji od 0,5%), jer se zahvat izvodi u sterilnim uslovima. Neke klinike preventivno daju antibiotik. Znaci infekcije - povišena temperatura, pojačan bol, neprijatan vaginalni iscedak - pojavljuju se u danima nakon punkcije i zahtevaju javljanje lekaru.</p>
+
+      <p><strong>Povreda okolnih organa.</strong> Izuzetno retko, igla može da dodirne ili ošteti okolne strukture - creva, mokraćnu bešiku ili krvne sudove. Ovo se dešava u manje od 0,01% slučajeva i gotovo uvek se rešava konzervativno (bez operacije).</p>
+
+      <p><strong>Torzija jajnika.</strong> Stimulisani jajnici su uvećani i teži nego inače, što ih čini podložnijim torziji - uvrtanju jajnika oko sopstvene osovine, čime se prekida dotok krvi. Ovo je hitno stanje koje se manifestuje naglim, oštrim bolom u donjem delu stomaka i zahteva hitnu medicinsku pomoć. Rizik je veći kod žena sa velikim brojem folikula.</p>
+
+      <p><strong>Reakcije na anesteziju.</strong> Većina pacijentkinja podnosi kratkotrajnu sedaciju bez ikakvih problema. Retko se javljaju mučnina, povraćanje ili alergijske reakcije na lekove.</p>
+
+      <p><strong>„Empty follicle syndrome" (sindrom praznog folikula).</strong> U retkim slučajevima (oko 1–7%), uprkos tome što na ultrazvuku postoje folikuli normalne veličine, iz njih se ne dobije nijedna jajna ćelija. Razlozi mogu biti neadekvatan odgovor na trigger injekciju, problem sa apsorpcijom leka ili biološka varijacija. Ako se to desi, lekar će sa vama razgovarati o mogućim uzrocima i prilagoditi pristup u sledećem ciklusu.</p>
+
+      <h2 id="s11">11. Posebne situacije i varijacije</h2>
+
+      <p>Svaka žena i svaki ciklus su različiti. Evo nekih specifičnih situacija:</p>
+
+      <h3>Punkcija kod malog broja folikula (poor responderi)</h3>
+
+      <p>Kod žena koje slabije reaguju na stimulaciju - bilo zbog smanjene ovarijalne rezerve (manjeg „zaliha" jajnih ćelija), starije životne dobi ili drugih faktora - razvija se manji broj folikula (najčešće 1–4). Punkcija je u ovom slučaju <strong>kraća i jednostavnija</strong>, ali emocionalno može biti teža jer su očekivanja neizvesna.</p>
+
+      <p>Važno je znati: manji broj jajnih ćelija ne znači automatski neuspeh. Potrebna je samo jedna kvalitetna jajna ćelija da bi došlo do trudnoće. Vaš lekar će prilagoditi protokol i očekivanja.</p>
+
+      <h3>Punkcija kod velikog broja folikula (hiperresponderi / PCOS)</h3>
+
+      <p>Žene sa sindromom policističnih jajnika (PCOS - stanje u kojem jajnici sadrže veliki broj sitnih folikula) ili one koje snažno reaguju na stimulaciju mogu imati 20, 30 ili čak više folikula. U ovom slučaju:</p>
+
+      <ul>
+        <li>Zahvat traje duže (često 20–30 minuta ili više).</li>
+        <li>Nelagodnost i nadutost nakon punkcije obično su izraženije.</li>
+        <li>Postoji povećan rizik od <strong>sindroma hiperstimulacije jajnika (OHSS)</strong> - stanja u kojem jajnici previše reaguju, što dovodi do nakupljanja tečnosti u stomaku, nadutosti, bolova i u težim slučajevima komplikacija koje zahtevaju hospitalizaciju. Vaš lekar preduzima mere da smanji ovaj rizik (prilagođavanje doze, izbor trigger injekcije, eventualno zamrzavanje svih embriona umesto svežeg transfera - strategija poznata kao „freeze all").</li>
+      </ul>
+
+      <h3>Punkcija kod teško dostupnih jajnika</h3>
+
+      <p>Kod nekih žena jajnici su teže dostupni - mogu biti visoko postavljeni, pomereni iza materice ili „zarobljeni" priraslicama (fibroznim trakama koje nastaju nakon prethodnih operacija, endometrioze ili upala). U takvim slučajevima ginekolog može:</p>
+
+      <ul>
+        <li>Koristiti <strong>pritisak rukom na stomak</strong> dok sondom pristupa jajniku, kako bi ga doveo u bolji položaj.</li>
+        <li>U retkim situacijama primeniti <strong>transabdominalni pristup</strong> - punkciju kroz kožu stomaka umesto kroz vaginu, pod kontrolom ultrazvuka. Ova tehnika je ređa, ali je bezbedna i efikasna alternativa.</li>
+        <li>Proceniti da li je rizik pristupa jednom jajniku suviše visok i eventualno punktirati samo dostupan jajnik.</li>
+      </ul>
+
+      <h2 id="s12">12. Česta pitanja i praktični saveti</h2>
+
+      <h3>„Da li ću osetiti bol?"</h3>
+
+      <p>Tokom samog zahvata - ne. Anestezija obezbeđuje da ne osećate ništa. Nakon zahvata, većina žena opisuje nelagodnost kao blage menstrualne grčeve koji prolaze za dan ili dva uz paracetamol i odmor. Na skali od 1 do 10, većina pacijentkinja ocenjuje bol posle punkcije sa 2 do 4 - neprijatno, ali podnošljivo.</p>
+
+      <h3>„Koliko jajnih ćelija je dovoljno?"</h3>
+
+      <p>Ne postoji univerzalan odgovor, jer zavisi od vaših godina, kvaliteta jajnih ćelija, dijagnoze i plana lečenja. Okvirno, većina lekara smatra <strong>8 do 15 jajnih ćelija</strong> optimalnim kod jedne punkcije - dovoljno za šansu da se dobiju kvalitetni embrioni, a bez preteranog rizika od hiperstimulacije. Ali žene zatrudne i sa 2–3 jajne ćelije, kao i sa 25. Vaš lekar će vam objasniti šta je realno u vašem konkretnom slučaju.</p>
+
+      <h3>„Da li punkcija utiče na moju ovarijalnu rezervu?"</h3>
+
+      <p>Ovo je jedno od najčešćih pitanja i odgovor je umirujući: <strong>ne</strong>. Punkcija ne smanjuje vašu „zalihu" jajnih ćelija. U svakom prirodnom ciklusu, vaše telo „regrutuje" grupu folikula od kojih bi u normalnim okolnostima samo jedan sazreo, a ostali bi se prirodno povukli (atrezirali). Stimulacijom se ovi folikuli koji bi ionako propali „spasavaju" i dovode do sazrevanja - dakle, ne trošite ništa što inače ne biste izgubili.</p>
+
+      <h3>„Mogu li da vozim kući nakon zahvata?"</h3>
+
+      <p><strong>Ne.</strong> Zbog dejstva anestezije ne smete da vozite automobil, motocikl ili bicikl najmanje 24 sata. Obavezno organizujte prevoz - partner, član porodice, taksi.</p>
+
+      <h3>„Šta ako ne dobiju nijednu jajnu ćeliju?"</h3>
+
+      <p>Iako je to retka situacija, može se desiti (sindrom praznog folikula). Ovo je razumljivo razočaravajuće i emocionalno bolno iskustvo. Ako se to dogodi, vaš lekar će analizirati moguće uzroke - da li je trigger injekcija primljena u tačno vreme, da li je doza bila odgovarajuća, da li su folikuli bili očekivane veličine. Na osnovu analize, pristupiće se planiranju sledećeg koraka - promeni protokola ili ponovnom pokušaju.</p>
+
+      <h3>Uloga partnera na dan punkcije</h3>
+
+      <p>Dan punkcije je važan dan i za partnera. Njegovo prisustvo ima dvostruku ulogu:</p>
+
+      <ul>
+        <li><strong>Davanje uzorka sperme.</strong> U većini klinika, partner daje uzorak sperme (masturbacijom) istog dana, obično dok je pacijentkinja na zahvatu ili neposredno nakon njega. Klinika obezbeđuje privatnu prostoriju za ovu svrhu. Važno je da partner 2–5 dana pre punkcije izbegava ejakulaciju, kako bi uzorak bio optimalnog kvaliteta. Ako partner nije u mogućnosti da prisustvuje, uzorak se može zamrznuti unapred.</li>
+        <li><strong>Emocionalna podrška.</strong> Čekanje tokom zahvata, prisustvo pri buđenju i vožnja kući - partnerova podrška čini ovaj dan lakšim za obe strane.</li>
+      </ul>
+
+      <h3>Šta se dešava sa jajnim ćelijama odmah nakon punkcije?</h3>
+
+      <p>Čim embriolog identifikuje jajne ćelije, one se čuvaju u posebnom medijumu (hranljivoj tečnosti) u inkubatoru, na temperaturi od 37°C - identičnoj temperaturi ljudskog tela. Istog dana, obično 3 do 6 sati nakon punkcije, vrši se oplođenje - bilo klasičnim IVF-om (jajne ćelije i spermatozoidi se stave zajedno u posudu) ili ICSI metodom. Sutradan embriolog proverava koliko je jajnih ćelija uspešno oplođeno i obaveštava vas o rezultatu - obično telefonskim pozivom.</p>
+
+      <div class="empathy-box" style="margin-top: 3rem;">
+        <p>Punkcija jajnih ćelija zvuči zastrašujuće dok se o njoj čita, ali žene koje su je prošle gotovo jednoglasno kažu: „Bilo je mnogo lakše nego što sam zamišljala." Ceo zahvat traje kraće nego što ste proveli čekajući u čekaonici. Kada se probudite iz kratke sedacije, većina pacijentkinja kaže da se oseća kao da su samo nakratko zadremale - a do tog trenutka, vaše jajne ćelije su već na sigurnom u laboratoriji i čeka ih sledeći korak na putu ka novom životu.</p>
+        <p>Informisanost je najbolji lek protiv straha od nepoznatog. Sada kada znate šta vas čeka, od pripreme kod kuće do odlaska iz klinike, možete se fokusirati na ono najvažnije: sebe i svoje telo.</p>
+      </div>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">Aspiracija jajnih ćelija</a>
+        <a href="#" class="article-tag">Punkcija</a>
+        <a href="#" class="article-tag">VTO postupak</a>
+        <a href="#" class="article-tag">Anestezija</a>
+        <a href="#" class="article-tag">Zahvat</a>
+        <a href="#" class="article-tag">Oporavak</a>
+        <a href="#" class="article-tag">Jajne ćelije</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+</body>
+</html>

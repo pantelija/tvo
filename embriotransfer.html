@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embriotransfer - vraćanje embriona u matericu | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Tokom VTO postupka</span>
+      <h1 class="article-title">Embriotransfer - vraćanje embriona u matericu</h1>
+      <p class="article-subtitle">Momenat čekanja: šta očekivati tokom procedury, kako se embrion vraća u matericu, i šta se dešava nakon transfera</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je embriotransfer i gde se nalazi u VTO procesu</a></li>
+        <li><a href="#s2">Priprema pre embriotransfera</a></li>
+        <li><a href="#s3">Odluke pre transfera - broj embriona i dan transfera</a></li>
+        <li><a href="#s4">Kako embriotransfer izgleda korak po korak</a></li>
+        <li><a href="#s5">Šta pacijentkinja oseća tokom zahvata</a></li>
+        <li><a href="#s6">Period nakon embriotransfera - lutealna podrška i čekanje</a></li>
+        <li><a href="#s7">Rizici i komplikacije</a></li>
+        <li><a href="#s8">Posebne situacije - FET, assisted hatching i druge varijacije</a></li>
+        <li><a href="#s9">Česta pitanja, emocionalni aspekti i saveti</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <h2 id="s1">Šta je embriotransfer i gde se nalazi u VTO procesu</h2>
+
+      <p>Embriotransfer je završni i najiščekivaniji korak u postupku vantelesnog oplođenja (VTO). To je trenutak u kome se embrion - koji je nastao i razvijao se u laboratoriji tokom prethodnih dana - pažljivo i nežno vraća u matericu pacijentkinje. Kada embrion jednom bude na svom mestu unutar materice, cilj je da se implantira (ugnezdi u sluznicu materice) i započne trudnoću.</p>
+
+      <p>Da biste razumele gde se embriotransfer nalazi u celokupnom VTO putu, evo kratkog pregleda koraka koji mu prethode i koji ga slede:</p>
+
+      <p><strong>Pre embriotransfera</strong> odvija se nekoliko faza. Najpre dolazi hormonska stimulacija jajnika, tokom koje pacijentkinja prima lekove (injekcije) koji podstiču jajnike da proizvedu više jajnih ćelija nego što bi to bio slučaj u prirodnom ciklusu. Kada su jajne ćelije dovoljno zrele, sledi punkcija - kratak zahvat pod sedacijom u kome lekar iglom, pod kontrolom ultrazvuka, aspirira (izvlači) jajne ćelije iz jajnika. Tog istog dana ili sutradan, u laboratoriji se obavlja oplođenje - jajne ćelije se spajaju sa spermatozoidima, bilo klasičnim postupkom ili metodom ICSI (intracitoplazmatska injekcija spermatozoida, gde se jedan spermatozoid direktno ubacuje u jajnu ćeliju). Nakon oplođenja počinje kultivacija embriona - embrioni se čuvaju u inkubatoru u kontrolisanim uslovima i prate se tokom narednih tri do pet dana dok se dele i razvijaju.</p>
+
+      <p><strong>Embriotransfer</strong> je, dakle, kulminacija svih tih koraka - momenat kada se najbolji embrion ili embrioni vraćaju u matericu.</p>
+
+      <p><strong>Nakon embriotransfera</strong> sledi period koji se često naziva „two-week wait" - dve nedelje čekanja do krvnog testa na trudnoću. To je vreme u kome se embrion, ako je sve u redu, implantira i počinje da luči hormon trudnoće (beta hCG). Za mnoge parove, upravo je taj period emocionalno najzahtevniji deo celokupnog puta.</p>
+
+      <h2 id="s2">Priprema pre embriotransfera</h2>
+
+      <h3>Šta treba da znate uoči zahvata</h3>
+
+      <p>Embriotransfer ne zahteva nikakvu posebnu medicinsku pripremu poput gladovanja ili anestezije. To je zahvat koji se obavlja u ambulantnim uslovima, bez opšte anestezije, i traje veoma kratko. Ipak, postoji nekoliko praktičnih stvari koje je dobro znati:</p>
+
+      <p><strong>Puna bešika.</strong> Jedini konkretan „zadatak" koji ćete dobiti jeste da na zahvat dođete sa umereno punom mokraćnom bešikom. Razlog je praktičan - pun mokraćni mehur pomaže lekaru da na ultrazvuku bolje vidi matericu i precizno pozicionira kateter. Obično se preporučuje da počnete da pijete vodu sat do sat i po pre zakazanog vremena i da ne praznite bešiku. Bešika ne treba da bude prepuna do bola - cilj je udobna punoća.</p>
+
+      <p><strong>Šta obući.</strong> Obucite udobnu odeću koja se lako skida - u klinici ćete se presvući u bolnički mantil. Izbegavajte komplikovane kombinacije; nešto jednostavno i opušteno je sasvim dovoljno.</p>
+
+      <p><strong>Da li dolazite sami ili sa partnerom.</strong> Iako embriotransfer ne zahteva anesteziju i tehnički možete doći sami, većina parova odlučuje da ovaj trenutak podeli. Partner vam može pružiti emocionalnu podršku, a mnoge klinike dozvoljavaju prisustvo partnera u sali tokom samog zahvata. Proverite praksu vaše klinike unapred.</p>
+
+      <p><strong>Koliko ranije doći.</strong> Planirajte da dođete 30 do 60 minuta pre zakazanog vremena. Potrebno je vreme za presvlačenje, proveru dokumentacije, razgovor sa embriologom i pripremu.</p>
+
+      <p><strong>Gladovanje nije potrebno.</strong> Možete normalno jesti i piti pre zahvata. Zapravo, lagani obrok može pomoći da se osećate bolje i opuštenije.</p>
+
+      <h2 id="s3">Odluke pre transfera</h2>
+
+      <h3>Koliko embriona vraćamo?</h3>
+
+      <p>Jednu od najvažnijih odluka u celokupnom VTO postupku lekar donosi u dogovoru sa parom - koliko embriona će biti vraćeno u matericu. Ova odluka zavisi od nekoliko faktora: starosti pacijentkinje, kvaliteta raspoloživih embriona, broja prethodnih neuspelih pokušaja i zakonske regulative zemlje u kojoj se postupak sprovodi.</p>
+
+      <p>U savremenoj reproduktivnoj medicini sve se više preporučuje transfer jednog embriona, poznat kao eSET (elektivni single embryo transfer). Reč „elektivni" ovde znači da par svesno bira transfer jednog embriona iako ima na raspolaganju više embriona dobrog kvaliteta. Razlog za ovaj pristup je pre svega bezbednost - transfer dva ili više embriona značajno povećava rizik od višeplodne trudnoće (blizanačke ili čak trudnoće sa tri ploda), koja nosi veće rizike i za majku i za bebe: prevremeni porođaj, niska porođajna težina, gestacijski dijabetes, preeklampsija i drugi komplikovani ishodi.</p>
+
+      <p>Istraživanja su pokazala da transfer jednog embriona visokog kvaliteta, naročito u stadijumu blastociste, daje izuzetno dobre stope trudnoće - a preostali kvalitetni embrioni mogu se zamrznuti za buduće pokušaje. Na taj način se ukupna kumulativna stopa uspeha ne smanjuje, ali se rizik od komplikacija značajno snižava.</p>
+
+      <p>U nekim slučajevima - na primer, kod starijih pacijentkinja ili nakon više neuspelih pokušaja - lekar može preporučiti transfer dva embriona. Ovu odluku uvek donosi stručni tim u dogovoru sa parom, uzimajući u obzir celokupnu kliničku sliku.</p>
+
+      <h3>Dan transfera - Day 3 ili Day 5?</h3>
+
+      <p>Embrioni u laboratoriji prolaze kroz različite faze razvoja. Trećeg dana nakon oplođenja (Day 3), embrion je obično u stadijumu od šest do osam ćelija. Petog dana (Day 5), embrion dostiže stadijum koji se naziva blastocista - to je složenija struktura koja se sastoji od više od sto ćelija organizovanih u dva dela: unutrašnja ćelijska masa (od koje nastaje beba) i trofoblast (od koga nastaje posteljica).</p>
+
+      <p><strong>Transfer petog dana (blastocista)</strong> se danas generalno smatra poželjnijim pristupom kada je moguć. Razlozi su sledeći: embrioni koji su uspeli da dostignu stadijum blastociste pokazali su svoju vitalnost i razvojni potencijal - prirodna selekcija u laboratoriji već je „odabrala" najjače embrione. Osim toga, u prirodnom začeću embrion stiže u matericu upravo u stadijumu blastociste, pa je transfer petog dana bliži prirodnom toku stvari. Stope implantacije po emrionu su više kod blastocist transfera, što omogućava bezbedniji transfer samo jednog embriona.</p>
+
+      <p><strong>Transfer trećeg dana</strong> se i dalje primenjuje u određenim situacijama - na primer, kada je broj raspoloživih embriona mali, pa nema smisla čekati da se „prirodna selekcija" odigra u laboratoriji jer postoji rizik da nijedan embrion ne preživi do petog dana. U tim slučajevima, lekar može proceniti da je bolje vratiti embrion trećeg dana nego riskirati da ostanete bez embriona za transfer.</p>
+
+      <p>Odluku o danu transfera donosi embriološki tim u saradnji sa lekarom, na osnovu broja i kvaliteta embriona, te individualnih okolnosti svakog para.</p>
+
+      <h2 id="s4">Kako embriotransfer izgleda korak po korak</h2>
+
+      <h3>Dolazak u kliniku i priprema</h3>
+
+      <p>Po dolasku u kliniku presvlačite se u bolnički mantil i smešta vas se u prostoriju za pripremu. Medicinsko osoblje će proveriti vaše lične podatke i identitet - ovo je standardni sigurnosni protokol koji se sprovodi da bi se apsolutno eliminisala svaka mogućnost zamene. Potvrda identiteta se obavlja u više navrata: pri dolasku, pre ulaska u salu i neposredno pre samog transfera.</p>
+
+      <p>Potom ćete razgovarati sa embriologom koji će vas informisati o vašim embrionima - koliko ih je preživelo do tog dana, u kakvom su stanju, koji je razvojni stadijum i kvalitet embriona koji je odabran za transfer. Ovaj razgovor je često emotivan jer po prvi put dobijate konkretne informacije o embrionu koji će, ako sve bude u redu, postati vaša beba.</p>
+
+      <h3>Sam postupak</h3>
+
+      <p>Postavljate se u ginekološki položaj, slično kao za rutinski ginekološki pregled. Lekar vam na stomak postavlja sondu za abdominalni ultrazvuk - upravo zato je važna puna bešika, jer omogućava jasnu sliku materice na ultrazvučnom ekranu.</p>
+
+      <p>Lekar zatim pažljivo uvodi kateter - veoma tanak, mekan i fleksibilan cevčicu, nešto tanji od špagete - kroz grlić materice i pozicionira ga u materičnu šupljinu. Položaj vrha katetera precizno se prati na ultrazvuku kako bi embrion bio deponovan na optimalno mesto, obično u gornjoj trećini materične šupljine.</p>
+
+      <p>Kada je kateter na pravom mestu, embriolog donosi embrion iz laboratorije. Embrion je već u kateteru, u maloj zapremini hranljive tečnosti. Lekar tada nežno pritisne klip na kateteru i embrion se oslobađa na predviđeno mesto. Na ultrazvučnom ekranu možete videti sićušnu svetlu tačku ili mehuriće vazduha koji prate embrion - to je signal da je embrion na svom mestu. Za mnoge parove, ovo je jedan od najdirljivijih trenutaka celokupnog VTO postupka.</p>
+
+      <p>Kateter se potom polako i pažljivo izvlači.</p>
+
+      <h3>Provera katetera</h3>
+
+      <p>Neposredno nakon izvlačenja, kateter se predaje embriologu koji ga pod mikroskopom pregleda da bi potvrdio da je embrion uspešno isporučen - drugim rečima, da u kateteru nema zaostalih embriona. U izuzetno retkim slučajevima, embrion može ostati u kateteru. Ako se to dogodi, postupak se jednostavno ponavlja - embrion se ponovo postavi u kateter i transfer se obavlja još jednom. Ovo ne utiče na kvalitet embriona niti na šanse za uspeh.</p>
+
+      <h3>Koliko traje zahvat</h3>
+
+      <p>Ceo embriotransfer traje obično između pet i petnaest minuta, uključujući pripremu i pozicioniranje. Sam momenat vraćanja embriona traje svega nekoliko sekundi. Mnoge pacijentkinje su iznenađene koliko je sve brzo i jednostavno - ceo postupak je kraći od jednog pregleda kod zubara.</p>
+
+      <h2 id="s5">Šta pacijentkinja oseća tokom zahvata</h2>
+
+      <p>Embriotransfer je bezbolan zahvat. Ne zahteva anesteziju niti sedaciju. Većina pacijentkinja oseća samo blag pritisak ili minimalnu nelagodnost, sličnu onoj tokom rutinskog ginekološkog pregleda ili Papa testa.</p>
+
+      <p>Puna bešika može biti neugodna, naročito kada lekar pritisne ultrazvučnu sondu na stomak - ali to je kratkotrajna nelagodnost koja prestaje čim zahvat završi i kada konačno možete otići u toalet.</p>
+
+      <p>Ono što mnoge žene opisuju kao intenzivnije od fizičkog iskustva jeste emocionalna napetost. Iščekivanje, nada, strah - sve se to koncentriše u tih nekoliko minuta. Sasvim je normalno osećati tremu, radost, nestrpljenje ili čak plakati. Vaš tim to razume i naviknut je na te reakcije.</p>
+
+      <h2 id="s6">Period nakon embriotransfera</h2>
+
+      <h3>U klinici neposredno nakon zahvata</h3>
+
+      <p>Prakse variraju od klinike do klinike - neke će vas zamoliti da ostanete da ležite deset do petnaest minuta, dok će vas druge zadržati i do sat vremena. Važno je znati da naučna istraživanja pokazuju da duže ležanje nakon embriotransfera ne povećava šanse za uspeh. Embrion se ne može „iscureti" iz materice ako ustanete - on se nalazi u materičnoj šupljini koja je zatvorena, poput kapljice vode između dva stakla koja ne može pasti.</p>
+
+      <p>Pre odlaska kući dobićete detaljna uputstva o terapiji i ponašanju u narednom periodu.</p>
+
+      <h3>Progesteronska (lutealna) podrška</h3>
+
+      <p>Nakon embriotransfera počinjete ili nastavljate sa progesteronskom podrškom. Progesteron je hormon koji je ključan za pripremu i održavanje sluznice materice (endometrijuma) u stanju koje pogoduje implantaciji embriona. U VTO postupku, lutealna faza (period od ovulacije ili punkcije do testa na trudnoću) zahteva dodatnu hormonsku podršku jer je prirodna proizvodnja progesterona često nedovoljna.</p>
+
+      <p>Progesteron se može davati u različitim oblicima: vaginalne tablete ili kapsule (najčešće), injekcije u mišić ili oralne tablete. Vaš lekar će vam prepisati oblik koji je najprikladniji za vašu situaciju.</p>
+
+      <p>Progesteronska podrška obično traje do dana krvnog testa na trudnoću (beta hCG). Ako je test pozitivan, terapija se nastavlja - najčešće do kraja prvog trimestra trudnoće (oko 10–12. nedelje), kada posteljica preuzima ulogu proizvodnje progesterona.</p>
+
+      <h3>Period čekanja do testa na trudnoću</h3>
+
+      <p>Krvni test na trudnoću - takozvani beta hCG test - obično se radi deset do četrnaest dana nakon embriotransfera. Ovaj test meri nivo hormona hCG (humani horionski gonadotropin) u krvi, koji embrion počinje da luči nakon što se implantira.</p>
+
+      <p>Zašto se ne preporučuje ranije testiranje kućnim testovima? Kućni testovi mogu dati lažno negativan rezultat jer je nivo hormona u ranoj fazi možda još uvek prenizak da bi ga test detektovao. S druge strane, lažno pozitivan rezultat može nastati zbog hormona hCG koji se ponekad koristi kao „okidač" za ovulaciju u VTO protokolu i koji može ostati u organizmu. Krvni test u klinici je daleko pouzdaniji jer precizno meri koncentraciju hormona.</p>
+
+      <p>Ovaj period čekanja je za mnoge parove najteži deo celokupnog VTO puta. Svaki simptom se analizira, svaka promena u telu izaziva pitanje „Da li je ovo znak trudnoće ili ne?" Važno je znati da je potpuno normalno nemati nikakve simptome u ovom periodu - odsustvo simptoma ne znači da transfer nije uspeo, baš kao što ni njihovo prisustvo ne garantuje trudnoću.</p>
+
+      <h3>Preporuke za ponašanje nakon transfera</h3>
+
+      <p>Jedno od najčešćih pitanja nakon embriotransfera glasi: „Šta smem, a šta ne smem da radim?" Evo konkretnih smernica koje većina klinika daje:</p>
+
+      <p><strong>Dozvoljeno i preporučeno:</strong></p>
+      <ul>
+        <li>Normalne svakodnevne aktivnosti - šetnja, laki kućni poslovi, rad na kompjuteru</li>
+        <li>Vraćanje na posao već sutradan, pod uslovom da posao nije fizički zahtevan</li>
+        <li>Uravnotežena ishrana bogata proteinima, voćem, povrćem i integralnim žitaricama</li>
+        <li>Dovoljno tečnosti - voda, čajevi, supe</li>
+        <li>Umerena šetnja na svežem vazduhu</li>
+      </ul>
+
+      <p><strong>Preporučuje se izbegavanje:</strong></p>
+      <ul>
+        <li>Intenzivnog fizičkog napora, teretane i napornog vežbanja u prvih nekoliko dana</li>
+        <li>Seksualnih odnosa do testa na trudnoću (preporuke se razlikuju - konsultujte svog lekara)</li>
+        <li>Vrele kupke, saune i jake toplote</li>
+        <li>Podizanja teških predmeta</li>
+        <li>Pušenja, alkohola i preteranih količina kofeina</li>
+      </ul>
+
+      <p><strong>Razbijanje mitova.</strong> Ne morate ležati dve nedelje. Kijanje, kašljanje, smejanje ili odlazak u toalet neće „izbaciti" embrion iz materice - embrion je mikroskopski mali i okružen sluzokoži koja ga drži na mestu. Gravitacija nema nikakav uticaj na implantaciju. Svakodnevne aktivnosti su ne samo dozvoljene, već i poželjne jer normalan protok krvi i umereno kretanje doprinose dobrom stanju organizma.</p>
+
+      <h2 id="s7">Rizici i komplikacije</h2>
+
+      <p>Embriotransfer je jedan od najbezbednijih zahvata u reproduktivnoj medicini. Komplikacije su izuzetno retke, ali je važno biti informisan:</p>
+
+      <p><strong>Blag spotting (mrljanje) ili vaginalno krvarenje</strong> može se javiti nakon zahvata. Najčešće je posledica mehaničkog nadraživanja grlića materice tokom uvođenja katetera i sasvim je bezopasno. Mrljanje u danima nakon transfera može biti i takozvano implantaciono krvarenje - znak da se embrion ugnezdio u sluznicu materice.</p>
+
+      <p><strong>Blagi grčevi ili pritisak u donjem delu stomaka</strong> mogu se javiti nakon zahvata i obično traju kratko. Najčešće su posledica samog zahvata ili dejstva progesteronske terapije.</p>
+
+      <p><strong>Infekcija</strong> je izuzetno retka komplikacija, jer se zahvat obavlja u sterilnim uslovima.</p>
+
+      <p><strong>Nemogućnost prolaska katetera kroz grlić materice</strong> (cervikalna stenoza - suženje ili začepljenost kanala grlića materice) javlja se retko. U takvim situacijama lekar može koristiti tvrđi kateter, privremeno proširiti grlić (dilatacija) ili u izuzetnim slučajevima planirati transfer pod opštom anestezijom.</p>
+
+      <p><strong>Ektopična (vanmaterična) trudnoća</strong> - stanje u kome se embrion implantira van materice, najčešće u jajovodu - predstavlja mali ali postojeći rizik čak i kod VTO postupka, uprkos tome što se embrion vraća direktno u matericu. Ovo se dešava jer embrion može „migrirati" u kratkom periodu pre implantacije.</p>
+
+      <p><strong>Višeplodna trudnoća</strong> je rizik kada se vraća više od jednog embriona. Upravo zbog toga se sve više preporučuje transfer jednog embriona, kao što je ranije objašnjeno.</p>
+
+      <h2 id="s8">Posebne situacije i varijacije</h2>
+
+      <h3>Sveži transfer vs. transfer odmrznutih embriona (FET)</h3>
+
+      <p>Embriotransfer se može obaviti sa svežim embrionima - embrionima koji su nastali u istom ciklusu u kome se radi transfer - ili sa odmrznutim embrionima, u postupku koji se naziva FET (Frozen Embryo Transfer - transfer zamrznutih embriona).</p>
+
+      <p>Kod svežeg transfera, embrion se vraća u matericu tri ili pet dana nakon punkcije, u istom ciklusu. Kod FET postupka, embrioni su prethodno zamrznuti procesom krioprezervacije - brzog zamrzavanja na izuzetno niskim temperaturama u tečnom azotu - i čuvaju se dok ne dođe red na transfer, koji se obavlja u nekom narednom ciklusu.</p>
+
+      <p>FET se danas sve više primenjuje iz više razloga. Prvo, u nekim protokolima jajnici pacijentkinje nakon stimulacije mogu biti uvećani ili može postojati rizik od sindroma hiperstimulacije jajnika (OHSS), pa je bezbednije odložiti transfer. Drugo, zamrzavanje daje vremena za genetsko testiranje embriona (PGT - preimplantaciono genetsko testiranje) pre transfera. Treće, neka istraživanja sugerišu da je endometrijum u „prirodnijem" stanju u FET ciklusu jer nije pod uticajem stimulacijskih lekova.</p>
+
+      <p>Sam postupak FET embriotransfera identičan je svežem transferu - jedina razlika je u pripremi koja mu prethodi (prirodni ciklus ili pripremljen endometrijum hormonima) i u tome što embriolog pre zahvata odmrzava embrion i procenjuje da li je preživeo proces zamrzavanja i odmrzavanja.</p>
+
+      <p>Stope uspeha FET postupka su danas uporedive sa stopama svežeg transfera, a u nekim studijama čak i više.</p>
+
+      <h3>Priprema endometrijuma</h3>
+
+      <p>Pre embriotransfera - bilo svežeg ili FET - lekar pažljivo prati debljinu i kvalitet endometrijuma (sluznice materice). Endometrijum se procenjuje ultrazvukom, a idealna debljina za transfer obično iznosi od 7 do 14 milimetara, sa karakterističnim troslojnim izgledom.</p>
+
+      <p>Ako endometrijum nije optimalan - ako je pretanak ili nema odgovarajuću strukturu - lekar može produžiti terapiju estrogenom, dodati dodatne lekove za poboljšanje protoka krvi kroz matericu ili, u nekim slučajevima, odložiti transfer za naredni ciklus. Cilj je uvek da se embrion vrati u najoptimalniju moguću sredinu.</p>
+
+      <h3>Assisted hatching (potpomognuto izleganje)</h3>
+
+      <p>Pre nego što se embrion implantira u sluznicu materice, mora da „izađe" iz svoje zaštitne opne, koja se naziva zona pelucida - slično piletu koje se izleže iz jajeta. Assisted hatching je laboratorijska tehnika u kojoj embriolog pravi sićušan otvor ili istanjuje deo zone pelucide, kako bi olakšao ovaj proces.</p>
+
+      <p>Ova tehnika se najčešće primenjuje kod starijih pacijentkinja (obično preko 37–38 godina), kod kojih zona pelucida može biti deblja i tvrđa, zatim kod parova sa višestrukim neuspelim transferima, ili kod zamrznutih embriona kod kojih je zona pelucida potencijalno očvrsnula tokom procesa krioprezervacije.</p>
+
+      <p>Sam postupak se obavlja u laboratoriji pre transfera - pacijentkinja ne oseća nikakvu razliku tokom samog embriotransfera.</p>
+
+      <h3>Embriotransfer pod opštom anestezijom</h3>
+
+      <p>U izuzetno retkim slučajevima embriotransfer se može obaviti pod opštom anestezijom. Najčešći razlozi su izražena cervikalna stenoza (gde kateter ne može proći kroz grlić materice na standardan način) ili veoma izražena anksioznost pacijentkinje koja onemogućava sprovođenje zahvata. Ova situacija je zaista retka i lekar će je predložiti samo kada ne postoji druga opcija.</p>
+
+      <h2 id="s9">Česta pitanja, emocionalni aspekti i saveti</h2>
+
+      <h3>Česta pitanja</h3>
+
+      <p><strong>„Da li ću osetiti kada se embrion implantira?"</strong><br>Ne. Implantacija je mikroskopski proces koji se dešava na ćelijskom nivou i ne može se fizički osetiti. Neke žene u danima nakon transfera primete blago pecnuće, grčeve ili mrljanje i pripisuju ih implantaciji - to je moguće, ali ne može se sa sigurnošću reći. Potpuno je normalno ne osećati apsolutno ništa.</p>
+
+      <p><strong>„Da li je normalno da nemam nikakve simptome posle transfera?"</strong><br>Da, potpuno je normalno. Odsustvo simptoma ne znači da transfer nije bio uspešan. Mnoge žene koje su ostvarile trudnoću nakon VTO-a nisu imale nikakve rane simptome. Simptomi trudnoće (mučnina, osetljivost grudi) najčešće se javljaju tek nekoliko nedelja nakon pozitivnog testa, a ne u periodu čekanja.</p>
+
+      <p><strong>„Koliko embriona treba da vratimo?"</strong><br>Ovu odluku donosite zajedno sa vašim lekarom. U većini slučajeva, savremena medicina preporučuje transfer jednog kvalitetnog embriona - to je najbezberniji pristup koji istovremeno daje dobre šanse za trudnoću. Ako imate dilemu, otvoreno razgovarajte sa svojim lekarom o prednostima i rizicima svake opcije u vašem konkretnom slučaju.</p>
+
+      <p><strong>„Šta ako mi kažu da nijedan embrion nije preživeo do petog dana?"</strong><br>Ovo je situacija koja se, nažalost, dešava i koja može biti izuzetno bolna. Ako nijedan embrion ne dostigne stadijum blastociste, ne znači da je nešto „pogrešno" sa vama - nekada embrioni jednostavno nemaju dovoljno razvojnog potencijala. Vaš lekar će sa vama razgovarati o mogućim razlozima i sledećim koracima - to može biti prilagođen protokol u novom pokušaju, transfer trećeg dana u narednom ciklusu ili drugi pristup. Nemojte gubiti nadu - svaki ciklus nosi nove informacije.</p>
+
+      <p><strong>„Da li smem da se vratim na posao sutra?"</strong><br>U većini slučajeva - da. Ako vaš posao ne podrazumeva teški fizički rad, vraćanje na posao sutradan nakon embriotransfera je sasvim bezbedno. Mnoge žene biraju da uzmu dan ili dva slobodno, ali to je više iz emocionalnih razloga i želje za opuštanjem nego iz medicinske potrebe.</p>
+
+      <p><strong>„Da li smem da putujem nakon transfera?"</strong><br>Kraća putovanja automobilom ili čak letom su generalno bezbedna. Izbegavajte izuzetno duge i naporne puteve odmah nakon transfera, ali nema medicinskog razloga da izbegavate normalno kretanje.</p>
+
+      <h3>Emocionalni aspekti embriotransfera</h3>
+
+      <p>Embriotransfer je za mnoge parove emocionalno najintenzivniji trenutak celokupnog VTO puta. To je momenat kada se sve nada i sav trud - meseci priprema, injekcije, pregledi, čekanje - slivaju u jednu tačku. Sasvim je prirodno osećati mešavinu nade, uzbuđenja, straha i ranjivosti.</p>
+
+      <p><strong>Nada i strah idu zajedno.</strong> Želja da ovaj put uspe je ogromna, ali istovremeno postoji strah od razočaranja. Mnoge žene pokušavaju da se „zaštite" tako što se ne nadaju previše - ali to je gotovo nemoguće. Dozvolite sebi da osećate sve te emocije bez osude.</p>
+
+      <p><strong>Uloga partnera na dan transfera.</strong> Prisustvo partnera na dan transfera može biti izuzetno značajno. Partner ne mora da govori „prave" stvari - samo prisustvo, držanje za ruku i zajedničko proživljavanje tog trenutka imaju ogromnu vrednost.</p>
+
+      <p><strong>Pritisak okoline.</strong> Mnogi parovi se suočavaju sa pritiscima okoline - pitanjima porodice i prijatelja, komentarima, savetima. U redu je postaviti granice i deliti informacije samo onoliko koliko vam je prijatno.</p>
+
+      <h3>Šta ako transfer ne uspe</h3>
+
+      <p>Neuspešan transfer je jedna od najtežih iskustava u VTO procesu. Negativan test na trudnoću nakon svega što ste prošli može izazvati duboku tugu, osećaj gubitka, frustraciju, pa čak i krivicu - although niste ništa pogrešno uradili.</p>
+
+      <p>Važno je znati da neuspeh jednog transfera ne znači da naredni neće uspeti. Stope uspeha VTO postupka su takve da mnogi parovi ostvare trudnoću tek nakon dva, tri ili više pokušaja.</p>
+
+      <p>Nakon neuspešnog transfera, vaš lekar će zakazati konsultaciju na kojoj ćete zajedno analizirati ciklus - šta je funkcionisalo dobro, šta bi se moglo promeniti, da li ima zamrznutih embriona za sledeći pokušaj i koji su dalji koraci. Ovaj razgovor je izuzetno važan jer vam daje plan i perspektivu za nastavak.</p>
+
+      <p>Ako vam je potrebna emocionalna podrška, nemojte oklevati da potražite pomoć - bilo da je to razgovor sa psihologom koji se specijalizuje za reproduktivno zdravlje, grupa podrške za žene u VTO procesu ili jednostavno razgovor sa osobom od poverenja.</p>
+
+      <div class="empathy-box">
+        <p>Sam embriotransfer je iznenađujuće kratak i tih zahvat. Dok ležite i na ultrazvučnom monitoru pratite sliku vaše materice, lekar kroz tanak kateter nežno vraća embrion. Na ekranu ćete možda videti sićušnu svetlu tačku - to je vaš embrion na mestu gde treba da bude. Ceo postupak traje kraće od jednog pregleda kod zubara, a za mnoge parove to je momenat koji pamte zauvek - bez obzira na krajnji ishod.</p>
+        <p>Budite blagi prema sebi u periodu čekanja. Radite stvari koje vam pričinjavaju zadovoljstvo, okružite se ljudima koji vas podržavaju i verujte da ste učinili sve što je bilo u vašoj moći. Rezultat ne zavisi od toga koliko ste mirovali, koliko ste se stresirali ili da li ste pojeli „pravu" hranu. Implantacija je biološki proces na koji ne možemo uticati voljom - ali možemo uticati na to kako se prema sebi odnosimo dok čekamo odgovor.</p>
+      </div>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">Embriotransfer</a>
+        <a href="#" class="article-tag">Transfer embriona</a>
+        <a href="#" class="article-tag">VTO postupak</a>
+        <a href="#" class="article-tag">Implantacija</a>
+        <a href="#" class="article-tag">FET</a>
+        <a href="#" class="article-tag">Blastocista</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priprema sperme u VTO postupku | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Tokom VTO postupka</span>
+      <h1 class="article-title">Priprema sperme za vantelesno oplođenje - kako se uzorak obrađuje u laboratoriji</h1>
+      <p class="article-subtitle">Laboratorijski proces koji se dešava tiho, daleko od očiju parova - ali od kojeg direktno zavisi ishod VTO postupka</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je priprema sperme i zašto je neophodna</a></li>
+        <li><a href="#s2">Mesto pripreme sperme u celokupnom VTO procesu</a></li>
+        <li><a href="#s3">Prikupljanje uzorka - kako to izgleda u praksi</a></li>
+        <li><a href="#s4">Laboratorijska obrada sperme korak po korak</a></li>
+        <li><a href="#s5">Šta se dešava sa pripremljenim uzorkom - put do oplođenja</a></li>
+        <li><a href="#s6">Uloga embriologa</a></li>
+        <li><a href="#s7">Faktori koji utiču na kvalitet uzorka na dan postupka</a></li>
+        <li><a href="#s8">Mogući problemi i kako se rešavaju</a></li>
+        <li><a href="#s9">Česta pitanja i saveti za parove</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <!-- ========== SECTION 1 ========== -->
+      <h2 id="s1">Šta je priprema sperme i zašto je neophodna</h2>
+
+      <p>Kada parovi započnu postupak vantelesnog oplođenja (VTO, poznatiji i kao IVF - od engleskog <em>in vitro fertilization</em>), većina pažnje usmerena je na stimulaciju jajnika, punkciju jajnih ćelija i transfer embriona. Međutim, postoji jedan jednako važan korak koji se dešava u laboratoriji, često nevidljiv za parove - <strong>priprema sperme</strong>.</p>
+
+      <p>Priprema (ili obrada) sperme je laboratorijski postupak kojim se iz uzorka ejakulata (tečnosti koja se oslobađa prilikom ejakulacije) izdvajaju najkvalitetniji i najpokretljiviji spermatozoidi. Cilj je da se oni odvoje od svega ostalog što se nalazi u ejakulatu - semene plazme (tečnog dela ejakulata u kome spermatozoidi plivaju), nepokretnih i mrtvih spermatozoida, belih krvnih zrnaca (leukocita), bakterija i ćelijskog debrisa (ostataka raspadnutih ćelija). Krajnji rezultat je koncentrovan uzorak zdravih, pokretnih spermatozoida, spreman za oplođenje jajnih ćelija - bilo klasičnim IVF postupkom (kada se spermatozoidi i jajne ćelije stave zajedno u petri šolju) ili ICSI metodom (kada embriolog ubrizgava jedan spermatozoid direktno u jajnu ćeliju).</p>
+
+      <h3>Zašto se neobrađen ejakulat ne može koristiti direktno?</h3>
+
+      <p>Možda zvuči logično - zašto jednostavno ne staviti sveže ejakulat pored jajne ćelije? Razlog je višestruk:</p>
+
+      <p><strong>Semena plazma može oštetiti jajne ćelije.</strong> Tečni deo ejakulata sadrži supstance koje su korisne u prirodnom procesu (pomažu spermatozoidima da prežive putovanje kroz ženski reproduktivni trakt), ali koje u laboratorijskim uslovima mogu biti štetne za jajne ćelije. Tu spadaju prostaglandini (supstance koje izazivaju kontrakcije materice) i citokini (molekuli koji regulišu imunološke reakcije). U direktnom kontaktu sa jajnom ćelijom u petri šolji, ove supstance mogu ometati oplođenje ili čak oštetiti jajnu ćeliju.</p>
+
+      <p><strong>Ejakulat sadrži mnogo toga što ne treba da bude u blizini jajne ćelije.</strong> Pored pokretnih, zdravih spermatozoida, u ejakulatu se nalaze i nepokretni spermatozoidi, mrtvi spermatozoidi, bela krvna zrnca, epitelijalne ćelije (ćelije koje oblažu zidove reproduktivnog trakta) i bakterije. Sve ovo stvara „buku" u uzorku - zamislite to kao pokušaj da u prepunoj prostoriji pronađete jednog konkretnog sagovornika.</p>
+
+      <p><strong>Reaktivne kiseonične vrste oštećuju DNK spermatozoida.</strong> U neobrađenom uzorku, nepokretni i mrtvi spermatozoidi, kao i leukociti, proizvode slobodne radikale (reaktivne kiseonične vrste) koji mogu oštetiti genetski materijal (DNK) zdravih spermatozoida. Što duže zdravi spermatozoidi ostaju u kontaktu sa ovim izvorima oštećenja, to je veća šansa da će njihova DNK biti fragmentirana (oštećena), što smanjuje šanse za uspešno oplođenje i razvoj kvalitetnog embriona.</p>
+
+      <p><strong>Priprema koncentriše najbolje spermatozoide.</strong> Izdvajanjem pokretnih i morfološki normalnih spermatozoida, embriolog dobija uzorak u kome je svaki spermatozoid potencijalni kandidat za oplođenje - što direktno povećava šanse za uspeh postupka.</p>
+
+      <!-- ========== SECTION 2 ========== -->
+      <h2 id="s2">Mesto pripreme sperme u celokupnom VTO procesu</h2>
+
+      <p>Da biste razumeli kada se priprema sperme dešava, korisno je znati osnovni tok jednog VTO ciklusa:</p>
+
+      <p>Najpre se kod žene sprovodi <strong>hormonska stimulacija jajnika</strong> (davanje injekcija hormona tokom 10–14 dana kako bi sazrelo više jajnih ćelija istovremeno). Zatim sledi <strong>punkcija jajnih ćelija</strong> - kratka procedura u blagoj anesteziji tokom koje lekar iglom kroz vaginu aspirira (usisava) folikule iz jajnika i prikuplja jajne ćelije.</p>
+
+      <p>Upravo na dan punkcije, muški partner najčešće daje uzorak sperme. Dok se jajne ćelije prikupljaju u jednom delu klinike, uzorak sperme se istovremeno priprema u embriološkoj laboratoriji. Vremenska usklađenost je važna - i jajne ćelije i spermatozoidi treba da budu spremni otprilike u isto vreme.</p>
+
+      <p>Nakon pripreme sperme, sledi sam postupak <strong>oplođenja</strong> - bilo klasičnim IVF postupkom (spermatozoidi se dodaju jajnim ćelijama u petri šolji) ili ICSI metodom (embriolog mikroinjekcijom ubrizgava jedan spermatozoid u svaku jajnu ćeliju). Zatim se prati razvoj embriona u narednih 3–5 dana, i na kraju se odabrani embrion vraća u matericu (<strong>transfer embriona</strong>).</p>
+
+      <p>Priprema sperme je, dakle, ključna karika u lancu - bez nje nema kvalitetnog uzorka za oplođenje, a bez kvalitetnog uzorka - šanse za uspeh značajno opadaju.</p>
+
+      <!-- ========== SECTION 3 ========== -->
+      <h2 id="s3">Prikupljanje uzorka - kako to izgleda u praksi</h2>
+
+      <p>Ovo je deo postupka o kome se retko otvoreno govori, a za mnoge muškarce predstavlja izvor stresa i nelagode. Važno je znati šta vas čeka i koje opcije postoje.</p>
+
+      <h3>Davanje uzorka u klinici na dan punkcije</h3>
+
+      <p>Najčešći način prikupljanja sperme za VTO je <strong>masturbacija u klinici</strong>, na dan kada se radi punkcija jajnih ćelija kod partnerke. Klinike za VTO imaju posebnu prostoriju namenjenu za ovo - obično je to mala, zaključana soba, opremljena fotelja ili ležajem, sa materijalima koji mogu pomoći (časopisi, ekran sa sadržajem za odrasle - mada to varira od klinike do klinike). Uzorak se prikuplja u sterilnu plastičnu posudicu koju klinika obezbeđuje.</p>
+
+      <p>Pre davanja uzorka potrebno je ispuniti nekoliko uslova:</p>
+
+      <p><strong>Period apstinencije</strong> - lekar će preporučiti da partner ne ejakulira 2 do 5 dana pre zakazanog dana punkcije. Prekratka apstinencija (manje od 2 dana) može rezultirati manjim volumenom uzorka i nižom koncentracijom spermatozoida. Predugačka apstinencija (više od 5–7 dana) može dovesti do nakupljanja starijih, manje pokretnih spermatozoida i veće fragmentacije DNK.</p>
+
+      <p><strong>Higijena</strong> - pre davanja uzorka potrebno je temeljno oprati ruke i genitalije, kako bi se smanjila kontaminacija uzorka bakterijama.</p>
+
+      <p><strong>Bez lubrikanta</strong> - komercijalni lubrikanti mogu oštetiti spermatozoide. Ako je lubrikant neophodan, klinika može obezbediti specijalni, spermatozoidima-bezbedan lubrikant.</p>
+
+      <p><strong>Trema i poteškoće sa davanjem uzorka na zahtev</strong> - ovo je mnogo češći problem nego što se misli, i o njemu se gotovo nikad ne govori otvoreno. Situacija je inherentno stresna: partner zna da u tom trenutku, u drugom delu klinike, njegova partnerka prolazi kroz punkciju, da embriolog čeka uzorak, i da ceo skup i dugotrajan postupak zavisi od toga da li će on uspeti da ejakulira u narednih tridesetak minuta u nepoznatoj prostoriji. Pritisak može dovesti do toga da muškarac jednostavno ne može da postigne erekciju ili ejakulaciju - i to je potpuno normalna reakcija na stres, a ne razlog za stid. Klinike su upoznate sa ovim problemom i imaju protokole za takve situacije (o čemu više u sekciji o mogućim problemima).</p>
+
+      <h3>Alternativni načini prikupljanja</h3>
+
+      <p>Davanje uzorka u klinici nije jedina opcija:</p>
+
+      <p><strong>Specijalni prezervativ za prikupljanje</strong> - postoje nelateksni prezervativni bez spermicida (sredstava koja ubijaju spermatozoide) koji su dizajnirani tako da se uzorak može prikupiti tokom polnog odnosa. Ovo može biti opcija za muškarce koji ne mogu ejakulirati masturbacijom.</p>
+
+      <p><strong>Davanje uzorka kod kuće</strong> - neke klinike dozvoljavaju da muškarac da uzorak u udobnosti svog doma i donese ga u kliniku u određenom vremenskom roku (obično u roku od 30–60 minuta od ejakulacije). Uzorak se transportuje na telesnoj temperaturi - najčešće se posudica drži u džepu ili blizu tela, nikako u frižideru ili na direktnoj sunčevoj svetlosti. Ova opcija nije uvek moguća - zavisi od udaljenosti od klinike, vremenskih uslova i protokola konkretne ustanove.</p>
+
+      <h3>Hirurško dobijanje spermatozoida</h3>
+
+      <p>U nekim slučajevima, spermatozoidi se ne mogu dobiti iz ejakulata - najčešće kod muškaraca sa <strong>azoospermijom</strong> (stanje u kome u ejakulatu nema spermatozoida, bilo zato što se ne proizvode u dovoljnoj meri ili zato što postoji opstrukcija koja sprečava njihov prolaz). Tada se spermatozoidi dobijaju hirurškim putem, direktno iz testisa ili epididimisa (kanala koji se nalazi uz testis i u kome spermatozoidi sazrevaju).</p>
+
+      <p>Najčešće metode su:</p>
+
+      <p><strong>TESA</strong> (<em>Testicular Sperm Aspiration</em> - testikularna aspiracija spermatozoida) - iglom se aspirira (usisava) mala količina tkiva iz testisa. Postupak se radi u lokalnoj anesteziji.</p>
+
+      <p><strong>MESA</strong> (<em>Microsurgical Epididymal Sperm Aspiration</em> - mikrohirurška aspiracija iz epididimisa) - pod operativnim mikroskopom, hirurg otvara epididimis i aspirira tečnost koja sadrži spermatozoide. Koristi se kod opstruktivne azoospermije (kada se spermatozoidi proizvode, ali ne mogu da stignu do ejakulata zbog fizičke prepreke).</p>
+
+      <p><strong>Micro-TESE</strong> (<em>Microdissection Testicular Sperm Extraction</em> - mikrodisekcija testisa) - najnaprednija metoda, koja se koristi kod najtežih slučajeva, kada je proizvodnja spermatozoida izuzetno niska. Hirurg pod velikim uvećanjem (operativni mikroskop) pregleda tkivo testisa i traži male zone u kojima se eventualno odvija spermatogeneza (proizvodnja spermatozoida). Ovo je zahtevna procedura, ali može omogućiti pronalaženje spermatozoida čak i kada je njihova proizvodnja minimalna.</p>
+
+      <p>Uzorci dobijeni hirurškim putem obično sadrže mali broj spermatozoida i uvek se koriste za ICSI postupak (jer je za ICSI dovoljan samo jedan spermatozoid po jajnoj ćeliji).</p>
+
+      <h3>Korišćenje zamrznutih (krioprezerviranih) uzoraka</h3>
+
+      <p>Ponekad se za VTO koristi sperma koja je prethodno zamrznuta i čuvana u banci sperme u tečnom azotu na temperaturi od -196°C. To se dešava u nekoliko situacija:</p>
+
+      <p><strong>Pre hemioterapije ili radioterapije</strong> - muškarci kojima je dijagnostikovan rak često zamrznu spermu pre početka lečenja, jer hemioterapija i zračenje mogu trajno oštetiti ili uništiti proizvodnju spermatozoida.</p>
+
+      <p><strong>Donor sperma</strong> - kada par koristi spermu od anonimnog ili poznatog donora.</p>
+
+      <p><strong>Rezervni (backup) uzorak</strong> - mnoge klinike preporučuju da muškarac zamrzne jedan uzorak sperme unapred, kao „osiguranje" za slučaj da na dan punkcije ne uspe da da svež uzorak.</p>
+
+      <p>Na dan postupka, zamrznuti uzorak se pažljivo odmrzava - proces odmrzavanja mora biti kontrolisan, jer prebrzo ili presporo odmrzavanje može oštetiti spermatozoide. Nakon odmrzavanja, uzorak se obrađuje istim metodama kao i svež uzorak. Treba napomenuti da zamrzavanje i odmrzavanje neizbežno dovode do gubitka određenog procenta spermatozoida (tipično 25–50% pokretnih spermatozoida ne preživi proces zamrzavanja), ali preostali živi spermatozoidi su u potpunosti funkcionalni.</p>
+
+      <!-- ========== SECTION 4 ========== -->
+      <h2 id="s4">Laboratorijska obrada sperme korak po korak</h2>
+
+      <p>Evo šta se dešava od trenutka kada embriolog primi uzorak sperme u laboratoriji.</p>
+
+      <h3>Inicijalna analiza - spermiogram na dan postupka</h3>
+
+      <p>Čim uzorak stigne u laboratoriju, embriolog vrši brzu analizu koja je u suštini mini-spermiogram (analiza kvaliteta sperme). Pod mikroskopom se procenjuju:</p>
+
+      <p><strong>Volumen</strong> - koliko mililitara ejakulata ima u posudici (normalno je 1,5 ml ili više).</p>
+
+      <p><strong>Koncentracija</strong> - koliko miliona spermatozoida se nalazi u jednom mililitru uzorka (normalna vrednost je 16 miliona po mililitru ili više, prema kriterijumima Svetske zdravstvene organizacije).</p>
+
+      <p><strong>Pokretljivost</strong> - koji procenat spermatozoida se aktivno kreće, i kako se kreću (progresivna pokretljivost - spermatozoidi koji plivaju napred - je ono što je najvažnije).</p>
+
+      <p><strong>Morfologija</strong> - kakav je oblik spermatozoida (veličina i oblik glave, srednjeg dela i repa). Procenat spermatozoida normalne morfologije je obično nizak čak i u zdravim uzorcima (4% ili više se smatra normalnim po strogim Krugerovim kriterijumima).</p>
+
+      <p>Ova inicijalna analiza je ključna jer <strong>određuje dalji tok obrade i metodu oplođenja</strong>. Ako je uzorak dobar (visoka koncentracija, dobra pokretljivost), embriolog može koristiti swim-up metodu i pripremiti uzorak za klasičan IVF. Ako je uzorak lošiji (niska koncentracija, slaba pokretljivost), primenjivaće gradijent centrifugaciju i oplođenje će se raditi ICSI metodom.</p>
+
+      <h3>Likvefakcija</h3>
+
+      <p>Neposredno nakon ejakulacije, sperma ima gel-astu, koagulisanu konzistenciju - to je prirodni mehanizam koji pomaže spermi da se zadrži u vagini. U roku od 20 do 30 minuta, enzimi u semenoj plazmi razgrađuju ovu gel strukturu i uzorak postaje tečan - ovaj proces se zove <strong>likvefakcija</strong>. Embriolog ostavlja uzorak na sobnoj temperaturi (ili u inkubatoru na 37°C) dok se likvefakcija ne završi, jer se sa gel-astim uzorkom ne može raditi - spermatozoidi bi bili zarobljeni u gustoj strukturi i ne bi se mogli adekvatno obraditi.</p>
+
+      <h3>Swim-up metoda</h3>
+
+      <p>Zamislite čašu mirne vode i na njeno dno stavite kap tečnosti pune spermatozoida. Šta bi se desilo? Najpokretljiviji spermatozoidi bi počeli da plivaju nagore, ka površini, dok bi nepokretni, mrtvi i sav ostali sadržaj ostao na dnu. Upravo to je princip swim-up metode.</p>
+
+      <p>U praksi, embriolog radi sledeće: na vrh uzorka sperme (ili na pelet sperme nakon blagog centrifugiranja) pažljivo nanosi sloj specijalnog čistog hranljivog medijuma (tečnost koja obezbeđuje optimalne uslove za preživljavanje spermatozoida). Epruveta se zatim inkubira u blago nagnutom položaju na temperaturi od 37°C tokom 45 minuta do sat vremena. Za to vreme, pokretni spermatozoidi aktivno „isplivavaju" iz uzorka nagore, u čist medijum. Nakon inkubacije, embriolog pažljivo pipetom pokuplja gornji sloj koji sadrži visoko pokretne spermatozoide - čist uzorak, oslobođen semene plazme, debrisa i nepokretnih ćelija.</p>
+
+      <p><strong>Kada se koristi:</strong> Swim-up metoda je idealna za uzorke sa normalnim ili blago sniženim parametrima sperme. Njome se dobijaju spermatozoidi izuzetne pokretljivosti.</p>
+
+      <p><strong>Prednosti:</strong> Jednostavna je, blaga za spermatozoide (ne zahteva centrifugiranje pod velikim silama), i selektuje spermatozoide koji su zaista sposobni za aktivno kretanje - što oponaša prirodni proces u kome samo najpokretljiviji spermatozoidi uspevaju da stignu do jajne ćelije.</p>
+
+      <p><strong>Ograničenja:</strong> Ne koristi se kod uzoraka sa izrazito niskom koncentracijom ili pokretljivošću spermatozoida, jer bi prinos (količina dobijenih spermatozoida) bio premali.</p>
+
+      <h3>Gradijent centrifugacija (density gradient centrifugation)</h3>
+
+      <p>Ovo je najčešće korišćena metoda pripreme sperme u većini IVF laboratorija širom sveta, i posebno je korisna kod uzoraka sa narušenim parametrima.</p>
+
+      <p>Zamislite epruvetu u kojoj se nalaze dva sloja tečnosti različite gustine - na dnu gušći sloj (obično 80% koloidni rastvor), a iznad njega manje gust sloj (40%). Na vrh ovih slojeva embriolog pažljivo nanosi uzorak sperme. Zatim se epruveta stavlja u centrifugu - uređaj koji velikom brzinom rotira epruvetu, stvarajući centrifugalnu silu koja gura ćelije ka dnu.</p>
+
+      <p>Evo šta se dešava tokom centrifugiranja: spermatozoidi se „provlače" kroz slojeve tečnosti, i to ne svi podjednako. Najpokretljiviji i morfološki najkvalitetniji spermatozoidi imaju gustinu koja im omogućava da prođu čak i kroz najgušći, donji sloj - i skupljaju se na samom dnu epruvete, formirajući takozvani <strong>pelet</strong> (mala nakupina ćelija). Nepokretni spermatozoidi, mrtvi spermatozoidi, leukociti, bakterije i ćelijski debris ostaju „zaglavljeni" u gornjim slojevima - oni jednostavno nemaju gustinu ni pokretljivost da prođu kroz barijere.</p>
+
+      <p>Nakon centrifugiranja, embriolog pažljivo aspirira (uklanja) gornje slojeve i supernatant (tečnost iznad peleta), a zatim pelet ispira - dodaje čist medijum i ponovo kratko centrifugira, da bi uklonio ostatke koloidnog rastvora. Na kraju, pelet se resuspenduje (rastvori) u maloj količini svežeg medijuma - i rezultat je čist, koncentrovan uzorak pokretnih spermatozoida.</p>
+
+      <p><strong>Kada se koristi:</strong> Ovo je metoda izbora za većinu uzoraka, a naročito za one sa sniženom koncentracijom, pokretljivošću ili morfologijom spermatozoida.</p>
+
+      <p><strong>Prednosti:</strong> Efikasno odvaja kvalitetne spermatozoide čak i iz značajno narušenih uzoraka. Uklanja ne samo nepokretne spermatozoide, već i leukocite i bakterije koji proizvode štetne slobodne radikale.</p>
+
+      <h3>Ispiranje (washing)</h3>
+
+      <p>Ovo je najjednostavnija metoda obrade sperme - uzorak se razblažuje u hranljivom medijumu i centrifugira. Semena plazma se uklanja sa supernatantom, a pelet spermatozoida na dnu se resuspenduje u čistom medijumu. Proces se može ponoviti dva do tri puta.</p>
+
+      <p>Ispiranje se koristi uglavnom za uzorke koji su već dobrog kvaliteta i kada nije potrebna sofisticirana selekcija (na primer, kod intrauterine inseminacije - IUI postupka, ili kao početni korak pre swim-up metode). Za VTO se retko koristi samo ispiranje bez dodatne selekcije.</p>
+
+      <h3>MACS (Magnetic-Activated Cell Sorting - magnetna selekcija ćelija)</h3>
+
+      <p>Ovo je napredna metoda koja se koristi u specijalizovanim centrima, najčešće kod muškaraca sa visokim procentom fragmentacije DNK spermatozoida (oštećenja genetskog materijala koje ne može da se vidi standardnim mikroskopskim pregledom).</p>
+
+      <p>Princip je sledeći: spermatozoidi koji su ušli u proces apoptoze (programirane ćelijske smrti) na svojoj površini ispoljavaju jedan protein - fosfatidilserin. MACS tehnologija koristi mikroskopska magnetna antitela koja se vezuju upravo za taj protein. Uzorak sperme se propušta kroz kolonicu koja sadrži magnetne čestice. Apoptotični (oštećeni) spermatozoidi se „lepe" za magnete i zaostaju u kolonici, dok zdravi spermatozoidi prolaze i prikupljaju se na drugom kraju.</p>
+
+      <p>MACS se obično koristi kao dodatni korak uz standardnu pripremu (nakon gradijent centrifugacije ili swim-up metode), kod parova sa ponovljenim neuspesima VTO postupka ili kada postoji sumnja na visoku fragmentaciju DNK spermatozoida.</p>
+
+      <h3>Mikrofluidna selekcija spermatozoida</h3>
+
+      <p>Ovo je jedna od novijih tehnologija u embriologiji, koja predstavlja pokušaj da se u laboratoriji oponašavaju uslovi koji vladaju u ženskom reproduktivnom traktu - gde spermatozoidi moraju da se „probiju" kroz uske kanale cervikalnog mukusa i jajovoda da bi stigli do jajne ćelije.</p>
+
+      <p>Mikrofluidni čipovi su mali uređaji (veličine kreditne kartice ili manji) koji sadrže mrežu sitnih kanala. Uzorak sperme se stavlja na jedan kraj čipa, a na drugom kraju se prikupljaju spermatozoidi koji su uspeli da proplove kroz kanale. Ovi kanali su dizajnirani tako da favorizuju spermatozoide sa progresivnom pokretljivošću, normalnom morfologijom i neoštećenom DNK - bez centrifugiranja, koje može proizvesti dodatni oksidativni stres.</p>
+
+      <p>Mikrofluidna selekcija je još uvek relativno nova tehnologija i dostupna je u ograničenom broju klinika, ali istraživanja pokazuju obećavajuće rezultate - naročito u pogledu smanjenja fragmentacije DNK u pripremljenom uzorku. Ova metoda se sve više primenjuje u naprednim reproduktivnim centrima.</p>
+
+      <!-- ========== SECTION 5 ========== -->
+      <h2 id="s5">Šta se dešava sa pripremljenim uzorkom - put do oplođenja</h2>
+
+      <p>Kada embriolog završi pripremu sperme, na stolu ima epruvetu sa čistim, koncentrovanim uzorkom pokretnih spermatozoida. Dalji put zavisi od toga koji metod oplođenja će se primeniti.</p>
+
+      <h3>Klasičan IVF</h3>
+
+      <p>Kod klasičnog IVF-a, pripremljeni spermatozoidi se dodaju u petri šolju (malu laboratorijsku posudu) u kojoj se već nalaze jajne ćelije, okružene hranljivim medijumom koji obezbeđuje optimalne uslove. Na svaku jajnu ćeliju dodaje se otprilike <strong>50.000 do 100.000 pokretnih spermatozoida</strong>. Oplođenje se dešava „spontano" - spermatozoidi sami pronalaze jajnu ćeliju i jedan od njih prodire kroz njenu zaštitnu opnu (zonu pelucidu). Petri šolja se stavlja u inkubator na 37°C, u atmosferi kontrolisanog sastava gasova, i embriolog proverava da li je oplođenje uspelo sledeći dan, 16–18 sati nakon inseminacije.</p>
+
+      <h3>ICSI (intracitoplazmatska injekcija spermatozoida)</h3>
+
+      <p>Kod ICSI metode, embriolog preuzima potpunu kontrolu nad procesom oplođenja. Pod invertnim mikroskopom (posebnim mikroskopom koji je spojen sa sistemom mikromanipulatora - finih instrumenata kojima se mogu pokretati mikroskopski objekti), embriolog bira <strong>jedan spermatozoid</strong> za svaku jajnu ćeliju.</p>
+
+      <p>Kako se vrši selekcija? Embriolog posmatra spermatozoide pod velikim uvećanjem i bira one koji ispunjavaju tri kriterijuma: dobru progresivnu pokretljivost (aktivno plivanje napred), normalnu morfologiju (pravilan oblik glave i repa) i karakteristično ponašanje (spermatozoid koji reaguje na dodir - kada ga embriolog dodirne mikroinjekcijskom iglom, zdrav spermatozoid se „otrese" i nastavi da pliva, dok je apoptotični često trom).</p>
+
+      <p>Izabrani spermatozoid se imobiliše (zaustavi) blagim pritiskom mikroinjekciјske igle na rep (ovim se oštećuje membrana repa, što je neophodno za aktivaciju procesa oplođenja), a zatim se aspirira u iglu i direktno ubrizgava u citoplazmu (unutrašnjost) jajne ćelije.</p>
+
+      <h3>Koliko spermatozoida je potrebno?</h3>
+
+      <p>Razlika u potrebnom broju spermatozoida između dve metode je ogromna i direktno utiče na odluku koju metodu primeniti:</p>
+
+      <p>Za klasičan IVF potrebno je <strong>50.000–100.000 pokretnih spermatozoida po jajnoj ćeliji</strong> - ako žena ima 10 jajnih ćelija, embriologu treba najmanje 500.000 do milion pokretnih spermatozoida. Ovo je razlog zašto se za klasičan IVF uzorak mora biti dovoljno dobar.</p>
+
+      <p>Za ICSI je potreban <strong>samo jedan spermatozoid po jajnoj ćeliji</strong> - za 10 jajnih ćelija dovoljan je minimum 10 spermatozoida (u praksi embriolog želi da ima bar nekoliko stotina na raspolaganju za selekciju, ali potrebe su nemerljivo manje nego za IVF).</p>
+
+      <p>Ova razlika znači da ICSI omogućava oplođenje čak i kod najlošijih uzoraka sperme, uključujući uzorke sa samo nekoliko pronađenih spermatozoida - što je čini nezamenljivom metodom kod teškog muškog faktora infertiliteta.</p>
+
+      <!-- ========== SECTION 6 ========== -->
+      <h2 id="s6">Uloga embriologa</h2>
+
+      <p>Embriolozi su specijalisti koji rade „iza zatvorenih vrata" IVF laboratorije, i njihova stručnost direktno utiče na ishod svakog VTO postupka. To su naučnici sa diplomom bioloških ili biomedicinskih nauka i dodatnom specijalizovanom obukom iz humane reprodukcije i embriologije. Mnogi embriolozi imaju master ili doktorske diplome, a svi prolaze kroz obimnu praktičnu obuku pre nego što samostalno rade sa uzorcima pacijenata.</p>
+
+      <p>Embriolog je osoba koja prima vaš uzorak, procenjuje njegov kvalitet, donosi odluku o metodi obrade, izvodi pripremu sperme, a zatim izvodi i samo oplođenje - bilo da dodaje spermatozoide jajnim ćelijama za IVF ili izvodi ICSI mikroinjekciju. Embriolog prati razvoj embriona u narednim danima, ocenjuje njihov kvalitet i učestvuje u odluci koji embrion će se transferisati u matericu.</p>
+
+      <p>Iskustvo embriologa je od izuzetnog značaja, naročito kod zahtevnih uzoraka. Sposobnost da se u uzorku sa izuzetno malim brojem spermatozoida pronađu i izdvoje oni zdravi, da se izabere najbolji spermatozoid za ICSI, da se proceni da li uzorak zahteva prelazak sa IVF-a na ICSI - sve to su odluke koje zahtevaju znanje, iskustvo i preciznost. U mnogim slučajevima, razlika između uspešnog i neuspešnog postupka leži upravo u rukama embriologa.</p>
+
+      <!-- ========== SECTION 7 ========== -->
+      <h2 id="s7">Faktori koji utiču na kvalitet uzorka na dan postupka</h2>
+
+      <p>Kvalitet sperme nije konstantna veličina - može značajno varirati od uzorka do uzorka, čak i kod istog muškarca. Ovo je važno razumeti, jer uzorak na dan VTO-a može biti drugačiji od spermiograma koji je urađen mesecima ranije tokom dijagnostičke obrade.</p>
+
+      <p><strong>Period apstinencije</strong> je jedan od najvažnijih faktora. Opšta preporuka je 2–5 dana bez ejakulacije pre davanja uzorka. Prekratka apstinencija (1 dan ili manje) može značiti niži volumen i nižu koncentraciju. Predugačka apstinencija (7 dana ili više) može dovesti do nakupljanja starijih spermatozoida sa većim procentom oštećenja DNK i slabijom pokretljivošću. Optimum za većinu muškaraca je oko 3 dana.</p>
+
+      <p><strong>Stres i trema</strong> na dan postupka mogu značajno uticati na kvalitet uzorka, jer stresni hormoni (kortizol, adrenalin) mogu privremeno smanjiti pokretljivost spermatozoida. Osim toga, stres može dovesti do poteškoća sa ejakulacijom, o čemu smo već govorili.</p>
+
+      <p><strong>Bolest i povišena temperatura</strong> u nedeljama pre postupka mogu imati dramatičan efekat. Spermatozoidi se razvijaju tokom perioda od oko 74 dana, ali su najosetljiviji u poslednje 2–3 nedelje pre ejakulacije. Visoka telesna temperatura (grip, virusna infekcija) može značajno narušiti pokretljivost i morfologiju spermatozoida u uzorku datom 2–6 nedelja nakon bolesti.</p>
+
+      <p><strong>Lekovi</strong> - neki lekovi (antibiotici, antidepresivi, testosteron i drugi hormoni, finasterid za gubitak kose) mogu uticati na kvalitet sperme. Važno je da muškarac obavesti lekara o svim lekovima koje uzima.</p>
+
+      <p><strong>Životne navike</strong> - pušenje, prekomerno konzumiranje alkohola, korišćenje marihuane i drugih supstanci negativno utiču na kvalitet sperme. Čak i navike kao što su česte posete sauni ili korišćenje vrućih kupki, nošenje laptopa na krilu i nošenje tesne odeće mogu povisiti temperaturu testisa i smanjiti kvalitet sperme, jer je za normalnu spermatogenezu potrebna temperatura nešto niža od telesne (zato su testisi smešteni izvan tela, u skrotumu).</p>
+
+      <p><strong>Prirodna varijabilnost</strong> - kvalitet sperme kod istog muškarca može varirati iz meseca u mesec, pa čak i iz nedelje u nedelju, bez jasno uočljivog razloga. Zato jedan spermiogram ne daje uvek potpunu sliku, i zato se u dijagnostičke svrhe preporučuju dva spermiograma u razmaku od 2–3 meseca.</p>
+
+      <!-- ========== SECTION 8 ========== -->
+      <h2 id="s8">Mogući problemi i kako se rešavaju</h2>
+
+      <h3>Nemogućnost davanja uzorka na dan postupka</h3>
+
+      <p>Ovo se dešava češće nego što se misli. Stres, nelagoda, trema, pritisak - sve to može dovesti do toga da muškarac ne može da ejakulira na zahtev. Kliničko osoblje je upoznato sa ovom situacijom i reaguje bez osude.</p>
+
+      <p>Opcije uključuju: davanje dodatnog vremena (bez pritiska), korišćenje prethodno zamrznutog rezervnog uzorka (razlog zašto je zamrzavanje backup uzorka tako dobra preventivna mera), davanje uzorka kod kuće uz hitan transport u kliniku (ako klinika to dozvoli i ako udaljenost to omogućava), i u nekim slučajevima - medicinska pomoć (na primer, lekovi koji pomažu postizanje erekcije, poput sildenafila, ili tehnika vibrostimulacije).</p>
+
+      <h3>Veoma loš uzorak na dan postupka</h3>
+
+      <p>Ponekad, čak i kada su prethodni spermiogrami bili uredni, uzorak na dan postupka može biti značajno lošiji od očekivanog. U toj situaciji embriolog i lekar brzo donose odluke: ako je planirani IVF, ali uzorak nije dovoljan za klasično oplođenje, prelazi se na ICSI (ovo je jedan od razloga zašto je ICSI toliko važna tehnologija - služi kao sigurnosna mreža). Ako postoji zamrznuti rezervni uzorak, može se koristiti on. U krajnjem, najređem slučaju - ako uzorak nije upotrebljiv i nema rezervnog - moguće je otkazati oplođenje (jajne ćelije se zamrznu za kasniji pokušaj) ili, ako je par to prethodno dogovorio sa klinikom, preći na korišćenje donor sperme.</p>
+
+      <h3>Azoospermija otkrivena na dan postupka</h3>
+
+      <p>Izuzetno retka situacija - da se na dan postupka u uzorku ne nađe nijedan spermatozoid, uprkos prethodno urednim nalazima. Ipak, moguće je, jer kvalitet sperme može varirati. Postupak se u tom slučaju odlaže, jajne ćelije se zamrzavaju, i planira se hitna hirurška ekstrakcija spermatozoida (TESA ili micro-TESE) za kasniji pokušaj.</p>
+
+      <h3>Kriptozoospermija</h3>
+
+      <p>Kriptozoospermija je stanje u kome se u ejakulatu nalazi izuzetno mali broj spermatozoida - toliko mali da se ne vide u standardnoj analizi, već ih embriolog mora tražiti pažljivim pregledom celokupnog uzorka, često nakon centrifugiranja i koncentrisanja peleta.</p>
+
+      <p>U praksi, embriolog centrifugira ceo uzorak da bi skoncentrisao sve spermatozoide u mali pellet, a zatim strpljivo pretražuje svako polje pod mikroskopom, tražeći pojedinačne pokretne spermatozoide. Kada ih pronađe, pažljivo ih izdvaja i koristi za ICSI. Ovaj proces može trajati satima i zahteva izuzetnu koncentraciju i strpljenje - ali čak i jedan pronađen zdrav spermatozoid može biti dovoljan za oplođenje jedne jajne ćelije.</p>
+
+      <!-- ========== SECTION 9 ========== -->
+      <h2 id="s9">Česta pitanja i saveti za parove</h2>
+
+      <h3>„Koliko dana pre postupka treba da apstiniram?"</h3>
+
+      <p>Optimalna preporuka je <strong>2–5 dana bez ejakulacije</strong>. Većina klinika preporučuje 3 dana kao zlatnu sredinu. Pitajte svog lekara za specifičnu preporuku, jer ona može zavisiti od prethodnog spermiograma. Ako je koncentracija spermatozoida niska, lekar može savetovati kraću apstinenciju (2 dana) da bi se dobio svežiji uzorak.</p>
+
+      <h3>„Da li alkohol ili kafa utiču na uzorak?"</h3>
+
+      <p>Umereno konzumiranje kofeina (1–2 šolje kafe dnevno) se generalno smatra bezbednim. Prekomerno konzumiranje alkohola, naročito hronično, negativno utiče na kvalitet sperme - smanjuje pokretljivost, pogoršava morfologiju i može povećati oštećenje DNK. Preporuka je da se alkohol svede na minimum barem 2–3 meseca pre planiranog VTO postupka, a idealno potpuno izbegava u nedeljama neposredno pre davanja uzorka.</p>
+
+      <h3>„Šta ako ne mogu da dam uzorak u klinici?"</h3>
+
+      <p>Ovo je mnogo češće nego što mislite, i ne treba da vas bude sramota. Razgovarajte sa klinikom unapred - zamrzavanje rezervnog uzorka je najsigurnija opcija. Mnoge klinike nude i mogućnost davanja uzorka kod kuće. U posebnim slučajevima može se koristiti specijalni prezervativ za prikupljanje tokom odnosa. Najvažnije je da otvoreno porazgovarate sa timom u klinici - oni su tu da vam pomognu, ne da vas osuđuju.</p>
+
+      <h3>„Da li zamrznuta sperma daje slabije rezultate od sveže?"</h3>
+
+      <p>Zamrzavanje sperme neizbežno dovodi do gubitka određenog procenta spermatozoida - otprilike 25–50% pokretnih spermatozoida ne preživi proces zamrzavanja i odmrzavanja. Međutim, spermatozoidi koji prežive su u potpunosti funkcionalni. Stope oplođenja i razvoja embriona koristeći zamrznutu spermu sa ICSI metodom su uporedive sa svežom spermom. Ako je početni uzorak bio kvalitetan, zamrzavanje ne bi trebalo značajno da umanji šanse za uspeh.</p>
+
+      <h3>„Da li priprema sperme može poboljšati loš spermiogram?"</h3>
+
+      <p>Priprema sperme ne može stvoriti kvalitetne spermatozoide ako ih nema - ali može iz lošijeg uzorka izdvojiti one spermatozoide koji jesu kvalitetni. Zamislite to ovako: ako je samo 5% spermatozoida u uzorku pokretno, nakon gradijent centrifugacije embriolog može izdvojiti upravo tih 5% u čist, koncentrovan uzorak. Priprema ne menja sam spermatogram, ali može napraviti razliku između uzorka koji se može koristiti i uzorka koji izgleda neupotrebljivo na prvi pogled.</p>
+
+      <h3>Psihološki aspekti - o čemu se ćuti</h3>
+
+      <p>VTO postupak je emocionalno izuzetno zahtevno iskustvo, i dok je pažnja razumljivo usmerena na ženu (koja prolazi kroz hormonsku stimulaciju, punkciju, transfer), muški partner se često oseća na margini procesa. Njegov „zadatak" se svodi na davanje uzorka sperme - što može delovati jednostavno u poređenju sa svim onim kroz šta prolazi partnerka, ali nosi specifičan psihološki teret.</p>
+
+      <p>Muškarci čiji je faktor infertiliteta identifikovan kao „muški faktor" često osećaju krivicu, stid i osećaj da su „krivi" što par ne može da začne prirodnim putem. Davanje uzorka u klinici, u prostoriji sa tankim zidovima, sa svešću da osoblje čeka, dok partnerka u drugoj prostoriji prolazi kroz bolnu proceduru - sve to može izazvati intenzivan stres i osećaj nemoći.</p>
+
+      <p>Važno je da parovi razgovaraju o ovim osećanjima. Infertilitet nije nečija krivica. Kvalitet sperme zavisi od genetike, zdravlja, životne sredine i mnogo faktora koji su izvan kontrole pojedinca. Muški partneri treba da znaju da je potpuno normalno osećati tugu, frustraciju ili stres u vezi sa VTO procesom, i da je u redu potražiti podršku - bilo od partnerke, prijatelja, ili profesionalnog savetnika.</p>
+
+      <h3>Saveti za parove</h3>
+
+      <p><strong>Razgovarajte otvoreno.</strong> Razgovor o strahovima, očekivanjima i osećanjima pre postupka može značajno smanjiti stres na dan samog uzorkovanja.</p>
+
+      <p><strong>Zamrznite rezervni uzorak.</strong> Ovo uklanja ogroman pritisak sa dana punkcije - znanje da postoji backup daje mir.</p>
+
+      <p><strong>Planirajte zajedno.</strong> Muški partner može osećati da nema kontrole nad procesom - uključivanje u sve aspekte VTO-a (razgovori sa lekarom, razumevanje procedura, prisustvo na kontrolama) može pomoći da se oseća kao ravnopravan učesnik.</p>
+
+      <p><strong>Ne potcenjujte stres drugog partnera.</strong> Žene često misle da „on samo treba da da uzorak, to je lako". Muškarci često misle da „ona prolazi kroz mnogo gore stvari, nemam pravo da se žalim". Oba osećanja su validna, i prostor za razumevanje postoji.</p>
+
+      <p><strong>Budite strpljivi jedno prema drugom.</strong> VTO postupak testira i najjače veze. Nemojte se okrivljavati jedan drugog za rezultate - umesto toga, budite tim.</p>
+
+      <p>Priprema sperme za vantelesno oplođenje je proces koji se dešava tiho, u laboratoriji, daleko od očiju parova koji čekaju. Ali razumevanje tog procesa - šta embriolog radi sa uzorkom, zašto je svaki korak važan, i kako sve to utiče na krajnji ishod - može pomoći parovima da se osećaju informisanije, pripremljenije i manje prepušteni neizvesnosti. VTO postupak je timski rad - između lekarskog tima i para, ali i između samih partnera. A svaki kvalitetan tim počinje od razumevanja i komunikacije.</p>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">Priprema sperme</a>
+        <a href="#" class="article-tag">Spermatozoidi</a>
+        <a href="#" class="article-tag">VTO laboratorija</a>
+        <a href="#" class="article-tag">Embriolog</a>
+        <a href="#" class="article-tag">Oplođenje</a>
+        <a href="#" class="article-tag">IVF</a>
+        <a href="#" class="article-tag">ICSI</a>
+        <a href="#" class="article-tag">Muški faktor infertiliteta</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praćenje stimulacije (monitoring) jajnika u VTO postupku | VTO.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  .article-content .article-cta-btn {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .article-content .article-cta-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  .breathing-widget { margin: 1.5rem 0; padding: 1.5rem; background: var(--color-teal-light); border-radius: 10px; border: 1px solid rgba(42,125,110,0.15); text-align: center; }
+  .breathing-title { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.25rem; }
+  .breathing-sub { font-size: 0.82rem; color: var(--color-ink-muted); margin-bottom: 1.25rem; }
+  .breathing-circle { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--color-teal); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; color: var(--color-teal); transition: all 1s ease; opacity: 0.6; }
+  .breathing-circle.inhale { transform: scale(1.25); opacity: 1; }
+  .breathing-circle.hold { transform: scale(1.25); opacity: 0.85; }
+  .breathing-circle.exhale { transform: scale(1); opacity: 0.6; }
+  .breathing-phase { font-size: 0.85rem; color: var(--color-teal); font-weight: 600; min-height: 1.3em; margin-bottom: 0.85rem; }
+  .breathing-btn { background: var(--color-teal); color: #fff; border: none; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.25rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+  .breathing-btn:hover { background: #236b5e; }
+
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .breathing-circle { width: 90px; height: 90px; font-size: 1.2rem; }
+    .timeline-rail { width: 32px; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+      <div class="nav-item">
+        <!-- <a href="#" class="nav-link">Kontakt</a> -->
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+         <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+       <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+        <!-- <a href="#" style="font-weight:600;">Kontakt</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Tokom VTO postupka</span>
+      <h1 class="article-title">Praćenje stimulacije (monitoring) jajnika u VTO postupku</h1>
+      <p class="article-subtitle">Kako se prate folikuli na ultrazvuku, šta znače hormonske vrednosti, kako lekar donosi odluke tokom stimulacije i kako se ponašati tokom svih tih kontrola</p>
+    </div>
+
+    <!-- Table of contents -->
+    <div class="article-toc">
+      <div class="article-toc-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Sadržaj članka
+      </div>
+      <ol>
+        <li><a href="#s1">Šta je monitoring stimulacije i zašto je neophodan</a></li>
+        <li><a href="#s2">Bazalni pregled - polazna tačka monitoringa</a></li>
+        <li><a href="#s3">Ultrazvučno praćenje folikula i endometrijuma tokom stimulacije</a></li>
+        <li><a href="#s4">Hormonske analize krvi tokom stimulacije</a></li>
+        <li><a href="#s5">Tipičan raspored kontrola tokom stimulacije</a></li>
+        <li><a href="#s6">Kako lekar donosi odluke na osnovu monitoringa</a></li>
+        <li><a href="#s7">Mogući problemi otkriveni monitoringom i kako se rešavaju</a></li>
+        <li><a href="#s8">Razlike u monitoringu u zavisnosti od protokola stimulacije</a></li>
+        <li><a href="#s9">Mitovi i zablude o monitoringu</a></li>
+        <li><a href="#s10">Emocionalna i praktična dimenzija monitoringa</a></li>
+        <li><a href="#s11">Česta pitanja i saveti</a></li>
+      </ol>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+      <!-- ========== SECTION 1 ========== -->
+      <h2 id="s1">Šta je monitoring stimulacije i zašto je neophodan</h2>
+
+      <p>Monitoring stimulacije je serija ultrazvučnih pregleda i laboratorijskih analiza krvi koje se rade tokom ovarijalne stimulacije (stimulacije jajnika) u okviru VTO ciklusa (vantelesnog oplođenja). Suština monitoringa je jednostavna - lekar u realnom vremenu prati kako vaši jajnici reaguju na hormonsku terapiju, koliko folikula (kesica u jajnicima u kojima sazrevaju jajne ćelije) raste, koliko su veliki, kakvi su nivoi hormona u krvi, i na osnovu svega toga prilagođava dozu lekova i određuje optimalan trenutak za trigger injekciju (poslednju injekciju koja pokreće finalno sazrevanje jajnih ćelija) i punkciju (zahvat kojim se jajne ćelije aspiriraju iz jajnika).</p>
+
+      <p>Monitoring nije jednokratan pregled - to je kontinuiran proces praćenja koji traje koliko i stimulacija, obično 8 do 14 dana, i podrazumeva nekoliko poseta klinici tokom tog perioda.</p>
+
+      <h3>Zašto se monitoring ne može preskočiti</h3>
+
+      <p>Svaka žena drugačije reaguje na stimulaciju. Čak i kada dve pacijentkinje dobiju isti protokol sa istom dozom lekova, njihovi jajnici mogu reagovati potpuno različito. Štaviše, ista žena može različito reagovati u različitim ciklusima. Zbog toga je praćenje u realnom vremenu neophodno.</p>
+
+      <p>Bez monitoringa, lekar ne bi mogao da zna da li vaši jajnici reaguju previše (što povećava rizik od hiperstimulacije - ozbiljnog stanja poznatog kao OHSS, o kome će biti više reči u nastavku), premalo (slab odgovor koji može značiti da neće biti dovoljno jajnih ćelija), ili optimalno. Monitoring omogućava ono što se u medicini naziva individualizacija terapije - prilagođavanje lečenja vašem telu „u hodu", umesto da se slepo drži unapred zadat plan.</p>
+
+      <p>Jedan od najkritičnijih aspekata monitoringa je precizno određivanje tajminga trigger injekcije. Prerana punkcija znači da jajne ćelije nisu dovoljno zrele, a prekasna punkcija nosi rizik od spontane ovulacije - kada jajne ćelije „pobegnu" iz jajnika pre nego što lekar stigne da ih aspirira, čime se gubi ceo ciklus.</p>
+
+      <p>Konačno, monitoring je ključan za bezbednost pacijentkinje. Rano prepoznavanje znakova hiperstimulacije omogućava pravovremenu intervenciju i prevenciju ozbiljnih komplikacija.</p>
+
+      <h3>Gde se monitoring nalazi u celokupnom VTO procesu</h3>
+
+      <p>Da biste razumeli monitoring, korisno je sagledati gde se on uklapa u širu sliku VTO postupka. Pre monitoringa dolaze pripremni pregledi i dijagnostika (osnovni laboratorijski nalazi, genetska testiranja po potrebi, pregled materice), a zatim bazalni pregled i početak stimulacije. Monitoring se odvija tokom celokupne stimulacije. Posle monitoringa slede trigger injekcija, punkcija jajnih ćelija, laboratorijska faza (oplodnja i razvoj embriona), i na kraju transfer embriona ili zamrzavanje.</p>
+
+      <p>Dakle, monitoring je most između početka stimulacije i punkcije - period u kome se aktivno prati i usmerava odgovor vašeg tela na terapiju.</p>
+
+      <!-- ========== SECTION 2 ========== -->
+      <h2 id="s2">Bazalni pregled - polazna tačka monitoringa</h2>
+
+      <h3>Kada se radi</h3>
+
+      <p>Bazalni pregled se radi na 2. ili 3. dan menstrualnog ciklusa, pre nego što započnete sa injekcijama za stimulaciju. Ovo je polazna tačka - „nulto stanje" vaših jajnika i hormona, od koga lekar kreće u planiranje stimulacije.</p>
+
+      <h3>Šta lekar proverava na ultrazvuku</h3>
+
+      <p>Na bazalnom pregledu, lekar koristi transvaginalni ultrazvuk da pregleda vaše jajnike u stanju mirovanja, pre bilo kakve stimulacije. Evo šta se traži:</p>
+
+      <p><strong>Broj antralnih folikula (AFC - Antral Follicle Count)</strong> - na svakom jajniku, lekar broji male folikule veličine 2 do 10 mm. Ovo su folikuli koji „čekaju" u jajnicima i koji imaju potencijal da odgovore na stimulaciju. AFC je jedan od najvažnijih pokazatelja ovarijalne rezerve i pomaže lekaru da predvidi kako će vaši jajnici reagovati. Na primer, ako imate 5 antralnih folikula na desnom i 4 na levom jajniku, lekar zna da može očekivati rast otprilike tog broja folikula tokom stimulacije, mada konačan broj može biti veći ili manji.</p>
+
+      <p><strong>Prisustvo eventualnih cisti</strong> - lekar proverava da li je ostala neka funkcionalna cista iz prethodnog ciklusa. Ove ciste su obično bezazlene, ali ako su veće ili proizvode hormone, mogu ometati stimulaciju i lekar može odlučiti da odloži start ciklusa.</p>
+
+      <p><strong>Izgled materice i endometrijuma</strong> - endometrijum (sluznica materice) na početku ciklusa treba da bude tanak, što potvrđuje da je materica „resetovana" i spremna za novi ciklus.</p>
+
+      <h3>Šta se meri u krvi</h3>
+
+      <p>Istovremeno sa ultrazvukom, vadi se krv za bazalne hormonske analize:</p>
+
+      <p><strong>Estradiol (E2)</strong> - na početku ciklusa, estradiol treba da bude nizak (obično ispod 50–80 pg/mL). Nizak bazalni estradiol potvrđuje da jajnici miruju i da nema aktivnih cisti koje proizvode hormone. Povišen bazalni estradiol može značiti da postoji rezidualna aktivnost iz prethodnog ciklusa i da start stimulacije treba odložiti.</p>
+
+      <p><strong>Folikulostimulirajući hormon (FSH)</strong> - ovaj hormon, koji proizvodi hipofiza (žlezda u mozgu), stimuliše rast folikula u jajnicima. Bazalni FSH govori lekaru o stanju ovarijalne rezerve. Ako je FSH povišen (npr. iznad 10–12 IU/L), to može značiti da jajnici zahtevaju više „podsticaja" da bi reagovali, što utiče na planiranje doze lekova.</p>
+
+      <p><strong>Luteinizirajući hormon (LH)</strong> - bazalni LH pomaže lekaru da proceni hormonski status i isključi određena stanja kao što je sindrom policističnih jajnika (gde je LH često povišen u odnosu na FSH).</p>
+
+      <p><strong>Progesteron</strong> - ponekad se meri i progesteron na početku ciklusa. Trebalo bi da bude nizak, što potvrđuje da nije došlo do prevremene ovulacije.</p>
+
+      <h3>Odluka o startovanju stimulacije</h3>
+
+      <p>Na osnovu svega što je video na ultrazvuku i dobio iz laboratorije, lekar donosi odluku: da li je bezbedno započeti stimulaciju ili treba sačekati? Ako je sve u redu - jajnici miruju, hormoni su na očekivanom nivou, nema cisti - stimulacija počinje. Ako nešto nije kako treba, start se odlaže dok se stanje ne normalizuje.</p>
+
+      <h3>Određivanje početne doze gonadotropina</h3>
+
+      <p>Gonadotropini su lekovi koji se koriste za stimulaciju jajnika - to su injekcije koje sadrže FSH (sam ili u kombinaciji sa LH) i direktno podstiču rast folikula. Početna doza nije ista za svaku pacijentkinju - ona se individualno određuje na osnovu starosti (starije pacijentkinje obično zahtevaju veće doze), vrednosti AMH (anti-Milerijanog hormona - hormona koji je pokazitelj ovarijalne rezerve, bazalnog AFC-a i prethodnog odgovora na stimulaciju ako je žena već imala VTO ciklus. Upravo zato je početna doza individualna - lekar bira dozu koja daje najbolju šansu za optimalan odgovor, a zatim je tokom monitoringa prilagođava prema potrebi.</p>
+
+      <!-- ========== SECTION 3 ========== -->
+      <h2 id="s3">Ultrazvučno praćenje folikula i endometrijuma tokom stimulacije</h2>
+
+      <h3>Transvaginalni ultrazvuk - kako izgleda pregled</h3>
+
+      <p>Za monitoring tokom stimulacije koristi se transvaginalni ultrazvuk, a ne abdominalni (preko stomaka). Razlog je jednostavan - transvaginalnom sondom lekar dolazi mnogo bliže jajnicima, što daje znatno jasniju i detaljniju sliku folikula nego što bi to bio slučaj sa sondom na stomaku. Pregled traje obično 5 do 15 minuta. Lekar uvodi tanku ultrazvučnu sondu obloženu zaštitnom navlakom i gelom, a na ekranu se pojavljuje slika vaših jajnika i materice u realnom vremenu.</p>
+
+      <h3>Merenje folikula - šta lekar radi na svakom pregledu</h3>
+
+      <p>Na svakoj kontroli, lekar sistematično pregleda oba jajnika i meri dijametar svakog vidljivog folikula. Folikul je kesica ispunjena tečnošću unutar jajnika u kojoj sazreva jajna ćelija. Na ultrazvuku, folikuli izgledaju kao tamni (crni) kružići na sivkastoj pozadini tkiva jajnika - tečnost unutar folikula ne odbija ultrazvučne talase, pa se prikazuje kao tamna oblast.</p>
+
+      <p>Lekar meri svaki folikul u dva pravca (najčešće dva perpendikularni dijametra) i beleži srednji prečnik. Na nalazu ćete videti nešto poput: „desni jajnik: 10, 12, 14, 16 mm; levi jajnik: 11, 13, 15 mm" - svaki broj predstavlja prečnik jednog folikula u milimetrima.</p>
+
+      <h3>Praćenje rasta folikula</h3>
+
+      <p>Tokom stimulacije, folikuli rastu prosečno 1 do 2 mm dnevno. Lekar prati nekoliko ključnih parametara:</p>
+
+      <p><strong>Da li folikuli rastu ravnomerno</strong> - idealno je da folikuli rastu u grupi, sličnom brzinom. U praksi, uvek postoji određena razlika - neki folikuli su „brži" od drugih, i to je normalno.</p>
+
+      <p><strong>Veličina dominantnih (vodećih) folikula</strong> - to su najveći folikuli koji predvode grupu. Njihova veličina pomaže lekaru da proceni koliko je stimulacija blizu završetka.</p>
+
+      <p><strong>Koliko folikula je u „dostignutoj" kategoriji</strong> - lekar prati koliko folikula je dostiglo ili se približava ciljnoj veličini za trigger.</p>
+
+      <p><strong>Konkretan primer:</strong> Zamislite da na kontrolu dolazite 7. dana stimulacije. Lekar na ultrazvuku vidi da vaš desni jajnik ima folikule od 10, 12, 13 i 15 mm, a levi jajnik folikule od 11, 12 i 14 mm - ukupno 7 folikula koji lepo rastu. Vaš estradiol je 680 pg/mL, što se poklapa sa brojem i veličinom folikula. Lekar je zadovoljan, održava istu dozu lekova i zakazuje sledeću kontrolu za dva dana. Na sledećoj kontroli, folikuli su narasli na 14–19 mm, estradiol je 1500 pg/mL - bliži se vreme za trigger injekciju.</p>
+
+      <h3>Ciljna veličina folikula za trigger</h3>
+
+      <p>Lekar donosi odluku o trigger injekciji kada dovoljno folikula dostigne veličinu od 17 do 22 mm - ovaj opseg se smatra optimalnim za finalnu maturaciju jajne ćelije. Nije neophodno da svi folikuli budu iste veličine; obično se čeka da nekoliko vodećih folikula uđe u ovaj opseg, uz razumnu veličinu pratećih folikula.</p>
+
+      <h3>Praćenje endometrijuma</h3>
+
+      <p>Pored folikula, lekar na svakoj kontroli meri i debljinu endometrijuma (sluznice materice) i procenjuje njegov izgled. Ciljna debljina endometrijuma je obično 7 do 8 mm ili više. Lekar takođe procenjuje strukturu endometrijuma - idealan je takozvani trilaminarni (trolinijski) izgled, koji na ultrazvuku podseća na tri paralelne linije. Ovaj izgled je znak optimalne receptivnosti endometrijuma, to jest da je sluznica materice u najboljem stanju za prihvatanje embriona.</p>
+
+      <p>Možda se pitate - zašto je endometrijum važan ako se možda transfer neće raditi u istom ciklusu? Odgovor je da informacija o endometrijumu pomaže lekaru u donošenju odluke da li je moguć sveži transfer ili je bolje zamrznuti sve embrione i planirati transfer u narednom ciklusu.</p>
+
+      <h3>Praćenje oba jajnika - normalne razlike</h3>
+
+      <p>Potpuno je normalno da jedan jajnik reaguje jače od drugog. Na primer, desni jajnik može imati 5 folikula, a levi samo 2 - to ne znači da nešto nije u redu. Lekar beleži nalaz za svaki jajnik posebno i posmatra ukupnu sliku.</p>
+
+      <h3>Šta pacijentkinja vidi na ekranu</h3>
+
+      <p>Ako gledate u ekran tokom ultrazvuka, videćete sivkastu sliku sa tamnim kružićima različitih veličina - to su vaši folikuli. Veći tamni kružići su veći folikuli, a manji su manji folikuli ili antralni folikuli koji ne reaguju na stimulaciju. Svetla linija u obliku slova V ili tri paralelne linije u centralnom delu slike - to je vaš endometrijum. Lekar će vam obično pokazivati šta se vidi i objašnjavati dok meri - nemojte se ustručavati da pitate ako nešto nije jasno.</p>
+
+      <!-- ========== SECTION 4 ========== -->
+      <h2 id="s4">Hormonske analize krvi tokom stimulacije</h2>
+
+      <p>Uz svaki ultrazvučni pregled, radi se i vađenje krvi za hormonske analize. Kombinacija ultrazvučnog nalaza i hormonskih vrednosti daje lekaru kompletnu sliku o tome šta se dešava u vašem telu.</p>
+
+      <h3>Estradiol (E2) - najvažniji hormon tokom stimulacije</h3>
+
+      <p>Estradiol je hormon koji proizvode ćelije folikula (granuloza ćelije) u jajnicima. Svaki rastući folikul proizvodi određenu količinu estradiola, pa nivo estradiola u krvi korelira (srazmeran je) sa brojem i zrelošću folikula.</p>
+
+      <p><strong>Kako estradiol raste:</strong> Na početku stimulacije, estradiol je nizak. Kako folikuli rastu, estradiol raste. Orijentaciono, svaki zreo folikul proizvodi oko 150 do 300 pg/mL estradiola, mada ove vrednosti variraju od laboratorije do laboratorije i od pacijentkinje do pacijentkinje. Na primer, ako imate 7 folikula koji lepo rastu, vaš estradiol bi oko sredine stimulacije mogao biti 700–1500 pg/mL, a pred trigger i više.</p>
+
+      <p><strong>Zašto je praćenje estradiola važno:</strong> Prebrz rast estradiola može ukazivati na hiperstimulaciju - jajnici prekomerno reaguju, što nosi rizike. Prespor rast može značiti slab odgovor - folikuli ne reaguju dovoljno na terapiju. Lekar koristi estradiol kao „barometar" koji dopunjava ultrazvučnu sliku.</p>
+
+      <p><strong>Kada je estradiol izuzetno visok</strong> - vrednosti iznad 3000 do 5000 pg/mL su signal za povećan oprez od OHSS-a (sindrom ovarijalne hiperstimulacije). U takvim slučajevima, lekar može prilagoditi strategiju - smanjiti dozu lekova, promeniti vrstu trigger injekcije (agonist trigger umesto hCG triggera, jer nosi manji rizik od OHSS-a), ili doneti odluku o freeze-all strategiji (zamrzavanje svih embriona bez svežeg transfera), čime se značajno smanjuje rizik od teške hiperstimulacije.</p>
+
+      <h3>Luteinizirajući hormon (LH) - stražar protiv prevremene ovulacije</h3>
+
+      <p>LH je hormon koji u prirodnom ciklusu izaziva ovulaciju. U VTO ciklusu, prevremeni skok LH (takozvani LH nalet) može dovesti do spontane ovulacije pre planirane punkcije, što znači gubitak jajnih ćelija i ciklusa.</p>
+
+      <p><strong>U antagonističkom protokolu</strong> (najčešći protokol stimulacije), GnRH antagonist je lek koji se uvodi upravo da bi sprečio ovaj prevremeni LH skok. Lekar prati nivo LH i uvodi antagonist kada postoji rizik od skoka - obično kada vodeći folikul dostigne 13 do 14 mm ili kada LH počne da raste.</p>
+
+      <p><strong>Ako LH naglo poraste tokom stimulacije</strong>, lekar reaguje prilagođavanjem protokola - može ubrzati davanje trigger injekcije, pojačati dozu antagonista, ili u retkim slučajevima, ako je spontana ovulacija već počela, otkazati ciklus.</p>
+
+      <h3>Progesteron - čuvar receptivnosti endometrijuma</h3>
+
+      <p>Progesteron je hormon koji normalno raste nakon ovulacije i priprema endometrijum za prihvatanje embriona. Tokom stimulacije, progesteron bi trebalo da ostane nizak sve do trigger injekcije.</p>
+
+      <p><strong>Premature progesterone rise (prerani porast progesterona)</strong> - ako progesteron prerano poraste pre trigger injekcije (obično iznad 1.0 do 1.5 ng/mL na dan triggera, mada se granične vrednosti razlikuju među klinikama), to može negativno uticati na receptivnost endometrijuma. Drugim rečima, endometrijum se „pomeri unapred" u odnosu na razvoj embriona i nije sinhronizovan za implantaciju.</p>
+
+      <p><strong>Šta lekar radi:</strong> Ako progesteron prerano poraste, lekar može doneti odluku o freeze-all strategiji - svi embrioni se zamrzavaju, a transfer se planira u narednom ciklusu, kada je endometrijum u optimalnom stanju. Ovo nije neuspeh ciklusa - zamrznuti embrioni imaju odlične šanse za uspeh u narednom transferu.</p>
+
+      <h3>Dodatni hormoni koji se ponekad prate</h3>
+
+      <p><strong>Anti-Milerijan hormon (AMH)</strong> - retko se meri tokom samog ciklusa stimulacije jer se ne menja značajno iz dana u dan. Međutim, AMH je izuzetno važan hormon za planiranje stimulacije jer je najpouzdaniji pokazatelj ovarijalne rezerve. Meri se obično pre ciklusa i koristi za određivanje početne doze lekova.</p>
+
+      <p><strong>TSH (hormoni štitaste žlezde)</strong> - funkcija štitaste žlezde se proverava pre stimulacije jer poremećaji štitaste žlezde mogu uticati na plodnost i tok trudnoće.</p>
+
+      <p><strong>Inhibin B</strong> - ponekad se meri kao dodatni pokazatelj funkcije jajnika.</p>
+
+      <h3>Kako se uzima krv</h3>
+
+      <p>Krv se obično vadi ujutro, pre ultrazvučnog pregleda ili neposredno nakon njega, iz vene na ruci. Rezultati najčešće stižu istog dana, ponekad u roku od nekoliko sati. Na osnovu kombinacije ultrazvučnog nalaza i hormonskih vrednosti, lekar donosi odluku o daljem toku stimulacije - da li nastaviti sa istom dozom, povećati ili smanjiti je, uvesti novi lek, ili zakazati trigger.</p>
+
+      <!-- ========== SECTION 5 ========== -->
+      <h2 id="s5">Tipičan raspored kontrola tokom stimulacije</h2>
+
+      <h3>Koliko često se dolazi u kliniku</h3>
+
+      <p>Raspored kontrola nije fiksan - on se prilagođava vašem odgovoru na stimulaciju. Ipak, postoji tipičan obrazac koji možete očekivati:</p>
+
+      <p><strong>Prva kontrola</strong> - obično se radi 4. ili 5. dana stimulacije (što odgovara otprilike 6. ili 7. danu ciklusa). Na ovoj kontroli, lekar procenjuje inicijalni odgovor vaših jajnika - da li su folikuli počeli da rastu, koliko ih reaguje, i da li je doza lekova adekvatna.</p>
+
+      <p><strong>Naredne kontrole</strong> - zakazuju se na svaka 1 do 3 dana, u zavisnosti od toga kako stimulacija napreduje. U ranim fazama stimulacije, kontrole su obično ređe (na svaka 2–3 dana), a kako se bliži vreme za trigger, kontrole postaju češće (svaki dan ili svaki drugi dan).</p>
+
+      <p><strong>Poslednja kontrola pre triggera</strong> - ovo je najdetaljnija kontrola. Lekar pažljivo meri sve folikule, radi finalne hormonske analize (estradiol, LH, progesteron) i donosi konačnu odluku o tajmingu trigger injekcije.</p>
+
+      <h3>Ukupan broj poseta</h3>
+
+      <p>Najčešće možete očekivati 3 do 6 ultrazvučnih kontrola tokom jednog ciklusa stimulacije. Svaka kontrola uključuje ultrazvuk i vađenje krvi.</p>
+
+      <h3>Praktični aspekti</h3>
+
+      <p>Većina kontrola se zakazuje ujutro, tipično između 7:00 i 10:00 časova, jer je važno da se krv za hormone vadi u jutarnjim satima i da lekar ima rezultate tokom dana da bi mogao da da instrukcije za dalju terapiju. Jedna kontrola obično traje 20 do 40 minuta (uključujući čekanje, ultrazvuk i vađenje krvi), i većina pacijentkinja može odmah nakon kontrole otići na posao.</p>
+
+      <p>Fleksibilnost na poslu tokom stimulacije je izuzetno važna. Nemoguće je unapred tačno znati koliko će kontrola biti potrebno i kada - raspored se gradi iz kontrole u kontrolu. Zato je korisno unapred razgovarati sa poslodavcem ili organizovati obaveze tako da jutarnje odsustvovanje od posla u trajanju od jednog do dva sata bude moguće tokom perioda stimulacije.</p>
+
+      <!-- ========== SECTION 6 ========== -->
+      <h2 id="s6">Kako lekar donosi odluke na osnovu monitoringa</h2>
+
+      <h3>Prilagođavanje doze gonadotropina</h3>
+
+      <p>Na osnovu onoga što vidi na ultrazvuku i u laboratorijskim nalazima, lekar prilagođava terapiju:</p>
+
+      <p><strong>Slab odgovor</strong> - ako raste malo folikula, rast je spor, a estradiol je nizak, lekar može povećati dozu gonadotropina ili dodati LH komponentu (lek koji sadrži luteinizirajući hormon) da bi pojačao stimulaciju.</p>
+
+      <p><strong>Prekomeran odgovor</strong> - ako raste previše folikula, rast je prebrz, a estradiol naglo skače, lekar može smanjiti dozu ili čak privremeno pauzirati stimulaciju (ovo se naziva „coasting" - prekid davanja gonadotropina na dan ili dva, dok se estradiol stabilizuje).</p>
+
+      <p><strong>Optimalan odgovor</strong> - doza se održava, sve ide po planu, i lekar je zadovoljan dinamikom rasta.</p>
+
+      <p>Važno je razumeti da promene doze ne znače da nešto nije u redu - prilagođavanje je normalan i očekivan deo procesa. Stimulacija je dinamičan proces, a ne statičan recept.</p>
+
+      <h3>Odluka o uvođenju antagonista</h3>
+
+      <p>U antagonističkom protokolu, koji je danas najčešće korišćen, GnRH antagonist se ne daje od prvog dana stimulacije, već se uvodi u određenom trenutku - najčešće kada vodeći folikul dostigne 13 do 14 mm ili kada lekar na osnovu LH vrednosti proceni da postoji rizik od prevremene ovulacije. Tajming uvođenja antagonista je jedna od ključnih odluka tokom monitoringa.</p>
+
+      <h3>Odluka o trigger injekciji</h3>
+
+      <p>Kada je dovoljno folikula dostiglo ciljnu veličinu (17–22 mm), lekar donosi odluku o trigger injekciji. Ova odluka podrazumeva dva ključna elementa:</p>
+
+      <p><strong>Koja vrsta triggera</strong> - postoje dva osnovna tipa: hCG trigger (horionski gonadotropin) i GnRH agonist trigger. Izbor zavisi od konkretne situacije - kod pacijentkinja sa visokim rizikom od OHSS-a (previše folikula, visok estradiol), lekar često bira agonist trigger jer značajno smanjuje rizik od hiperstimulacije. Kod nižeg rizika, hCG trigger je standardni izbor.</p>
+
+      <p><strong>Precizno vreme davanja</strong> - trigger se najčešće daje uveče, tačno 36 sati pre planirane punkcije. Na primer, ako je punkcija zakazana za utorak ujutro u 8:00, trigger injekcija se daje u nedelju uveče u 20:00. Preciznost ovog tajminga je kritična - čak i odstupanje od jednog sata može uticati na zrelost jajnih ćelija ili rizik od prevremene ovulacije.</p>
+
+      <h3>Odluka o otkazivanju ciklusa</h3>
+
+      <p>U nekim situacijama, lekar mora doneti tešku odluku o prekidu stimulacije:</p>
+
+      <p><strong>Previše slab odgovor</strong> - ako uprkos stimulaciji rastu samo 1–2 folikula, lekar može predložiti konverziju u IUI (intrauterinu inseminaciju - jednostavniji postupak) ili potpuno otkazivanje ciklusa, jer su šanse za uspeh VTO sa tako malim brojem jajnih ćelija značajno smanjene.</p>
+
+      <p><strong>Previše jak odgovor sa visokim rizikom od OHSS-a</strong> - ako je odgovor toliko jak da nastavak nosi ozbiljan zdravstveni rizik, a bezbedan nastavak nije moguć ni uz prilagođavanje strategije.</p>
+
+      <p><strong>Prevremena ovulacija</strong> - ako je do spontane ovulacije već došlo, folikuli su prazni i punkcija nema smisla.</p>
+
+      <p>Otkazivanje ciklusa je emocionalno izuzetno teško, ali je uvek odluka u interesu zdravlja i bezbednosti pacijentkinje.</p>
+
+      <h3>Odluka o freeze-all vs. sveži transfer</h3>
+
+      <p>Već tokom monitoringa, lekar počinje da planira da li će u tom ciklusu biti moguć sveži transfer embriona ili je bolje zamrznuti sve embrione (freeze-all) i planirati transfer u narednom ciklusu. Ova odluka zavisi od nivoa progesterona (prerani porast smanjuje receptivnost endometrijuma), nivoa estradiola (izuzetno visoke vrednosti povećavaju rizik od OHSS-a koji bi se pogoršao u trudnoći), stanja endometrijuma i ukupnog rizika od hiperstimulacije.</p>
+
+      <!-- ========== SECTION 7 ========== -->
+      <h2 id="s7">Mogući problemi otkriveni monitoringom i kako se rešavaju</h2>
+
+      <p>Monitoring je vaš saveznik upravo zato što omogućava rano otkrivanje problema i pravovremenu reakciju. Evo najčešćih situacija:</p>
+
+      <h3>Slab odgovor jajnika (poor response)</h3>
+
+      <p>Uprkos stimulaciji, malo folikula raste ili rastu sporo. Lekar može povećati dozu gonadotropina, dodati LH komponentu, ili, ako je odgovor izuzetno slab, razgovarati sa vama o realnim očekivanjima za taj ciklus. U nekim slučajevima, odluka može biti da se ciklus otkaže i pokuša ponovo sa izmenjenim protokolom.</p>
+
+      <h3>Neravnomeran rast folikula</h3>
+
+      <p>Ovo je česta situacija - imate nekoliko velikih folikula i veći broj manjih. Lekar se suočava sa dilemom oko tajminga triggera: čekanje da manji folikuli porastu nosi rizik da veliki folikuli „prezre" (jajne ćelije u njima mogu početi da degenerišu), dok rani trigger znači da manji folikuli možda neće dati zrele jajne ćelije. Lekar pronalazi balans na osnovu celokupne slike.</p>
+
+      <h3>Prekomeran odgovor i rizik od OHSS-a</h3>
+
+      <p>OHSS (sindrom ovarijalne hiperstimulacije) je ozbiljna komplikacija u kojoj jajnici prekomerno reaguju na stimulaciju - nastaje veliki broj folikula, jajnici se značajno uvećavaju, a tečnost počinje da se nakuplja u trbušnoj duplji. Simptomi uključuju nadutost, bol u stomaku, mučninu, a u teškim slučajevima može doći do otežanog disanja i poremećaja u radu bubrega.</p>
+
+      <p>Mere prevencije koje lekar preduzima kada monitoring pokaže prekomeran odgovor: korišćenje agonist triggera umesto hCG triggera (značajno smanjuje rizik), freeze-all strategija (bez svežeg transfera, jer bi trudnoća pogoršala OHSS), smanjenje doze gonadotropina i coasting (privremena pauza u stimulaciji).</p>
+
+      <h3>Prevremena ovulacija</h3>
+
+      <p>Retka, ali moguća komplikacija - folikuli ovuliraju pre planirane punkcije. Ovo se može desiti ako antagonist nije uveden na vreme ili ako postoji neočekivan LH skok. Monitoring omogućava da se ovaj rizik minimalizuje pravovremenim uvođenjem antagonista i praćenjem LH nivoa.</p>
+
+      <h3>Prerani porast progesterona</h3>
+
+      <p>Ako monitoring pokaže da je progesteron počeo da raste pre trigger injekcije, lekar prelazi na freeze-all strategiju. Embrioni se zamrzavaju, a transfer se planira u narednom ciklusu kada je endometrijum u optimalnom stanju. Važno je znati da ovo ne utiče na kvalitet embriona - oni se zamrzavaju u odličnom stanju i imaju iste šanse za uspeh kao sveži embrioni.</p>
+
+      <h3>Ciste jajnika tokom stimulacije</h3>
+
+      <p>Ponekad se tokom stimulacije pojave funkcionalne ciste. Lekar procenjuje da li cista proizvodi hormone i da li utiče na ciklus. U većini slučajeva, manje ciste ne ometaju stimulaciju i ne zahtevaju intervenciju.</p>
+
+      <h3>Tanak endometrijum</h3>
+
+      <p>Kod nekih pacijentkinja, endometrijum ne raste adekvatno uprkos stimulaciji. Lekar može dodati estrogen (oralni ili vaginalni), a ako endometrijum i dalje ostaje tanak, to je dodatni razlog za freeze-all strategiju - transfer se odlaže do ciklusa u kome se endometrijum može adekvatno pripremiti.</p>
+
+      <!-- ========== SECTION 8 ========== -->
+      <h2 id="s8">Razlike u monitoringu u zavisnosti od protokola stimulacije</h2>
+
+      <h3>Dugi (agonistički) protokol</h3>
+
+      <p>U ovom protokolu, stimulaciji prethodi faza supresije jajnika (downregulacija) pomoću GnRH agonista - leka koji privremeno „uspavljuje" jajnike. Monitoring počinje i pre same stimulacije: lekar proverava da li je supresija uspešna (jajnici su mirni, estradiol je nizak, endometrijum je tanak). Tek nakon potvrde uspešne downregulacije, počinje stimulacija gonadotropinima i standardni monitoring.</p>
+
+      <h3>Kratki (antagonistički) protokol</h3>
+
+      <p>Ovo je danas najčešći protokol. Monitoring počinje sa stimulacijom, bez prethodne faze supresije. Posebna pažnja se obraća na tajming uvođenja GnRH antagonista - lek koji sprečava prevremenu ovulaciju se uvodi na osnovu veličine folikula i LH nivoa, a ne po fiksnom rasporedu.</p>
+
+      <h3>Blagi (mini) protokol</h3>
+
+      <p>Kod blagog protokola, koriste se niže doze gonadotropina, ponekad u kombinaciji sa oralnim lekovima (npr. klomifen citrat ili letrozol). Stimulacija je manje intenzivna, očekuje se manji broj folikula, i kontrole mogu biti nešto ređe. Ipak, monitoring je i dalje obavezan jer su principi isti - lekar mora da prati odgovor jajnika i prilagođava terapiju.</p>
+
+      <h3>Prirodni i modifikovani prirodni ciklus</h3>
+
+      <p>U prirodnom ciklusu, ne daju se lekovi za stimulaciju (ili se daju minimalno u modifikovanom prirodnom ciklusu), i prati se rast jednog dominantnog folikula koji bi i prirodno sazreo. Monitoring je fokusiran na praćenje tog jednog folikula, LH naleta i ovulacije. Hormonskih analiza može biti manje, ali ultrazvučne kontrole zahtevaju precizno tajmiranje jer se radi sa uskim vremenskim prozorom.</p>
+
+      <!-- ========== SECTION 9 ========== -->
+      <h2 id="s9">Mitovi i zablude o monitoringu</h2>
+
+      <h3>„Broj folikula na ultrazvuku = broj jajnih ćelija koji ćemo dobiti"</h3>
+
+      <p>Ovo je jedna od najčešćih zabluda. Broj folikula na ultrazvuku je orijentir, ali ne i garancija. Ne sadrži svaki folikul zrelu jajnu ćeliju - neki mogu biti prazni, a u nekima jajna ćelija može biti nezrela. S druge strane, ponekad se i iz manjih folikula iznenađujuće dobije jajna ćelija. Tačan broj jajnih ćelija zna se tek nakon punkcije.</p>
+
+      <h3>„Više folikula uvek znači bolje šanse"</h3>
+
+      <p>Kvalitet je važniji od kvantiteta. Veliki broj folikula može značiti i veći rizik od hiperstimulacije, dok manji broj kvalitetnih folikula sa zrelim jajnim ćelijama može dati odličan ishod. Cilj nije maksimalan broj folikula, već optimalan balans između broja, kvaliteta i bezbednosti.</p>
+
+      <h3>„Ako mi lekar menja dozu, to znači da nešto nije u redu"</h3>
+
+      <p>Prilagođavanje doze je normalan i očekivan deo stimulacije. To nije znak greške - naprotiv, to je znak da lekar pažljivo prati vaš odgovor i fino podešava terapiju. Zabrinjavajuće bi bilo da lekar ne menja ništa iako monitoring pokazuje da je promena potrebna.</p>
+
+      <h3>„Ultrazvuk može da vidi jajnu ćeliju unutar folikula"</h3>
+
+      <p>Jajna ćelija je mikroskopska - veličine oko 0.1 mm - i potpuno je nevidljiva na ultrazvuku. Lekar vidi folikul (tečnost u kojoj se jajna ćelija razvija) i na osnovu veličine folikula pretpostavlja da sadrži zrelu jajnu ćeliju. Ali da li je jajna ćelija zaista prisutna i da li je zrela - to se može utvrditi tek nakon punkcije, kada embriolog pregleda aspiriranu tečnost pod mikroskopom.</p>
+
+      <h3>„Debljina endometrijuma garantuje uspeh implantacije"</h3>
+
+      <p>Optimalan endometrijum je važan faktor, ali nije jedini. Debljina endometrijuma od 8 ili 10 mm ne garantuje uspeh, kao što ni tanak endometrijum od 6 mm ne znači automatski neuspeh. Receptivnost endometrijuma zavisi od mnogo više faktora nego što se može videti na ultrazvuku. Isto tako, kvalitet embriona, genetika, imunološki faktori i mnogi drugi elementi utiču na konačan ishod.</p>
+
+      <!-- ========== SECTION 10 ========== -->
+      <h2 id="s10">Emocionalna i praktična dimenzija monitoringa</h2>
+
+      <h3>Fizički aspekti</h3>
+
+      <p>Transvaginalni ultrazvuk sam po sebi nije bolan, ali može biti neudoban - posebno kako stimulacija napreduje i jajnici rastu i postaju osetljiviji. Česta vađenja krvi mogu ostaviti modrice na rukama, pa je korisno menjati ruke i piti dosta vode pre vađenja da bi vene bile pristupačnije. Sa napredovanjem stimulacije, mnoge žene osećaju nadutost, nelagodnost u donjem delu stomaka i umor - to su normalni prateći efekti rastućih jajnika i povišenih hormona.</p>
+
+      <h3>Emocionalni aspekti</h3>
+
+      <p><strong>Anksioznost pre svake kontrole</strong> - „Da li folikuli rastu? Da li ih ima dovoljno? Da li je estradiol u redu?" Ova anksioznost je potpuno normalna i gotovo sve žene je osećaju. Svaka kontrola nosi dozu neizvesnosti, i to je emocionalno iscrpljujuće.</p>
+
+      <p><strong>Poređenje sa drugim pacijentkinjama</strong> - u čekaonici klinike, potpuno je prirodno zapitati se „Da li ona ima više folikula od mene?". Ali svaka žena ima drugačiju situaciju, drugačiju dijagnozu, drugačiji protokol - poređenje nije korisno i može samo povećati stres.</p>
+
+      <p><strong>Frustracija zbog neizvesnosti</strong> - ne zna se unapred koliko će kontrola biti potrebno i kada tačno će biti punkcija. Ovo može biti izuzetno frustrirajuće, posebno za žene koje vole da planiraju.</p>
+
+      <p><strong>Stres oko organizovanja posla i obaveza</strong> - česte jutarnje posete klinici zahtevaju fleksibilnost i ponekad kreativno organizovanje. Osećaj krivice prema poslodavcu ili kolegama je čest, ali vaše zdravlje i ovaj proces zaslužuju prioritet.</p>
+
+      <p><strong>Emocionalni rolerkoster</strong> - lekar ponekad izrazi zabrinutost (npr. „odgovor je slabiji nego što sam očekivao") i to izaziva paniku. Drugi put, lekar je zadovoljan i to donosi ogromno olakšanje. Ovi usponi i padovi su iscrpljujući, posebno jer se smenjuju iz kontrole u kontrolu.</p>
+
+      <p><strong>Informacioni preopterećenost</strong> - milimetri, hormoni, brojevi, nazivi lekova - sve to može delovati zbunjujuće i zastrašujuće. Važno je znati da ne morate pamtiti svaku cifru. Lekar prati celokupnu sliku - vi treba da razumete opšte principe, a detalje prepustite svom timu.</p>
+
+      <!-- ========== SECTION 11 ========== -->
+      <h2 id="s11">Česta pitanja i saveti</h2>
+
+      <h3>Česta pitanja</h3>
+
+      <p><strong>„Zašto moram da dolazim tako često?"</strong></p>
+
+      <p>Zato što se situacija menja iz dana u dan. Folikuli rastu, hormoni se menjaju, i lekar mora da ima sveže informacije da bi donosio ispravne odluke. Zamislite to ovako - monitoring je kao navigacija na dugom putu. Bez nje, vozite naslepo i ne znate da li ste na pravom putu. Sa navigacijom, u svakom trenutku znate gde ste i kuda treba da skrenete.</p>
+
+      <p><strong>„Da li ultrazvuk tokom stimulacije boli?"</strong></p>
+
+      <p>Sam ultrazvuk ne bi trebalo da boli, ali može biti neudoban, posebno u kasnijim danima stimulacije kada su jajnici uvećani i osetljivi. Ako osećate bol, recite lekaru - on može prilagoditi pritisak sonde ili promeniti ugao. Važno je da komunicirate tokom pregleda.</p>
+
+      <p><strong>„Šta ako ne mogu da dođem na zakazanu kontrolu?"</strong></p>
+
+      <p>Javite klinici što pre. U nekim slučajevima, kontrola se može pomeriti za dan, ali to zavisi od faze stimulacije. U kritičnim momentima (blizu triggera), odlaganje kontrole može biti rizično. Zato je važno da pokušate da ispoštujete raspored koliko god je moguće.</p>
+
+      <p><strong>„Da li treba da pamtim sve ove brojeve?"</strong></p>
+
+      <p>Ne morate. Lekar prati i tumači brojeve umesto vas. Ali ako vam pomaže da se osećate informisano i uključeno, vođenje kratkih beleški (veličine folikula, estradiol, promena doze) može biti korisno. Neki parovi vode dnevnik stimulacije koji im pomaže da osete veću kontrolu nad procesom.</p>
+
+      <p><strong>„Šta znači kada lekar kaže da imam folikule od 14, 16 i 18 mm?"</strong></p>
+
+      <p>To znači da lekar vidi tri folikula čiji su prečnici 14, 16 i 18 milimetara. Folikul od 18 mm je blizu ciljne veličine za trigger (17–22 mm), dok folikuli od 14 i 16 mm još rastu. Lekar će verovatno sačekati još jedan do dva dana da svi folikuli dostignu optimalnu veličinu, a zatim dati trigger injekciju.</p>
+
+      <p><strong>„Da li estradiol od 2000 znači da ću imati hiperstimulaciju?"</strong></p>
+
+      <p>Ne nužno. Estradiol od 2000 pg/mL može biti potpuno normalan ako imate 8–10 folikula koji lepo rastu - to je matematički očekivano. Hiperstimulacija zavisi od kombinacije faktora: broja folikula, nivoa estradiola, telesne građe, prethodne istorije. Lekar procenjuje celokupnu sliku, a ne samo jednu brojku.</p>
+
+      <p><strong>„Zašto moja prijateljica koja isto radi VTO ima manje kontrola od mene?"</strong></p>
+
+      <p>Svaka pacijentkinja ima drugačiji protokol, drugačiji odgovor na stimulaciju i drugačiju situaciju. Više kontrola ne znači da je nešto loše - možda vaš lekar želi da još pažljivije prati vaš odgovor, ili vaš protokol zahteva češće prilagođavanje. Isto tako, vaša prijateljica možda ima drugi protokol (npr. blagi protokol koji zahteva manje kontrola) ili jednostavno drugačiju dinamiku rasta folikula.</p>
+
+      <h3>Saveti za lakše prolaženje kroz monitoring</h3>
+
+      <p><strong>Vođenje dnevnika stimulacije</strong> - zapisujte datum kontrole, veličine folikula, vrednosti hormona i promene u terapiji. Ne zato što morate da tumačite brojeve, već zato što vam to može pomoći da se osećate organizovano i informisano. Mnoge žene kažu da im je dnevnik pomogao da se osećaju kao aktivan učesnik u procesu, a ne kao pasivan posmatrač.</p>
+
+      <p><strong>Pripremite pitanja za lekara</strong> - pre svake kontrole, zapišite jedno ili dva pitanja koja vas brinu. Lakše je pitati sa papira nego se setiti u trenutku kada ste uzbuđeni ili anksiozni. Primeri pitanja: „Da li su folikuli tamo gde treba da budu?", „Da li se nešto promenilo u planu?", „Kada očekujete da bi mogao biti trigger?"</p>
+
+      <p><strong>Organizovanje posla</strong> - ako je moguće, unapred obavestite poslodavca da ćete u narednih dve nedelje možda trebati da dolazite nešto kasnije na posao zbog medicinskih pregleda. Ne morate ulaziti u detalje ako ne želite. Većina poslodavaca izlazi u susret kada se razgovara unapred.</p>
+
+      <p><strong>Uloga partnera</strong> - partner ne mora da dolazi na svaku kontrolu, ali je korisno da bude uključen u proces. Može doći na jednu ili dve kontrole da vidi kako izgleda monitoring, može voditi beleške, može biti emocionalna podrška u čekaonici ili kod kuće. Najvažnije je da partner razume da je period stimulacije fizički i emocionalno zahtevni i da bude strpljiv i prisutan.</p>
+
+      <p><strong>Smanjenje anksioznosti</strong> - pronađite tehniku koja vam pomaže da se smirite pre kontrole. Za neke je to duboko disanje u čekaonici, za neke razgovor sa partnerom, za neke slušanje muzike. Pokušajte da ne pretražujete internet u čekaonici tražeći „normalne vrednosti estradiola" - ovo obično pogorša anksioznost jer svaka situacija je individualna.</p>
+
+      <p><strong>Aplikacije za praćenje</strong> - postoje aplikacije za praćenje VTO ciklusa koje vam mogu pomoći da beležite doze lekova, datume kontrola i nalaze. Koristite ih ako vam pomažu u organizaciji, ali nemojte dozvoliti da postanu još jedan izvor stresa - one su alat, ne sudija.</p>
+
+      <p><strong>Budite nežni prema sebi</strong> - prolazite kroz zahtevnu medicinsku proceduru. Dozvoljeno vam je da budete umorni, anksiozni, neraspoloženi. Monitoring je intenzivan period, i to što vam je teško ne znači da nešto nije u redu sa vama - znači da ste čovek koji prolazi kroz nešto teško.</p>
+
+      <!-- Closing -->
+      <p>Monitoring stimulacije može delovati kao beskonačan niz jutarnjih poseta klinici, hladnih ultrazvučnih sondi i uboda iglom za vađenje krvi. Ali u suštini, monitoring je vaš najvažniji saveznik u VTO procesu. Svaka kontrola je prilika da lekar fino podesi terapiju prema vašem telu, da rano otkrije potencijalne probleme, i da vas korak po korak vodi ka optimalnom trenutku za punkciju.</p>
+
+      <p>Ne morate razumeti svaki broj i svaki hormon do detalja. Ali razumevanje opštih principa - šta lekar traži, zašto su kontrole česte, šta znači kada se doza promeni, i zašto je tajming trigger injekcije toliko važan - može transformisati vaše iskustvo iz pasivnog čekanja u aktivno učešće. A osećaj da razumete šta se dešava i zašto može značajno smanjiti anksioznost i pomoći vam da se osećate osnaženo tokom jednog od najizazovnijih perioda u vašem životu.</p>
+
+      <p>Monitoring nije dodatni izvor stresa - on je razlog zašto moderna reproduktivna medicina može biti bezbedna, precizna i prilagođena upravo vama.</p>
+
+      <!-- Tags -->
+      <!-- <div class="article-tags">
+        <span class="article-tags-label">Tagovi</span>
+        <a href="#" class="article-tag">Monitoring</a>
+        <a href="#" class="article-tag">Stimulacija jajnika</a>
+        <a href="#" class="article-tag">Ultrazvuk</a>
+        <a href="#" class="article-tag">Folikuli</a>
+        <a href="#" class="article-tag">Hormoni</a>
+        <a href="#" class="article-tag">Estradiol</a>
+        <a href="#" class="article-tag">Trigger</a>
+      </div> -->
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+      <!-- <a href="#">Kontakt</a> -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+
+</body>
+</html>
