@@ -1,148 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.vto.rs/</loc>
+    <lastmod>2026-03-27</lastmod>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.vto.rs/vto-uvod</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/vto-vodic</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
-    <url>
+  <url>
+    <loc>https://www.vto.rs/endometrioza</loc>
+    <lastmod>2026-03-29</lastmod>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/endometrijum</loc>
+    <lastmod>2026-03-29</lastmod>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/dor-vto</loc>
+    <lastmod>2026-03-29</lastmod>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/azoospermija</loc>
+    <lastmod>2026-03-29</lastmod>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/amh-hormon-vodic</loc>
+    <lastmod>2026-03-29</lastmod>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/spermogram</loc>
+    <lastmod>2026-03-29</lastmod>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.vto.rs/trombofilija-vto</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
-    <url>
+  <url>
     <loc>https://www.vto.rs/fsh-lh-hormoni</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/poi</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
-    <url>
+  <url>
     <loc>https://www.vto.rs/pcos-vto</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
-    <url>
+  <url>
     <loc>https://www.vto.rs/oligospermija-astenospermija</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/ivf-klasicna-metoda</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/icsi-metoda</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/iui-inseminacija</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/fet-vodic</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/stimulacija-jajnika-vto</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/monitoring-stimulacije</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/aspiracija-jajnih-celija</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/priprema-sperme</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/kultivacija-embriona</loc>
+    <lastmod>2026-03-28</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/embriotransfer</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/zamrzavanje-embriona</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/beta-hcg</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
-    <url>
+  <url>
     <loc>https://www.vto.rs/dvonedeljna-pauza-vto</loc>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/o-nama</loc>
+    <lastmod>2026-03-28</lastmod>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/uslovi-koriscenja</loc>
+    <lastmod>2026-03-28</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/politika-privatnosti</loc>
+    <lastmod>2026-03-28</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://www.vto.rs/odricanje-od-odgovornosti</loc>
+    <lastmod>2026-03-28</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
-  </url>
-    <url>
-    <loc>https://www.vto.rs/endometrioza</loc>
-    <priority>1.0</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-    <url>
-    <loc>https://www.vto.rs/endometrijum</loc>
-    <priority>1.0</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-    <url>
-    <loc>https://www.vto.rs/dor-vto</loc>
-    <priority>1.0</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-    <url>
-    <loc>https://www.vto.rs/azoospermija</loc>
-    <priority>1.0</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-    <url>
-    <loc>https://www.vto.rs/amh-hormon-vodic</loc>
-    <priority>1.0</priority>
-    <changefreq>monthly</changefreq>
   </url>
 </urlset>
