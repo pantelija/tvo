@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sindrom policističnih jajnika (PCOS) i VTO - šta žene sa PCOS-om treba da znaju o vantelesnoj oplodnji | VTOvodič.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-category:hover { background: var(--color-accent); color: #fff; }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  /* Table styling */
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .article-content th {
+    background: var(--color-bg-warm);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  .article-content td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-ink-light);
+    vertical-align: top;
+  }
+  .article-content tr:nth-child(even) td {
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+    .article-content table { font-size: 0.8rem; }
+    .article-content th, .article-content td { padding: 0.45rem 0.6rem; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+        <a href="vto-uvod">Uvod u VTO</a>
+        <a href="vto-vodic">VTO vodič</a>
+        <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+        <a href="icsi-metoda">ICSI postupak</a>
+        <a href="iui-inseminacija">Inseminacija IUI</a>
+        <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+        <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+        <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+        <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+        <a href="priprema-sperme">Priprema spermatozoida</a>
+        <a href="kultivacija-embriona">Kultivacija embriona</a>
+        <a href="embriotransfer">Embrotransfer</a>
+        <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+        <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Dijagnostika i stanja</span>
+<h1 class="article-title">Sindrom policističnih jajnika (PCOS) i VTO - šta žene sa PCOS-om treba da znaju o vantelesnoj oplodnji</h1>
+
+    </div>
+
+    <div class="article-toc">
+  <div class="article-toc-title">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sadržaj članka
+  </div>
+  <ol>
+<li><a href="#sšta-je-pcos-sindrom-policističnih-jajnik">Šta je PCOS - sindrom policističnih jajnika</a></li>
+<li><a href="#szašto-pcos-uzrokuje-problem-sa-plodnošću">Zašto PCOS uzrokuje problem sa plodnošću</a></li>
+<li><a href="#sstepenast-pristup-lečenju-neplodnosti-pu">Stepenast pristup lečenju neplodnosti</a></li>
+<li><a href="#svto-kod-pcos-a-specifičnosti-stimulacije">VTO kod PCOS-a - specifičnosti stimulacije i protokola</a></li>
+<li><a href="#sohss-najvažniji-bezbednosni-aspekt-vto-a">OHSS - najvažniji bezbednosni aspekt VTO-a kod PCOS-a</a></li>
+<li><a href="#skvalitet-jajnih-ćelija-embriona-i-transf">Kvalitet jajnih ćelija, embriona i transfer strategija</a></li>
+<li><a href="#sdugoročno-zdravlje-žena-sa-pcos-om">Dugoročno zdravlje žena sa PCOS-om</a></li>
+<li><a href="#smitovi-i-zablude-o-pcos-u-i-vto-u">Mitovi i zablude o PCOS-u i VTO-u</a></li>
+<li><a href="#sčesta-pitanja-i-praktični-saveti">Česta pitanja i praktični saveti</a></li>
+<li><a href="#srečnik-pojmova">Rečnik pojmova</a></li>
+<li><a href="#sumesto-zaključka">Umesto zaključka</a></li>
+  </ol>
+</div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+<h2 id="sšta-je-pcos-sindrom-policističnih-jajnik">1. Šta je PCOS - sindrom policističnih jajnika</h2>
+<p>Sindrom policističnih jajnika, poznatiji kao PCOS (od engleskog <em>Polycystic Ovary Syndrome</em>), najčešći je hormonski poremećaj kod žena u reproduktivnom dobu. Pogađa otprilike 8–13% žena širom sveta, a prema nekim procenama čak i do 20%, u zavisnosti od dijagnostičkih kriterijuma koji se primenjuju. Ako ste dobili dijagnozu PCOS-a, važno je da znate da niste same - ovo je jedno od najčešćih stanja sa kojima se žene suočavaju, a ipak ostaje nedovoljno razumljeno i često pogrešno tumačeno.</p>
+<p>PCOS se karakteriše kombinacijom tri grupe poremećaja: hormonskim disbalansom (posebno povišenim muškim polnim hormonima), problemima sa ovulacijom (neredovnim ili potpuno izostalim menstrualnim ciklusima) i specifičnim izgledom jajnika na ultrazvuku (mnogo malih folikula koji daju karakterističnu sliku).</p>
+<p>Jedna od najvažnijih stvari koju treba razumeti od samog početka jeste da PCOS nije samo reproduktivni problem. To je sistemsko metaboličko stanje koje utiče na mnoge aspekte zdravlja - od metabolizma šećera i telesne težine, preko kože i kose, do mentalnog zdravlja i kardiovaskularnog sistema. U ovom tekstu, međutim, fokus je na reproduktivnom aspektu i na tome kako PCOS utiče na put ka trudnoći, posebno na postupak vantelesne oplodnje (VTO).</p>
+<h3>Dijagnostički kriterijumi - kako se postavlja dijagnoza PCOS-a</h3>
+<p>Dijagnoza PCOS-a se postavlja prema takozvanim Roterdamskim kriterijumima, koji su uspostavljeni 2003. godine i od tada revidirani. Prema ovim kriterijumima, za dijagnozu PCOS-a potrebno je da budu prisutna bar <strong>dva od tri</strong> sledeća kriterijuma, ali tek nakon što lekar isključi druga stanja koja mogu davati slične simptome (poremećaji štitne žlezde, urođena hiperplazija nadbubrežne žlezde, Kušingov sindrom, hiperprolaktinemija i druga):</p>
+<p><strong>Kriterijum 1: Neredovna ili izostala ovulacija (oligo-ovulacija ili anovulacija)</strong></p>
+<p>Ovo se klinički prepoznaje kroz neredovne menstrualne cikluse - ciklusi koji traju duže od 35 dana, ili žena ima manje od 8 menstrualnih ciklusa godišnje. U težim slučajevima, menstruacija potpuno izostaje (stanje koje se zove amenoreja). Neredovni ciklusi ukazuju na to da žena ne ovulira redovno (oligo-ovulacija - retka ovulacija) ili uopšte ne ovulira (anovulacija - potpuni izostanak ovulacije). Bez ovulacije nema oslobađanja jajne ćelije, a bez jajne ćelije nema mogućnosti za začeće.</p>
+<p><strong>Kriterijum 2: Klinički ili biohemijski znaci viška muških hormona (hiperandrogenizam)</strong></p>
+<p>Muški polni hormoni - androgeni - prisutni su i kod žena u manjim količinama, ali kod PCOS-a njihov nivo je povišen. To se može manifestovati na dva načina:</p>
+<ul>
+<li><em>Klinički znaci</em> - ono što se vidi golim okom: uporne akne (posebno na bradi i vilici, tip koji se obično javlja kod odraslih, a ne adolescentske akne), hirzutizam (prekomerna maljavost na licu, grudima, stomaku, leđima - po muškom obrascu dlakavosti), i androgena alopecija (proređivanje kose na temenu glave, slično muškom tipu ćelavosti).</li>
+<li><em>Biohemijski znaci</em> - povišen nivo androgena u krvi, što se utvrđuje laboratorijskim analizama: ukupni testosteron, slobodni testosteron, DHEAS (dehidroepiandrosteron sulfat - androgen koji se proizvodi u nadbubrežnim žlezdama), androstendion.</li>
+</ul>
+<p><strong>Kriterijum 3: Policistični jajnici na ultrazvuku</strong></p>
+<p>Na ultrazvučnom pregledu jajnici pokazuju karakterističnu sliku - prisustvo velikog broja malih folikula (prema originalnim kriterijumima 12 ili više folikula prečnika 2–9 mm po jajniku) i/ili uvećan volumen jajnika (iznad 10 mL). Noviji međunarodni konsenzus iz 2018. godine pomerio je granicu na 20 ili više folikula po jajniku kada se koristi moderna ultrazvučna oprema visoke rezolucije, ali mnoge klinike još uvek koriste stariji prag od 12.</p>
+<p><strong>Važna napomena o nazivu:</strong> Naziv „policistični jajnici" je istorijski nasleđen i zapravo zbunjujući. Jajnici kod PCOS-a ne sadrže prave ciste - cistične formacije ispunjene tečnošću. Ono što se vidi na ultrazvuku su mnoštvo malih antralnih folikula (folikuli u ranom stadijumu razvoja, prečnika 2–9 mm) koji su se „zaglavili" i nisu nastavili da rastu do ovulacije. Termin potiče iz vremena kada se pogrešno mislilo da su te formacije ciste. Mnogi stručnjaci danas zagovaraju preimenovanje PCOS-a, ali se stari naziv zadržao u upotrebi.</p>
+<h3>Fenotipovi PCOS-a - nije svaki PCOS isti</h3>
+<p>PCOS nije jedno uniformno stanje - postoji spektar različitih oblika koji se nazivaju fenotipovi. Razumevanje fenotipova pomaže da shvatite zašto se dve žene sa PCOS-om mogu veoma razlikovati po simptomima i po odgovoru na lečenje:</p>
+<p><strong>Fenotip A (klasični, „potpuni" oblik):</strong> Prisutna su sva tri kriterijuma - hiperandrogenizam, oligo/anovulacija i policistični jajnici na ultrazvuku. Ovo je najteži oblik PCOS-a sa najizraženijim metaboličkim i reproduktivnim posledicama.</p>
+<p><strong>Fenotip B:</strong> Hiperandrogenizam i oligo/anovulacija, ali bez policističnog izgleda jajnika na ultrazvuku. Uprkos „normalnom" ultrazvučnom nalazu, hormonski i reproduktivni problemi su prisutni.</p>
+<p><strong>Fenotip C:</strong> Hiperandrogenizam i policistični jajnici na ultrazvuku, ali sa redovnom ovulacijom. Ove žene imaju redovne menstruacije i mogu ovulirati samostalno, ali imaju povišene androgene.</p>
+<p><strong>Fenotip D (nehiperandrogeni oblik):</strong> Oligo/anovulacija i policistični jajnici, ali bez povišenih androgena - najlakši oblik, koji se često ne prepoznaje jer nedostaju vidljivi znaci hiperandrogenizma (nema izraženih akni, hirzutizma, gubitka kose).</p>
+<p>Značaj fenotipa za VTO je praktičan: različiti fenotipovi imaju različit reproduktivni profil, različitu ovarijalnu rezervu i različit odgovor na stimulaciju gonadotropinima. Lekar koji planira VTO stimulaciju uzima u obzir vaš fenotip kao jedan od faktora pri izboru protokola i doze lekova.</p>
+<h2 id="szašto-pcos-uzrokuje-problem-sa-plodnošću">2. Zašto PCOS uzrokuje problem sa plodnošću</h2>
+<p>Da bismo razumeli zašto je PCOS jedna od najčešćih dijagnoza u klinikama za lečenje neplodnosti, moramo razumeti šta se dešava u telu žene sa PCOS-om na nivou jajnika, hormona i metabolizma.</p>
+<h3>Anovulacija - centralni problem</h3>
+<p>Zamislite da su vaši jajnici kao voćnjak pun stabala jabuka. Kod većine žena, svaki mesec jedno stablo donese jedan zreo plod - to je ovulacija, oslobađanje jedne zrele jajne ćelije. Kod žena sa PCOS-om, mnoga stabla počnu da cvetaju, ali nijedan plod ne sazri do kraja - cvetovi ostanu na granama bez da postanu jabuke. Folikuli počnu da rastu ali se „zaustave" u ranom stadijumu razvoja.</p>
+<p>Mehanizam ovog problema je sledeći: kod PCOS-a, hipofiza (žlezda u mozgu koja upravlja reproduktivnim hormonima) luči nesrazmerno mnogo hormona LH (luteinizirajući hormon) u odnosu na FSH (folikulo-stimulirajući hormon) - umesto uobičajenog odnosa, nastaje obrnut LH/FSH odnos. FSH je hormon koji je ključan za sazrevanje jednog dominantnog folikula. Kada ga nema dovoljno, mnogo malih folikula se regrutuje ali nijedan ne uspeva da postane dominantan i dovrši sazrevanje do ovulacije.</p>
+<p>Istovremeno, povišeni androgeni (muški hormoni) u samim jajnicima dodatno ometaju normalan folikularni razvoj. Folikuli se „zaustave" u ranom stadijumu, nakupljaju se (dajući karakterističnu ultrazvučnu sliku „policističnih jajnika") ali ne oslobađaju jajnu ćeliju. Rezultat je jednostavan i surov: bez ovulacije nema jajne ćelije, bez jajne ćelije nema oplođenja, bez oplođenja nema trudnoće.</p>
+<p>Neke žene sa PCOS-om ovuliraju sporadično (oligoovulacija) - one mogu zatrudneti spontano, ali im je potrebno značajno duže vreme ili medicinska pomoć da bi ovulacija postala redovnija i predvidljiva.</p>
+<h3>Insulinska rezistencija i hiperinsulinemija - skriveni pokretač</h3>
+<p>Ovaj aspekt PCOS-a je ključan za razumevanje i često nedovoljno objašnjen. Insulinska rezistencija (IR) znači da ćelije tela ne reaguju adekvatno na insulin - hormon koji reguliše nivo šećera u krvi. Kada ćelije „ne slušaju" insulin, pankreas (žlezda koja proizvodi insulin) mora da proizvodi sve veće količine insulina da bi održao normalan nivo šećera. Ovaj višak insulina u krvi naziva se hiperinsulinemija.</p>
+<p>Oko 50–70% žena sa PCOS-om ima insulinsku rezistenciju, i to je mnogo više nego što se ranije mislilo. Ono što je posebno važno: IR nije problem samo gojaznih žena - prisutna je i kod mršavih žena sa PCOS-om, mada gojaznost značajno pogoršava stepen rezistencije.</p>
+<p>Zašto je IR toliko bitna za plodnost? Zato što povišen insulin <strong>direktno stimuliše jajnike da proizvode još više androgena</strong>. Nastaje začarani krug: više insulina → više androgena → pogoršanje simptoma PCOS-a → pogoršanje insulinske rezistencije. U kontekstu VTO-a, IR može uticati na kvalitet jajnih ćelija, sazrevanje folikula, kvalitet embriona i receptivnost endometrijuma (sposobnost sluznice materice da prihvati embrion).</p>
+<h3>Kvalitet jajnih ćelija - „PCOS paradoks"</h3>
+<p>Evo jednog od najzbunjujućih aspekata PCOS-a: jajnici su „puni" folikula. Laboratorijski parametri koji mere ovarijalnu rezervu - AMH (anti-Milerov hormon) i AFC (broj antralnih folikula na ultrazvuku) - obično su visoki, ponekad značajno iznad proseka. Na prvi pogled, to zvuči kao dobra vest - „mnogo materijala za rad". Međutim, paradoks PCOS-a je u tome što kvantitet ne garantuje kvalitet.</p>
+<p>Hiperandrogeno okruženje unutar jajnika, hronična anovulacija, oksidativni stres (neravnoteža između slobodnih radikala i antioksidativne zaštite u telu) i metabolički disbalans (posebno insulinska rezistencija) - sve to može uticati na zrelost i kompetentnost jajnih ćelija. U praksi to znači: tokom VTO stimulacije može se dobiti veliki broj jajnih ćelija, ali procenat zaista zrelih i kvalitetnih može biti niži nego kod žena bez PCOS-a. Ovo potvrđuje kliničko iskustvo da kod PCOS-a sam broj jajnih ćelija ne garantuje uspeh - važan je kvalitet svake pojedinačne ćelije.</p>
+<h3>Endometrijalni faktor</h3>
+<p>Endometrijum (sluznica materice) igra ključnu ulogu u implantaciji embriona. Kod žena sa PCOS-om, hronična izloženost estrogenu bez balansa progesterona (jer nema ovulacije i nema žutog tela koje bi proizvelo progesteron) može dovesti do hiperplazije endometrijuma - prekomernog zadebljanja sluznice. Insulinska rezistencija dodatno može uticati na molekularnu receptivnost endometrijuma - sposobnost sluznice da „prihvati" embrion.</p>
+<p>U kontekstu VTO-a, endometrijum kod žena sa PCOS-om obično dobro raste tokom stimulacije (jer su nivoi estradiola visoki), ali postoji mogućnost da njegova molekularna receptivnost bude kompromitovana, što može uticati na uspešnost implantacije.</p>
+<h2 id="sstepenast-pristup-lečenju-neplodnosti-pu">3. Stepenast pristup lečenju neplodnosti - put do VTO-a</h2>
+<p>Vantelesna oplodnja nije prvi korak u lečenju neplodnosti kod PCOS-a. Savremena reproduktivna medicina primenjuje stepenasti pristup - od najjednostavnijih i najblažih intervencija ka složenijim, a VTO se uvodi tek kada jednostavniji pristupi ne daju rezultat, ili kada postoje dodatni faktori koji zahtevaju direktan prelazak na VTO.</p>
+<h3>Korak 0 - Priprema i optimizacija pre bilo kakvog lečenja</h3>
+<p>Ovaj korak se često potcenjuje, ali je možda najvažniji deo celokupnog puta, posebno kod PCOS-a.</p>
+<p><strong>Promena životnih navika - najefikasnija „terapija" za mnoge žene sa PCOS-om:</strong></p>
+<p>Kod žena sa PCOS-om koje imaju višak telesne mase, gubitak od samo 5–10% telesne mase može dovesti do dramatičnog poboljšanja - hormonski profil se normalizuje, insulinska rezistencija se smanjuje, ovulacija se može ponovo uspostaviti, a šanse za prirodnu trudnoću ili uspeh lečenja se značajno povećavaju. Ovo nije prazna fraza - potvrđeno je u brojnim kliničkim studijama i predstavlja temelj na kojem se gradi svaki dalji korak lečenja.</p>
+<p>Preporučena ishrana za žene sa PCOS-om nije strogo definisana „dijeta" u klasičnom smislu, ali se generalno preporučuje mediteranski tip ishrane: umerena kaloričnost, nizak glikemijski indeks (hrana koja ne izaziva nagle skokove šećera u krvi), dovoljno proteina i vlakana, zdrave masti (maslinovo ulje, riba, orašasti plodovi) i ograničen unos rafinisanih ugljenih hidrata i šećera.</p>
+<p>Redovna fizička aktivnost - umereni trening od 30 minuta dnevno, pet dana nedeljno - poboljšava insulinsku senzitivnost nezavisno od gubitka telesne mase. Čak i ako ne smršate, vežbanje samo po sebi pomaže vašem telu da bolje koristi insulin.</p>
+<p>Jedna važna napomena: promena životnih navika zahteva vreme - obično 3–6 meseci za pun efekat. Lekar mora da pronađe ravnotežu između davanja dovoljno vremena za optimizaciju i ne gubljenja dragocenog vremena, posebno kod žena starije dobi gde biološki sat postaje faktor.</p>
+
+<h3>Korak 1 - Indukcija ovulacije</h3>
+<p>Indukcija ovulacije je prvi korak medikamentoznog lečenja neplodnosti kod PCOS-a. Cilj je da se uz pomoć lekova pokrene ovulacija koja se ne dešava spontano.</p>
+<p>Tokom indukcije ovulacije, lekar prati rast folikula ultrazvučnim pregledima, a kada folikul dostigne zrelost daje se trigger injekcija (hCG - humani horionski gonadotropin) koja pokreće konačno sazrevanje i oslobađanje jajne ćelije. Zatim se planiraju vremenski odnosi ili intrauterina inseminacija (IUI - ubacivanje obrađenih spermatozoida direktno u matericu).</p>
+<p>Ohrabrujući podatak: kumulativna stopa trudnoće nakon 6 ciklusa indukcije ovulacije sa letrozolom iznosi oko 30–40%. Značajan deo žena sa PCOS-om zatrudni ovim putem, bez potrebe za VTO-om.</p>
+<h3>Korak 2 - Gonadotropini u niskim dozama</h3>
+<p>Ako indukcija ovulacije letrozolom ili klomifenom ne dovede do trudnoće nakon 3–6 ciklusa, sledeći korak su injekcije gonadotropina - hormona FSH u niskim dozama.</p>
+<p>Koristi se takozvani „low-dose step-up" protokol: počinje se sa veoma niskom dozom FSH (37,5–75 internacionalnih jedinica) koja se postepeno povećava. Cilj je razvoj jednog dominantnog folikula, ne višestrukih. Ovo zahteva pažljiv monitoring (ultrazvučni pregled svaka 2–3 dana) jer jajnici kod PCOS-a mogu odreagovati previše intenzivno.</p>
+<p>Rizici ovog pristupa uključuju višeplodnu trudnoću i OHSS - zato se koriste minimalne doze i strogi ultrazvučni nadzor. Kada folikul sazri, opet se daje trigger injekcija, a zatim se radi IUI ili se planiraju vremenski odnosi.</p>
+<h3>Korak 3 - Laparoskopski ovarian drilling (LOD)</h3>
+<p>Ovo je hirurški pristup u kojem se laparoskopski (minimalno invazivno, kroz male rezove na stomaku) buši površina jajnika elektrokauterom ili laserom na 4–6 mesta. Mehanizam je destrukcija dela tkiva jajnika koje proizvodi androgene, što dovodi do pada nivoa androgena i može uspostaviti ovulaciju kod nekih žena. Efekat može trajati mesecima ili čak godinama.</p>
+<p>Mane su hirurški rizici i paradoks da sam postupak može smanjiti ovarijalnu rezervu. Efekat nije garantovan. Ova procedura se sve ređe primenjuje jer je VTO efikasnija opcija za žene kojima jednostavniji pristupi ne pomažu.</p>
+<h3>Korak 4 - VTO (vantelesna oplodnja)</h3>
+<p>Na VTO se prelazi u sledećim situacijama:</p>
+<ul>
+<li>Indukcija ovulacije nije dovela do trudnoće nakon 3–6 pokušaja</li>
+<li>Gonadotropini sa IUI nisu bili uspešni</li>
+<li>Prisutni su dodatni faktori neplodnosti - oštećeni jajovodi (tubarni faktor), loš kvalitet spermatozoida (muški faktor), starost žene</li>
+<li>Preferencija para - neke žene biraju VTO ranije ako žele najefikasniji put</li>
+<li>Teška insulinska rezistencija ili metabolički disbalans otežava jednostavnije pristupe</li>
+</ul>
+<p>Važna poruka: VTO kod PCOS-a nije „poslednja opcija" u smislu očaja - za neke žene je to upravo najefikasniji put, posebno ako postoje dodatni faktori neplodnosti.</p>
+<h2 id="svto-kod-pcos-a-specifičnosti-stimulacije">4. VTO kod PCOS-a - specifičnosti stimulacije i protokola</h2>
+<p>VTO kod žena sa PCOS-om se suštinski razlikuje od VTO-a kod žena sa drugim dijagnozama. Razumevanje ovih razlika pomaže da se pripremite za ono što vas čeka i da budete informisana učesnica u procesu.</p>
+<h3>Odgovor na stimulaciju - „previše dobro" reagujete</h3>
+<p>Vraćamo se na metaforu voćnjaka: vaši jajnici imaju mnogo „stabala" (folikula) i hipersenzitivni su na gonadotropine - lekove koji stimulišu rast folikula. Potrebna je manja doza FSH da bi se pokrenuo rast, ali kada se jednom pokrene, odgovor je snažan.</p>
+<p>Tipičan odgovor žene sa PCOS-om na VTO stimulaciju: razvija se veliki broj folikula - 15, 20, 30 ili više - i estradiol (ženski polni hormon čiji nivo raste sa brojem rastućih folikula) brzo dostiže visoke nivoe. Ovo je istovremeno i prednost (mnogo jajnih ćelija za rad) i opasnost (rizik od OHSS-a).</p>
+<p>U VTO stimulaciji, gonadotropini su kao ono specijalno đubrivo koje pomaže da više cvetova ovog puta zaista donese plod. Problem je što voćnjak kod PCOS-a ima mnogo stabala - pa kada sva počnu da rađaju istovremeno, možete dobiti ogromnu žetvu. To je fantastično za vaše šanse, ali zahteva oprez - lekar mora pažljivo da dozira „đubrivo" da voćnjak ne bi bio preopterećen.</p>
+<h3>Izbor protokola - antagonistički protokol kao standard za PCOS</h3>
+<p>Kod VTO-a postoje različiti protokoli stimulacije, ali za žene sa PCOS-om je <strong>antagonistički protokol obavezan izbor</strong>. Razlog je pre svega bezbednost: antagonistički protokol omogućava upotrebu GnRH agonist triggera umesto klasičnog hCG triggera, što je ključna mera prevencije OHSS-a (detaljnije u sledećoj sekciji).</p>
+<p>Kod ovog protokola, stimulacija se započinje gonadotropinima od početka ciklusa, a GnRH antagonist (lek koji sprečava prevremenu ovulaciju) se dodaje obično nakon 5–6 dana stimulacije ili kada vodeći folikul dostigne određenu veličinu.</p>
+<h3>Niže početne doze - „krenuti nisko, ići sporo"</h3>
+<p>Početna doza gonadotropina kod žena sa PCOS-om je obično niža nego kod drugih pacijentkinja - tipično 100–150 internacionalnih jedinica FSH dnevno, umesto standardnih 150–300 IU koje se koriste kod žena sa normalnim ili smanjenim odgovorom jajnika.</p>
+<p>Razlog je jasan: vaši jajnici su hipersenzitivni, manja doza je dovoljna da pokrene adekvatan rast folikula, a istovremeno smanjuje rizik od preterane reakcije.</p>
+<h2 id="sohss-najvažniji-bezbednosni-aspekt-vto-a">5. OHSS - najvažniji bezbednosni aspekt VTO-a kod PCOS-a</h2>
+<p>Sindrom ovarijalne hiperstimulacije (OHSS) je najvažniji bezbednosni rizik kod žena sa PCOS-om koje prolaze kroz VTO stimulaciju. Razumevanje ovog rizika i strategija prevencije je od ključnog značaja.</p>
+<h3>Šta je OHSS</h3>
+<p>OHSS je preterana reakcija jajnika na hormonsku stimulaciju. Jajnici se dramatično uvećaju, krvni sudovi postaju propustljivi, i tečnost „curi" iz krvotoka u trbušnu duplju (to nakupljanje tečnosti u stomaku zove se ascites) a ponekad i u grudnu duplju (pleuralni izliv).</p>
+<p>OHSS se deli po težini:</p>
+<p><strong>Blagi OHSS:</strong> Nadutost, nelagodnost u stomaku, blaga mučnina, blago uvećanje jajnika. Javlja se kod značajnog procenta stimulisanih žena i obično prolazi spontano za nekoliko dana.</p>
+<p><strong>Umereni OHSS:</strong> Izrazita nadutost, bolovi u stomaku, mučnina, povraćanje, otežano disanje, smanjeno mokrenje, dobitak na telesnoj masi od 2 ili više kilograma u par dana od nakupljanja tečnosti. Zahteva pažljivo praćenje i ponekad medicinsku intervenciju.</p>
+<p><strong>Teški OHSS:</strong> Masivan ascites (velika količina tečnosti u stomaku), pleuralni izliv, hemokoncentracija (krv postaje gusta jer je tečni deo „iscurio" iz krvotoka), rizik od tromboze (stvaranje krvnih ugrušaka - duboka venska tromboza ili plućna embolija), bubrežna insuficijencija, poremećaj elektrolita. Teški OHSS zahteva hospitalizaciju i potencijalno je opasan po život.</p>
+<p>OHSS je gotovo isključivo komplikacija VTO stimulacije - u prirodnim ciklusima se ne javlja ili se javlja izuzetno retko.</p>
+<h3>Zašto su žene sa PCOS-om u posebnom riziku</h3>
+<p>Žene sa PCOS-om imaju visok AFC (veliki broj antralnih folikula koji svi odgovaraju na stimulaciju), što dovodi do velikog broja rastućih folikula, visokog nivoa estradiola, i masovnog oslobađanja vazoaktivnih supstanci - posebno VEGF-a (vaskularni endotelni faktor rasta, protein koji povećava propustljivost krvnih sudova) - nakon trigger injekcije.</p>
+<p>Faktori rizika za OHSS koji se koriste kao „crvene zastavice":</p>
+<ul>
+<li>AMH iznad 3,5–5,0 ng/mL</li>
+<li>AFC iznad 20–24 folikula</li>
+<li>Mlada životna dob</li>
+<li>Nizak BMI (indeks telesne mase)</li>
+<li>Prethodni epizod OHSS-a</li>
+<li>Kombinacija: mlada žena + PCOS + nizak BMI = najviši rizik</li>
+</ul>
+<h3>5.3. Strategije prevencije OHSS-a - kako se današnja medicina nosi sa ovim rizikom</h3>
+<p>Ovo je možda najvažniji deo teksta sa stanovišta bezbednosti. Savremena reproduktivna medicina raspolaže nizom strategija koje su dramatično smanjile učestalost teškog OHSS-a - do te mere da je danas gotovo eliminisan kada se pravilno primenjuju mere prevencije.</p>
+<h2 id="skvalitet-jajnih-ćelija-embriona-i-transf">6. Kvalitet jajnih ćelija, embriona i transfer strategija</h2>
+<h3>PCOS paradoks: mnogo jajnih ćelija, ali…</h3>
+<p>Tipičan scenario kod žene sa PCOS-om u VTO-u izgleda otprilike ovako: punkcija daje 20 jajnih ćelija, od kojih je 15 zrelih (MII - metafaza II, stadijum u kojem je jajna ćelija spremna za oplođenje), od tih 15 zrelih 10 se uspešno oplodi, i od 10 oplođenih jajnih ćelija 5 dosegne stadijum blastociste (embrion star 5–6 dana, spreman za transfer ili zamrzavanje). Procenat „gubitka" u svakom koraku može biti viši nego kod žena bez PCOS-a.</p>
+<p>Mogući razlozi za potencijalno niži kvalitet jajnih ćelija kod PCOS-a uključuju: hiperandrogeno okruženje unutar folikula (višak muških hormona u tečnosti koja okružuje jajnu ćeliju), insulinsku rezistenciju na nivou granuloza ćelija (ćelija koje okružuju i hrane jajnu ćeliju unutar folikula), oksidativni stres, i nezrelost jajnih ćelija uprkos naizgled adekvatnoj veličini folikula.</p>
+<p>Dobra vest: čak i sa potencijalno nižim procentom kvalitetnih embriona, apsolutni broj kvalitetnih embriona je često i dalje adekvatan - upravo zato što se kreće iz velikog startnog broja. Žena koja dobije 5 kvalitetnih blastocista iz jednog ciklusa stimulacije ima solidan materijal za više pokušaja transfera.</p>
+<h3>ICSI kod PCOS-a</h3>
+<p>Mnoge klinike preferiraju ICSI (intracitoplazmatsku injekciju spermatozoida - metoda kod koje se jedan spermatozoid direktno ubacuje u jajnu ćeliju) kod pacijentkinja sa PCOS-om. Razlog je praktičan: ICSI obezbeđuje oplođenje svake zrele jajne ćelije i eliminiše rizik od totalnog neoplođenja, što je posebno važno kada je na raspolaganju veliki broj jajnih ćelija i kada se ne želi rizik da bilo koja zdrava jajna ćelija ostane neoplođena.</p>
+<h3>FET (transfer zamrznutih embriona) - preferirani pristup kod PCOS-a</h3>
+<p>Transfer zamrznutih embriona u kasnijem, nestimulisanom ciklusu postaje preferirani pristup kod žena sa PCOS-om, iz više razloga:</p>
+<p><strong>Bezbednost:</strong> Eliminacija rizika da trudnoća (sa svojom produkcijom hCG-a) pogorša eventalni OHSS.</p>
+<p><strong>Bolji endometrijum:</strong> Stimulisani ciklus kod PCOS-a može kompromitovati receptivnost endometrijuma - visok estradiol i eventualno prevremeni porast progesterona mogu negativno uticati na sposobnost sluznice materice da prihvati embrion. FET u nestimulisanom, „mirnom" ciklusu daje bolji i receptivniji endometrijum.</p>
+<p><strong>Rezultati:</strong> Rastući dokazi, uključujući veliku studiju poznatu kao FreFro-PCOS (pod okriljem Evropskog udruženja za reproduktivnu medicinu - ESHRE), sugerišu da FET kod PCOS-a daje jednake ili čak više stope živorođenja u poređenju sa svežim transferom.</p>
+<p><strong>Vreme za pripremu:</strong> FET ciklus omogućava pauzu u kojoj se jajnici potpuno oporave, insulinska rezistencija se može dalje optimizovati, i endometrijum se priprema u kontrolisanim uslovima.</p>
+<p>Sveži transfer ostaje moguć u situacijama kada je odgovor na stimulaciju bio blag i rizik od OHSS-a nizak - ali to je atipičan scenario kod žena sa klasičnim PCOS-om i velikim brojem folikula.</p>
+<h3>6.4. Stope uspešnosti VTO-a kod PCOS-a - ohrabrujući podaci</h3>
+<p>Evo podatka koji će vas možda iznenaditi: stope uspešnosti VTO-a kod žena sa PCOS-om su generalno uporedive sa stopama kod žena bez PCOS-a istog životnog doba - a u nekim studijama su čak i više. Razlog je logičan: žene sa PCOS-om imaju veliku ovarijalnu rezervu i obično dolaze na VTO u mlađem životnom dobu (jer se problem sa plodnošću dijagnostikuje rano).</p>
+<p>Posebno su ohrabrujuće kumulativne stope - stope uspešnosti kada se u obzir uzmu svi transferi koji proizlaze iz jednog ciklusa stimulacije. Jedan ciklus stimulacije sa zamrzavanjem svih embriona može dati materijal za 2–4 FET pokušaja. Kumulativna stopa živorođenja iz jednog ciklusa stimulacije može dostići 50–70% kod mlađih žena sa PCOS-om.</p>
+<p>Faktori koji utiču na uspeh: starost žene (najvažniji faktor - fertilitet opada sa godinama nezavisno od dijagnoze), BMI (gojaznost smanjuje šanse), stepen insulinske rezistencije, kvalitet embriona, pravilno prilagođen protokol stimulacije, i iskustvo klinike u radu sa PCOS pacijentkinjama.</p>
+<h2 id="strudnoća-nakon-vto-a-kod-pcos-a-put-ne-p">7. Trudnoća nakon VTO-a kod PCOS-a - put ne prestaje sa pozitivnim testom</h2>
+<p>Pozitivan test na trudnoću je prekretnica, ali za žene sa PCOS-om put praćenja i brige ne prestaje. PCOS nosi određene rizike tokom trudnoće kojih treba biti svesna - ne da biste se plašile, već da biste se adekvatno pripremile i pratile.</p>
+<h3>Povišen rizik od ranog gubitka trudnoće</h3>
+<p>Neke studije pokazuju viši procenat ranog gubitka trudnoće (pobačaja) kod žena sa PCOS-om. Mogući mehanizmi uključuju insulinsku rezistenciju, hiperandrogenizam, potencijalno lošiji kvalitet jajnih ćelija ili embriona, i endometrijalne faktore. Mnogi lekari nastavljaju metformin tokom prvog trimestra kod žena sa PCOS-om i izraženom insulinskom rezistencijom, jer neki podaci sugerišu da to može smanjiti rizik od pobačaja - mada je ovo pitanje još uvek predmet naučne debate.</p>
+<h3>Gestacijski dijabetes melitus (GDM)</h3>
+<p>Žene sa PCOS-om imaju 2–4 puta viši rizik od razvoja gestacijskog dijabetesa (dijabetesa u trudnoći) u poređenju sa opštom populacijom. Razlog je logičan: postojeća insulinska rezistencija, koju trudnoća fiziološki dodatno pogoršava, može da pređe granicu i dovede do povišenog šećera u krvi.</p>
+<p>Rani skrining je ključan: oralni glukoza tolerans test (OGTT - test opterećenja šećerom) se kod žena sa PCOS-om preporučuje ranije u trudnoći - tokom prvog trimestra ili na početku drugog - umesto standardnog skrininga koji se radi na 24–28 nedelja.</p>
+<p>Prevencija uključuje kontrolu telesne mase pre trudnoće, nastavak zdrave ishrane i fizičke aktivnosti tokom trudnoće, i eventualno nastavak metformina po preporuci lekara.</p>
+<h3>Hipertenzivni poremećaji - preeklampsija</h3>
+<p>Žene sa PCOS-om imaju povišen rizik od gestacijske hipertenzije (povišenog krvnog pritiska u trudnoći) i preeklampsije (ozbiljnog stanja koje uključuje visok krvni pritisak i oštećenje organa, najčešće bubrega i jetre). Insulinska rezistencija i endotelna disfunkcija (oštećenje unutrašnjeg sloja krvnih sudova) doprinose ovom riziku.</p>
+<p>Aspirin u niskoj dozi (100–150 mg dnevno) od 12. nedelje trudnoće preporučen je za žene sa PCOS-om kao mera prevencije preeklampsije, prema smernicama FIGO (Međunarodna federacija ginekologa i akušera) i ACOG (Američki koledž za akušerstvo i ginekologiju) za žene sa faktorima rizika.</p>
+<h3>Prevremeni porođaj i makrosomija</h3>
+<p>Postoji blago povišen rizik od prevremenog porođaja kod žena sa PCOS-om - mehanizam nije potpuno jasan, ali je moguće povezan sa hroničnom inflamacijom i metaboličkim disbalansom.</p>
+<p>Makrosomija (veliko novorođenče, obično preko 4000 g) je povezana sa GDM-om i hiperinsulinemijom - povišen insulin i šećer u majčinoj krvi prelaze placentu i stimulišu rast ploda.</p>
+<h3>Važna poruka o trudnoći</h3>
+<p>Svi navedeni rizici su statistički povišeni - to znači da se javljaju češće nego u opštoj populaciji, ali to nikako ne znači da će se komplikacije sigurno desiti kod vas. Uz pravilno praćenje, optimizaciju metaboličkog zdravlja pre i tokom trudnoće i prilagođenu prenatalnu negu, velika većina žena sa PCOS-om ima normalne trudnoće i rađa zdrave bebe.</p>
+
+<h2 id="smitovi-i-zablude-o-pcos-u-i-vto-u">8. Mitovi i zablude o PCOS-u i VTO-u</h2>
+
+
+<div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> PCOS znači da nikada neću moći da zatrudnim.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> PCOS je jedan od najlečivijih uzroka neplodnosti. Ogromna većina žena sa PCOS-om ostvari trudnoću uz odgovarajuće lečenje - bilo indukcijom ovulacije, bilo VTO-om.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Žene sa PCOS-om ne trebaju VTO - dovoljno je smršati.</div>
+        <div class="myth-truth"><strong>Preterano pojednostavljeno.</strong> Gubitak težine je važan korak, ali nije dovoljan za sve žene. Mnoge žene sa PCOS-om su normalne telesne mase, a prisustvo drugih faktora neplodnosti (muški faktor, oštećeni jajovodi) može zahtevati VTO nezavisno od telesne mase.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Policistični jajnici na ultrazvuku znače da imam PCOS.</div>
+        <div class="myth-truth"><strong>Ne nužno.</strong> Policistična morfologija jajnika (mnogo malih folikula) je čest nalaz kod mladih žena i ne znači automatski dijagnozu PCOS-a. Za dijagnozu su potrebna bar dva od tri Roterdamska kriterijuma.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> PCOS daje mnogo jajnih ćelija pa je VTO uvek uspešan.</div>
+        <div class="myth-truth"><strong>Preterano optimistično.</strong> Kvantitet ne garantuje kvalitet, a rizik od OHSS-a zahteva oprez i prilagođen pristup. Uspeh zavisi od mnogo faktora, ne samo od broja jajnih ćelija.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Metformin je dovoljan za lečenje PCOS neplodnosti.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Metformin sam retko dovodi do trudnoće - koristi se kao podrška i dodatna terapija, ne kao primarni lek za indukciju ovulacije.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> PCOS prolazi nakon trudnoće.</div>
+        <div class="myth-truth"><strong>Ne prolazi.</strong> PCOS je doživotno stanje. Simptomi se mogu poboljšati ili pogoršati u različitim životnim periodima, ali samo stanje ne nestaje.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Sve žene sa PCOS-om su gojazne.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Oko 20–30% žena sa PCOS-om ima normalnu telesnu masu - takozvani „lean PCOS" (mršavi PCOS). Ove žene imaju isti hormonski disbalans, samo bez gojaznosti.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako imam PCOS, VTO je automatski jedina opcija.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Mnoge žene zatrudne sa indukcijom ovulacije (letrozolom ili klomifenom) ili gonadotropinima sa IUI - VTO je tek treći ili četvrti korak u stepenastom pristupu.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Klomifen je bolji od letrozola za PCOS.</div>
+        <div class="myth-truth"><strong>Zastarela informacija.</strong> Savremene međunarodne smernice jasno preporučuju letrozol kao lek prvog izbora za indukciju ovulacije kod PCOS-a.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> OHSS je neizbežan kod PCOS VTO-a.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Bio je čest u prošlosti, ali sa savremenim pristupima - antagonistički protokol, agonist trigger, freeze-all strategija - teški OHSS je gotovo eliminisan.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> VTO lekovi pogoršavaju PCOS dugoročno.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Nema naučnih dokaza za ovo. Stimulacija je kratkotrajna i ne menja dugoročnu prirodu PCOS-a.</div>
+      </div>
+<h2 id="sčesta-pitanja-i-praktični-saveti">9. Česta pitanja i praktični saveti</h2>
+<p><strong>„Da li PCOS utiče na kvalitet embriona?"</strong></p>
+<p>Može uticati - hiperandrogenizam i insulinska rezistencija mogu kompromitovati kvalitet jajnih ćelija i posledično embriona. Međutim, optimizacija metaboličkog zdravlja pre VTO-a (gubitak težine, metformin, inositol, zdrava ishrana) može poboljšati kvalitet. Takođe, veliki broj jajnih ćelija kompenzuje potencijalno niži procenat kvalitetnih - u apsolutnom broju, obično se dobije dovoljan broj dobrih embriona.</p><br>
+<p><strong>„Da li da smršam pre VTO-a ili da krenem odmah?"</strong></p>
+<p>Ako imate značajan višak kilograma, gubitak od 5–10% telesne mase pre VTO-a može značajno poboljšati ishod. Idealno je dati sebi 3–6 meseci za optimizaciju. Međutim, ako ste stariji od 35 godina ili ako postoje vremenski pritisci, lekar može odlučiti da ne čeka i da započne VTO ranije, uz istovremenu optimizaciju metaboličkog zdravlja. Razgovarajte sa svojim lekarom o najboljoj strategiji za vašu konkretnu situaciju.</p><br>
+<p><strong>„Koliko ciklusa VTO-a je potrebno kod PCOS-a?"</strong></p>
+<p>Zahvaljujući velikom broju jajnih ćelija i mogućnosti zamrzavanja embriona, mnoge žene sa PCOS-om ostvare trudnoću iz jednog ciklusa stimulacije - ali ponekad je potrebno više pokušaja transfera (FET). Jedan ciklus stimulacije može dati materijal za 2–4 transfera. Kumulativna stopa uspešnosti jednog ciklusa stimulacije je visoka, posebno kod mlađih žena.</p><br>
+<p><strong>„Da li metformin treba da nastavim tokom stimulacije?"</strong></p>
+<p>Mnogi lekari preporučuju nastavak metformina tokom VTO stimulacije, posebno kao meru za smanjenje rizika od OHSS-a. Odluka je individualna i zavisi od procene vašeg lekara. Ne prekidajte niti počinjite metformin samostalno - uvek se konsultujte sa timom koji vodi vaš VTO postupak.</p><br>
+<p><strong>„Da li ću imati OHSS?"</strong></p>
+<p>Rizik postoji, ali sa savremenim pristupom (antagonistički protokol, niže doze gonadotropina, agonist trigger, freeze-all) teški OHSS je izuzetno redak. Blagi OHSS (nadutost, nelagodnost) je češći ali prolazi spontano. Vaš lekar procenjuje rizik individualno na osnovu vaših AMH i AFC vrednosti, starosti i BMI-a, i prilagođava strategiju.</p><br>
+<p><strong>„Zašto mi lekar preporučuje freeze-all?"</strong></p>
+<p>Zato što je to najbezbednija opcija za vas. Freeze-all eliminiše rizik da trudnoća pogorša potencijalni OHSS i daje bolji endometrijum za implantaciju u kasnijem ciklusu. Kod žena sa PCOS-om, FET često ima bolje rezultate od svežeg transfera. Zamrzavanje embriona savremenim tehnikama (vitrifikacija) je izuzetno pouzdano - stope preživljavanja embriona nakon odmrzavanja su iznad 95%.</p><br>
+
+<p><strong>„Da li PCOS utiče na trudnoću?"</strong></p>
+<p>Da - postoji statistički povišen rizik od gestacijskog dijabetesa, preeklampsije, prevremenog porođaja i makrosomije. Uz adekvatno praćenje, rani skrining i optimizaciju zdravlja, velika većina žena sa PCOS-om ima normalne trudnoće.</p><br>
+<p><strong>„Da li moja ćerka može naslediti PCOS?"</strong></p>
+<p>PCOS ima značajnu genetsku komponentu - postoji viši rizik da ćerke žena sa PCOS-om razviju ovo stanje. Međutim, genetska predispozicija ne znači sigurnost - faktori životne sredine, ishrana i životni stil takođe igraju ulogu.</p><br>
+<p><strong>„Da li vežbanje pomaže kvalitetu jajnih ćelija kod PCOS-a?"</strong></p>
+<p>Redovna fizička aktivnost poboljšava insulinsku senzitivnost, smanjuje oksidativni stres i poboljšava protok krvi - sve to može pozitivno uticati na kvalitet jajnih ćelija. Preporučuje se umerena aktivnost - nema potrebe za ekstremnim treninzima.</p><br>
+<p><strong>„Šta ako ne ovuliram ni uz klomifen ni uz letrozol?"</strong></p>
+<p>Sledeći korak je obično primena gonadotropina u niskim dozama sa pažljivim monitoringom. Ako ni to ne uspe, ili ako postoje dodatni faktori, prelazi se na VTO.</p><br>
+<p><strong>„Da li su blizanačke trudnoće češće kod PCOS-a?"</strong></p>
+<p>Kod prirodnog začeća ili indukcije ovulacije - da, jer može doći do sazrevanja više od jednog folikula. Kod VTO-a - rizik zavisi od broja embriona koji se transferiše. Savremena praksa je transfer jednog embriona (SET - single embryo transfer), što značajno smanjuje rizik od višeplodne trudnoće.</p>
+<h2 id="srečnik-pojmova">10. Rečnik pojmova</h2>
+<p><strong>AFC (Antral Follicle Count):</strong> Broj antralnih folikula vidljivih na ultrazvuku - mera ovarijalne rezerve. Kod PCOS-a je tipično visok.</p>
+<p><strong>AMH (Anti-Milerov hormon):</strong> Hormon koji proizvode granuloza ćelije malih folikula - laboratorijski pokazatelj ovarijalne rezerve. Kod PCOS-a je obično povišen.</p>
+<p><strong>Androgeni:</strong> Muški polni hormoni (testosteron, DHEAS, androstendion) - prisutni i kod žena, ali kod PCOS-a su povišeni.</p>
+<p><strong>Anovulacija:</strong> Potpuni izostanak ovulacije - jajna ćelija se ne oslobađa iz jajnika.</p>
+<p><strong>Antagonistički protokol:</strong> Vrsta VTO protokola u kojem se koristi GnRH antagonist za sprečavanje prevremene ovulacije - preferiran kod PCOS-a jer omogućava upotrebu agonist triggera.</p>
+<p><strong>Ascites:</strong> Nakupljanje tečnosti u trbušnoj duplji - simptom umerenog do teškog OHSS-a.</p>
+<p><strong>DHEAS (Dehidroepiandrosteron sulfat):</strong> Androgen koji se proizvodi u nadbubrežnim žlezdama.</p>
+<p><strong>Endometrijum:</strong> Sluznica materice u koju se embrion implantira.</p>
+<p><strong>Estradiol:</strong> Glavni ženski polni hormon - nivo raste sa brojem rastućih folikula tokom VTO stimulacije.</p>
+<p><strong>Fenotip:</strong> Skup vidljivih karakteristika jednog oblika PCOS-a - različiti fenotipovi imaju različite simptome i odgovor na lečenje.</p>
+<p><strong>FET (Frozen Embryo Transfer):</strong> Transfer zamrznutih embriona u kasnijem ciklusu.</p>
+<p><strong>Folikul:</strong> Struktura u jajniku koja sadrži jajnu ćeliju u razvoju.</p>
+<p><strong>Freeze-all:</strong> Strategija zamrzavanja svih embriona bez svežeg transfera - ključna mera prevencije OHSS-a kod PCOS-a.</p>
+<p><strong>FSH (Folikulo-stimulirajući hormon):</strong> Hormon hipofize koji stimuliše rast folikula u jajnicima.</p>
+<p><strong>GDM (Gestacijski dijabetes melitus):</strong> Dijabetes koji se javlja tokom trudnoće.</p>
+<p><strong>GnRH agonist trigger:</strong> Alternativni način pokretanja konačnog sazrevanja jajnih ćelija koji smanjuje rizik od OHSS-a.</p>
+<p><strong>Gonadotropini:</strong> Hormoni (FSH, LH) koji stimulišu rad jajnika - u VTO-u se daju u obliku injekcija.</p>
+<p><strong>hCG (Humani horionski gonadotropin):</strong> Hormon koji se koristi kao trigger za konačno sazrevanje jajnih ćelija. Glavni pokretač OHSS-a.</p>
+<p><strong>Hemokoncentracija:</strong> Zgušnjavanje krvi usled gubitka tečnog dela u trbušnu duplju - ozbiljna komplikacija teškog OHSS-a.</p>
+<p><strong>Hiperandrogenizam:</strong> Povišen nivo muških hormona - jedan od tri Roterdamska kriterijuma za PCOS.</p>
+<p><strong>Hiperinsulinemija:</strong> Povišen nivo insulina u krvi - posledica insulinske rezistencije.</p>
+<p><strong>Hiperplazija endometrijuma:</strong> Prekomerno zadebljanje sluznice materice usled nebalansirane izloženosti estrogenu.</p>
+<p><strong>Hirzutizam:</strong> Prekomerna maljavost na licu i telu po muškom obrascu - klinički znak hiperandrogenizma.</p>
+<p><strong>ICSI (Intracitoplazmatska injekcija spermatozoida):</strong> Metoda oplođenja u kojoj se spermatozoid ubacuje direktno u jajnu ćeliju.</p>
+<p><strong>Indukcija ovulacije:</strong> Medicinska stimulacija ovulacije lekovima (letrozol, klomifen, gonadotropini) kod žena koje ne ovuliraju spontano.</p>
+<p><strong>Inositol:</strong> Suplement (myo-inositol i D-chiro-inositol) koji poboljšava insulinsku senzitivnost i kvalitet jajnih ćelija kod PCOS-a.</p>
+<p><strong>Insulinska rezistencija (IR):</strong> Stanje u kojem ćelije tela ne reaguju adekvatno na insulin - česta kod PCOS-a i ključan faktor u patogenezi.</p>
+<p><strong>IUI (Intrauterina inseminacija):</strong> Postupak u kojem se obrađeni spermatozoidi ubacuju direktno u matericu.</p>
+<p><strong>IVM (In Vitro Maturation):</strong> Tehnika u kojoj se nezrele jajne ćelije dobijaju iz jajnika i sazrevaju u laboratoriji - alternativa standardnoj stimulaciji sa manjim rizikom od OHSS-a.</p>
+<p><strong>Klomifen citrat (Clomid):</strong> Lek za indukciju ovulacije - selektivni modulator estrogenskih receptora.</p>
+<p><strong>Letrozol (Femara):</strong> Inhibitor aromataze - savremeni lek prvog izbora za indukciju ovulacije kod PCOS-a.</p>
+<p><strong>LH (Luteinizirajući hormon):</strong> Hormon hipofize koji pokreće ovulaciju - kod PCOS-a je često nesrazmerno povišen u odnosu na FSH.</p>
+<p><strong>LH/FSH odnos:</strong> Odnos između dva hormona hipofize - kod PCOS-a je često obrnut (LH viši od FSH).</p>
+<p><strong>LOD (Laparoskopski ovarian drilling):</strong> Hirurški postupak bušenja površine jajnika za smanjenje produkcije androgena.</p>
+<p><strong>Metformin:</strong> Lek koji poboljšava insulinsku senzitivnost - koristi se kao dodatna terapija kod PCOS-a.</p>
+<p><strong>OHSS (Sindrom ovarijalne hiperstimulacije):</strong> Preterana reakcija jajnika na stimulaciju - najvažniji bezbednosni rizik kod VTO-a kod PCOS-a.</p>
+<p><strong>OGTT (Oralni glukoza tolerans test):</strong> Test opterećenja šećerom za skrining dijabetesa i insulinske rezistencije.</p>
+<p><strong>Oligo-ovulacija:</strong> Retka, neredovna ovulacija (manje od 8 ciklusa godišnje).</p>
+<p><strong>Oksidativni stres:</strong> Neravnoteža između slobodnih radikala i antioksidativne zaštite - može oštećivati jajne ćelije.</p>
+<p><strong>Preeklampsija:</strong> Ozbiljan poremećaj trudnoće koji uključuje visok krvni pritisak i oštećenje organa.</p>
+<p><strong>Roterdamski kriterijumi:</strong> Međunarodno prihvaćeni dijagnostički kriterijumi za PCOS (potrebna bar dva od tri kriterijuma).</p>
+<p><strong>VEGF (Vaskularni endotelni faktor rasta):</strong> Protein koji povećava propustljivost krvnih sudova - ključni medijator OHSS-a.</p>
+<p><strong>VTO (Vantelesna oplodnja):</strong> Postupak u kojem se jajne ćelije oplode van tela i embrion se transferiše u matericu.</p>
+<h2 id="sumesto-zaključka">Umesto zaključka</h2>
+<p>Ako ste žena sa PCOS-om koja se nalazi na putu ka ostvarivanju trudnoće - bilo da ste tek na početku, na stepenicama indukcije ovulacije, ili pred vratima VTO-a - želimo da vam ostane jasna poruka:</p>
+<p>PCOS je jedno od najčešćih i najlečivijih stanja u reproduktivnoj medicini. Vaši jajnici imaju kapacitet - izazov je u tome da se taj kapacitet pravilno usmeri i bezbedno iskoristi. Savremena medicina raspolaže alatima za to - od letrozola i metformina, preko prilagođenih VTO protokola sa OHSS prevencijom, do zamrzavanja embriona koje daje mogućnost više pokušaja iz jednog ciklusa stimulacije.</p>
+<p>Put nije uvek lak - zahteva strpljenje, prilagođavanje, ponekad odricanja. Zahteva od vas da budete informisane, aktivne i da tražite podršku - medicinsku, psihološku i emocionalnu. Ali podaci su na vašoj strani: kumulativne stope uspešnosti VTO-a kod žena sa PCOS-om su visoke, i velika većina žena sa ovim stanjem ostvari željenu trudnoću.</p>
+<p>PCOS se ne može izlečiti, ali se može uspešno tretirati. A u kontekstu plodnosti - može se prevazići.</p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

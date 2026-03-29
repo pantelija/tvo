@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oligospermija i astenospermija - nizak broj i pokretljivost spermatozoida u kontekstu dijagnostike i lečenja neplodnosti | VTOvodič.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-category:hover { background: var(--color-accent); color: #fff; }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  /* Table styling */
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .article-content th {
+    background: var(--color-bg-warm);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  .article-content td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-ink-light);
+    vertical-align: top;
+  }
+  .article-content tr:nth-child(even) td {
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+    .article-content table { font-size: 0.8rem; }
+    .article-content th, .article-content td { padding: 0.45rem 0.6rem; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+        <a href="vto-uvod">Uvod u VTO</a>
+        <a href="vto-vodic">VTO vodič</a>
+        <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+        <a href="icsi-metoda">ICSI postupak</a>
+        <a href="iui-inseminacija">Inseminacija IUI</a>
+        <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+        <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+        <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+        <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+        <a href="priprema-sperme">Priprema spermatozoida</a>
+        <a href="kultivacija-embriona">Kultivacija embriona</a>
+        <a href="embriotransfer">Embrotransfer</a>
+        <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+        <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Muška plodnost</span>
+<h1 class="article-title">Oligospermija i astenospermija - nizak broj i pokretljivost spermatozoida u kontekstu dijagnostike i lečenja neplodnosti</h1>
+
+    </div>
+
+    <div class="article-toc">
+  <div class="article-toc-title">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sadržaj članka
+  </div>
+  <ol>
+<li><a href="#sdefinicija-oligospermije-i-astenospermij">Definicija oligospermije i astenospermije - šta ove dijagnoze zapravo znače</a></li>
+<li><a href="#sgde-se-oligospermija-i-astenospermija-na">Gde se oligospermija i astenospermija nalaze u spektru muškog infertiliteta</a></li>
+<li><a href="#sklasifikacija-po-stepenu-težine-koliko-j">Klasifikacija po stepenu težine - koliko je vaš spermiogram zapravo „loš"</a></li>
+<li><a href="#suzroci-oligospermije-i-astenospermije-za">Uzroci oligospermije i astenospermije - zašto spermatozoida ima manje ili su manje pokretni</a></li>
+<li><a href="#sdijagnostika-šta-se-radi-kada-spermiogra">Dijagnostika - šta se radi kada spermiogram pokaže oligospermiju ili astenospermiju</a></li>
+<li><a href="#sopcije-lečenja-stepenast-pristup-od-najj">Opcije lečenja - stepenast pristup od najjednostavnijeg do najkompleksnijeg</a></li>
+<li><a href="#smitovi-i-zablude-šta-je-tačno-a-šta-nije">Mitovi i zablude - šta je tačno a šta nije</a></li>
+<li><a href="#sčesta-pitanja-muškaraca">Česta pitanja muškaraca</a></li>
+<li><a href="#ssaveti-za-muškarce-sa-oligospermijom-i-a">Saveti za muškarce sa oligospermijom i astenospermijom</a></li>
+<li><a href="#srečnik-termina">Rečnik termina</a></li>
+  </ol>
+</div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+
+<h2 id="sdefinicija-oligospermije-i-astenospermij">1. Definicija oligospermije i astenospermije - šta ove dijagnoze zapravo znače</h2>
+<h3>Oligozoospermija (oligospermija)</h3>
+<p>Oligozoospermija - ili skraćeno oligospermija - je stanje u kome je koncentracija spermatozoida u ejakulatu niža od referentne vrednosti koju je postavila Svetska zdravstvena organizacija (WHO). Prema najnovijem, šestom izdanju WHO laboratorijskog priručnika iz 2021. godine, referentna granica iznosi 16 miliona spermatozoida po mililitru ejakulata. Mnoge laboratorije još koriste starije, peto izdanje iz 2010. godine, gde je ta granica bila 15 miliona po mililitru - razlika je minimalna, ali vredi znati na koji standard se vaš laboratorijski nalaz poziva. Pored koncentracije po mililitru, gleda se i ukupan broj spermatozoida u celom ejakulatu: ako je ispod 39 miliona, i to se smatra sniženim.</p>
+<p>Jednostavno rečeno: u vašem ejakulatu ima spermatozoida, ali ih ima manje nego što bi statistički trebalo za optimalnu plodnost.</p>
+<h3>Astenozoospermija (astenospermija)</h3>
+<p>Astenozoospermija - ili skraćeno astenospermija - je stanje u kome je pokretljivost spermatozoida smanjena. Pokretljivost se deli na dve glavne kategorije: progresivnu pokretljivost (spermatozoidi koji aktivno plivaju napred, pravolinijski ili u velikim lukovima - to su oni koji zapravo mogu da stignu do jajne ćelije) i ukupnu pokretljivost (progresivna plus neprogresivna, gde neprogresivna znači da se spermatozoidi kreću ali se vrte u mestu ili osciliraju bez napredovanja).</p>
+<p>Prema WHO 6. izdanju, progresivna pokretljivost ispod 30% ili ukupna pokretljivost ispod 42% se smatra sniženom. Po starijem WHO 5. izdanju, te granice su 32% odnosno 40%.</p>
+<p>Jednostavno rečeno: vaši spermatozoidi postoje, ali se nedovoljno kreću ili se kreću presporo da bi efikasno stigli do jajne ćelije prirodnim putem.</p>
+<h3>Oligoastenozoospermija (OA) - najčešća kombinacija</h3>
+<p>U praksi se izolovani poremećaj samo jednog parametra relativno retko viđa. Daleko češće su dva ili tri parametra narušena istovremeno, jer uzroci koji oštećuju proces stvaranja spermatozoida (spermatogenezu) obično deluju generalizovano na ceo sistem. Oligoastenozoospermija (OA) je kombinacija smanjene koncentracije i smanjene pokretljivosti kod istog muškarca - i to je izuzetno čest nalaz.</p>
+<h3>OAT sindrom - oligoastenoteratozoospermija</h3>
+<p>Kada su sva tri parametra narušena - koncentracija, pokretljivost i morfologija (oblik spermatozoida) - govori se o OAT sindromu (oligoastenoteratozoospermija). Ovo je najčešći kompleksni nalaz kod muškog faktora neplodnosti. Termin zvuči zastrašujuće, ali u praksi označava stanje koje se veoma uspešno leči vantelesnom oplodnjom (VTO) sa ICSI tehnikom.</p>
+<div class="article-highlight"><div class="article-highlight-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Ključna poruka od samog početka</div><p><strong>Oligospermija i astenospermija NISU azoospermija.</strong> Ovo je fundamentalna razlika koju svaki muškarac sa ovom dijagnozom treba da razume. Azoospermija znači potpuno odsustvo spermatozoida u ejakulatu - to je najozbiljniji oblik muškog infertiliteta koji zahteva hirurško dobijanje spermatozoida ili donaciju. Kod oligospermije i astenospermije spermatozoidi POSTOJE u ejakulatu - samo ih ima manje ili su manje pokretni nego što bi trebalo.</p></div>
+<p>Ova razlika je ogromna u praktičnom smislu:</p>
+<ul>
+<li>Kod blažih oblika, prirodno začeće je i dalje moguće - samo zahteva više vremena ili optimizaciju uslova.</li>
+<li>Intrauterina inseminacija (IUI - procedura u kojoj se pripremljeni spermatozoidi ubacuju direktno u matericu) može biti efikasna opcija kod blage do umerene oligospermije.</li>
+<li>Klasičan IVF (vantelesna oplodnja gde se jajne ćelije i spermatozoidi spajaju u laboratoriji) može funkcionisati kod umerenih oblika.</li>
+<li>ICSI (intracitoplazmatska injekcija spermatozoida - procedura u kojoj embriolog ubacuje jedan jedini spermatozoid direktno u jajnu ćeliju) gotovo sigurno rešava problem oplođenja, jer je potreban samo jedan spermatozoid po jajnoj ćeliji.</li>
+</ul>
+<p><strong>Dijagnoza je ozbiljna, ali prognoza je u ogromnoj većini slučajeva dobra</strong> - posebno uz VTO sa ICSI-jem. Oligospermija i astenospermija su najtretiabilniji oblici muškog infertiliteta, i sa pravim pristupom ogromna većina parova ostvaruje trudnoću.</p>
+<h2 id="sgde-se-oligospermija-i-astenospermija-na">2. Gde se oligospermija i astenospermija nalaze u spektru muškog infertiliteta</h2>
+<p>Da biste razumeli svoju dijagnozu, korisno je sagledati celokupan spektar muškog infertiliteta - od potpuno normalnog nalaza do najtežeg oblika.</p>
+<h3>Spektar - od normalnog do azoospermije</h3>
+<p><strong>Normozoospermija</strong> - svi parametri spermiograma su uredni, unutar referentnih vrednosti.</p>
+<p><strong>Blaga oligozoospermija / astenozoospermija</strong> - parametri su blago ispod referentne vrednosti. Šanse za prirodno začeće su smanjene ali postoje. Mnogi parovi zatrudne prirodno, samo im treba više vremena.</p>
+<p><strong>Umerena oligoastenozoospermija</strong> - parametri su značajno ispod referentne vrednosti. Prirodno začeće je malo verovatno bez medicinske pomoći. IUI može biti opcija, ali VTO sa ICSI je najčešće potreban.</p>
+<p><strong>Teška oligoastenozoospermija</strong> - drastično sniženi parametri. VTO sa ICSI je jedina realna opcija, ali upravo za ovu situaciju je ICSI dizajniran i stope uspeha su odlične.</p>
+<p><strong>Kriptozoospermija</strong> - granično stanje između teške oligospermije i azoospermije. Spermatozoidi se ne vide u standardnom preparatu, ali se pronađu tek nakon centrifugiranja (okretanja uzorka u centrifugi da se koncentrišu ćelije) u pojedinačnim primercima. ICSI je jedina opcija, a zamrzavanje svakog uzorka u kome se pronađu spermatozoidi je obavezno.</p>
+<p><strong>Azoospermija</strong> - potpuno odsustvo spermatozoida u ejakulatu. Zahteva hirurško dobijanje spermatozoida iz testisa (biopsija) plus ICSI, ili donaciju spermatozoida.</p>
+<h3>Gde ste vi?</h3>
+<p>Oligospermija i astenospermija zauzimaju srednji deo ovog spektra - nisu najlakši nalaz, ali su daleko od najtežeg. Upravo zato je prognoza za većinu parova dobra uz odgovarajući pristup.</p>
+<p>Još jedan važan podatak: muški faktor (sam ili u kombinaciji sa ženskim) prisutan je u 40–50% svih slučajeva neplodnosti. Oligospermija i astenospermija su najčešći konkretni nalazi - dakle, niste sami u ovome, daleko od toga.</p>
+<h2 id="sklasifikacija-po-stepenu-težine-koliko-j">3. Klasifikacija po stepenu težine - koliko je vaš spermiogram zapravo „loš"</h2>
+<p>Stepen težine direktno određuje pristup lečenju, pa je razumevanje klasifikacije izuzetno praktično.</p>
+<h3>Oligozoospermija - klasifikacija po koncentraciji</h3>
+<p><strong>Blaga oligozoospermija: 10–16 miliona/mL.</strong> Šanse za prirodno začeće su smanjene ali realne. IUI (intrauterina inseminacija) je dobra opcija. Sa promenama životnih navika i eventualnim lečenjem uzroka, parametri se mogu poboljšati.</p>
+<p><strong>Umerena oligozoospermija: 5–10 miliona/mL.</strong> Prirodno začeće je manje verovatno. IUI je granično efikasna - zavisi od ukupnog broja pokretnih spermatozoida nakon pripreme. VTO sa ICSI se ozbiljno razmatra.</p>
+<p><strong>Teška oligozoospermija: ispod 5 miliona/mL.</strong> Prirodno začeće je veoma malo verovatno. VTO sa ICSI je metoda izbora. Genetsko testiranje se preporučuje na ovom nivou.</p>
+<p><strong>Izrazito teška (kritična) oligozoospermija: ispod 1 milion/mL.</strong> VTO sa ICSI je jedina opcija. Važno je razmotriti zamrzavanje uzorka sperme kao rezervu za slučaj daljeg pogoršanja parametara.</p>
+<p><strong>Kriptozoospermija: spermatozoidi se nalaze tek nakon centrifugiranja.</strong> Granično stanje - ICSI je jedina opcija. Obavezno je zamrznuti svaki uzorak u kome se pronađu spermatozoidi, jer nema garancije da će ih biti u sledećem uzorku.</p>
+<h3>Astenozoospermija - klasifikacija po pokretljivosti</h3>
+<p>Pokretljivost se klasifikuje prema kategorijama koje definiše WHO:</p>
+<ul>
+<li><strong>PR (progresivna pokretljivost):</strong> spermatozoidi koji aktivno plivaju napred - najvažnija kategorija za oplođenje</li>
+<li><strong>NP (neprogresivna pokretljivost):</strong> spermatozoidi koji se kreću ali ne napreduju - vrte se u mestu, osciliraju</li>
+<li><strong>IM (nepokretni):</strong> ne kreću se uopšte</li>
+</ul>
+<p><strong>Blaga astenozoospermija: PR 20–30%.</strong> IUI može biti efikasna. Prirodno začeće je moguće uz duže pokušavanje i optimizaciju uslova.</p>
+<p><strong>Umerena astenozoospermija: PR 10–20%.</strong> IUI je granično efikasna. VTO sa ICSI se ozbiljno razmatra.</p>
+<p><strong>Teška astenozoospermija: PR ispod 10%.</strong> VTO sa ICSI je metoda izbora.</p>
+<p><strong>Potpuna astenozoospermija (potpuna nepokretnost): svi spermatozoidi su nepokretni.</strong> Ovo zahteva posebnu pažnju - potrebno je utvrditi da li su spermatozoidi živi ali nepokretni, ili mrtvi. Test vitalnosti (bojenje eozin-nigrozinom ili HOS test - hipoosmolatni test koji proverava integritet membrane) daje odgovor. Ako su živi (vitalni) - ICSI je moguć sa nepokretnim ali živim spermatozoidima. Ako su svi mrtvi (nekrozoospermija - stanje u kome su svi spermatozoidi u ejakulatu mrtvi) - to je drugačija dijagnoza sa značajno lošijom prognozom.</p>
+<h3>Kombinovani poremećaji - ono što se najčešće viđa</h3>
+<p>Izolovani poremećaj samo jednog parametra je u praksi relativno redak. Daleko češće su dva ili tri parametra narušena istovremeno:</p>
+<ul>
+<li><strong>OA (oligoastenozoospermija):</strong> smanjen broj plus smanjena pokretljivost - najčešća kombinacija</li>
+<li><strong>OAT sindrom (oligoastenoteratozoospermija):</strong> smanjen broj plus smanjena pokretljivost plus abnormalna morfologija - najčešći kompleksni nalaz muškog infertiliteta</li>
+</ul>
+
+<p>Referentne vrednosti su prag za kliničku pažnju, ne crno-bela granica između plodnosti i neplodnosti.</p>
+<h2 id="suzroci-oligospermije-i-astenospermije-za">4. Uzroci oligospermije i astenospermije - zašto spermatozoida ima manje ili su manje pokretni</h2>
+<h3>Varikokela - najčešći lečivi uzrok</h3>
+<p>Varikokela su proširene vene u skrotumu (kožnoj vrećici u kojoj se nalaze testisi), najčešće na levoj strani. Prisutne su kod 35–40% muškaraca koji se jave zbog primarnog infertiliteta (prvi put pokušavaju da ostvare trudnoću bez uspeha).</p>
+<p><strong>Kako varikokela oštećuje spermu?</strong> Proširene vene dovode topliju krv iz tela nazad u skrotum, čime se podiže temperatura testisa. Testisi moraju da budu 2–3°C hladniji od telesne temperature za optimalnu proizvodnju spermatozoida - zato se i nalaze izvan tela, u skrotumu. Pored toplote, varikokela uzrokuje oksidativni stres (povišen nivo štetnih slobodnih radikala), poremećenu cirkulaciju i refluks toksičnih metabolita iz nadbubrežne žlezde. Rezultat je karakterističan „stress pattern" - smanjenje koncentracije, pokretljivosti i morfologije spermatozoida.</p>
+<p><strong>Dijagnoza varikokele.</strong> Postavlja se fizičkim pregledom u stojećem položaju, često uz Valsalvin manevar (lekar traži od vas da se „napnete kao da hoćete da odete u toalet" - ovo povećava pritisak u venama i čini variokelu lakše opipljivom). Ultrazvuk skrotuma sa color Doplerom potvrđuje dijagnozu detektujući refluks (obrnuti tok krvi) u veni spermatici interni.</p>
+<p><strong>Gradiranje:</strong> stepen I (opipava se samo uz Valsalvu), stepen II (opipava se u stojećem položaju bez naprezanja), stepen III (vidljiva golim okom). Klinički značajne su varikokele stepena II i III. Subklinička varikokela (vidljiva samo na ultrazvuku, ne može se opipati) ima kontroverzan klinički značaj - većina stručnjaka ne preporučuje operaciju za subkliničku varikokelu.</p>
+<h3>Infekcije reproduktivnog trakta</h3>
+<p>Akutne i hronične infekcije epididimisa (epididimitis - upala epididimisa, organa koji leži uz testis i kroz koji prolaze spermatozoidi tokom sazrevanja), prostate (prostatitis), semenih vezikula (vezikulitis) - uzrokovane bakterijama (E. coli, Enterococcus, Chlamydia, Ureaplasma, Mycoplasma) ili virusima.</p>
+<p><strong>Mehanizam oštećenja:</strong> upala (inflamacija) oštećuje tkivo; leukociti (bela krvna zrnca) koji se bore protiv infekcije oslobađaju reaktivne kiseonične vrste (ROS - slobodni radikali) koje direktno oštećuju spermatozoide; priraslice nastale nakon inflamacije mogu delimično začepiti kanale kroz koje prolaze spermatozoidi.</p>
+<p>Leukocitospermija - povišen broj leukocita u ejakulatu iznad 1 milion po mililitru - je marker infekcije ili inflamacije i zahteva dalju dijagnostiku.</p>
+<p>Lečenje podrazumeva ciljanu antibiotsku terapiju prema antibiogramu (testu koji pokazuje na koje antibiotike je bakterija osetljiva) i antiinflamatorne lekove. Nakon lečenja parametri sperme se mogu poboljšati, ali oštećenje može biti delimično trajno.</p>
+<h3>Hormonski poremećaji</h3>
+<p>Proizvodnja spermatozoida je pod kontrolom hormona. Ključni igrači su FSH (folikulostimulirajući hormon - stimuliše Sertolijeve ćelije u testisima da podrže spermatogenezu), LH (luteinizirajući hormon - stimuliše Lajdigove ćelije da proizvode testosteron) i sam testosteron. Poremećaji na bilo kom nivou ovog sistema mogu dovesti do oligospermije.</p>
+<p><strong>Hipogonadotropni hipogonadizam:</strong> nizak FSH i LH znači nedovoljnu stimulaciju testisa - može uzrokovati oligospermiju (blaži oblik) ili azoospermiju (teži oblik). Ovo je jedan od retkih oblika muškog infertiliteta koji se može direktno lečiti hormonima.</p>
+<p><strong>Hiperprolaktinemija:</strong> povišen prolaktin (hormon koji normalno stimuliše laktaciju) suprimira GnRH (gonadotropin-oslobađajući hormon) na nivou hipotalamusa, što smanjuje FSH i LH i time usporava spermatogenezu.</p>
+<p><strong>Poremećaji štitaste žlezde:</strong> i hipotireoza (smanjena funkcija) i hipertireoza (povećana funkcija) utiču na reproduktivnu funkciju.</p>
+<p><strong>Egzogeni testosteron i anabolički steroidi</strong> - ovo zaslužuje poseban naglasak jer je izuzetno čest uzrok kod mladih muškaraca. Kada se testosteron unosi spolja (injekcije, gelovi, tablete, anabolički steroidi za teretanu), mozak registruje visok nivo testosterona i reaguje tako što „gasi" sopstvenu proizvodnju FSH i LH. Bez FSH i LH, testisi prestaju (ili značajno smanjuju) proizvodnju spermatozoida. Zavisno od doze i trajanja upotrebe, ovo može izazvati oligospermiju pa sve do potpune azoospermije.</p>
+<h3>Genetski faktori</h3>
+<p>Kod teže oligospermije (ispod 5 miliona/mL) preporučuje se genetsko testiranje:</p>
+<p><strong>Hromozomske anomalije.</strong> Klinefelterov sindrom u mozaičnom obliku (46,XY/47,XXY - neke ćelije imaju normalan hromozomski set, neke imaju dodatni X hromozom) može dati tešku oligospermiju umesto potpune azoospermije. Robertsonove i recipročne translokacije (delovi jednog hromozoma su „premješteni" na drugi) mogu uticati na spermatogenezu i povećavaju rizik od hromozomskih anomalija kod potomstva.</p>
+<p><strong>Mikrodelecije Y hromozoma.</strong> Y hromozom sadrži gene ključne za spermatogenezu u regionima zvanim AZF (azoospermia factor) - AZFa, AZFb i AZFc. Parcijalne delecije AZFc regiona (nedostatak dela genetskog materijala) mogu uzrokovati tešku oligospermiju. Ovo je važno i za prognozu: AZFc delecija nosi rizik od daljeg pogoršanja i potencijalne progresije u azoospermiju, a prenosi se na sinove rođene ICSI-jem - genetsko savetovanje je obavezno pre postupka.</p>
+<p><strong>CFTR mutacije.</strong> Gen CFTR (čije potpune mutacije uzrokuju cističnu fibrozu) u heterozigotnom obliku (nosilaštvo - osoba nosi jednu mutiranu kopiju gena) može uzrokovati kongenitalno unilateralno odsustvo vas deferensa (CUAVD - odsustvo jednog od dva semena kanala od rođenja) koje se manifestuje oligospermijom sa sniženim volumenom ejakulata.</p>
+<h3>Kriptoorhizam (nespušteni testisi)</h3>
+<p>Kada jedan ili oba testisa nisu spuštena u skrotum pri rođenju, čak i nakon hirurške korekcije u detinjstvu (orhidopeksije), postoji povišen rizik od smanjene spermatogeneze. Kod unilateralnog kriptoorhizma (jedan testis) oligospermija je česta jer preostali testis kompenzuje ali često nedovoljno. Bilateralni kriptoorhizam nosi veći stepen oštećenja.</p>
+<h3>Životne navike - ono što MOŽETE da kontrolišete</h3>
+<p>Ovo je deo koji muškarci često potcenjuju, ali životne navike imaju direktan i merljiv uticaj na kvalitet sperme:</p>
+<p><strong>Pušenje</strong> direktno oštećuje DNK spermatozoida, smanjuje koncentraciju prosečno 15–20%, pokretljivost i morfologiju. Pušenje je jedan od najdokazanijih štetnih faktora za kvalitet sperme - desetine studija potvrđuju ovaj efekat.</p>
+<p><strong>Alkohol</strong> u prekomernim količinama (više od 14 pića nedeljno) snižava testosteron, smanjuje spermatogenezu i oštećuje kvalitet sperme. Umerena konzumacija ima manji efekat, ali u periodu pokušavanja začeća, manje je bolje.</p>
+<p><strong>Gojaznost (BMI iznad 30)</strong> uzrokuje hormonski disbalans - masno tkivo sadrži enzim aromatazu koji pretvara testosteron u estradiol (ženski polni hormon), što snižava testosteron i podiže estrogen. Pored toga, gojaznost podiže temperaturu skrotuma i izaziva insulinsku rezistenciju - sve negativno utiče na spermatogenezu.</p>
+<p><strong>Temperatura</strong> je kritičan faktor. Testisi moraju da budu hladniji od ostatka tela za 2–3°C. Saune, vruće kupke, dugotrajno sedenje, tesna sintetička donji veš, laptop na krilu, grejanje sedišta u automobilu - sve ovo podiže temperaturu skrotuma i može oštetiti spermatogenezu. Efekat je reverzibilan (povratan) nakon prestanka izloženosti, ali traje 2–3 meseca dok se nova generacija spermatozoida ne proizvede.</p>
+<p><strong>Stres.</strong> Hronični stres podiže nivo kortizola (hormona stresa), koji suprimira GnRH i time smanjuje FSH i LH. Rezultat je smanjena spermatogeneza i niži testosteron.</p>
+<p><strong>Ishrana</strong> siromašna antioksidansima, cinkom, selenom i folnom kiselinom povezana je sa lošijim parametrima sperme.</p>
+<p><strong>Droge.</strong> Marihuana smanjuje pokretljivost i koncentraciju. Kokain i metamfetamini oštećuju spermatogenezu. Anabolički steroidi su najdestruktivniji - kao što je objašnjeno u delu o hormonskim poremećajima.</p>
+<p><strong>Lekovi.</strong> Finasterid (koristi se za gubitak kose i uvećanu prostatu) smanjuje koncentraciju kod nekih muškaraca. SSRI antidepresivi mogu uticati na pokretljivost i DNK integritet. Sulfasalazin (lek za zapaljenska stanja creva) značajno oštećuje spermatogenezu, ali efekat je reverzibilan nakon prekida. Blokatori kalcijumskih kanala (lekovi za krvni pritisak) mogu smanjiti pokretljivost. Važno: nikada samoinicijativno ne prekidajte lekove - razgovarajte sa lekarom o alternativama.</p>
+<p><strong>Profesionalna izloženost.</strong> Pesticidi, teški metali (olovo, kadmijum, živa), organski rastvarači, radijacija - profesionalna izloženost ovim faktorima može biti značajan uzrok smanjenig kvaliteta sperme.</p>
+<h3>Oksidativni stres - zajednički mehanizam oštećenja</h3>
+<p>Mnogi od navedenih uzroka - varikokela, infekcije, pušenje, gojaznost, toksini - konvergiraju na zajednički mehanizam: povišen nivo reaktivnih kiseoničnih vrsta (ROS, slobodni radikali) u spermi. ROS oštećuju ćelijsku membranu spermatozoida (lipidna peroksidacija - razgradnja masnih kiselina u membrani), DNK (fragmentacija - lomljenje lanaca DNK), mitohondrije (smanjenje energije za pokretljivost) i akrozom (smanjenje sposobnosti oplođenja).</p>
+<p>Antioksidantna terapija, koja se koristi u lečenju, cilja upravo ovaj mehanizam.</p>
+<h3>Idiopatska oligospermija / astenospermija</h3>
+<p>Kod 30–40% muškaraca sa abnormalnim spermiogramom ne može se identifikovati jasan uzrok - ovo se naziva idiopatski muški infertilitet. Pretpostavlja se da je u pitanju kombinacija neidentifikovanih genetskih faktora, subkliničkih oštećenja, kumulativnog efekta životnih navika i faktora okoline.</p>
+<p>Razumljivo je da ovo frustrira - muškarci žele odgovor na pitanje „zašto". Ali odsustvo identifikovanog uzroka ne znači odsustvo mogućnosti lečenja - empirijska terapija (životne promene, antioksidansi, u nekim slučajevima hormonska terapija) može pomoći, a VTO sa ICSI rešava problem oplođenja bez obzira na uzrok.</p>
+<h2 id="sdijagnostika-šta-se-radi-kada-spermiogra">5. Dijagnostika - šta se radi kada spermogram pokaže oligospermiju ili astenospermiju</h2>
+<h3>Korak 1 - Ponovljeni spermogram</h3>
+<p><strong>Obavezan korak.</strong> Kvalitet sperme značajno varira od uzorka do uzorka kod istog muškarca - varijabilnost od 20–30% između dva uzorka je potpuno normalna. Jedan loš spermogram nije definitivna dijagnoza.</p>
+<p>Ponovite spermogram nakon 2–3 meseca (to je otprilike trajanje jednog punog ciklusa spermatogeneze - oko 74 dana). Ako je prvi uzorak dat u neadekvatnim uslovima (prekratka ili predugačka apstinencija, bolest sa povišenom temperaturom u prethodna 3 meseca, stres, loš san, ili je uzorak bio neadekvatno transportovan) - to može objasniti loš nalaz.</p>
+<p>Dva abnormalna spermiograma potvrđuju dijagnozu. Jedan nije dovoljan.</p>
+<h3>Korak 2 - Urološki pregled</h3>
+<p><strong>Fizički pregled</strong> obuhvata procenu veličine i konzistencije testisa, proveru prisustva varikokele (u stojećem položaju, sa Valsalva manevrom), palpaciju epididimisa i vas deferensa (semenog kanala), pregled penisa i procenu sekundarnih polnih karakteristika (distribucija telesnih dlaka, prisustvo ginekomastije - uvećanja tkiva dojke kod muškarca - što može ukazivati na hormonski disbalans).</p>
+<p><strong>Ultrazvuk skrotuma sa Doplerom</strong> pruža detaljne informacije: veličinu testisa (normalno 15–25 mL, smanjen volumen ispod 12 mL može ukazivati na oštećenu spermatogenezu), ehogenost tkiva (prisustvo mikrokalcifikata - sićušnih kalcijumskih tačkica - koji mogu biti marker povišenog rizika za tumor testisa), prisustvo varikokele sa doplerskom potvrdom refluksa, stanje epididimisa, prisustvo hidrokele (nakupljanje tečnosti oko testisa) ili cisti.</p>
+<p><strong>Transrektalni ultrazvuk (TRUS)</strong> se radi po indikaciji - kada postoji sumnja na opstrukciju (začepljenje) ejakulatornih duktusa, patologiju prostate ili semenih vezikula. Ovo nije rutinski pregled.</p>
+<h3>Korak 3 - Hormonske analize</h3>
+<p>Hormonski panel daje važne informacije o uzroku i usmerava lečenje:</p>
+<p><strong>FSH (folikulostimulirajući hormon).</strong> Povišen FSH sugeriše primarno oštećenje testisa - testis ne proizvodi dovoljno inhibina B (hormona koji normalno „signalizira" hipofizi da smanji produkciju FSH), pa hipofiza pojačava proizvodnju FSH pokušavajući da kompenzuje. Normalan FSH uz oligospermiju može ukazivati na delimičnu opstrukciju ili idiopatski uzrok. Nizak FSH sugeriše hipogonadotropni hipogonadizam - problem je u hipofizi ili hipotalamusu, ne u testisu.</p>
+<p><strong>LH i testosteron (ukupni i slobodni)</strong> služe za procenu androgenog statusa. Nizak testosteron je čest kod muškaraca sa teškom oligospermijom i zahteva dalju evaluaciju.</p>
+<p><strong>Prolaktin</strong> - za isključivanje hiperprolaktinemije.</p>
+<p><strong>TSH (tireostimulirajući hormon)</strong> - za isključivanje poremećaja štitaste žlezde.</p>
+<p><strong>Estradiol</strong> - posebno važan kod gojaznih muškaraca (aromatizacija testosterona u masnom tkivu).</p>
+<p><strong>SHBG (sex hormone binding globulin - globulin koji vezuje polne hormone)</strong> - za precizniju procenu slobodnog (biološki aktivnog) testosterona.</p>
+<h3>Korak 4 - Genetska testiranja (po indikaciji)</h3>
+<p><strong>Kariogram (analiza hromozoma)</strong> se preporučuje kod teške oligospermije (ispod 5 miliona/mL). Detektuje Klinefelterov sindrom u mozaičnom obliku, translokacije i inverzije hromozoma.</p>
+<p><strong>Mikrodelecije Y hromozoma (AZF analiza)</strong> se takođe preporučuju kod teške oligospermije. Posebno je važna AZFc parcijalna delecija kao uzrok, ali i kao prognostički marker - nosi rizik od dalljeg pada parametara i potencijalne progresije u azoospermiju.</p>
+<p><strong>CFTR analiza</strong> ako postoji sumnja na CUAVD (nizak volumen ejakulata, odsutan jedan vas deferens na pregledu).</p>
+<h2 id="sopcije-lečenja-stepenast-pristup-od-najj">6. Opcije lečenja - stepenast pristup od najjednostavnijeg do najkompleksnijeg</h2>
+<p>Lečenje oligospermije i astenospermije nije „sve ili ništa". Pristup je stepenast - počinje se od najjednostavnijeg i najjeftinijeg, pa se napreduje ka složenijim opcijama ako je potrebno.</p>
+<h3>NIVO 1 - Optimizacija životnih navika i suplementacija (za SVE muškarce)</h3>
+<p>Bez obzira na stepen težine i planirani pristup lečenju, ove mere se preporučuju svim muškarcima sa abnormalnim spermiogramom.</p>
+<p>Životne promene - najefikasnija i najjeftinija „terapija"</p>
+<p><strong>Prestanak pušenja</strong> je apsolutno najvažnija pojedinačna stvar koju muškarac može da uradi za svoju spermu. Efekti su vidljivi na spermiogramu nakon otprilike 3 meseca. Ako od svega iz ovog teksta primenite samo jednu stvar - neka to bude ovo.</p>
+<p><strong>Smanjenje ili eliminacija alkohola.</strong> Umerena konzumacija može biti prihvatljiva, ali apstinencija je idealna tokom perioda aktivnog pokušavanja.</p>
+<p><strong>Gubitak telesne mase kod gojaznih muškaraca.</strong> Gubitak od svega 5–10% telesne mase može značajno poboljšati hormonski profil i parametre sperme.</p>
+<p><strong>Regularna fizička aktivnost.</strong> Umeren trening (30 minuta, 5 dana nedeljno) poboljšava hormonski balans, insulinsku senzitivnost i kvalitet sperme. Izbegavajte preintenzivan trening (maratoni, prekomerni trening u teretani) koji može imati suprotan efekat.</p>
+<p><strong>Izbegavanje toplote.</strong> Prestanite sa saunama i vrućim kupkama. Pređite sa tesnog sintetičkog donjeg veša na pamučne bokserice. Ne držite laptop na krilu. Ograničite dugotrajno sedenje. Ne koristite grejanje sedišta u automobilu.</p>
+<p><strong>Upravljanje stresom.</strong> Tehnike relaksacije, adekvatan san (7–9 sati), smanjenje radnog opterećenja ako je moguće.</p>
+<p><strong>Prekid štetnih lekova.</strong> Razgovarajte sa lekarom o zameni finasterida, SSRI-ja ili drugih lekova koji mogu uticati na spermu - NIKADA samoinicijativno ne prekidajte lekove.</p>
+<p><strong>Vremenski okvir za efekat:</strong> promene u spermiogramu se vide tek 2,5–3 meseca nakon promene navika, jer toliko traje jedan ciklus spermatogeneze (74 dana proizvodnje u testisu plus 10–14 dana transporta i sazrevanja u epididimisu). Strpljenje je neophodno.</p><br>
+<h4>Antioksidantna suplementacija</h4>
+<p>Antioksidansi ciljaju oksidativni stres - zajednički mehanizam oštećenja sperme kod mnogih uzroka. Najčešće korišćeni:</p>
+<ul>
+<li><strong>CoQ10 (koenzim Q10 / ubikvinol):</strong> 200–400 mg dnevno - poboljšava mitohondrijalnu funkciju spermatozoida i smanjuje oksidativni stres</li>
+<li><strong>Vitamin C:</strong> 500–1000 mg dnevno - antioksidant koji štiti DNK spermatozoida</li>
+<li><strong>Vitamin E:</strong> 400 IU dnevno - liposolubilni (rastvorljiv u mastima) antioksidant koji štiti ćelijsku membranu</li>
+<li><strong>Selen:</strong> 55–200 mcg dnevno - kofaktor antioksidantnih enzima</li>
+<li><strong>Cink:</strong> 25–50 mg dnevno - esencijalan za spermatogenezu i funkciju testosterona</li>
+<li><strong>L-karnitin / acetil-L-karnitin:</strong> 1–3 g dnevno - poboljšava energetski metabolizam spermatozoida</li>
+<li><strong>Folna kiselina:</strong> 400–800 mcg dnevno - podrška sintezi DNK tokom spermatogeneze</li>
+<li><strong>Likopen:</strong> 4–8 mg dnevno - snažan antioksidant iz paradajza</li>
+<li><strong>Omega-3 masne kiseline:</strong> 1–2 g EPA+DHA dnevno - antiinflamatorni efekat</li>
+<li><strong>Vitamin D:</strong> korekcija deficita (1000–4000 IU dnevno zavisno od nivoa) - deficit vitamina D je povezan sa nižim parametrima sperme</li>
+<li><strong>N-acetil cistein (NAC):</strong> 600 mg dnevno - prekursor glutationa, snažan antioksidant</li>
+</ul>
+<p><strong>Realan pogled na suplemente:</strong> dokazi za pojedinačne suplemente su umerene snage. Većina studija je relativno malih razmera sa mešovitim rezultatima. Cochrane meta-analize sugerišu da antioksidansi mogu poboljšati parametre sperme i stope trudnoće, ali kvalitet dokaza je umeren. Suplementi neće pretvoriti tešku oligospermiju u normospermiju - ali mogu blago poboljšati parametre, posebno kod muškaraca sa povišenim oksidativnim stresom. Kombinovani preparati (koji sadrže više antioksidanasa u jednoj kapsuli) su praktičniji od uzimanja deset pojedinačnih suplemenata.</p>
+<h3>NIVO 2 - Lečenje identifikovanog uzroka</h3>
+<h4>Varikocelektomija (operacija varikokele)</h4>
+<p><strong>Indikacije:</strong> klinički palpabilna varikokela (stepen II ili III) plus abnormalan spermiogram plus infertilitet - sva tri uslova moraju biti ispunjena prema smernicama Evropske urološke asocijacije (EAU) i Američke urološke asocijacije (AUA).</p>
+<p><strong>Metode:</strong> mikrohirurška subingvinalna varikocelektomija je zlatni standard (najniža stopa komplikacija i recidiva), laparoskopska varikocelektomija i embolizacija (interventna radiološka procedura - neinvazivna alternativa gde se varikozna vena „zatvori" iznutra kroz kateter).</p>
+<p><strong>Rezultati:</strong> poboljšanje parametara sperme kod 60–70% operisanih muškaraca. Stope spontane trudnoće iznose 30–40% u prvih 1–2 godine nakon operacije.</p>
+<p><strong>Vremenski okvir za efekat:</strong> 3–6 meseci nakon operacije - jedan do dva ciklusa spermatogeneze.</p>
+<p><strong>Česta dilema - operisati ili ići direktno na VTO?</strong> Ovo je jedna od najčešćih odluka sa kojom se parovi suočavaju:</p>
+<p>Argumenti za operaciju: poboljšanje parametara može omogućiti manje invazivan pristup (prirodno začeće ili IUI umesto VTO-a); poboljšanje kvaliteta sperme (smanjenje DFI) može poboljšati ishode VTO-a čak i ako se na kraju radi ICSI; dugoročna korist za opšte zdravlje muškarca (bolji testosteron, manje oksidativnog stresa).</p>
+<p>Argumenti za direktan VTO: starost partnerke je faktor - čekanje 3–6 meseci može biti preskupo ako je partnerka iznad 37–38 godina jer se kvalitet jajnih ćelija smanjuje sa godinama; nema garancije da će operacija dovoljno poboljšati parametre.</p>
+<p>Ovo je zajednička odluka para i lekara na osnovu celokupne kliničke slike - ne postoji univerzalno „tačan" odgovor.</p>
+<h4>Antibiotska terapija</h4>
+<p>Kod dokazane infekcije (pozitivni brisevi, leukocitospermija, klinički simptomi) primenjuje se ciljana antibiotska terapija prema antibiogramu. Trajanje je obično 2–4 nedelje, nakon čega se rade kontrolni brisevi i ponovljen spermiogram.</p>
+<h4>Hormonska terapija</h4>
+<p><strong>Hipogonadotropni hipogonadizam:</strong> terapija gonadotropinima (hCG - humani horionski gonadotropin koji stimuliše Lajdigove ćelije da proizvode testosteron, plus rFSH - rekombinantni folikulostimulirajući hormon koji stimuliše spermatogenezu) ili pulsatilni GnRH - može pokrenuti ili značajno poboljšati spermatogenezu. Ovo je jedan od najzahvalnijih oblika za lečenje.</p>
+<p><strong>Hiperprolaktinemija:</strong> kabergolin ili bromokriptin - normalizacija prolaktina vraća FSH i LH i poboljšava spermatogenezu.</p>
+<p><strong>Hipotireoza:</strong> levotiroksin - korekcija tiroidne funkcije.</p>
+<p><strong>Empirijska hormonska terapija kod idiopatske oligospermije</strong> (kada nije identifikovan jasan uzrok):</p>
+<ul>
+<li><em>Klomifen citrat:</em> 25–50 mg dnevno ili svaki drugi dan - blokira estrogenske receptore na hipofizi, čime se povećava FSH i LH i pojačava stimulacija testisa. Kontroverzno ali široko korišćeno - neke studije pokazuju poboljšanje parametara, druge ne nalaze značajan efekat na stope trudnoće.</li>
+<li><em>HCG:</em> stimuliše Lajdigove ćelije da proizvode testosteron - koristi se kod niskog testosterona kao alternativa egzogenom testosteronu, jer hCG ne gasi spermatogenezu.</li>
+<li><em>Anastrozol (inhibitor aromataze):</em> kod gojaznih muškaraca sa povišenim estradiolom - blokira konverziju testosterona u estradiol.</li>
+<li><em>Tamoksifen:</em> sličan mehanizam kao klomifen, koristi se u nekim protokolima.</li>
+</ul>
+<p>Empirijska hormonska terapija ima umerene dokaze - koristi se kada je identifikovan specifičan hormonski disbalans ili kada druge opcije nisu dale rezultat.</p>
+<h3>NIVO 3 - Intrauterina inseminacija (IUI)</h3>
+<p>IUI je procedura u kojoj se sperma prvo priprema u laboratoriji (postupcima poput „swim-up" metode, gradijent centrifugacije ili „washing" procedure - koji koncentrišu pokretne spermatozoide i uklanjaju nepokretne, mrtve ćelije i semenu plazmu), a zatim se pripremljeni spermatozoidi tankim kateterom ubacuju direktno u matericu.</p>
+<p><strong>Šta IUI zaobilazi?</strong> Cervikalnu barijeru (sluz grlića materice) - čime se skraćuje put spermatozoida do jajovoda.</p>
+<p><strong>Indikacije:</strong> blaga do umerena oligospermija, blaga astenospermija, prohodni jajovodi kod partnerke.</p>
+<p><strong>TMSC (Total Motile Sperm Count - ukupan broj pokretnih spermatozoida nakon pripreme)</strong> je najvažniji parametar za predviđanje uspeha IUI. TMSC iznad 10 miliona: dobre šanse. 5–10 miliona: umerene šanse. Ispod 5 miliona: loše šanse - treba razmotriti VTO.</p>
+<p><strong>Stope uspešnosti:</strong> 8–15% po ciklusu (u zavisnosti od TMSC-a, starosti partnerke i uzroka neplodnosti). Kumulativno, 20–35% parova ostvari trudnoću nakon 3–4 ciklusa.</p>
+<p><strong>Broj pokušaja:</strong> obično se preporučuje 3–6 ciklusa IUI pre prelaska na VTO. Ako nakon 3–4 ciklusa nema uspeha, verovatnoća uspeha u narednim ciklusima je niska i prelazak na VTO je racionalan korak.</p>
+<h3>NIVO 4 - VTO sa ICSI (vantelesna oplodnja sa intracitoplazmatskom injekcijom spermatozoida)</h3>
+<p>Kada se prelazi na VTO sa ICSI</p>
+<ul>
+<li>Neuspeli IUI ciklusi (3–6 pokušaja bez trudnoće)</li>
+<li>Teška oligospermija (ispod 5 miliona/mL) - direktno na ICSI bez pokušaja IUI</li>
+<li>Teška astenospermija (PR ispod 10%) - direktno na ICSI</li>
+<li>Kriptozoospermija - ICSI jedina opcija</li>
+<li>Prisustvo dodatnih ženskih faktora koji zahtevaju VTO (tubalni faktor, endometrioza, smanjena rezerva jajnih ćelija, starost partnerke)</li>
+<li>OAT sindrom umerenog ili teškog stepena</li>
+</ul>
+<p>Zašto je ICSI idealan za oligospermiju i astenospermiju?</p>
+<p>ICSI zahteva samo JEDAN spermatozoid po jajnoj ćeliji. Čak i sa teškom oligospermijom - recimo, 100.000 spermatozoida u celom ejakulatu - ima se dovoljno za ICSI sa svim dobijenim jajnim ćelijama (obično 5–15 po ciklusu).</p>
+<p>Pokretljivost je manje kritična za ICSI - embriolog bira spermatozoid i fizički ga ubacuje u jajnu ćeliju. Spermatozoid ne mora da „prepliva" nikuda. Morfologija je takođe manje kritična - embriolog vizuelno bira najpravilniji spermatozoid pod mikroskopom, ali blage morfološke anomalije ne ometaju ICSI.</p>
+<p>Stope oplođenja ICSI-jem iznose 60–80% i ne zavise značajno od koncentracije sperme u ejakulatu - dok god ima spermatozoida za selekciju.</p>
+<h4>Stope uspešnosti - ključna poruka</h4>
+<p>Stope trudnoće kod VTO-a zavise pre svega od starosti partnerke i kvaliteta jajnih ćelija. Muški faktor (oligospermija/astenospermija) ima minimalan uticaj na ishod ICSI-ja, jer se problem oplođenja rešava samom ICSI tehnikom. Jedina situacija gde muški faktor može uticati na ishod i nakon ICSI-ja je visoka fragmentacija DNK spermatozoida - oštećena DNK može kompromitovati razvoj embriona čak i kada je oplođenje uspešno.</p>
+<p><strong>Poruka za parove:</strong> ako je muški faktor jedini ili dominantni uzrok neplodnosti, a partnerka je mlada sa dobrom rezervom jajnih ćelija - prognoza za VTO sa ICSI je odlična. Stope uspeha su uporedive sa opštom VTO populacijom.</p>
+<h4>Zamrzavanje sperme kao „osiguranje"</h4>
+<p>Kod teške oligospermije i kriptozoospermije preporučuje se zamrzavanje jednog ili više uzoraka sperme kao rezerva. Razlozi su praktični: na dan punkcije muškarac možda neće moći da da uzorak (trema je česta pojava pod pritiskom „mora da uspe baš danas"), uzorak može biti lošiji nego obično, ili može doći do daljeg pogoršanja parametara u međuvremenu.</p>
+<p>Zamrznuti spermatozoidi se mogu koristiti za ICSI ako sveži uzorak na dan punkcije nije adekvatan. Posebno je to važno kod kriptozoospermije: svaki uzorak u kome se pronađu spermatozoidi treba zamrznuti, jer nema garancije da će ih u sledećem uzorku biti.</p>
+<h3>Napredne tehnike selekcije spermatozoida</h3>
+<p>Ove tehnike se koriste u specijalizovanim centrima, najčešće kod ponovljenih neuspelih ICSI ciklusa:</p>
+<p><strong>IMSI (Intracytoplasmic Morphologically Selected Sperm Injection).</strong> To je ICSI pod značajno većim uvećanjem (6000–12000× umesto standardnih 200–400×), što omogućava detaljniju procenu morfologije glave spermatozoida i detekciju vakuola (šupljina u glavi koje mogu ukazivati na oštećenu DNK). Indikovan je kod ponovljenih neuspelih ICSI ciklusa, teške teratozoospermije i visokog DFI. Dokazi su kontroverzni - neke studije pokazuju korist, druge ne nalaze značajno poboljšanje u poređenju sa standardnim ICSI-jem.</p>
+<p><strong>PICSI (Physiologic ICSI).</strong> Selekcija spermatozoida na osnovu vezivanja za hijaluronsku kiselinu - supstancu koja je prirodno prisutna oko jajne ćelije. Teorija je da zreli spermatozoidi sa intaktnom membranom i manje oštećenom DNK bolje vezuju hijaluronsku kiselinu. Velika randomizovana studija (HABSelect trial) nije pokazala značajno poboljšanje stopa živorođenja u opštoj IVF populaciji, ali postoji moguća korist kod specifičnih podgrupa (visok DFI).</p>
+<p><strong>MACS (Magnetic-Activated Cell Sorting - magnetno aktivirano sortiranje ćelija).</strong> Koristi magnetna antitela koja se vezuju za anneksin V na membrani apoptotičnih (oštećenih, na putu ka ćelijskoj smrti) spermatozoida. Prolazak kroz magnetnu kolonu razdvaja zdrave od oštećenih. Obećavajuća tehnika, ali nije široko rasprostranjema.</p>
+<p><strong>Mikrofluidna selekcija.</strong> Čip koji oponaša prirodnu selekciju u ženskom reproduktivnom traktu - spermatozoidi moraju da „preplivaju" mikro-kanale koji propuštaju samo najpokretlivije i morfološki najzdravije. Prednost je u tome što nema centrifugiranja (koje samo po sebi može oštetiti spermatozoide), a selekcija je „fiziološkija". U ranim fazama kliničke primene, sa rastućim brojem studija.</p>
+<h2 id="smitovi-i-zablude-šta-je-tačno-a-šta-nije">7. Mitovi i zablude - šta je tačno a šta nije</h2>
+<div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Nizak broj spermatozoida znači da nikada nećemo imati dete.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Čak i sa blagom oligospermijom prirodno začeće je moguće, a sa ICSI-jem je dovoljno jedan spermatozoid po jajnoj ćeliji. Ovo je daleko od beznadežne situacije.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako imam 10 miliona spermatozoida, to zvuči kao mnogo - kako je to problem?</div>
+        <div class="myth-truth"><strong>Broj je varljiv.</strong> Od miliona koji krenu na put, samo par stotina stiže do jajne ćelije. Svako smanjenje startnog broja značajno smanjuje šanse za prirodno začeće. Ali za ICSI, 10 miliona je više nego dovoljno.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Suplementi će popraviti moj spermiogram do normalnog.</div>
+        <div class="myth-truth"><strong>Preterano optimistično.</strong> Suplementi mogu blago poboljšati parametre, ali retko normalizuju teško narušen spermiogram. Lečenje uzroka (varikokela, infekcija, hormoni) je efikasnije.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Spermiogram je nepromenljiv - jednom loš, uvek loš.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Sperma se obnavlja svakih približno 3 meseca i kvalitet može značajno da se promeni pod uticajem lečenja, životnih navika i eliminacije štetnih faktora.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Normalan spermiogram garantuje plodnost.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Standardni spermiogram ne meri DNK integritet, kapacitaciju ni akrozomsku reakciju. Spermiogram je skrining test, ne kompletna procena plodnosti.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Morfologija od 2% znači da su skoro svi spermatozoidi defektni.</div>
+        <div class="myth-truth"><strong>Zastarelo tumačenje.</strong> Strogi Kruger kriterijumi (metod za ocenu morfologije spermatozoida koji se koristi u većini laboratorija) su izuzetno rigorozni. Procenat od 2–3% je blizu referentne granice i izolovana blaga teratozoospermija retko ima klinički značaj za ICSI, jer embriolog vizuelno bira najpravilniji spermatozoid.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Bokserice su bolje od slip gaćica za spermu.</div>
+        <div class="myth-truth"><strong>Delimično tačno ali efekat je mali.</strong> Studija sa Harvarda iz 2018. godine pokazala je blagu prednost bokserica, ali razlika nije dramatična. Pamučne bokserice su razumna preporuka, ali ne očekujte čudo.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Laptop na krilu stvara nepovratno oštećenje.</div>
+        <div class="myth-truth"><strong>Preterivanje.</strong> Toplota od laptopa može privremeno uticati na spermatogenezu, ali efekat je reverzibilan nakon prestanka izloženosti. Ipak, najbolje je koristiti laptop na stolu.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Mobilni telefon u džepu uništava spermu.</div>
+        <div class="myth-truth"><strong>Kontroverzno.</strong> Neke studije sugerišu blagi negativni efekat radiofrekventnog zračenja na pokretljivost, ali kvalitet tih studija je varijabilan i zaključci nisu definitivni.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Steroidi za teretanu nemaju veze sa spermom.</div>
+        <div class="myth-truth"><strong>Opasno netačno.</strong> Anabolički steroidi mogu izazvati tešku oligospermiju ili potpunu azoospermiju. Ovo je jedan od najvažnijih mitova za razbijanje - mnogi mladi muškarci nisu svesni ove posledice.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako žena zatrudni, muška sperma je sigurno u redu.</div>
+        <div class="myth-truth"><strong>Ne nužno.</strong> Trudnoća je moguća i sa suboptimalnom spermom, ali visok DFI ili genetske anomalije spermatozoida mogu uticati na razvoj embriona i ishode trudnoće (ponovljeni pobačaji, na primer).</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Operacija varikokele sigurno popravlja spermu.</div>
+        <div class="myth-truth"><strong>Ne uvek.</strong> Poboljšanje se vidi kod 60–70% operisanih muškaraca, ali ne kod svih. I poboljšanje ne znači nužno potpunu normalizaciju. Realistična očekivanja su važna.</div>
+      </div>
+
+<h2 id="sčesta-pitanja-muškaraca">8. Česta pitanja muškaraca</h2>
+<p><strong>„Koliko je moj spermogram zapravo loš - da li je ovo blago ili teško?"</strong></p>
+<p>Pogledajte klasifikaciju u odeljku 4. Blaga oligospermija (10–16 miliona/mL) je značajno drugačija od teške (ispod 5 miliona/mL). Vaš lekar će vam reći u koju kategoriju spadate, ali imate i alat da sami kontekstualizujete brojeve.</p><br>
+<p><strong>„Da li da operišem varikokelu ili da idemo direktno na VTO?"</strong></p>
+<p>Zavisi od nekoliko faktora: stepena varikokele, starosti partnerke, težine oligospermije i vaše zajedničke preferencije. Ako je partnerka mlađa od 35 i varikokela je klinički značajna - operacija je razumna opcija jer može poboljšati parametre i eventualno omogućiti prirodno začeće ili IUI. Ako je partnerka starija od 37–38 - vreme je kritično i direktan VTO sa ICSI može biti bolji izbor. Razgovarajte sa timom lekara.</p><br>
+<p><strong>„Koliko dugo treba da uzimam suplemente pre nego što ponovim spermogram?"</strong></p>
+<p>Minimum 3 meseca - koliko traje jedan pun ciklus spermatogeneze. Idealno 3–6 meseci za procenu punog efekta.</p><br>
+<p><strong>„Da li moja oligospermija može da se pogorša?"</strong></p>
+<p>Može, posebno ako postoji neoperisana varikokela, AZFc delecija na Y hromozomu, hronična izloženost toksinima, ili nastavak štetnih navika (pušenje, steroidi). Ali može i da se poboljša - lečenjem uzroka i promenom navika. Zamrzavanje sperme kod težih oblika je razumna mera predostrožnosti.</p><br>
+<p><strong>„Da li ćemo morati na VTO ili postoji šansa da zatrudnimo prirodno?"</strong></p>
+<p>Kod blage oligospermije - prirodno začeće je realno moguće, posebno uz optimizaciju životnih navika i eventualno lečenje uzroka. Kod umerene - IUI može biti opcija. Kod teške - VTO sa ICSI je gotovo sigurno potreban. Ali čak i „teška" ne znači „nemoguća za lečenje" - znači samo da je potrebna medicinska pomoć.</p><br>
+<p><strong>„Šta ako na dan punkcije moja sperma bude lošija nego obično?"</strong></p>
+<p>Ovo je čest strah. Zato postoji zamrznuti rezervni uzorak - razgovarajte sa klinikom o zamrzavanju uzorka unapred. Čak i ako sveži uzorak bude lošiji, za ICSI je potreban minimalan broj spermatozoida, pa je gotovo uvek moguće naći dovoljno.</p><br>
+<p><strong>„Da li ICSI može da funkcioniše sa mojim brojem spermatozoida?"</strong></p>
+<p>Gotovo sigurno - da. ICSI zahteva onoliko spermatozoida koliko ima jajnih ćelija (obično 5–15). Čak i sa kriptozoospermijom (spermatozoidi samo nakon centrifugiranja) ICSI je moguć. Vaš broj spermatozoida, koliko god bio nizak, je skoro sigurno dovoljan za ICSI.</p><br>
+<p><strong>„Da li da zamrznem spermu za svaki slučaj?"</strong></p>
+<p>Kod teške oligospermije (ispod 5 miliona/mL) i kriptozoospermije - apsolutno da. Kod umerene - razumna mera predostrožnosti, posebno ako postoji rizik od pogoršanja. Zamrzavanje je jednostavna, brza i relativno jeftina procedura koja pruža ogromno osiguranje.</p><br>
+<p><strong>„Da li je moj sin u riziku da ima isti problem?"</strong></p>
+<p>Zavisi od uzroka. Ako je u pitanju genetski faktor (AZFc delecija, translokacija) - da, sin rođen ICSI-jem može naslediti isti problem. Genetsko savetovanje pre ICSI-ja je obavezno kod dokazanih genetskih uzroka. Ako je uzrok varikokela, životne navike ili idiopatski - genetski rizik za sina je manji ili nepoznat.</p><br>
+<p><strong>„Šta tačno znači OAT sindrom?"</strong></p>
+<p>OAT je skraćenica za oligoastenoteratozoospermiju - kombinacija smanjene koncentracije (oligo), smanjene pokretljivosti (asteno) i abnormalne morfologije (terato) spermatozoida. To je najčešći kompleksni nalaz kod muškog infertiliteta. Zvuči zastrašujuće ali leči se VTO-om sa ICSI-jem sa odličnim stopama uspeha.</p><br>
+<p><strong>„Da li vežbanje pomaže ili škodi?"</strong></p>
+<p>Umereno vežbanje (30 minuta, 5 dana nedeljno) pomaže - poboljšava hormonski balans, insulinsku senzitivnost i kvalitet sperme. Preintenzivan trening (maratoni, višesatni treninzi, prekomerno korišćenje teretane) može imati suprotan efekat jer podiže temperaturu tela i izaziva oksidativni stres. Biciklizam u velikoj meri je kontroverzan - pritisak sedišta na perineum može uticati na cirkulaciju u oblasti testisa, pa umerena količina je razumna.</p><br>
+<p><strong>„Da li stres zaista utiče na spermu?"</strong></p>
+<p>Da. Hronični stres podiže kortizol koji suprimuje reproduktivne hormone. Studije pokazuju korelaciju između visokog stresa i lošijih parametara sperme. Nije najvažniji faktor, ali jeste faktor. Upravljanje stresom - san, relaksacija, fizička aktivnost - je deo ukupnog pristupa.</p>
+<h2 id="ssaveti-za-muškarce-sa-oligospermijom-i-a">9. Saveti za muškarce sa oligospermijom i astenospermijom</h2>
+<ol>
+<li><strong>Počnite sa promenama životnih navika ODMAH</strong> - ne čekajte. Prestanak pušenja, smanjenje alkohola, gubitak telesne mase, izbegavanje toplote - ove mere ne koštaju ništa, nemaju neželjene efekte i mogu poboljšati spermiogram za 3 meseca.</li>
+
+<li><strong>Obavite kompletnu urološku obradu</strong> - ne samo spermiogram. Pregled urologa, ultrazvuk, hormoni, i po potrebi genetska testiranja i DFI - daju punu sliku i usmeravaju lečenje.</li>
+
+<li><strong>Razgovarajte sa lekarom o varikokeli</strong> ako postoji. Operacija ne pomaže svima, ali kod klinički značajne varikokele rezultati mogu biti značajni.</li>
+
+<li><strong>Razmotriti zamrzavanje sperme</strong> kod težih oblika - jeftino osiguranje koje eliminiše strah od pogoršanja i stres na dan punkcije.</li>
+
+<li><strong>Razumite da je ICSI izuzetno efikasno rešenje</strong> - dizajniran je upravo za situacije poput vaše. Stope oplođenja su 60–80%, a stope trudnoće zavise pre svega od starosti partnerke, ne od vašeg spermiograma.</li>
+
+<li><strong>Ne okrivljujte sebe</strong> - ovo je medicinski problem, ne lični neuspeh. Oligospermija i astenospermija su česti (prisutni kod miliona muškaraca širom sveta) i u ogromnoj većini slučajeva tretiabilni.
+
+
+<li><strong>Ne odlažite dijagnostiku.</strong> Česta greška: muškarci koji odlažu dijagnostiku mesecima ili godinama jer se boje rezultata. Što je par duže pokušavao bez uspeha, to je više razloga da se što pre javi. Vreme je posebno kritično ako je partnerka starija od 35 godina.</li>
+</ol>
+
+<h2 id="srečnik-termina">10. Rečnik termina</h2>
+<ul>
+<li><strong>Oligozoospermija (oligospermija):</strong> snižena koncentracija spermatozoida u ejakulatu</li>
+<li><strong>Astenozoospermija (astenospermija):</strong> smanjena pokretljivost spermatozoida</li>
+<li><strong>Teratozoospermija:</strong> povišen procenat morfološki abnormalnih spermatozoida</li>
+<li><strong>OAT sindrom:</strong> oligoastenoteratozoospermija - kombinacija sva tri poremećaja</li>
+<li><strong>Kriptozoospermija:</strong> spermatozoidi prisutni tek nakon centrifugiranja uzorka</li>
+<li><strong>Normozoospermija:</strong> svi parametri spermiograma u referentnim vrednostima</li>
+<li><strong>Nekrozoospermija:</strong> svi spermatozoidi u ejakulatu su mrtvi</li>
+<li><strong>TMSC (Total Motile Sperm Count):</strong> ukupan broj pokretnih spermatozoida nakon pripreme - ključni parametar za predviđanje uspeha IUI</li>
+<li><strong>DFI (DNA Fragmentation Index):</strong> procenat spermatozoida sa oštećenom DNK</li>
+<li><strong>ROS (Reactive Oxygen Species):</strong> reaktivne kiseonične vrste - slobodni radikali koji oštećuju spermatozoide</li>
+<li><strong>Spermatogeneza:</strong> proces proizvodnje spermatozoida u testisima (traje oko 74 dana)</li>
+<li><strong>Epididimis:</strong> organ koji leži uz testis, kroz koji spermatozoidi prolaze tokom sazrevanja (10–14 dana)</li>
+<li><strong>Flagelum:</strong> rep spermatozoida - struktura odgovorna za pokretljivost</li>
+<li><strong>Dinein:</strong> protein - molekularni motor koji pokreće flagelum</li>
+<li><strong>Akrozom:</strong> kapica na vrhu glave spermatozoida sa enzimima za probijanje zone pelucide</li>
+<li><strong>Zona pelucida:</strong> proteinski omotač koji okružuje jajnu ćeliju</li>
+<li><strong>Akrozomska reakcija:</strong> oslobađanje enzima iz akrozoma - neophodno za oplođenje</li>
+<li><strong>Kapacitacija:</strong> biohemijska aktivacija spermatozoida u jajovodu - priprema za akrozomsku reakciju</li>
+<li><strong>PR (Progressive motility):</strong> progresivna pokretljivost - spermatozoidi koji aktivno plivaju napred</li>
+<li><strong>NP (Non-progressive motility):</strong> neprogresivna pokretljivost - kreću se ali ne napreduju</li>
+<li><strong>IM (Immotile):</strong> nepokretni spermatozoidi</li>
+<li><strong>FSH:</strong> folikulostimulirajući hormon - stimuliše spermatogenezu</li>
+<li><strong>LH:</strong> luteinizirajući hormon - stimuliše proizvodnju testosterona</li>
+<li><strong>Inhibin B:</strong> hormon koji testisi proizvode kao signal hipofizi o statusu spermatogeneze</li>
+<li><strong>ICSI (Intracytoplasmic Sperm Injection):</strong> intracitoplazmatska injekcija spermatozoida - ubacivanje jednog spermatozoida direktno u jajnu ćeliju</li>
+<li><strong>IUI (Intrauterine Insemination):</strong> intrauterina inseminacija - ubacivanje pripremljenih spermatozoida u matericu</li>
+<li><strong>IMSI:</strong> ICSI pod većim uvećanjem za detaljniju selekciju spermatozoida</li>
+<li><strong>PICSI:</strong> fiziološki ICSI - selekcija na osnovu vezivanja za hijaluronsku kiselinu</li>
+<li><strong>MACS:</strong> magnetno aktivirano sortiranje ćelija - razdvajanje zdravih od oštećenih spermatozoida</li>
+<li><strong>WHO referentne vrednosti:</strong> granične vrednosti parametara spermiograma koje je definisala Svetska zdravstvena organizacija (5. percentil plodnih muškaraca)</li>
+<li><strong>Kruger kriterijumi:</strong> strogi kriterijumi za procenu morfologije spermatozoida</li>
+<li><strong>Varikokela:</strong> proširene vene u skrotumu - najčešći lečivi uzrok muškog infertiliteta</li>
+<li><strong>Gradijent centrifugacija / swim-up:</strong> laboratorijske metode za pripremu sperme - koncentrišu pokretne spermatozoide</li>
+<li><strong>Klomifen citrat:</strong> lek koji blokira estrogenske receptore na hipofizi i povećava FSH i LH</li>
+<li><strong>Anastrozol:</strong> inhibitor aromataze - sprečava konverziju testosterona u estradiol</li>
+<li><strong>hCG:</strong> humani horionski gonadotropin - stimuliše proizvodnju testosterona u testisima</li>
+<li><strong>VTO:</strong> vantelesna oplodnja (IVF - in vitro fertilizacija)</li>
+</ul>
+<p><em>Oligospermija i astenospermija su dijagnoze koje zvuče zastrašujuće, ali sa ispravnim razumevanjem, pravovremenom dijagnostikom i odgovarajućim lečenjem - prognoza je za ogromnu većinu parova dobra. ICSI je dizajniran upravo za ove situacije i predstavlja jedno od najuspešnijih dostignuća reproduktivne medicine. Vaš put ka roditeljstvu možda zahteva medicinsku pomoć, ali cilj je apsolutno ostvariv.</em></p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

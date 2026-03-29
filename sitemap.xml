@@ -20,8 +20,18 @@
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
-      <url>
+  <url>
     <loc>https://www.vto.rs/poi</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.vto.rs/pcos-vto</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.vto.rs/oligospermija-astenospermija</loc>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
