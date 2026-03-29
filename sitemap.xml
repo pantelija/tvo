@@ -74,6 +74,11 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+    <url>
+    <loc>https://www.vto.rs/dvonedeljna-pauza-vto</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <url>
     <loc>https://www.vto.rs/o-nama</loc>
     <priority>0.6</priority>

@@ -730,6 +730,12 @@
   .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
   .empathy-box p + p { margin-top: 0.6rem; }
 
+    .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
 </style>
 
 </head>
@@ -1119,25 +1125,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>FET prati niz zabluda koje mogu nepotrebno zabrinuti parove. Vreme je da ih razjasnimo.</p>
 
-      <h3>„Zamrznuti embrioni su slabiji od svežih"</h3>
+      
 
-      <p><strong>Nije tačno.</strong> Vitrifikacija očuvava kvalitet embriona gotovo u potpunosti. Savremene stope preživljavanja od 90–99% govore same za sebe. Štaviše, odmor materice između stimulacije i transfera može čak poboljšati šanse za implantaciju, jer je endometrijum u fiziološkijem stanju.</p>
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Zamrznuti embrioni su slabiji od svežih.</div>
+        <div class="myth-truth"><strong>Nije tačno.</strong> Vitrifikacija očuvava kvalitet embriona gotovo u potpunosti. Savremene stope preživljavanja od 90–99% govore same za sebe. Štaviše, odmor materice između stimulacije i transfera može čak poboljšati šanse za implantaciju, jer je endometrijum u fiziološkijem stanju.</div>
+      </div>
 
-      <h3>„Što duže su embrioni zamrznuti, to su manje šanse"</h3>
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Što duže su embrioni zamrznuti, to su manje šanse.</div>
+        <div class="myth-truth"><strong>Nema dokaza za ovo.</strong> Na –196°C nema nikakve biološke aktivnosti. Embrion zamrznut pre 20 godina ima iste šanse kao embrion zamrznut pre 2 meseca, pod uslovom da je bio kvalitetan u trenutku zamrzavanja.</div>
+      </div>
 
-      <p><strong>Nema dokaza za ovo.</strong> Na –196°C nema nikakve biološke aktivnosti. Embrion zamrznut pre 20 godina ima iste šanse kao embrion zamrznut pre 2 meseca, pod uslovom da je bio kvalitetan u trenutku zamrzavanja.</p>
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> FET je manje uspešan od svežeg transfera.</div>
+        <div class="myth-truth"><strong>Savremeni podaci pokazuju suprotno.</strong> FET stope uspeha su uporedive sa svežim transferom, a u studijama koje porede freeze-all strategiju sa svežim transferom, FET često pokazuje čak bolje rezultate.</div>
+      </div>
 
-      <h3>„FET je manje uspešan od svežeg transfera"</h3>
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Deca rođena iz zamrznutih embriona su drugačija.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Studije ne pokazuju razlike u zdravlju, rastu i razvoju dece rođene iz FET-a u poređenju sa decom začetom prirodnim putem ili svežim transferom. Desetine hiljada beba širom sveta rođeno je iz zamrznutih embriona, i praćenje pokazuje normalan razvoj.</div>
+      </div>
 
-      <p><strong>Savremeni podaci pokazuju suprotno.</strong> FET stope uspeha su uporedive sa svežim transferom, a u studijama koje porede freeze-all strategiju sa svežim transferom, FET često pokazuje čak bolje rezultate.</p>
-
-      <h3>„Deca rođena iz zamrznutih embriona su drugačija"</h3>
-
-      <p><strong>Studije ne pokazuju razlike</strong> u zdravlju, rastu i razvoju dece rođene iz FET-a u poređenju sa decom začetom prirodnim putem ili svežim transferom. Desetine hiljada beba širom sveta rođeno je iz zamrznutih embriona, i praćenje pokazuje normalan razvoj.</p>
-
-      <h3>„Ako prvi FET ne uspe, ni sledeći neće"</h3>
-
-      <p><strong>Svaki FET je nova šansa.</strong> Neuspeh jednog transfera ne znači da će sledeći biti neuspešan. Uzroci neuspeha se mogu identifikovati i korigovati - promena protokola, ERA test, dodatne pretrage. Mnogi parovi ostvare trudnoću u drugom ili trećem FET pokušaju.</p>
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako prvi FET ne uspe, ni sledeći neće.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Svaki FET je nova šansa. Neuspeh jednog transfera ne znači da će sledeći biti neuspešan. Uzroci neuspeha se mogu identifikovati i korigovati - promena protokola, ERA test, dodatne pretrage. Mnogi parovi ostvare trudnoću u drugom ili trećem FET pokušaju.</div>
+      </div>
 
       <!-- ========== SECTION 9 ========== -->
       <h2 id="s9">Emocionalna dimenzija FET procesa</h2>
@@ -1199,23 +1212,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h4>Da li smo mi birali koje embrione ćemo zamrznuti?</h4>
 
-      <p>Embriološki tim zamrzava sve embrione koji dostignu odgovarajući kvalitet. Vi ne morate da birate - stručnjaci procenjuju svaki embrion i zamrzavaju one koji imaju potencijal za razvoj. Embrioni koji ne dostignu odgovarajući stadijum razvoja u laboratoriji, nažalost, nisu pogodni za zamrzavanje.</p>
+      <p>Embriološki tim zamrzava sve embrione koji dostignu odgovarajući kvalitet. Vi ne morate da birate - stručnjaci procenjuju svaki embrion i zamrzavaju one koji imaju potencijal za razvoj. Embrioni koji ne dostignu odgovarajući stadijum razvoja u laboratoriji, nažalost, nisu pogodni za zamrzavanje.</p><br>
 
       <h4>Da li zamrzavanje i odmrzavanje oštećuje embrion?</h4>
 
-      <p>Savremena vitrifikacija je izuzetno bezbedna. Stope preživljavanja od 90–99% znače da velika većina embriona preživi bez ikakvih oštećenja. Retko, embrion može izgubiti jednu ili dve ćelije tokom procesa, ali blastociste imaju veliku sposobnost oporavka.</p>
+      <p>Savremena vitrifikacija je izuzetno bezbedna. Stope preživljavanja od 90–99% znače da velika većina embriona preživi bez ikakvih oštećenja. Retko, embrion može izgubiti jednu ili dve ćelije tokom procesa, ali blastociste imaju veliku sposobnost oporavka.</p><br>
 
       <h4>Koliko FET-ova možemo da uradimo sa jednog ciklusa stimulacije?</h4>
 
-      <p>To zavisi od broja zamrznutih embriona. Ako je iz jednog ciklusa zamrznuto, na primer, 4 blastociste, imate materijal za potencijalno 4 FET pokušaja (pod uslovom da se prenosi po jedan embrion). Ovo je jedna od najvećih prednosti krioprezervacije - jedan ciklus stimulacije može pružiti višestruke šanse.</p>
+      <p>To zavisi od broja zamrznutih embriona. Ako je iz jednog ciklusa zamrznuto, na primer, 4 blastociste, imate materijal za potencijalno 4 FET pokušaja (pod uslovom da se prenosi po jedan embrion). Ovo je jedna od najvećih prednosti krioprezervacije - jedan ciklus stimulacije može pružiti višestruke šanse.</p><br>
 
       <h4>Da li je bolje raditi prirodni ili medikamentozni protokol?</h4>
 
-      <p>Nema jednostavnog odgovora. Oba pristupa imaju slične stope uspešnosti. Prirodni ciklus je fiziološkiji i zahteva manje lekova, ali je manje predvidiv. Medikamentozni protokol nudi veću kontrolu tajminga, ali zahteva više hormona. Razgovarajte sa svojim lekarom o tome koji pristup najbolje odgovara vašoj situaciji.</p>
+      <p>Nema jednostavnog odgovora. Oba pristupa imaju slične stope uspešnosti. Prirodni ciklus je fiziološkiji i zahteva manje lekova, ali je manje predvidiv. Medikamentozni protokol nudi veću kontrolu tajminga, ali zahteva više hormona. Razgovarajte sa svojim lekarom o tome koji pristup najbolje odgovara vašoj situaciji.</p><br>
 
       <h4>Šta ako embrion ne preživi odmrzavanje?</h4>
 
-      <p>Iako je ovo retko (dešava se u 1–10% slučajeva), može se desiti. Ako imate više zamrznutih embriona, klinika može odmrznuti sledeći embrion istog dana. Ako nemate više embriona, ciklus se nažalost otkazuje. Ovo je jedan od najtežih trenutaka za parove i važno je imati emotivnu podršku.</p>
+      <p>Iako je ovo retko (dešava se u 1–10% slučajeva), može se desiti. Ako imate više zamrznutih embriona, klinika može odmrznuti sledeći embrion istog dana. Ako nemate više embriona, ciklus se nažalost otkazuje. Ovo je jedan od najtežih trenutaka za parove i važno je imati emotivnu podršku.</p><br>
 
       <h4>Da li mogu da zamrznem embrione za drugo dete?</h4>
 
