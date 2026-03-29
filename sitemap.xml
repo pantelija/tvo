@@ -20,6 +20,11 @@
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
+      <url>
+    <loc>https://www.vto.rs/poi</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <url>
     <loc>https://www.vto.rs/ivf-klasicna-metoda</loc>
     <priority>0.9</priority>
