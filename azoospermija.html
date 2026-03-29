@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azoospermija - kada spermatozoidi nisu prisutni u ejakulatu | VTOvodič.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-category:hover { background: var(--color-accent); color: #fff; }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  /* Table styling */
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .article-content th {
+    background: var(--color-bg-warm);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  .article-content td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-ink-light);
+    vertical-align: top;
+  }
+  .article-content tr:nth-child(even) td {
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+    .article-content table { font-size: 0.8rem; }
+    .article-content th, .article-content td { padding: 0.45rem 0.6rem; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+        <a href="vto-uvod">Uvod u VTO</a>
+        <a href="vto-vodic">VTO vodič</a>
+        <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+        <a href="icsi-metoda">ICSI postupak</a>
+        <a href="iui-inseminacija">Inseminacija IUI</a>
+        <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+        <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+        <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+        <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+        <a href="priprema-sperme">Priprema spermatozoida</a>
+        <a href="kultivacija-embriona">Kultivacija embriona</a>
+        <a href="embriotransfer">Embrotransfer</a>
+        <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+        <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Muška plodnost</span>
+<h1 class="article-title">Azoospermija - kada spermatozoidi nisu prisutni u ejakulatu</h1>
+
+    </div>
+
+    <div class="article-toc">
+  <div class="article-toc-title">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sadržaj članka
+  </div>
+  <ol>
+<li><a href="#sšta-je-azoospermija">Šta je azoospermija</a></li>
+<li><a href="#sanatomija-muškog-reproduktivnog-sistema-">Anatomija muškog reproduktivnog sistema - "put spermatozoida"</a></li>
+<li><a href="#sdva-osnovna-tipa-azoospermije">Dva osnovna tipa azoospermije</a></li>
+<li><a href="#suzroci-opstruktivne-azoospermije">Uzroci opstruktivne azoospermije</a></li>
+<li><a href="#suzroci-neopstruktivne-azoospermije">Uzroci neopstruktivne azoospermije</a></li>
+<li><a href="#sdijagnostički-put-korak-po-korak">Dijagnostički put - korak po korak</a></li>
+<li><a href="#shirurške-metode-dobijanja-spermatozoida">Hirurške metode dobijanja spermatozoida</a></li>
+<li><a href="#sicsi-sa-hirurški-dobijenim-spermatozoidi">ICSI sa hirurški dobijenim spermatozoidima</a></li>
+<li><a href="#sgenetski-aspekti-i-savetovanje">Genetski aspekti i savetovanje</a></li>
+<li><a href="#shormonsko-zdravlje-i-testosteron">Hormonsko zdravlje i testosteron</a></li>
+<li><a href="#smitovi-i-zablude-o-azoospermiji">Mitovi i zablude o azoospermiji</a></li>
+<li><a href="#sčesta-pitanja-i-saveti">Česta pitanja i saveti</a></li>
+<li><a href="#sazoospermija-i-onkofertilitet">Azoospermija i onkofertilitet</a></li>
+<li><a href="#ssaveti-za-muškarce-sa-dijagnozom-azoospe">Saveti za muškarce sa dijagnozom azoospermije</a></li>
+<li><a href="#srečnik-termina">Rečnik termina</a></li>
+  </ol>
+</div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+<h2 id="sšta-je-azoospermija">1. Šta je azoospermija</h2>
+<p>Azoospermija je stanje u kome se u ejakulatu, čak i nakon centrifugiranja uzorka u laboratoriji, ne pronalazi nijedan spermatozoid. To je najteži oblik muškog infertiliteta (neplodnosti). Pogađa oko 1% svih muškaraca u opštoj populaciji i 10–15% muškaraca koji se javljaju lekaru zbog problema sa plodnošću.</p>
+<p>Kada čujete "nula spermatozoida", prirodna reakcija je šok i osećaj da je sve gotovo. Ali evo ključne informacije koja može da promeni sve:</p>
+<p><strong>Azoospermija ne znači nužno da vaše telo ne proizvodi spermatozoide.</strong> U mnogim slučajevima spermatozoidi postoje u testisima - ali ne mogu da stignu do ejakulata jer je put začepljen. To je opstruktivna azoospermija. Čak i kada je problem u samoj proizvodnji - neopstruktivna azoospermija - u značajnom broju slučajeva spermatozoidi se mogu hirurški pronaći u tkivu testisa i koristiti za ICSI (intracitoplazmatsku injekciju spermatozoida - metodu vantelesne oplodnje gde se jedan spermatozoid direktno ubacuje u jajnu ćeliju).</p>
+<p>Dijagnoza azoospermije je šokantna i zastrašujuća - ali nije automatski kraj puta do biološkog roditeljstva.</p>
+<h3>Gde se azoospermija nalazi u kontekstu lečenja neplodnosti</h3>
+<p>Azoospermija se najčešće dijagnostikuje na spermiogramu - to je prvi i osnovni test koji muškarac radi u obradi neplodnog para. Uzorak ejakulata se pregleda pod mikroskopom u laboratoriji.</p>
+<p>Ova dijagnoza fundamentalno menja celokupan pristup lečenju:</p>
+<ul>
+<li><strong>Prirodno začeće</strong> - isključeno.</li>
+<li><strong>IUI (intrauterina inseminacija)</strong> - isključena. Za IUI su potrebni spermatozoidi u ejakulatu.</li>
+<li><strong>Klasičan IVF</strong> (gde se spermatozoidi dodaju jajnim ćelijama u petri šolji i čeka se da sami oplode jajnu ćeliju) - isključen.</li>
+<li><strong>Jedina opcija za biološko roditeljstvo sa sopstvenim genetskim materijalom</strong> - hirurško dobijanje spermatozoida iz testisa ili epididimisa (pasemenika) + ICSI.</li>
+<li>Ako spermatozoidi ne mogu da se pronađu ni hirurški - preostaju opcije donacije sperme ili usvajanja.</li>
+</ul>
+<p>Razlikovanje opstruktivne od neopstruktivne azoospermije je ključni dijagnostički korak - jer potpuno menja prognozu, pristup lečenju i očekivanja para.</p>
+<h2 id="sanatomija-muškog-reproduktivnog-sistema-">2. Anatomija muškog reproduktivnog sistema - "put spermatozoida"</h2>
+<p>Da biste razumeli azoospermiju, neophodno je razumeti kako funkcioniše muški reproduktivni sistem i kojim putem spermatozoidi prolaze od nastanka do ejakulacije.</p>
+<h3>Testisi (semeni čvorovi)</h3>
+<p>Testisi su dva organa smeštena u skrotumu (mošnicama). U njima se odvija spermatogeneza - proces proizvodnje spermatozoida od matičnih ćelija (spermatogonija) do zrelih spermatozoida.</p>
+<p>Spermatogeneza se odvija u semenonosnim kanalićima (lat. <em>tubuli seminiferi</em>) - testis sadrži stotine metara ovih sitnih, savijenih cevčica. Ceo ciklus spermatogeneze traje oko 72–74 dana - toliko vremena je potrebno da od jedne matične ćelije nastane zreo spermatozoid.</p>
+<p>U testisima postoje dve grupe ćelija koje su ključne za razumevanje azoospermije:</p>
+<ul>
+<li><strong>Lajdigove ćelije</strong> (nalaze se između semenonosnih kanalića) - proizvode testosteron, hormon neophodan za spermatogenezu, razvoj muških polnih karakteristika i libido (polnu želju).</li>
+<li><strong>Sertolijeve ćelije</strong> (nalaze se unutar semenonosnih kanalića) - "hrane" i podržavaju spermatozoide tokom celokupnog procesa sazrevanja. One čine krvno-testisnu barijeru koja štiti spermatozoide od imunskog sistema, jer bi organizam inače prepoznao spermatozoide kao "strane" ćelije.</li>
+</ul>
+<h3>Epididimis (pasemenik)</h3>
+<p>Epididimis je dugačak, savijeni kanal (oko 6–7 metara ako bi se ispravio) koji obavija svaki testis. Spermatozoidi provode 10–14 dana u epididimisu gde završavaju sazrevanje, stiču pokretljivost i sposobnost za oplođenje. Zreli spermatozoidi se čuvaju u repu epididimisa do ejakulacije - kao u skladištu spremni za "poziv".</p>
+<h3>Vas deferens (semenovod)</h3>
+<p>Vas deferens je mišićna cev koja prenosi spermatozoide iz epididimisa prema prostati i uretri. Tokom ejakulacije mišići vas deferensa se snažno kontrahuju i izbacuju spermatozoide napred. Vazektomija - metoda muške kontracepcije - podrazumeva hirurško presecanje upravo ove cevi.</p>
+<h3>Semene vezikule, prostata i bulbouretralne žlezde</h3>
+<p>Ove žlezde proizvode semenu plazmu - tečnost koja čini oko 95% volumena ejakulata. Semena plazma obezbeđuje hranjive materije (fruktozu - šećer koji služi kao gorivo za spermatozoide), zaštitu (bazna sredina koja neutrališe kiselost vagine) i transportni medijum. Dakle, kada muškarac sa azoospermijom ejakulira, on ima normalan volumen ejakulata - samo u toj tečnosti nema spermatozoida.</p>
+<h3>Uretra (mokraćna cev)</h3>
+<p>Uretra je zajednički kanal kroz koji prolaze i urin i ejakulat, ali nikada istovremeno - sfinkter (kružni mišić) bešike se zatvara tokom ejakulacije.</p>
+<h3>Put spermatozoida - od nastanka do ejakulacije</h3>
+<p>Zamislite ovaj put kao jednosmernu cestu:</p>
+<p><strong>Testis</strong> (proizvodnja) → <strong>Epididimis</strong> (sazrevanje i skladištenje) → <strong>Vas deferens</strong> (transport) → <strong>Uretra</strong> (izlaz)</p>
+<p>Azoospermija znači da se na kraju ovog puta - u ejakulatu - ne nalazi nijedan spermatozoid. Razlog može biti na bilo kom delu ovog puta.</p>
+<p>Ili, još jasnije - zamislite da je put spermatozoida od testisa do ejakulata kao vodovodna cev od izvora do slavine:</p>
+<ul>
+<li><strong>Kod opstruktivne azoospermije</strong> - izvor obilno izbija čistu vodu, ali je negde na putu do slavine cev začepljena ili presečena. Voda je tu, samo ne može da stigne do slavine. Hirurg može da ode direktno do izvora (testisa) i zahvati vodu - spermatozoide.</li>
+<li><strong>Kod neopstruktivne azoospermije</strong> - problem je u samom izvoru: on ne izbija dovoljno vode, ili su pojedini potoci presušili. Ali ponekad, duboko u zemlji, postoji skriveni izvor koji još uvek teče - micro-TESE je kao geolog koji sa mikroskopom pretražuje teren metar po metar, tražeći upravo taj skriveni izvor. U oko polovine slučajeva - pronađe ga.</li>
+</ul>
+<h2 id="sdva-osnovna-tipa-azoospermije">3. Dva osnovna tipa azoospermije</h2>
+<p>Ovo je fundamentalna podela od koje zavisi sve - prognoza, lečenje, očekivanja.</p>
+<h3>Opstruktivna azoospermija (OA) - "Fabrika radi, put je blokiran"</h3>
+<p><strong>Definicija:</strong> Testisi normalno proizvode spermatozoide, ali oni ne mogu da stignu do ejakulata jer je negde na putu - u epididimisu, vas deferensu ili ejakulatornim duktusima - prisutna fizička prepreka (opstrukcija, začepljenje).</p>
+<p><strong>Učestalost:</strong> Oko 40% svih slučajeva azoospermije.</p>
+<p><strong>Hormonski profil:</strong> Normalan. FSH (folikulostimulirajući hormon - hormon hipofize koji stimuliše testise) je normalan jer testisi rade kako treba i šalju adekvatne povratne signale mozgu. Testosteron, inhibin B (hormon koji proizvode Sertolijeve ćelije i koji govori hipofizi da su testisi aktivni), LH (luteinizirajući hormon) - sve normalno. Volumen testisa - normalan.</p>
+<p><strong>Prognoza za vantelesnu oplodnju: ODLIČNA.</strong> Spermatozoidi su prisutni u testisima i epididimisu u obilnim količinama jer je proizvodnja normalna. Hirurško dobijanje spermatozoida je gotovo uvek uspešno - stope pronalaženja su veće od 95%. Kvalitet spermatozoida je obično dobar, a ICSI sa hirurški dobijenim spermatozoidima daje stope trudnoće uporedive sa ICSI-jem kod teške oligozoospermije (drastično smanjene koncentracije spermatozoida u ejakulatu).</p>
+<h3>Neopstruktivna azoospermija (NOA) - "Fabrika ne radi ili radi minimalno"</h3>
+<p><strong>Definicija:</strong> Problem je u samoj proizvodnji spermatozoida u testisima. Testisi ne proizvode spermatozoide uopšte, ili ih proizvode u tako malim količinama da ne dospevaju do ejakulata.</p>
+<p><strong>Učestalost:</strong> Oko 60% svih slučajeva azoospermije - češća je od opstruktivne.</p>
+<p><strong>Hormonski profil:</strong> Najčešće poremećen. FSH je povišen jer testisi ne proizvode dovoljno inhibina B da suprimira (utiša) FSH - hipofiza doslovno "viče" na testise da rade, ali oni ne mogu da odgovore. Testosteron može biti normalan ili snižen. Inhibin B je snižen. LH može biti povišen. Volumen testisa je najčešće smanjen - manji, mekši testisi.</p>
+<p><strong>Prognoza NOA za vantelesnu oplodnju: VARIJABILNA</strong> - zavisi od uzroka i histološkog nalaza:</p>
+<ul>
+<li>Hipogonadotropni hipogonadizam (HH): odlična prognoza uz hormonsku terapiju, čak i bez hirurgije</li>
+<li>Hipospermatogeneza: dobra prognoza za micro-TESE - stope pronalaženja 70–80%</li>
+<li>Fokalni SCO: umerena prognoza - stope pronalaženja 30–60%</li>
+<li>Kompletni SCO: loša prognoza - stope pronalaženja ispod 20%</li>
+<li>Kasni maturacioni arest: umerena prognoza - 30–50%</li>
+<li>Rani maturacioni arest: loša prognoza - ispod 20%</li>
+<li>Klinefelterov sindrom: umerena prognoza - 30–50%</li>
+<li>AZFa/AZFb delecija: prognoza praktično nula - micro-TESE se ne preporučuje</li>
+</ul>
+<h2 id="suzroci-opstruktivne-azoospermije">4. Uzroci opstruktivne azoospermije</h2>
+<h3>Kongenitalno bilateralno odsustvo vas deferensa (CBAVD)</h3>
+<p>Najčešći urođeni uzrok opstruktivne azoospermije. Muškarac se rodi bez vas deferensa (semenovoda) na oba testisa - cev koja bi trebalo da prenosi spermatozoide jednostavno ne postoji.</p>
+<p>Genetski uzrok je mutacija CFTR gena - gena za cističnu fibrozu. Čak i muškarci koji nemaju kliničku cističnu fibrozu (teško oboljenje pluća i digestivnog sistema) mogu biti nosioci mutacije koja uzrokuje samo odsustvo vas deferensa.</p>
+<p>Dijagnoza se postavlja fizičkim pregledom (urolog ne može da napipa vas deferens u skrotumu), ultrazvukom (odsutne ili nedovoljno razvijene semene vezikule) i genetskim testiranjem (CFTR mutacija).</p>
+<p><strong>Izuzetno važno:</strong> Ako muškarac ima CBAVD, partnerka mora da se testira na CFTR mutacije. Ako su oboje nosioci, postoji 25% rizik da dete ima cističnu fibrozu. U tom slučaju se razmatra PGT (preimplantaciono genetsko testiranje - testiranje embriona pre transfera) za cističnu fibrozu.</p>
+<p>Volumen ejakulata kod CBAVD je često smanjen, a pH snižen - jer semene vezikule mogu biti nedovoljno razvijene ili odsutne.</p>
+<h3>Stanje nakon vazektomije</h3>
+<p>Muškarac koji je imao vazektomiju (presecanje vas deferensa kao metoda kontracepcije) i sada želi decu - sa novom partnerkom ili je promenio odluku.</p>
+<p>Opcije su dve: vazovazoostomija (hirurško spajanje presečenih krajeva vas deferensa - uspešnost za prohodnost 70–90%, ali stope trudnoće 30–70% u zavisnosti od vremena proteklog od vazektomije) ili hirurško dobijanje spermatozoida iz testisa/epididimisa + ICSI, bez rekonstrukcije cevi.</p>
+<p>Što je više vremena prošlo od vazektomije, to su manje šanse za uspešnu rekonstrukciju - jer se razvija sekundarna opstrukcija u epididimisu i stvaraju se antisperm antitela (antitela koja napadaju sopstvene spermatozoide).</p>
+<h3>Opstrukcija epididimisa</h3>
+<p>Uzroci uključuju prethodne infekcije - epididimitis (zapaljenje epididimisa) najčešće uzrokovan hlamidijom, gonokokom ili bakterijom E. coli - traume ili hirurške komplikacije. Blokada u epididimisu sprečava prolaz spermatozoida iz testisa u vas deferens. Može biti jednostrana ili obostrana.</p>
+<h3>Opstrukcija ejakulatornih duktusa</h3>
+<p>Ejakulatorni duktusi su kanali koji prolaze kroz prostatu i otvaraju se u uretru. Mogu biti začepljeni cistama, kalcifikatima ili postinfektivnim promenama.</p>
+<p>Dijagnoza se postavlja transrektalnim ultrazvukom (TRUS - ultrazvuk kroz rektum koji vizualizuje prostatu, semene vezikule i ejakulatorne duktuse). Lečenje je TURED (transuretralna resekcija ejakulatornih duktusa) - endoskopski zahvat kroz uretru kojim se uklanja opstrukcija.</p>
+<h3>Infekcije reproduktivnog trakta</h3>
+<p>Hronične ili akutne infekcije epididimisa, vas deferensa ili prostate mogu dovesti do začepljenja inflamatornim (zapaljenskim) tkivom i priraslicama. Polno prenosive infekcije, pre svega hlamidija i gonoreja, su najčešći infektivni uzroci - i mogu proći potpuno bez simptoma, a ostaviti trajne posledice na prohodnost reproduktivnih puteva.</p>
+<h3>Young sindrom</h3>
+<p>Retko stanje koje kombinuje opstrukciju epididimisa, hronični sinuzitis (zapaljenje sinusa) i bronhiektazije (proširenje bronhija). Slično cističnoj fibrozi po kliničkoj slici, ali bez CFTR mutacije.</p>
+<h2 id="suzroci-neopstruktivne-azoospermije">5. Uzroci neopstruktivne azoospermije</h2>
+<h3>Genetski uzroci</h3>
+<p><strong>Klinefelterov sindrom (47,XXY)</strong> - najčešći genetski uzrok NOA. Muškarac ima dodatni X hromozom: 47,XXY umesto normalnih 46,XY. Pogađa oko jednog od 500–1000 muškaraca. Karakteristike: visok rast, mali i čvrsti testisi, ginekomastija (uvećanje tkiva grudi), azoospermija ili teška oligozoospermija, povišen FSH, snižen testosteron. Dijagnoza se postavlja kariogramom (analizom hromozomskog sastava iz krvi).</p>
+<p>Prognoza za micro-TESE: spermatozoidi se nalaze kod oko 30–50% muškaraca sa Klinefelterovim sindromom. Bolje šanse imaju mlađi muškarci i oni sa mozaičnim oblikom (mešavina ćelija 46,XY i 47,XXY).</p>
+<p><strong>Mikrodelecije Y hromozoma (AZF regioni)</strong> - delecije (gubitak) specifičnih regiona na dugom kraku Y hromozoma koji sadrže gene neophodne za spermatogenezu:</p>
+<ul>
+<li><strong>AZFa delecija:</strong> kompletni SCO - prognoza za pronalaženje spermatozoida praktično nula. Micro-TESE se ne preporučuje.</li>
+<li><strong>AZFb delecija:</strong> maturacioni arest - prognoza veoma loša. Najčešće se ne preporučuje micro-TESE.</li>
+<li><strong>AZFc delecija:</strong> najčešća i sa najboljom prognozom - hipospermatogeneza ili fokalni SCO. Spermatozoidi se nalaze kod 50–70% muškaraca na micro-TESE.</li>
+<li><strong>AZFb+c delecija:</strong> loša prognoza, slična AZFb.</li>
+</ul>
+<p><strong>Izuzetno važno za AZFc deleciju:</strong> Ova delecija se prenosi na muško potomstvo - sin će takođe imati AZFc deleciju i vrlo verovatno azoospermiju ili tešku oligozoospermiju. Par mora biti genetski savetovan pre ICSI-ja.</p>
+<p>Drugi, ređi genetski uzroci uključuju mutacije gena TEX11, NR5A1, DMRT1, SYCP3 i drugih - sve češće se dijagnostikuju sa napretkom genetskog testiranja.</p>
+<h3>Kriptoorhizam (nespušteni testisi)</h3>
+<p>Jedan ili oba testisa nisu bila spuštena u skrotum pri rođenju. Ako se ne koriguje hirurški - orhidopeksijom (operacijom spuštanja testisa u skrotum) - u ranom detinjstvu (idealno pre 1–2 godine), izloženost testisa višoj temperaturi u trbušnoj duplji ili ingvinalnom kanalu trajno oštećuje spermatogenezu. Bilateralni kriptoorhizam (oba testisa neoperisana ili kasno operisana) je čest uzrok NOA. Čak i korigovan kriptoorhizam nosi povišen rizik od smanjene spermatogeneze.</p>
+<h3>Varikokela</h3>
+<p>Varikokela (proširene vene u skrotumu) obično uzrokuje oligozoospermiju, ali u teškim slučajevima može dovesti do azoospermije.</p>
+<p>Hirurška korekcija - varikocelektomija - kod azoospermije: kod nekih muškaraca se nakon operacije pojave spermatozoidi u ejakulatu (konverzija iz azoospermije u oligozoospermiju). Studije pokazuju da se to dešava kod 20–40% operisanih, što može omogućiti ICSI iz ejakulata umesto hirurškog dobijanja.</p>
+<p>Dilema koja se često postavlja: operisati varikokelu i čekati 3–6 meseci na efekat, ili ići direktno na micro-TESE + ICSI. Odluka zavisi od starosti partnerke, veličine varikokele i preferencija para.</p>
+<h3>Hormonski poremećaji</h3>
+<p><strong>Hipogonadotropni hipogonadizam (HH):</strong> Hipofiza (žlezda u mozgu) ne luči dovoljno FSH i LH hormona, pa testisi ne dobijaju signal za spermatogenezu. Testisi su zdravi - samo im nedostaje komanda odozgo.</p>
+<p>Kongenitalni oblici uključuju Kalmanov sindrom (udružen sa anosmijom - gubitkom čula mirisa) i izolovani hipogonadotropni hipogonadizam. Stečeni oblici nastaju usled tumora hipofize (prolaktinom, nefunkcionalni adenomi), hemohromatoze (bolesti preopterećenja gvožđem), povreda glave, ozračivanja hipofize ili infiltrativnih bolesti.</p>
+<p><strong>Ovo je jedini oblik NOA koji se može potpuno izlečiti medikamentozno - bez hirurgije.</strong> Terapija zamene gonadotropinima (hCG + rFSH ili HMG - hormoni koji imitiraju signale hipofize) može pokrenuti spermatogenezu "od nule" jer su testisi zdravi, samo im je nedostajao signal. Stope uspostavljanja spermatogeneze iznose 70–90% nakon 6–24 meseca terapije. Ovo je jedan od najvažnijih razloga za kompletnu hormonsku obradu kod svakog muškarca sa azoospermijom - jer ako je u pitanju HH, spermatogeneza se može pokrenuti bez ikakve operacije.</p>
+<p><strong>Hiperprolaktinemija:</strong> Povišen prolaktin (hormon koji stimuliše stvaranje mleka) suprimira GnRH (hormon hipotalamusa koji kontroliše hipofizu), što dovodi do sniženog FSH i LH i smanjene ili obustavljene spermatogeneze. Lečenje lekovima (kabergolin ili bromokriptin) normalizuje prolaktin i pokreće spermatogenezu.</p>
+<p><strong>Egzogeni testosteron i anabolički steroidi - najčešći jatrogeni uzrok azoospermije kod mladih muškaraca:</strong></p>
+<p>Mehanizam: egzogeni (spoljašnji) testosteron suprimira hipofizu putem negativne povratne sprege - FSH i LH padaju na nulu - testisi se "gase" jer ne dobijaju signal - spermatogeneza se zaustavlja - nastaje azoospermija.</p>
+<p>Paradoks koji mnogi muškarci ne razumeju: uzimate testosteron misleći da poboljšavate "mušku snagu", a zapravo uništavate svoju plodnost.</p>
+<p>Reverzibilnost: u većini slučajeva spermatogeneza se oporavlja nakon prestanka uzimanja testosterona ili steroida, ali oporavak može trajati 6–24 meseca. Kod nekih muškaraca oporavak je nepotpun ili potpuno izostaje - trajno oštećenje je moguće, posebno nakon dugotrajne upotrebe.</p>
+<p>Lečenje: prestanak egzogenog testosterona + eventualno klomifen citrat ili hCG za stimulaciju sopstvene produkcije.</p>
+<p><strong>Prevencija: nikada ne uzimajte testosteron ili anaboličke steroide ako planirate roditeljstvo. Ovo je poruka koja se ne može dovoljno naglasiti.</strong></p>
+<h3>Onkološko lečenje</h3>
+<p>Hemioterapija (posebno alkilirajući agensi - ciklofosfamid, busulfan, cisplatin) i radioterapija (posebno usmerena na karlicu ili testise) mogu trajno oštetiti spermatogenezu. Stepen oštećenja zavisi od tipa lekova, doze i trajanja terapije.</p>
+<p>Zamrzavanje sperme pre onkološkog lečenja je zlatni standard - ali mnogi muškarci, nažalost, ne budu obavešteni o ovoj mogućnosti ili se lečenje mora hitno započeti. Oporavak spermatogeneze je moguć kod nekih muškaraca, mesecima ili godinama nakon završetka terapije - zato je važno periodično praćenje spermiograma.</p>
+<h3>Orhitis (zapaljenje testisa)</h3>
+<p>Virusni orhitis, najčešće kao komplikacija zaušnjaka (mumpsa) u pubertetu ili odraslom dobu, može trajno oštetiti spermatogenezu. Bilateralni mumps orhitis (zapaljenje oba testisa) nosi visok rizik od NOA.</p>
+<h3>Torzija testisa</h3>
+<p>Uvrtanje testisa sa prekidom krvotoka - hitno stanje koje zahteva operaciju u roku od 6 sati. Ako se ne leči na vreme ili ako se testis mora ukloniti - trajna je posledica gubitak funkcije tog testisa.</p>
+<h3>Izloženost toksinima</h3>
+<p>Pesticidi, teški metali (olovo, kadmijum), organski rastvarači, profesionalna izloženost visokim temperaturama - sve ovo može oštetiti spermatogenezu.</p>
+<h3>Idiopatska NOA</h3>
+<p>Kod značajnog broja muškaraca sa NOA ne može se identifikovati jasan uzrok. Pretpostavlja se da su u pitanju neidentifikovani genetski faktori ili kumulativni uticaj više faktora.</p>
+<h2 id="sdijagnostički-put-korak-po-korak">6. Dijagnostički put - korak po korak</h2>
+<h3>Korak 1: Potvrda dijagnoze - ponovljeni spermiogram</h3>
+<p>Azoospermija se nikada ne dijagnostikuje na osnovu jednog spermiograma. Obavezno je ponavljanje nakon 2–3 meseca. Zašto? Spermatogeneza traje oko 74 dana, pa jedan "loš" uzorak može biti posledica prolaznog faktora - bolesti sa visokom temperaturom, stresa, privremene izloženosti toploti.</p>
+<p>Centrifugiranje uzorka je obavezno: čak i kada standardni pregled ne nađe spermatozoide, uzorak se centrifugira i talog se pregleda pod mikroskopom. Ponekad se nađu pojedinačni spermatozoidi - to je kriptozoospermija (izuzetno mala količina spermatozoida koja se vidi tek nakon centrifugiranja), ne azoospermija.</p>
+<p>Razlika je ključna: ako se nađu čak i pojedinačni spermatozoidi - pristup se razlikuje. Moguć je ICSI iz ejakulata, zamrzavanje pronađenih spermatozoida kao rezerva za buduće cikluse.</p>
+<h3>Korak 2: Razlikovanje opstruktivne od neopstruktivne azoospermije</h3>
+<p><strong>Hormonske analize iz krvi:</strong></p>
+<ul>
+<li><strong>FSH:</strong> Normalan kod OA (testisi rade kako treba), povišen kod NOA (testisi ne rade adekvatno, pa hipofiza pojačava signal).</li>
+<li><strong>Testosteron:</strong> Normalan kod OA, normalan ili snižen kod NOA.</li>
+<li><strong>Inhibin B:</strong> Normalan kod OA, snižen kod NOA (jer ga proizvode Sertolijeve ćelije koje su disfunkcionalne kod NOA).</li>
+<li><strong>LH:</strong> Normalan kod OA, normalan ili povišen kod NOA.</li>
+<li><strong>Prolaktin:</strong> Proverava se za isključivanje hiperprolaktinemije.</li>
+</ul>
+<p><strong>Fizički pregled urologa:</strong></p>
+<ul>
+<li><strong>Volumen testisa:</strong> Normalan (15–25 mL) kod OA, smanjen (ispod 12 mL, često ispod 10 mL) kod NOA.</li>
+<li><strong>Konzistencija testisa:</strong> Normalna (čvrsti) kod OA, mekši kod NOA.</li>
+<li><strong>Prisustvo vas deferensa:</strong> Palpacija (opipavanje) - ako se vas deferens ne pipa, sumnja na CBAVD.</li>
+<li><strong>Epididimalno zadebljanje ili čvorovi:</strong> Može ukazivati na opstrukciju epididimisa.</li>
+<li><strong>Varikokela:</strong> Pregled u stojećem položaju, Valsalvin manevar (napinjanje kao pri defekaciji, koje pojačava proširenje vena).</li>
+</ul>
+<p><strong>Volumen ejakulata i pH:</strong></p>
+<p>Nizak volumen (ispod 1,5 mL) + nizak pH (ispod 7,0) + odsustvo fruktoze: sugeriše opstrukciju ejakulatornih duktusa ili CBAVD, jer semene vezikule - koje proizvode fruktozu i doprinose volumenu ejakulata - ne funkcionišu ili su odsutne.</p>
+<p>Normalan volumen i pH: više sugeriše NOA ili opstrukciju bliže testisu.</p>
+<p><strong>Ultrazvuk:</strong></p>
+<ul>
+<li><strong>Skrotalni ultrazvuk:</strong> Procena veličine i strukture testisa (homogenost, prisustvo mikrokalcifikata, tumora), veličina i stanje epididimisa (dilatacija - proširenje kod opstrukcije), prisustvo varikokele (doppler tehnika za procenu protoka krvi).</li>
+<li><strong>Transrektalni ultrazvuk (TRUS):</strong> Procena semenih vezikula, prostate i ejakulatornih duktusa - detekcija cisti, kalcifikata, dilatiranih vezikula (znak opstrukcije ispod testisa).</li>
+</ul>
+<h3>Korak 3: Genetska testiranja - obavezna kod azoospermije</h3>
+<ul>
+<li><strong>Kariogram (analiza hromozoma):</strong> Detekcija Klinefelterovog sindroma (47,XXY) i drugih hromozomskih anomalija. Obavezan kod svakog muškarca sa NOA.</li>
+<li><strong>Mikrodelecije Y hromozoma (AZF analiza):</strong> Detekcija AZFa, AZFb i AZFc delecija. Obavezna kod NOA jer rezultat direktno utiče na prognozu i na to da li uopšte ima smisla raditi micro-TESE. Ako je AZFa ili AZFb delecija prisutna - micro-TESE se ne preporučuje jer šanse za pronalaženje spermatozoida praktično ne postoje.</li>
+<li><strong>CFTR mutacije:</strong> Obavezno kod dokazanog ili sumnje na CBAVD. I obavezno testiranje partnerke na CFTR ako je muškarac nosilac mutacije.</li>
+</ul>
+<p><strong>Genetsko savetovanje pre ICSI-ja</strong> je neophodno - par mora razumeti rizik od prenošenja genetskog stanja na potomstvo (AZFc delecija na sina, CFTR mutacija na dete), mogućnosti PGT-a (preimplantacionog genetskog testiranja embriona za specifična stanja) i implikacije za buduće generacije.</p>
+<h3>Korak 4: Biopsija testisa - dijagnostička i/ili terapeutska</h3>
+<p>Kod NOA, biopsija testisa je istovremeno dijagnostički (daje histološki nalaz - SCO, maturacioni arest, hipospermatogeneza) i terapeutski korak (pronalaženje spermatozoida za ICSI). Najčešće se radi kao micro-TESE koji je istovremeno i dijagnostika i lečenje.</p>
+<p>Kod OA, biopsija obično nije potrebna za dijagnozu - hormonski profil i klinička slika su dovoljni - ali se radi kao terapeutski korak za dobijanje spermatozoida.</p>
+<h2 id="shirurške-metode-dobijanja-spermatozoida">7. Hirurške metode dobijanja spermatozoida</h2>
+<p>Ovo je centralni terapeutski deo lečenja azoospermije. Parovi su često zbunjeni mnoštvom akronima - evo jasnog objašnjenja svake metode.</p>
+<h3>TESA - Testicular Sperm Aspiration (testikularna aspiracija spermatozoida)</h3>
+<p><strong>Šta je:</strong> Perkutana (kroz kožu) aspiracija tkiva testisa tankom iglom - bez otvaranja skrotuma.</p>
+<p><strong>Kako se radi:</strong> Pod lokalnom anestezijom ili kratkom sedacijom, igla se ubada kroz kožu skrotuma u testis i aspirira (usisava) mali fragment tkiva koji se pregleda u laboratoriji pod mikroskopom.</p>
+<p><strong>Prednosti:</strong> Minimalno invazivno, brzo (15–20 minuta), ambulantni zahvat, brz oporavak.</p>
+<p><strong>Mane:</strong> "Slepa" metoda - nema vizualizacije tkiva testisa. Aspirira se mali uzorak iz ograničenog dela testisa, što znači da može promašiti ognjišta spermatogeneze kod fokalne NOA.</p>
+<p><strong>Stope pronalaženja:</strong> Kod OA - visoke, iznad 90%. Kod NOA - niže, 30–50%, jer se ne pretražuje ceo testis.</p>
+<p><strong>Kada se koristi:</strong> Kod OA (gde se spermatozoidi sigurno nalaze), ponekad kao prvi pokušaj kod NOA pre micro-TESE.</p>
+<h3>TESE - Testicular Sperm Extraction (testikularna ekstrakcija spermatozoida)</h3>
+<p><strong>Šta je:</strong> Otvorena biopsija testisa - hirurg pravi mali rez na skrotumu i testisu i uzima jedan ili više fragmenata tkiva.</p>
+<p><strong>Konvencionalni TESE</strong> podrazumeva nasumično uzimanje jednog ili više komada tkiva iz jednog ili oba testisa, bez mikroskopskog vođenja.</p>
+<p><strong>Prednosti:</strong> Veći uzorci tkiva u poređenju sa TESA, direktna vizualizacija površine testisa.</p>
+<p><strong>Mane:</strong> I dalje "nasumičan" pristup kod NOA - može promašiti ognjišta spermatogeneze. Veće oštećenje tkiva testisa nego kod TESA.</p>
+<p><strong>Stope pronalaženja:</strong> Kod OA - iznad 95%. Kod NOA - 40–60%, ali niže od micro-TESE.</p>
+<h3>Micro-TESE - Microsurgical Testicular Sperm Extraction (mikrohirurška testikularna ekstrakcija spermatozoida)</h3>
+<p><strong>Šta je: ZLATNI STANDARD za dobijanje spermatozoida kod NOA.</strong></p>
+<p>Hirurg pod operativnim mikroskopom (16–25× uvećanje) sistematski pretražuje celo tkivo testisa, tražeći proširene, belo-žute semenonosne kanaliće koji su najverovatnije mesta aktivne spermatogeneze.</p>
+<p><strong>Kako se radi:</strong></p>
+<ol>
+<li>Opšta ili regionalna anestezija.</li>
+<li>Hirurg otvara skrotum, zatim otvara tuniku albugineu (ovojnicu testisa) - izlaže celokupno tkivo testisa.</li>
+<li>Pod operativnim mikroskopom sistematski pregleda površinu testisa, identifikuje kanaliće koji su prošireniji i drugačije boje (svetliji, "puniji") - ovi kanalići najverovatnije sadrže spermatozoide.</li>
+<li>Uzima ciljane uzorke - mikrodisekcija (precizno isecanje pod mikroskopom) specifičnih kanalića, umesto nasumičnog uzimanja tkiva.</li>
+<li>Embriolog u operacionoj sali pregleda uzorke u realnom vremenu i obaveštava hirurga da li su pronađeni spermatozoidi - hirurg nastavlja pretragu dok se ne pronađu ili dok se ne pretraži ceo testis.</li>
+<li>Zahvat se može raditi na jednom ili oba testisa.</li>
+</ol>
+<p><strong>Trajanje:</strong> 1,5–4 sata (duže nego TESA ili TESE jer je u pitanju sistematska pretraga).</p>
+<p><strong>Prednosti:</strong></p>
+<ul>
+<li>Najviša stopa pronalaženja spermatozoida od svih metoda kod NOA - 40–63%, a neke serije prijavljuju i do 70% kod iskusnih hirurga.</li>
+<li>Minimalno oštećenje tkiva testisa - precizna mikrodisekcija čuva okolno tkivo i vaskularizaciju (krvne sudove), za razliku od konvencionalnog TESE koji uzima veće nasumične komade.</li>
+<li>Manji rizik od postoperativnog pada testosterona - jer se čuva masa Lajdigovih ćelija.</li>
+<li>Mogućnost pretraživanja celokupnog testisa - ne propušta fokalna ognjišta spermatogeneze.</li>
+</ul>
+<p><strong>Mane:</strong> Zahteva operativni mikroskop i mikrohirurga sa specifičnim iskustvom, duži zahvat, opšta anestezija, nije dostupno u svim centrima.</p>
+<p><strong>Oporavak:</strong> 1–2 nedelje blagog diskomfora, vraćanje normalnim aktivnostima za 2–4 nedelje, izbegavanje napornih fizičkih aktivnosti 4–6 nedelja.</p>
+<p><strong>Status:</strong> Preporučena metoda izbora za NOA od strane EAU (Evropska urološka asocijacija), AUA (Američka urološka asocijacija) i ASRM (Američko udruženje za reproduktivnu medicinu).</p>
+<h3>MESA - Microsurgical Epididymal Sperm Aspiration (mikrohirurška epididimalna aspiracija spermatozoida)</h3>
+<p><strong>Šta je:</strong> Mikrohirurški zahvat u kome se iz epididimisa (pasemenika) aspiriraju spermatozoidi - koristi se specifično kod opstruktivne azoospermije, gde su spermatozoidi u epididimisu kvalitetniji i zreliji nego u testisu jer su prošli proces sazrevanja.</p>
+<p><strong>Prednosti:</strong> Veća količina kvalitetnijih spermatozoida, mogućnost zamrzavanja velikog broja za buduće cikluse.</p>
+<p><strong>Mane:</strong> Zahteva mikrohirurga, opštu anesteziju, duži zahvat od TESA.</p>
+<p><strong>Kada se koristi:</strong> Kod OA - posebno CBAVD, stanje nakon vazektomije, opstrukcija epididimisa.</p>
+<h3>PESA - Percutaneous Epididymal Sperm Aspiration (perkutana epididimalna aspiracija spermatozoida)</h3>
+<p><strong>Šta je:</strong> Aspiracija spermatozoida iz epididimisa iglom kroz kožu - bez otvaranja skrotuma.</p>
+<p><strong>Prednosti:</strong> Manje invazivno od MESA, lokalna anestezija, ambulantni zahvat.</p>
+<p><strong>Mane:</strong> "Slepa" metoda, manji uzorak, manja količina spermatozoida za zamrzavanje.</p>
+<p><strong>Kada se koristi:</strong> Kod OA, kao alternativa MESA.</p>
+<h3>Koordinacija hiruškog dobijanja sa VTO ciklusom partnerke</h3>
+<p>Postoje dve strategije:</p>
+<p><strong>Sveže korišćenje:</strong> Micro-TESE ili TESA se radi na dan punkcije jajnih ćelija partnerke ili dan pre. Spermatozoidi se odmah koriste za ICSI. Prednost: sveži spermatozoidi. Mana: koordinacija dva zahvata istog dana, stres za oba partnera, i rizik da se na micro-TESE ne pronađu spermatozoidi, a partnerka je već prošla stimulaciju i punkciju.</p>
+<p><strong>Zamrzavanje unapred:</strong> Micro-TESE ili TESA se radi mesecima pre VTO ciklusa. Pronađeni spermatozoidi se zamrzavaju (krijoprezerviraju) i koriste na dan punkcije partnerke. Prednost: eliminacija neizvesnosti na dan punkcije - unapred znate da li spermatozoida ima. Partnerka ne prolazi stimulaciju uzalud. Mana: spermatozoidi prolaze zamrzavanje i odmrzavanje, što može smanjiti njihov kvalitet, mada su stope oplođenja sa zamrznutim testikularnim spermatozoidima zadovoljavajuće.</p>
+<p><strong>Preporučena strategija kod NOA:</strong> Zamrzavanje unapred - jer je neizvesnost pronalaženja visoka i ne želi se rizik da partnerka prođe stimulaciju i punkciju, a da se na micro-TESE ne pronađu spermatozoidi.</p>
+<p><strong>Preporučena strategija kod OA:</strong> Može se raditi i istovremeno (sveže) jer je stopa pronalaženja iznad 95% - ali i zamrzavanje unapred je potpuno prihvatljivo.</p>
+<h2 id="sicsi-sa-hirurški-dobijenim-spermatozoidi">8. ICSI sa hirurški dobijenim spermatozoidima</h2>
+<h3>Kako ICSI funkcioniše sa testikularnim i epididimalnim spermatozoidima</h3>
+<p>ICSI (intracitoplazmatska injekcija spermatozoida) je tehnika vantelesne oplodnje u kojoj embriolog pod mikroskopom bira jedan spermatozoid i direktno ga ubacuje u jajnu ćeliju tankom staklenom iglom.</p>
+<p>Kod hirurški dobijenih spermatozoida, postupak ima specifičnosti:</p>
+<ul>
+<li>Embriolog mora da "izdvoji" spermatozoide iz tkiva testisa - mehaničkim i enzimskim metodama se tkivo obrađuje da oslobodi spermatozoide.</li>
+<li>Testikularni spermatozoidi mogu biti potpuno nepokretni jer još nisu prošli sazrevanje u epididimisu - ali to ne znači da su mrtvi. Embriolog koristi specijalne testove (hipoosmotski test - potapanje spermatozoida u rastvor niske osmolarnosti pri čemu živi spermatozoidi reaguju bubrekom repa; laserski test) da razlikuje žive nepokretne od mrtvih spermatozoida.</li>
+<li>Izbor spermatozoida može biti izazovniji jer su prisutni u malom broju, okruženi tkivom testisa.</li>
+</ul>
+<h3>Stope oplođenja i trudnoće</h3>
+<ul>
+<li><strong>ICSI sa testikularnim spermatozoidima kod OA:</strong> Stope oplođenja 50–70% - uporedive sa ICSI-jem iz ejakulata.</li>
+<li><strong>ICSI sa testikularnim spermatozoidima kod NOA:</strong> Stope oplođenja 40–60% - nešto niže jer kvalitet spermatozoida može biti kompromitovan.</li>
+<li><strong>Stope trudnoće:</strong> Zavise pre svega od starosti partnerke i kvaliteta jajnih ćelija. Uz uspešno oplođenje, dalji tok - kultivacija embriona, transfer, implantacija - isti je kao kod standardnog ICSI-ja.</li>
+</ul>
+<h3>Zamrzavanje spermatozoida sa micro-TESE</h3>
+<p>Kod NOA se često dobija izuzetno mali broj spermatozoida. Zamrzavanje zahteva specijalne protokole za mali broj ćelija. Stope preživljavanja nakon odmrzavanja su varijabilne - 40–70% u zavisnosti od protokola i kvaliteta spermatozoida. Ponekad je potrebno više odmrzavanja za višestruke VTO cikluse - zato je važno zamrznuti što je moguće više alikvota (manjih porcija) na micro-TESE.</p>
+
+<h2 id="sgenetski-aspekti-i-savetovanje">9. Genetski aspekti i savetovanje</h2>
+<p>Genetsko testiranje i savetovanje su obavezni delovi obrade azoospermije - jer odluka o ICSI-ju sa hirurški dobijenim spermatozoidima nosi potencijalne posledice za potomstvo.</p>
+<p><strong>Klinefelterov sindrom:</strong> Sin neće nužno naslediti XXY kariogram, ali postoji povišen rizik od hromozomskih anomalija u potomstvu. PGT-A (preimplantaciono genetsko testiranje aneuploidija - testiranje embriona na broj hromozoma) se može razmotriti.</p>
+<p><strong>AZFc delecija Y hromozoma:</strong> Svaki sin će naslediti AZFc deleciju i vrlo verovatno imati azoospermiju ili tešku oligozoospermiju. Par mora to znati i razumeti pre nego što nastavi sa ICSI-jem. Neke parove ova informacija navede da razmotre donaciju sperme ili PGT za odabir ženskih embriona (ćerke ne mogu naslediti Y hromozom i neće biti pogođene).</p>
+<p><strong>CBAVD i CFTR mutacije:</strong> Ako su oba partnera nosioci CFTR mutacije, postoji 25% šanse da dete ima cističnu fibrozu. PGT za cističnu fibrozu je snažno preporučen u tom slučaju.</p>
+<p>Genetsko savetovanje pruža paru kompletnu sliku - šta znači konkretna genetska dijagnoza, kakvi su rizici za potomstvo, koje su opcije za smanjenje tih rizika i kakve su implikacije za buduće generacije.</p>
+<h2 id="shormonsko-zdravlje-i-testosteron">10. Hormonsko zdravlje i testosteron</h2>
+<p>Azoospermija nije samo reproduktivni problem - često utiče i na celokupno hormonsko zdravlje muškarca.</p>
+<h3>Testosteron i NOA</h3>
+<p>Kod neopstruktivne azoospermije testosteron je često snižen jer je disfunkcija testisa generalizovana - ne pogađa samo spermatogenezu već i Lajdigove ćelije koje proizvode testosteron.</p>
+<p>Simptomi niskog testosterona: umor, smanjen libido, erektilna disfunkcija, gubitak mišićne mase, povećanje masnog tkiva, depresivno raspoloženje, smanjena koncentracija.</p>
+<p>Kod muškaraca koji <strong>ne</strong> planiraju decu - zamenska terapija testosteronom je opcija. Kod muškaraca koji planiraju decu - <strong>nikada egzogeni testosteron</strong> jer dodatno suprimira spermatogenezu. Umesto toga se koriste klomifen citrat, hCG ili njihova kombinacija za stimulaciju sopstvene produkcije testosterona bez gašenja spermatogeneze.</p>
+<h3>Praćenje testosterona nakon micro-TESE</h3>
+<p>Micro-TESE može privremeno ili, ređe, trajno smanjiti nivo testosterona jer se uklanjanjem tkiva testisa uklanja i deo Lajdigovih ćelija. Preporučuje se praćenje testosterona 3–6 meseci nakon micro-TESE i eventualna terapija ako je snižen.</p>
+<h3>Klinefelterov sindrom i testosteron</h3>
+<p>Muškarci sa Klinefelterovim sindromom gotovo uvek trebaju zamenu testosterona - nivo progresivno opada tokom života. Ključni tajming: micro-TESE treba uraditi pre započinjanja testosteronske terapije, jer bi egzogeni testosteron ugasio preostalu spermatogenezu. Idealno je micro-TESE uraditi u mlađim godinama (adolescencija ili rane dvadesete) dok ognjišta spermatogeneze još postoje.</p>
+<h2 id="smitovi-i-zablude-o-azoospermiji">11. Mitovi i zablude o azoospermiji</h2>
+
+
+<div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Azoospermija znači da nikada ne mogu imati biološko dete.</div>
+        <div class="myth-truth"><strong>Netačno za mnoge slučajeve.</strong> Hirurško dobijanje spermatozoida je uspešno kod preko 95% muškaraca sa OA i 40–63% muškaraca sa NOA.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako imam normalnu seksualnu funkciju, ne mogu imati azoospermiju.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Erekcija, ejakulacija i libido su nezavisni od prisustva spermatozoida u ejakulatu. Muškarac sa azoospermijom ejakulira normalno - samo u toj tečnosti nema spermatozoida.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Azoospermija je izuzetno retka.</div>
+        <div class="myth-truth"><strong>Nije tako retka.</strong> Pogađa 1% opšte populacije i 10–15% muškaraca koji se leče od neplodnosti.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Svi slučajevi azoospermije su isti.</div>
+        <div class="myth-truth"><strong>Fundamentalno netačno.</strong> OA i NOA su potpuno različita stanja sa potpuno različitom prognozom, uzrocima i lečenjem.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Suplementi mogu da pokrenu proizvodnju spermatozoida kod azoospermije.</div>
+        <div class="myth-truth"><strong>Kod NOA: ne.</strong> Suplementi ne mogu da prevaziđu genetsko ili strukturno oštećenje testisa. Jedini izuzetak je hipogonadotropni hipogonadizam, gde hormonska terapija (ne suplementi) može pokrenuti spermatogenezu jer su testisi zdravi.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Testosteron pomaže kod azoospermije.</div>
+        <div class="myth-truth"><strong>OPASNO NETAČNO.</strong> Egzogeni testosteron pogoršava azoospermiju jer gasi sopstvenu proizvodnju. Ovo je jedan od najvažnijih mitova za razbijanje.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Micro-TESE je bolna i opasna operacija.</div>
+        <div class="myth-truth"><strong>Preterivanje.</strong> Micro-TESE je siguran zahvat sa niskim procentom komplikacija. Bol je umeren i kontroliše se analgeticima. Većina muškaraca se vraća normalnim aktivnostima za 1–2 nedelje.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako micro-TESE ne pronađe spermatozoide, nema više opcija.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Donacija sperme i usvajanje su legitimne opcije. Ponovljeni micro-TESE sa hormonskom pripremom se razmatra u nekim slučajevima.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Deca začeta sa hirurški dobijenim spermatozoidima su manje zdrava.</div>
+        <div class="myth-truth"><strong>Nema dokaza za to.</strong> Studije ne pokazuju razliku u zdravlju dece začete ICSI-jem sa testikularnim u poređenju sa ejakulatornim spermatozoidima.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Steroidi za teretanu ne mogu izazvati trajnu azoospermiju.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Kod nekih muškaraca oporavak nakon dugotrajne upotrebe anaboličkih steroida je nepotpun ili izostaje - trajno oštećenje je moguće.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako imam jednog sina, ne mogu imati azoospermiju.</div>
+        <div class="myth-truth"><strong>Moguće je.</strong> Azoospermija može biti stečena nakon prethodnog očinstva - usled infekcija, lekova, steroida, tumora, trauma.</div>
+      </div>
+
+
+<h2 id="sčesta-pitanja-i-saveti">12. Česta pitanja i saveti</h2>
+<h3>Da li je azoospermija trajna ili se može izlečiti?</h3>
+<p>Zavisi od uzroka. Kod opstruktivne azoospermije, hirurška rekonstrukcija može ponekad uspostaviti prohodnost (npr. vazovazoostomija nakon vazektomije, TURED za opstrukciju ejakulatornih duktusa). Kod hipogonadotropnog hipogonadizma, hormonska terapija može potpuno pokrenuti spermatogenezu. Kod azoospermije izazvane egzogenim testosteronom ili steroidima, prestanak uzimanja često dovodi do oporavka. Kod genetskih uzroka (Klinefelter, AZF delecije) ili teškog strukturnog oštećenja testisa - azoospermija je trajna, ali hirurško dobijanje spermatozoida može omogućiti biološko očinstvo putem ICSI-ja.</p>
+<h3>Koliko dugo traje oporavak od micro-TESE?</h3>
+<p>Blag diskomfor u skrotumu traje 1–2 nedelje. Vraćanje normalnim aktivnostima je moguće za 2–4 nedelje. Naporne fizičke aktivnosti treba izbegavati 4–6 nedelja. Većina muškaraca opisuje bol kao umeren - manji nego što su očekivali.</p>
+<h3>Da li micro-TESE utiče na testosteron?</h3>
+<p>Može - jer se uklanjanjem tkiva testisa uklanja i deo Lajdigovih ćelija. Pad je obično blag i privremen, ali kod nekih muškaraca (posebno sa već sniženim testosteronom pre zahvata) može biti klinički značajan. Praćenje testosterona 3–6 meseci nakon micro-TESE je preporučeno.</p>
+<h3>Da li treba da radim micro-TESE pre nego što partnerka počne stimulaciju?</h3>
+<p>Kod NOA - da, preporučuje se zamrzavanje spermatozoida unapred. Ne želite da partnerka prođe celokupnu hormonsku stimulaciju i punkciju jajnih ćelija, a da se na micro-TESE ne pronađu spermatozoidi. Kod OA - može i istovremeno, jer su šanse za pronalaženje iznad 95%.</p>
+<h3>Šta ako imamo AZFc deleciju - da li da radimo PGT?</h3>
+<p>AZFc delecija se prenosi na svakog sina - on će takođe imati azoospermiju ili tešku oligozoospermiju. Odluka o PGT-u je lična. Neki parovi se odlučuju za PGT sa selekcijom embriona ženskog pola (ćerke ne nasleđuju Y hromozom). Drugi parovi prihvataju rizik, znajući da će i njihov sin imati pristup istim tehnikama lečenja. Genetsko savetovanje je neophodno za donošenje informisane odluke.</p>
+<h3>Koliko puta se micro-TESE može ponoviti?</h3>
+<p>Obično se može ponoviti jednom ili dva puta, ali svaki ponovljeni zahvat nosi rizik od daljeg oštećenja tkiva testisa i pada testosterona. Između zahvata treba proći najmanje 6–12 meseci da se tkivo oporavi.</p>
+<h3>Da li zamrznuti testikularni spermatozoidi daju lošije rezultate od svežih?</h3>
+<p>Stope oplođenja su nešto niže sa zamrznutim u poređenju sa svežim spermatozoidima, ali su i dalje zadovoljavajuće. Prednost eliminacije neizvesnosti na dan punkcije najčešće nadmašuje malu razliku u kvalitetu.</p>
+<h3>Šta ako imam Klinefelterov sindrom - da li imam šanse?</h3>
+<p>Da - spermatozoidi se nalaze kod oko 30–50% muškaraca sa Klinefelterovim sindromom na micro-TESE. Šanse su bolje kod mlađih muškaraca i kod mozaičnog oblika. Ključno je micro-TESE uraditi pre započinjanja testosteronske terapije.</p>
+<h3>Da li da operiram varikokelu pre micro-TESE?</h3>
+<p>To je individualana odluka. Varikocelektomija kod azoospermije dovodi do pojave spermatozoida u ejakulatu kod 20–40% muškaraca, ali zahteva 3–6 meseci čekanja. Ako je partnerka starija (posebno preko 35 godina), čekanje može biti neopravdano - direktan micro-TESE + ICSI može biti bolji izbor. Razgovarajte sa timom o najboljoj strategiji za vašu specifičnu situaciju.</p>
+<h3>Koliko dugo traje hormonska terapija kod hipogonadotropnog hipogonadizma?</h3>
+<p>Od 6 do 24 meseca. Neki muškarci dobiju spermatozoide u ejakulatu već nakon 6–9 meseci, ali mnogima treba godinu ili dve. Strpljenje je ključno - testisi su zdravi i odgovaraju na terapiju, samo im treba vreme.</p>
+<h3>Kako da kažem porodici za azoospermiju?</h3>
+<p>Ne morate nikome ništa da kažete ako ne želite - to je vaša privatna medicinska informacija. Ako odlučite da podelite, birajte ljude kojima verujete i koji vas neće osuđivati. Partnerin odnos je na prvom mestu - osigurajte da ste vas dvoje na istoj strani pre nego što informišete druge. Nemojte osećati obavezu da objašnjavate detalje - "imamo medicinski izazov sa plodnošću i radimo na tome" je sasvim dovoljna informacija.</p>
+<h3>Da li postoji veza između azoospermije i raka testisa?</h3>
+<p>Postoji statistička povezanost - muškarci sa poremećenom spermatogenezom, posebno oni sa mikrokalcifikatima u testisima na ultrazvuku, imaju nešto veći rizik od tumora testisa. Skrotalni ultrazvuk u sklopu obrade azoospermije takođe služi za isključivanje ovog stanja.</p>
+<h2 id="sazoospermija-i-onkofertilitet">13. Azoospermija i onkofertilitet</h2>
+<p>Zamrzavanje sperme pre hemioterapije ili radioterapije je zlatni standard očuvanja plodnosti kod muškaraca sa malignim oboljenjima. Ali šta ako zamrzavanje nije urađeno pre lečenja?</p>
+<p>Opcije uključuju micro-TESE nakon završetka onkološkog lečenja - kod nekih muškaraca se fokalna ognjišta spermatogeneze očuvaju uprkos hemioterapiji. Praćenje spermiograma u redovnim intervalima (svakih 6–12 meseci) je važno jer se spermatogeneza može spontano oporaviti i godinama nakon završetka lečenja.</p>
+<p>Poruka za sve muškarce pre hemioterapije ili radioterapije: <strong>insistirajte na zamrzavanju sperme pre početka lečenja.</strong> Čak i jedan uzorak može biti dovoljan za ICSI.</p>
+<h2 id="ssaveti-za-muškarce-sa-dijagnozom-azoospe">14. Saveti za muškarce sa dijagnozom azoospermije</h2>
+<ol>
+<li><strong>Ne panične pre kompletne obrade.</strong> Razlikovanje OA od NOA fundamentalno menja sliku - ne donosite zaključke pre nego što svi rezultati budu gotovi.</li>
+
+<li><strong>Potražite urologa ili androloga specijalizovanog za mušku neplodnost</strong> - ne bilo kog urologa. Iskustvo hirurga koji radi micro-TESE direktno utiče na stope pronalaženja spermatozoida.</li>
+
+<li><strong>Insistirajte na genetskim testovima pre hirurgije.</strong> Kariogram i AZF analiza mogu vas poštedeti nepotrebne operacije (ako je AZFa ili AZFb delecija) ili vas pripremiti za genetsko savetovanje (AZFc delecija, CFTR mutacija).</li>
+
+<li><strong>Razmotriti zamrzavanje spermatozoida ako se pronađu na micro-TESE</strong> - za buduće cikluse, da ne morate ponavljati operaciju.</li>
+
+<li><strong>Razgovarajte sa partnerkom otvoreno.</strong> Ovo je zajednički put. Skrivanje emocija i informacija samo produbljuje jaz.</li>
+
+<li><strong>Razmotrite psihološku podršku od samog početka.</strong> Ne čekajte da vas emocije prevaziđu. Razgovor sa stručnjakom za reproduktivno mentalno zdravlje nije slabost - to je pametna odluka.</li>
+
+<li><strong>Ne merite svoju vrednost dijagnozom.</strong> Azoospermija je medicinski nalaz, ne definicija ko ste.</li>
+</ol>
+<h2 id="srečnik-termina">15. Rečnik termina</h2>
+<ul>
+<li><strong>Azoospermija</strong> - odsustvo spermatozoida u ejakulatu nakon centrifugiranja uzorka.</li>
+<li><strong>Kriptozoospermija</strong> - izuzetno mala količina spermatozoida koja se detektuje tek nakon centrifugiranja ejakulata.</li>
+<li><strong>Spermatogeneza</strong> - proces proizvodnje spermatozoida u testisima, od matičnih ćelija do zrelih spermatozoida, u trajanju od oko 74 dana.</li>
+<li><strong>Semenonosni kanalići (tubuli seminiferi)</strong> - sitne savijene cevčice u testisima u kojima se odvija spermatogeneza.</li>
+<li><strong>Spermatogonija</strong> - matična ćelija spermatogeneze, najraniji stadijum u procesu nastanka spermatozoida.</li>
+<li><strong>Spermatocit</strong> - ćelija u srednjoj fazi spermatogeneze.</li>
+<li><strong>Spermatida</strong> - ćelija u kasnoj fazi spermatogeneze, blizu zrelog spermatozoida.</li>
+<li><strong>Sertolijeve ćelije</strong> - potporne ćelije u semenonosnim kanalićima koje hrane i podržavaju spermatozoide tokom sazrevanja.</li>
+<li><strong>Lajdigove ćelije</strong> - ćelije između semenonosnih kanalića koje proizvode testosteron.</li>
+<li><strong>Epididimis (pasemenik)</strong> - savijeni kanal oko testisa gde spermatozoidi sazrevaju i stiču pokretljivost.</li>
+<li><strong>Vas deferens (semenovod)</strong> - mišićna cev koja prenosi spermatozoide iz epididimisa prema uretri.</li>
+<li><strong>Tunika albuginea</strong> - čvrsta ovojnica koja obavija testis; otvara se tokom micro-TESE.</li>
+<li><strong>SCO (Sertoli cell-only sindrom)</strong> - histološki nalaz gde semenonosni kanalići sadrže samo Sertolijeve ćelije, bez ikakve spermatogeneze.</li>
+<li><strong>Maturacioni arest</strong> - zastoj spermatogeneze na određenom stadijumu sazrevanja.</li>
+<li><strong>Hipospermatogeneza</strong> - značajno smanjena, ali prisutna spermatogeneza.</li>
+<li><strong>Opstruktivna azoospermija (OA)</strong> - azoospermija uzrokovana fizičkom preprekom na putu spermatozoida, pri normalnoj proizvodnji u testisima.</li>
+<li><strong>Neopstruktivna azoospermija (NOA)</strong> - azoospermija uzrokovana poremećenom ili odsutnom proizvodnjom spermatozoida u testisima.</li>
+<li><strong>CBAVD</strong> - kongenitalno bilateralno odsustvo vas deferensa; urođeno odsustvo oba semenovoda.</li>
+<li><strong>CFTR</strong> - gen čije mutacije uzrokuju cističnu fibrozu i CBAVD.</li>
+<li><strong>Klinefelterov sindrom (47,XXY)</strong> - hromozomsko stanje u kome muškarac ima dodatni X hromozom.</li>
+<li><strong>Kariogram</strong> - analiza hromozomskog sastava iz uzorka krvi.</li>
+<li><strong>AZF (azoospermia factor)</strong> - regioni na Y hromozomu čije delecije uzrokuju poremećenu spermatogenezu (AZFa, AZFb, AZFc).</li>
+<li><strong>FSH (folikulostimulirajući hormon)</strong> - hormon hipofize koji stimuliše testise na spermatogenezu.</li>
+<li><strong>LH (luteinizirajući hormon)</strong> - hormon hipofize koji stimuliše Lajdigove ćelije na proizvodnju testosterona.</li>
+<li><strong>Inhibin B</strong> - hormon koji proizvode Sertolijeve ćelije; marker funkcije spermatogeneze.</li>
+<li><strong>Hipogonadotropni hipogonadizam (HH)</strong> - nedostatak FSH i LH iz hipofize, što dovodi do nefunkcionisanja testisa.</li>
+<li><strong>Orhitis</strong> - zapaljenje testisa.</li>
+<li><strong>Kriptoorhizam</strong> - nespušteni testis(i).</li>
+<li><strong>Varikokela</strong> - proširene vene u skrotumu.</li>
+<li><strong>Orhidopeksija</strong> - hirurško spuštanje nespuštenog testisa u skrotum.</li>
+<li><strong>Vazovazoostomija</strong> - hirurško spajanje presečenih krajeva vas deferensa (reverzija vazektomije).</li>
+<li><strong>TRUS (transrektalni ultrazvuk)</strong> - ultrazvučni pregled prostate i semenih vezikula kroz rektum.</li>
+<li><strong>TURED</strong> - transuretralna resekcija ejakulatornih duktusa; endoskopski zahvat za uklanjanje opstrukcije.</li>
+<li><strong>TESA</strong> - testikularna aspiracija spermatozoida iglom kroz kožu.</li>
+<li><strong>TESE</strong> - testikularna ekstrakcija spermatozoida otvorenom biopsijom.</li>
+<li><strong>Micro-TESE</strong> - mikrohirurška testikularna ekstrakcija spermatozoida pod operativnim mikroskopom; zlatni standard za NOA.</li>
+<li><strong>MESA</strong> - mikrohirurška epididimalna aspiracija spermatozoida.</li>
+<li><strong>PESA</strong> - perkutana epididimalna aspiracija spermatozoida.</li>
+<li><strong>Mikrodisekcija</strong> - precizno isecanje tkiva pod operativnim mikroskopom.</li>
+<li><strong>ICSI (intracitoplazmatska injekcija spermatozoida)</strong> - tehnika VTO gde se jedan spermatozoid direktno ubacuje u jajnu ćeliju.</li>
+<li><strong>PGT (preimplantaciono genetsko testiranje)</strong> - testiranje embriona na genetske anomalije pre transfera u matericu.</li>
+<li><strong>Krijoprezerviracija</strong> - zamrzavanje biološkog materijala (spermatozoida, embriona) na veoma niskim temperaturama za kasniju upotrebu.</li>
+<li><strong>Aneuploidija</strong> - abnormalan broj hromozoma u ćeliji.</li>
+</ul>
+<p><em>Dijagnoza azoospermije je jedna od najtežih vesti koje muškarac može da čuje. Ali informacija je moć - a vi ste upravo napravili prvi korak time što ste potražili i pročitali ovaj tekst. Za većinu muškaraca sa opstruktivnom azoospermijom i za značajan procenat onih sa neopstruktivnom, biološko roditeljstvo je moguće. Za one kod kojih nije - postoje legitimni, vredni i ispunjujući alternativni putevi do roditeljstva. I za sve, bez izuzetka - dijagnoza azoospermije ne definiše vašu vrednost kao muškarca, kao partnera, niti kao čoveka.</em></p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

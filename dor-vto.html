@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smanjena rezerva jajnika (DOR) - šta to znači za VTO postupak | VTOvodič.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-category:hover { background: var(--color-accent); color: #fff; }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  /* Table styling */
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .article-content th {
+    background: var(--color-bg-warm);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  .article-content td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-ink-light);
+    vertical-align: top;
+  }
+  .article-content tr:nth-child(even) td {
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+    .article-content table { font-size: 0.8rem; }
+    .article-content th, .article-content td { padding: 0.45rem 0.6rem; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+        <a href="vto-uvod">Uvod u VTO</a>
+        <a href="vto-vodic">VTO vodič</a>
+        <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+        <a href="icsi-metoda">ICSI postupak</a>
+        <a href="iui-inseminacija">Inseminacija IUI</a>
+        <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+        <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+        <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+        <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+        <a href="priprema-sperme">Priprema spermatozoida</a>
+        <a href="kultivacija-embriona">Kultivacija embriona</a>
+        <a href="embriotransfer">Embrotransfer</a>
+        <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+        <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Vodič kroz VTO</span>
+<h1 class="article-title">Smanjena rezerva jajnika (DOR) - šta to znači za VTO postupak</h1>
+
+    </div>
+
+    <div class="article-toc">
+  <div class="article-toc-title">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sadržaj članka
+  </div>
+  <ol>
+
+<li><a href="#sšta-je-smanjena-ovarijalna-rezerva-dor-i">Šta je smanjena ovarijalna rezerva (DOR) i šta zapravo znači</a></li>
+<li><a href="#sdor-nije-isto-što-i-poi-važna-razlika-ko">DOR nije isto što i POI - važna razlika koju treba razumeti</a></li>
+<li><a href="#szašto-neke-žene-imaju-smanjenu-rezervu-u">Zašto neke žene imaju smanjenu rezervu - uzroci DOR-a</a></li>
+<li><a href="#skako-se-dor-dijagnostikuje-testovi-i-nal">Kako se DOR dijagnostikuje - testovi i nalazi</a></li>
+<li><a href="#sšta-dor-znači-za-vto-postupak-prilagođen">Šta DOR znači za VTO postupak - prilagođeni protokoli i strategije</a></li>
+<li><a href="#sšanse-za-uspeh-realistična-očekivanja-be">Šanse za uspeh - realistična očekivanja bez oduzimanja nade</a></li>
+<li><a href="#semocionalna-dimenzija-dor-dijagnoze">Emocionalna dimenzija DOR dijagnoze</a></li>
+<li><a href="#smitovi-i-zablude-o-dor-u">Mitovi i zablude o DOR-u</a></li>
+<li><a href="#sčesta-pitanja-i-praktični-saveti">Česta pitanja i praktični saveti</a></li>
+<li><a href="#szavršna-poruka">Završna poruka</a></li>
+  </ol>
+</div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+<h2 id="sšta-je-smanjena-ovarijalna-rezerva-dor-i">1. Šta je smanjena ovarijalna rezerva (DOR) i šta zapravo znači</h2>
+<p>Smanjena ovarijalna rezerva - u medicinskoj literaturi označena kao DOR (od engleskog <em>Diminished Ovarian Reserve</em>) - je stanje u kome žena ima manji broj preostalih jajnih ćelija u jajnicima nego što se očekuje za njenu starost. Drugim rečima, njen „inventar" jajnih ćelija je manji od prosečnog.</p>
+<p>Ovo stanje se najčešće otkriva na osnovu tri ključna nalaza: niskog AMH hormona (anti-Milerijan hormon - hormon koji proizvode mali folikuli u jajnicima i služi kao najraniji pokazatelj ovarijalne rezerve), niskog broja antralnih folikula na ultrazvuku (AFC - <em>Antral Follicle Count</em>, broj malih folikula vidljivih na ultrazvučnom pregledu na početku ciklusa) i/ili povišenog bazalnog FSH hormona (folikulostimulirajući hormon - hormon koji mozak luči da stimuliše jajnike, a koji raste kada jajnici slabije reaguju).</p>
+<p><strong>Ali evo ključne stvari koju treba razumeti odmah na početku: DOR ne znači da žena ne može da zatrudni.</strong> DOR znači da je njen „inventar" jajnih ćelija manji, što utiče na dve stvari - koliko jajnih ćelija se može dobiti u jednom VTO ciklusu (vantelesna oplodnja) i koliko vremena ima na raspolaganju pre nego što se taj inventar dodatno smanji. Ali DOR ne određuje kvalitet tih jajnih ćelija - a kvalitet je ono od čega u najvećoj meri zavisi trudnoća.</p>
+<p>Zamislite to ovako: ako žena sa normalnom rezervom ima korpu sa 15 jabuka, a žena sa DOR-om ima korpu sa 3 jabuke - to ne znači da su te 3 jabuke lošije. One mogu biti jednako sočne i zdrave. Razlika je u tome što žena sa manjom korpom ima manje pokušaja da izabere onu pravu - ali svaka od njenih jabuka nosi istu šansu.</p>
+<p><strong>DOR nije dijagnoza neplodnosti.</strong> To je dijagnostički nalaz koji menja strategiju lečenja, ali ne nužno i ishod. Mnoge žene sa DOR-om zatrudne - i prirodnim putem i kroz VTO. Ono što DOR zahteva jeste prilagođen pristup, pravi protokol i, često, više strpljenja.</p>
+<h3>DOR je spektar, ne crno-bela dijagnoza</h3>
+<p>Važno je razumeti da DOR nije jedno uniformno stanje. Postoji čitav raspon - od blago smanjene rezerve do teško smanjene rezerve, i svaka žena sa DOR-om se nalazi na drugom mestu tog spektra.</p>
+<p>Na jednom kraju spektra su žene sa blago smanjenom rezervom - na primer, AMH između 0,7 i 1,0 ng/mL, sa pristojnim brojem antralnih folikula. Ove žene mogu imati sasvim dobar odgovor na stimulaciju u VTO ciklusu i solidne šanse za trudnoću.</p>
+<p>Na drugom kraju spektra su žene sa veoma niskim AMH (ispod 0,2 ng/mL) i minimalnim brojem folikula, kod kojih je odgovor na stimulaciju očekivano slabiji i gde su strategije drugačije.</p>
+<p>Svaka žena sa DOR-om zaslužuje individualan pristup - jer dva ista AMH nalaza kod dve različite žene mogu značiti potpuno različite priče.</p>
+<h2 id="sdor-nije-isto-što-i-poi-važna-razlika-ko">2. DOR nije isto što i POI - važna razlika koju treba razumeti</h2>
+<p>Termini DOR i POI (<em>Premature Ovarian Insufficiency</em> - preuranjena ovarijalna insuficijencija, ranije nazivana preuranjena menopauza) se često mešaju, a to može izazvati nepotrebnu paniku. Razlika je suštinska.</p>
+<p><strong>DOR (smanjena ovarijalna rezerva)</strong> znači da je rezerva smanjena, ali jajnici i dalje funkcionišu. Žena sa DOR-om i dalje ima menstrualne cikluse - redovne ili blago skraćene (na primer, ciklus koji je nekada trajao 28 dana sada traje 25–26 dana). Ona i dalje ovulira (u većini slučajeva) i može da zatrudni. Ima manje jajnih ćelija na raspolaganju i vreme jeste ograničavajući faktor, ali njeni jajnici nisu „ugašeni".</p>
+<p><strong>POI (preuranjena ovarijalna insuficijencija)</strong> je drugačije stanje. Kod POI, jajnici su prestali ili gotovo prestali da funkcionišu pre 40. godine života. FSH je trajno iznad 25–40 mIU/mL, menstruacije su izostale ili su krajnje neredovne, i spontana trudnoća je izuzetno retka. Ipak, čak ni POI nije apsolutna - 5–10% žena sa POI ima spontane remisije, tj. period u kome jajnici privremeno „prorade" i trudnoća postane moguća.</p>
+<p>Ključna razlika je u funkciji: kod DOR-a jajnici rade, ali sa smanjenim kapacitetom. Kod POI, jajnici su u velikoj meri prestali da rade.</p>
+<p><strong>DOR može, ali ne mora progredirati u POI.</strong> Kod nekih žena, rezerva se smanjuje postepeno i fiziološki, u skladu sa starenjem. Kod drugih, pad može biti brz i nepredvidiv. Upravo zato je redovno praćenje ključno - da se na vreme prepozna dinamika promene i prilagodi plan.</p>
+<h2 id="szašto-neke-žene-imaju-smanjenu-rezervu-u">3. Zašto neke žene imaju smanjenu rezervu - uzroci DOR-a</h2>
+<p>Pitanje „zašto ja?" je jedno od prvih i najbolnijih pitanja koje žene postavljaju kada saznaju za DOR. Uzroci mogu biti različiti, a često se radi o kombinaciji faktora.</p>
+<h3>Starost - najčešći i najprirodniji uzrok</h3>
+<p>Ovarijalna rezerva prirodno opada sa starošću. Ovaj pad se ubrzava nakon 35. godine, a postaje dramatičan nakon 40. DOR kod žena iznad 38–40 godina je starosno očekivan - to ne znači da nešto „nije u redu", već da je biološki sat uradio svoje. Ono što iznenađuje, brine i zahteva pažnju jeste DOR kod mlađih žena - žena u dvadesetim ili ranim tridesetim godinama koje imaju rezervu kakvu bi se očekivalo kod žene deset ili petnaest godina starije.</p>
+<h3>Genetski faktori</h3>
+<p>Genetika igra veliku ulogu u tome koliku rezervu žena ima i koliko brzo je gubi. Ako su majka, sestre ili bake ušle u menopauzu pre 45. godine, postoji povećan rizik za DOR. Posebno je važna premutacija gena FMR1 (gen povezan sa fragilnim X sindromom) - ova genetska varijanta je povezana sa DOR-om i POI i testira se kod žena sa neobjašnjenom smanjenom rezervom, naročito ako u porodici postoji istorija rane menopauze. Turnerov sindrom i drugi hromozomski poremećaji - u potpunim ili mozaičnim oblicima - takođe mogu uticati na ovarijalnu rezervu. Nauka još uvek nije u potpunosti mapirala sve genetske faktore koji određuju brzinu gubitka folikula (malih struktura u jajnicima u kojima sazrevaju jajne ćelije), ali se zna da su genetski faktori verovatno najvažniji determinant kod mladih žena sa DOR-om.</p>
+<h3>Hirurški zahvati na jajnicima</h3>
+<p>Svaka hirurška intervencija na jajniku potencijalno oštećuje tkivo i smanjuje rezervu. Posebno je rizična cistektomija (hirurško uklanjanje cisti jajnika), naročito kod endometrioma - takozvanih „čokoladnih cisti" koje nastaju kod endometrioze - jer se sa cistom neizbežno uklanja i deo zdravog tkiva jajnika. Ovarian drilling (bušenje jajnika), procedura koja se ponekad radi kod PCOS-a (sindroma policističnih jajnika), takođe može smanjiti rezervu. Unilateralna ooforektomija (uklanjanje jednog jajnika) prepolovljava broj preostalih folikula. U savremenoj hirurgiji teži se maksimalnom očuvanju jajničkog tkiva upravo zbog ovih rizika.</p>
+<h3>Endometrioza</h3>
+<p>Endometrioza zaslužuje posebno pominjanje jer na ovarijalnu rezervu utiče na dva načina. Endometriomi (čokoladne ciste) direktno oštećuju okolno tkivo jajnika hroničnom inflamacijom (zapaljenjem) i oksidativnim stresom (oštećenjem ćelija slobodnim radikalima). Čak i bez hirurgije, samo prisustvo endometrioze može smanjiti ovarijalnu rezervu - kroz poremećenu mikrocirkulaciju i toksično okruženje za folikule. A hirurško uklanjanje endometrioma dodatno smanjuje rezervu - što stvara paradoks u kome i bolest i njeno lečenje oštećuju jajnik.</p>
+<h3>Onkološko lečenje</h3>
+<p>Hemioterapija - posebno alkilirajući agensi (grupa lekova kao što su ciklofosfamid i busulfan) - može dramatično smanjiti ili potpuno uništiti ovarijalnu rezervu. Radioterapija usmerena na karlicu ili abdomen takođe može oštetiti jajnike. Stepen oštećenja zavisi od tipa lekova, doze, trajanja terapije i starosti žene u momentu lečenja. Onkofertilitet - zamrzavanje jajnih ćelija ili embriona pre onkološkog lečenja - je zlatni standard zaštite plodnosti, ali mnoge žene nažalost saznaju za posledice lečenja tek nakon što je terapija završena.</p>
+<h3>Autoimuna oboljenja</h3>
+<p>Autoimuni ooforitis - stanje u kome imuni sistem stvara antitela koja napadaju tkivo jajnika - može biti izolovano ili deo šireg autoimunog spektra (tiroiditis, Addisonova bolest, dijabetes tip 1). Žene sa jednom autoimunom bolešću imaju povećan rizik od DOR-a i POI.</p>
+<h3>Pušenje</h3>
+<p>Pušenje je dokazano povezano sa ubrzanim gubitkom ovarijalne rezerve. Toksini iz cigareta direktno oštećuju folikule. Pušačice ulaze u menopauzu prosečno 1–4 godine ranije od nepušačica. Prestanak pušenja ne može da vrati izgubljene folikule, ali zaustavlja dalje ubrzano propadanje - i to je jedna od retkih stvari koje su u potpunosti pod kontrolom žene.</p>
+<h3>Idiopatski DOR - kada se uzrok ne može naći</h3>
+<p>Kod značajnog broja mladih žena sa DOR-om ne može se identifikovati jasan uzrok. Verovatno se radi o genetskim faktorima koji još nisu otkriveni, kumulativnom uticaju faktora okoline ili individualnoj varijabilnosti. Ovo je frustrirajuće za žene koje žele konkretan odgovor na pitanje „zašto" - i ta frustracija je potpuno legitimna. Ne znati uzrok ne znači da je žena nešto pogrešno uradila. DOR je najčešće nešto sa čime se žena rodi - predodređen kapacitet koji se ispoljava u trenutku kada poželi decu.</p>
+<h2 id="skako-se-dor-dijagnostikuje-testovi-i-nal">4. Kako se DOR dijagnostikuje - testovi i nalazi</h2>
+<p>Dijagnoza DOR-a se postavlja na osnovu kombinacije laboratorijskih analiza i ultrazvučnog pregleda. Nijedan pojedinačni test nije dovoljan - slika postaje jasna tek kada se svi delovi slože.</p>
+<h3>AMH (Anti-Milerijan hormon)</h3>
+<p>AMH je najsenzitivniji i najraniji marker smanjene ovarijalne rezerve. Ovaj hormon proizvode mali (antralni i pre-antralni) folikuli u jajnicima, i njegov nivo direktno odražava koliko ih ima. AMH opada pre nego što FSH počne da raste i pre nego što se menstrualni ciklusi promene - zato je rani „alarm sistem".</p>
+<p>Referentne vrednosti za DOR:</p>
+<ul>
+<li><strong>AMH ispod 1,0–1,2 ng/mL</strong> - obično se smatra smanjenom rezervom (tačan prag varira zavisno od laboratorije i izvora)</li>
+<li><strong>AMH ispod 0,5 ng/mL</strong> - teži oblik DOR-a</li>
+<li><strong>AMH ispod 0,1–0,2 ng/mL</strong> - veoma nizak nivo, najizazovnija kategorija</li>
+</ul>
+<p>Najveća prednost AMH je što je stabilan tokom ciklusa - može se meriti bilo kog dana, ne zavisi od faze ciklusa niti od nivoa estradiola. Ali AMH ima i ograničenja: ne meri kvalitet jajnih ćelija (samo kvantitet), može biti privremeno snižen dugotrajnom upotrebom hormonske kontracepcije, deficitom vitamina D ili nedavnom hirurgijom na jajnicima.</p>
+<h3>AFC (Antral Follicle Count - broj antralnih folikula)</h3>
+<p>AFC se određuje transvaginalnim ultrazvukom na dan 2–3 menstrualnog ciklusa. Lekar broji male folikule veličine 2–10 mm na oba jajnika. Ovi folikuli predstavljaju „kandidate" koji bi mogli da odgovore na stimulaciju u VTO ciklusu.</p>
+<p>Referentne vrednosti:</p>
+<ul>
+<li><strong>AFC ispod 5–7</strong> (ukupno na oba jajnika) - ukazuje na DOR</li>
+<li><strong>AFC ispod 3–4</strong> - teži oblik DOR-a</li>
+</ul>
+<p>AFC ima prednost što pruža direktnu vizualizaciju folikula, bez troškova laboratorije, u okviru rutinskog ginekološkog pregleda. Ograničenje je to što rezultat zavisi od iskustva lekara, kvaliteta ultrazvučnog aparata i pozicije jajnika (ponekad su jajnici teško dostupni za pregled).</p>
+<h3>Bazalni FSH (folikulostimulirajući hormon)</h3>
+<p>FSH se meri u krvi na dan 2–3 ciklusa. Ovaj hormon mozak luči da stimuliše jajnike - kada jajnici slabije reaguju (što se dešava kod smanjene rezerve), mozak mora da „gurne jače", tj. da proizvede više FSH.</p>
+<ul>
+<li><strong>FSH iznad 10–12 mIU/mL</strong> - ukazuje na DOR</li>
+</ul>
+<p>Važno: FSH uvek treba tumačiti zajedno sa bazalnim estradiolom (hormonom koji takođe treba da se izmeri na dan 2–3 ciklusa). Povišen estradiol na početku ciklusa može veštački „maskirati" povišen FSH - dajući lažno normalan rezultat. Zato se oba hormona gledaju u paru.</p>
+<p>FSH ima i druga ograničenja: varira od ciklusa do ciklusa (može biti normalan u jednom ciklusu a povišen u sledećem), i kasni je marker - raste tek kada je rezerva već značajno smanjena, što ga čini manje senzitivnim od AMH.</p>
+<h3>Bazalni estradiol</h3>
+<p>Povišen bazalni estradiol (iznad 60–80 pg/mL) na dan 2–3 ciklusa može ukazivati na rano regrutovanje dominantnog folikula - što je indirektni znak smanjene rezerve. Prerano povišen estradiol može veštački sniziti FSH, dajući lažnu sliku normalnog nalaza - zato se uvek tumače zajedno.</p>
+<h3>Inhibin B</h3>
+<p>Snižen inhibin B u ranoj folikularnoj fazi (prva polovina ciklusa) je dodatni marker smanjene rezerve, ali se u svakodnevnoj kliničkoj praksi koristi ređe od AMH i AFC.</p>
+<h3>Tipična dijagnostička slika DOR-a</h3>
+<p>Jasan DOR se obično prepoznaje po kombinaciji: nizak AMH (ispod 1,0 ng/mL) + nizak AFC (ispod 5–7) + povišen FSH (iznad 10–12 mIU/mL). Ponekad se nalazi ne poklapaju u potpunosti - na primer, AMH može biti nizak dok je AFC normalan, ili obrnuto. U takvim slučajevima potrebno je tumačenje u kontekstu starosti i kliničke slike, ponavljanje testova i, pre svega, iskusan lekar koji ume da poveže sve delove slagalice.</p>
+<h3>CCCT (Clomiphene Citrate Challenge Test)</h3>
+<p>Ovo je stariji, dinamički test za procenu ovarijalne rezerve - žena uzima klomifen (lek koji stimuliše ovulaciju) od dana 5 do dana 9 ciklusa, a FSH se meri na dan 3 i dan 10. Ako FSH na dan 10 ostane povišen uprkos klomifenu, to ukazuje na smanjenu rezervu. Danas se ovaj test retko koristi jer su AMH i AFC pouzdaniji, jednostavniji i manje invazivni.</p>
+<h2 id="sšta-dor-znači-za-vto-postupak-prilagođen">5. Šta DOR znači za VTO postupak - prilagođeni protokoli i strategije</h2>
+<p>DOR ne menja samo brojeve na laboratorijskom nalazu - menja čitav pristup vantelesnoj oplodnji. Od izbora protokola stimulacije, preko odluke o oplodnji i kultivaciji, do pitanja da li i kada raditi genetsko testiranje embriona - svaki korak zahteva prilagođavanje.</p>
+<h3>Očekivanja od stimulacije - manji broj jajnih ćelija</h3>
+<p>Žene sa DOR-om tipično dobijaju manji broj jajnih ćelija na punkciji (aspiraciji jajnih ćelija) - često 1–5 umesto prosečnih 8–15 koliko se dobija kod žena sa normalnom rezervom.</p>
+<p>Evo konkretnog primera koji pomaže da se razume šta to znači u praksi: zamislite da žena sa normalnom rezervom na punkciji dobije 12 jajnih ćelija. Od tih 12, možda se 9 oplodi, 5 stigne do stadijuma blastociste (embrion star 5 dana, spreman za transfer ili zamrzavanje), i 2 budu dovoljno kvalitetne za transfer ili zamrzavanje. Žena sa DOR-om možda dobije 3 jajne ćelije. Od tih 3, možda se 2 oplode, 1 stigne do blastociste. Na prvi pogled - razlika je ogromna. Ali ako je ta jedna blastocista genetski zdrava i kvalitetna, šansa za trudnoću iz tog jednog embriona je ista kao kod žene sa 12 jajnih ćelija. Razlika je u tome što žena sa DOR-om ima manje pokušaja po ciklusu i manje prostora za „grešku" - ali svaki pokušaj nosi realnu šansu.</p>
+<p>Manji broj ne znači automatski neuspeh - potrebna je samo jedna kvalitetna jajna ćelija za trudnoću. Ali, statistički gledano, manji broj smanjuje šanse u svakom pojedinačnom ciklusu jer daje manje materijala za rad: manje jajnih ćelija znači manje embriona, a manje embriona znači manje mogućnosti za selekciju onog najboljeg.</p>
+<h3>Izbor protokola stimulacije - prilagođen pristup</h3>
+<p>Ne postoji jedan „najbolji" protokol za sve žene sa DOR-om. Izbor zavisi od stepena smanjenja rezerve, starosti, prethodnog odgovora na stimulaciju i filozofije klinike. Evo najčešćih opcija:</p>
+<p><strong>Konvencionalni antagonistički protokol sa visokim dozama</strong><br>
+Ovaj pristup podrazumeva visoke doze gonadotropina - lekova koji stimulišu jajnike (FSH u dozi 300–450 IU dnevno), često sa dodatkom LH komponente (HMG ili rekombinantni LH). Ideja je maksimalno stimulisati jajnike da „daju sve što mogu". Ovo je standardizovan pristup sa poznatim rezultatima, ali kod nekih žena sa DOR-om visoke doze ne donose značajno bolji odgovor od umerenih. Postoji takozvani „efekat plafona" (<em>ceiling effect</em>) - tačka iznad koje više lekova ne znači više jajnih ćelija, jer jajnici jednostavno nemaju više folikula koji bi mogli da odgovore.</p>
+<p><strong>Mini (blaga) stimulacija</strong><br>Umesto forsiranja jajnika visokim dozama, mini stimulacija koristi niže doze gonadotropina ili kombinaciju klomifena (leka za stimulaciju ovulacije koji se uzima oralno) ili letrozola (inhibitora aromataze koji se takođe koristi za stimulaciju) sa nižim dozama gonadotropina. Ideja je raditi sa onim što jajnici prirodno nude - manje lekova, manje stresa za telo, niži troškovi. Prednosti su brojne: manje neželjenih efekata, pristupačnija cena, manje emocionalno i fizički opterećenje, i mogućnost čestog ponavljanja (uzastopni ciklusi bez dugih pauza). Ograničenje je još manji broj jajnih ćelija po ciklusu (ponekad 1–3), što zahteva više ciklusa za kumulativni rezultat. Ali za mnoge žene sa DOR-om, ovo je mudra strategija - više malih koraka umesto jednog velikog.</p>
+<p><strong>Modifikovani prirodni ciklus</strong><br>Ovo je najprostiji pristup: prati se jedan prirodno dominantni folikul koji telo samo odabere, sa ili bez minimalne podrške gonadotropinima. Uzima se ta jedna jajna ćelija koju organizam prirodno proizvodi. Prednosti: minimalno opterećenje, niska cena, može se raditi svaki mesec. Ograničenja: jedna jajna ćelija po ciklusu (ponekad nijedna ako dođe do prevremene ovulacije), statistički niske šanse po pokušaju. Ova strategija zahteva strpljenje i spremnost na više pokušaja.</p>
+<p><strong>DuoStim (Shanghai protokol) - dvostruka stimulacija u jednom ciklusu</strong><br>Relativno noviji pristup koji koristi saznanje da se u toku jednog menstrualnog ciklusa javljaju dva „talasa" folikularnog regrutovanja. Stimulacija se radi u prvoj (folikularnoj) fazi ciklusa, zatim se radi punkcija, a potom se odmah kreće sa drugom stimulacijom u drugoj (lutealnoj) fazi istog ciklusa, nakon čega sledi još jedna punkcija. Na ovaj način se u jednom kalendarskom mesecu dobijaju dve šanse za prikupljanje jajnih ćelija - umesto jedne. Posebno je koristan kada vreme pritiska (starija životna dob, onkofertilitet). Ograničenja: fizički i emocionalno zahtevniji, nije dostupan u svim klinikama, i naučni dokazi su još uvek u fazi razvoja.</p>
+<p><strong>Akumulacija jajnih ćelija ili embriona (banking)</strong><br>Ovo nije protokol stimulacije, već strategija: kroz više uzastopnih ciklusa (mini ili konvencionalnih) prikupljaju se jajne ćelije ili embrioni koji se zamrzavaju iz svakog ciklusa. Transfer se radi tek kada se akumulira dovoljno materijala. Prednosti: povećava ukupan broj dostupnih embriona, omogućava bolju selekciju, otvara opciju za PGT (preimplantaciono genetsko testiranje - testiranje embriona na hromozomske abnormalnosti pre transfera). Ograničenja: zahteva vreme (mesece), višestruke punkcije, troškove i emocionalnu izdržljivost.</p><br>
+<p><strong>Priming - priprema jajnika pre stimulacije</strong></p>
+<p>Pre samog ciklusa stimulacije, neki lekari koriste strategije „pripreme" jajnika:</p>
+<ul>
+<li><strong>Estrogen priming</strong>: estradiolski flasteri ili tablete u lutealnoj fazi (druga polovina ciklusa) pre planirane stimulacije - cilj je sinhronizacija kohorte folikula da svi krenu u isto vreme</li>
+<li><strong>Androgen priming</strong>: testosteron gel ili DHEA suplementacija pre stimulacije - ideja je da androgeni (muški polni hormoni koji su normalno prisutni i kod žena) poboljšaju senzitivnost folikula na FSH</li>
+<li><strong>Hormon rasta</strong> (<em>Growth Hormone</em> - GH): daje se kao dodatna terapija tokom ili pre stimulacije - neki podaci ukazuju na poboljšanje odgovora kod DOR-a, ali dokazi nisu definitivni</li>
+<li><strong>LH priming</strong>: dodavanje LH hormona pre ili tokom stimulacije</li>
+</ul>
+<p>Važno je znati da nijedna od ovih strategija nije univerzalno dokazana kao efikasna - lekari ih koriste na osnovu kliničkog iskustva i individualnog odgovora pacijentkinje. Ono što funkcioniše za jednu ženu ne mora da funkcioniše za drugu.</p>
+<h3>Odluka o metodi oplođenja - gotovo uvek ICSI</h3>
+<p>ICSI (<em>Intracytoplasmic Sperm Injection</em> - intracitoplazmatska injekcija spermatozoida) je metoda kod koje se jedan odabrani spermatozoid direktno ubacuje u jajnu ćeliju pod mikroskopom. Kod žena sa DOR-om, gde je broj jajnih ćelija mali, gotovo uvek se bira ICSI umesto klasičnog IVF-a (kod koga se jajne ćelije i spermatozoidi stave zajedno i „ostave" da se oplodnja desi spontano). Razlog je jednostavan: sa 2–3 jajne ćelije, ne želi se riskirati da se nijedna ne oplodi spontano - ICSI obezbeđuje da svaka zrela jajna ćelija dobije šansu za oplodnju.</p>
+<h3>Kultivacija i odluka o transferu - dan 3 ili dan 5?</h3>
+<p>Ovo je jedna od najčešćih debata u reproduktivnoj medicini, i posebno je relevantna kod DOR-a:</p>
+<p><strong>Transfer na dan 5 (blastocista)</strong> omogućava bolju selekciju - embrion koji „doživi" stadijum blastociste ima veću verovatnoću implantacije. Ali kod malog broja embriona postoji realan rizik da nijedan ne stigne do dana 5 u laboratoriji - i da par ostane bez embriona za transfer.</p>
+<p><strong>Transfer na dan 3</strong> nosi manji rizik da se „izgube" svi embrioni u laboratoriji, jer se transfer radi ranije - ali selektivna moć je slabija, jer na dan 3 je teže razlikovati kvalitetne embrione od onih koji bi se u daljem razvoju zaustavili.</p>
+<p>Odluka zavisi od broja embriona, njihovog kvaliteta na dan 3 i filozofije klinike. Lekar donosi odluku u dogovoru sa parom, uzimajući u obzir konkretnu situaciju.</p>
+<p>Jedna od emocionalno najtežih strana DOR-a: kod malog broja embriona, nakon transfera često ne preostane ništa za zamrzavanje. Nema „rezerve" za sledeći pokušaj. Svaki ciklus je u velikoj meri „sve ili ništa" - i to je ogromno emocionalno opterećenje.</p>
+<h2 id="sšanse-za-uspeh-realistična-očekivanja-be">6. Šanse za uspeh - realistična očekivanja bez oduzimanja nade</h2>
+<p>Ovo je deo razgovora koji žene sa DOR-om najviše žele i najviše se plaše da čuju. Važno je da budu iskreno informisane - ni preterano optimistično ni nepotrebno pesimistično.</p>
+<h3>Stope uspešnosti po ciklusu su niže - ali nisu nula</h3>
+<p>Žene sa DOR-om imaju niže stope trudnoće po ciklusu u poređenju sa ženama sa normalnom rezervom. To je činjenica koja ne treba da se krije. Razlog je jednostavan: manji broj jajnih ćelija znači manje embriona i manje mogućnosti za selekciju. Ali - svaka jajna ćelija je šansa, i mnoge žene sa DOR-om zatrudne. Ponekad i iz prvog pokušaja.</p>
+<h3>Kumulativne stope su ohrabrujuće</h3>
+<p>Ovo je možda najvažnija poruka za parove sa DOR-om: šansa po pojedinačnom ciklusu može biti niža, ali kumulativno - nakon više pokušaja - šanse značajno rastu. Strategija „upornosti", koja podrazumeva više manjih ciklusa umesto jednog velikog, može biti izuzetno efikasna. Ako je šansa za trudnoću po jednom ciklusu, na primer, 15%, nakon 4–5 ciklusa kumulativna šansa postaje značajno viša.</p>
+<h3>Starost je važnija od AMH</h3>
+<p>Ovo je ključna poruka koju treba razumeti:</p>
+<p><strong>Mlada žena (ispod 35) sa niskim AMH:</strong> manji broj jajnih ćelija, ali bolji kvalitet jer starost još uvek „radi u njenu korist". Prognoza je značajno bolja nego što sam AMH sugeriše. Ove žene nemaju problem sa kvalitetom - imaju problem sa kvantitetom, i prilagođena strategija može dati odlične rezultate.</p>
+<p><strong>Starija žena (iznad 40) sa niskim AMH:</strong> manji broj I lošiji kvalitet - jer starost utiče i na kvantitet i na kvalitet. Ovo je najizazovniji scenario koji zahteva iskrenu diskusiju o očekivanjima i alternativama.</p>
+<p><strong>Mlada žena sa DOR-om ima vreme na svojoj strani u smislu kvaliteta</strong> - ali ne neograničeno, jer se rezerva nastavlja smanjivati. Zato je proaktivno delovanje važno - ne u smislu panike, već u smislu pravovremenog planiranja.</p>
+<h3>Predikcija uspeha je neprecizna</h3>
+<p>Nijedan test - ni AMH, ni AFC, ni FSH - ne može sa sigurnošću predvideti da li će konkretan VTO ciklus biti uspešan. Statistike su proseci, a svaka žena je individualna priča. Postoje žene sa AMH ispod 0,3 koje su zatrudnele iz prvog ciklusa, i žene sa AMH od 2,0 kojima je trebalo 5 ciklusa. Individualna varijabilnost je ogromna. Brojevi govore o verovatnoćama - ne o sudbinama.</p>
+<h2 id="semocionalna-dimenzija-dor-dijagnoze">7. Emocionalna dimenzija DOR dijagnoze</h2>
+<p>DOR je jedna od emocionalno najdevastantnijih dijagnoza u reproduktivnoj medicini. Razumeti emocije koje je prate nije manje važno od razumevanja medicinske strane.</p>
+<h3>Šok i neverica - posebno kod mladih žena</h3>
+<p><em>„Imam 29 godina, kako mogu imati smanjenu rezervu?"</em> Ovo je reakcija sa kojom se susreće ogroman broj mladih žena sa DOR-om. Osećaj da telo izdaje, da je biološki sat ubrzan, da je mladost „ukradena". Dijagnoza je posebno šokantna jer DOR najčešće nema simptome - žena ima redovne menstruacije, oseća se zdravo i saznaje za problem tek kada poželi decu ili uradi rutinski test.</p>
+<h3>Osećaj hitnosti i pritiska vremena</h3>
+<p><em>„Koliko mi vremena ostaje?"</em> - pitanje koje dominira mislima žene sa DOR-om. Svaki propušteni mesec osećan je kao mesec u kome su šanse manje. Pritisak na donošenje odluka - da li da odmah krenem u VTO, da li da zamrznem jajne ćelije, da li da ubrzam životne planove - može biti paralizujući ili može voditi u preuranjene, ishitrene odluke. Važno je doneti informisane odluke bez panike, ali i bez nepotrebnog odlaganja. Proaktivnost - da. Panika - ne.</p>
+<h3>Krivica i samookrivljavanje</h3>
+<p><em>„Da li sam trebala ranije da razmišljam o deci?"</em> <em>„Da li su pilule uticale?"</em> <em>„Da li sam mogla nešto da uradim drugačije?"</em> Kod žena kojima je operisan endometriom: <em>„Da li je operacija uništila moju rezervu?"</em> Kod pušačica: osećaj krivice koji može biti neproporcionalan - pušenje jeste faktor ali retko je jedini uzrok DOR-a.</p>
+<p>DOR je najčešće genetski predodređen i van individualne kontrole. Samookrivljavanje nije opravdano ni konstruktivno - ali je ljudski. Dajte sebi pravo na ta osećanja, a onda ih pustite.</p>
+<h3>Tuga i žalovanje</h3>
+<p>Mnoge žene sa DOR-om prolaze kroz proces žalovanja - za lakoćom začeća koju su zamišljale, za velikom porodicom koju su planirale, za kontrolom nad sopstvenim reproduktivnim životom. Ova tuga je legitimna i zaslužuje prostor. Ne treba je minimizovati.</p>
+<h3>Anksioznost tokom VTO ciklusa</h3>
+<p>Svaka kontrola tokom stimulacije nosi pojačanu anksioznost - <em>„koliko folikula imam?"</em>, <em>„da li odgovaram na terapiju?"</em> Manji broj folikula na svakoj kontroli može izazivati osećaj razočaranja i poređenje sa „normalnim" odgovorima. Dan punkcije donosi intenzivno iščekivanje broja jajnih ćelija - čuti „dobili smo 2 jajne ćelije" je emocionalno potpuno drugačije od „dobili smo 12". Period kultivacije embriona je izuzetno stresan jer je svaki embrion dragocen - svaki pad u broju pogađa teže nego kod žena sa velikim brojem embriona.</p>
+<h3>Izolacija i nerazumevanje</h3>
+<p>Žene sa DOR-om se često osećaju izolovano čak i u VTO zajednici. Druge žene na forumima pričaju o 15 jajnih ćelija i zamrzavanju viška, dok one broje svaku jednu. Komentari poput „bar imaš jednu" ili „kvalitet je važniji od kvantiteta" - dobronamerni ali ponekad bolni jer minimizuju iskustvo. Traženje specifične podrške - grupe i forumi za žene sa DOR-om gde se iskustva dele bez poređenja - može biti izuzetno vredno.</p>
+<h3>Uticaj na partnerski odnos</h3>
+<p>DOR može staviti pritisak na vezu. Žena može osećati krivicu prema partneru, partner može osećati nemoć. Odluke o tome koliko daleko ići sa lečenjem, da li razmotriti donaciju, koliko ciklusa pokušati - sve su to potencijalne tačke konflikta. Otvorena komunikacija - po mogućnosti uz profesionalnu podršku - nije luksuz već potreba.</p>
+
+
+<h2 id="smitovi-i-zablude-o-dor-u">8. Mitovi i zablude o DOR-u</h2>
+<p>Dezinformacije mogu naneti istu štetu kao i sama dijagnoza. Evo najčešćih zabluda:</p><div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Smanjena rezerva znači da ne mogu da zatrudnim.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> DOR znači manji broj jajnih ćelija, ali ne neplodnost. Mnoge žene sa DOR-om zatrudne - i prirodno i kroz VTO.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> AMH od 0,5 je presuda.</div>
+        <div class="myth-truth"><strong>Preterivanje.</strong> AMH od 0,5 znači manji broj jajnih ćelija ali ne govori ništa o kvalitetu. Mlada žena sa AMH 0,5 može imati odlične šanse.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ne vredi pokušavati VTO sa niskim AMH.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> VTO sa prilagođenim protokolom je upravo za ovakve situacije.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Suplementi mogu povećati ovarijalnu rezervu.</div>
+        <div class="myth-truth"><strong>Netačno u smislu broja folikula</strong> - ali mogu potencijalno poboljšati kvalitet preostalih jajnih ćelija.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> DOR uvek vodi u ranu menopauzu.</div>
+        <div class="myth-truth"><strong>Ne nužno.</strong> DOR može biti stabilan godinama ili može progredirati - redovno praćenje je ključno.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Više lekova = više jajnih ćelija.</div>
+        <div class="myth-truth"><strong>Ne uvek kod DOR-a.</strong> Postoji „efekat plafona" iznad koga više gonadotropina ne donosi bolje rezultate.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Mini stimulacija je samo za žene koje ne žele „pravu" stimulaciju.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Mini stimulacija može biti optimalna strategija za DOR jer daje uporedive rezultate uz manji stres i troškove.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako sam mlada i imam DOR, imam sve vreme na svetu.</div>
+        <div class="myth-truth"><strong>Opasna zabluda.</strong> DOR kod mlade žene zahteva proaktivno delovanje - konsultaciju sa specijalistom, razmatranje zamrzavanja jajnih ćelija, planiranje bez nepotrebnog odlaganja. Mladost daje prednost u kvalitetu ali ne garantuje da će rezerva čekati.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Donacija jajnih ćelija je odustajanje.</div>
+        <div class="myth-truth"><strong>Nije.</strong> Donacija je drugačiji ali jednako validan put do materinstva.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> DOR je moja krivica.</div>
+        <div class="myth-truth"><strong>Gotovo nikada.</strong> DOR je najčešće genetski predodređen i van individualne kontrole.</div>
+      </div>
+
+
+<h2 id="sčesta-pitanja-i-praktični-saveti">9. Česta pitanja i praktični saveti</h2>
+<h3>Koliko brzo opada moja rezerva?</h3>
+<p>To varira od žene do žene i ne može se precizno predvideti. Kod nekih žena pad je postepen i fiziološki, kod drugih može biti brz. Praćenje AMH i AFC u pravilnim intervalima (na svakih 6–12 meseci) pomaže da se prepozna dinamika promene. Ako AMH naglo pada između dva merenja, to je signal za hitnije delovanje.</p>
+<h3>Da li da zamrznem jajne ćelije sada dok ih još imam?</h3>
+<p>Ako ste mlada žena sa DOR-om i niste spremni za trudnoću - bilo da nemate partnera, niste u životnoj fazi za dete, ili iz bilo kog drugog razloga - zamrzavanje jajnih ćelija (vitrifikacija) je opcija koju vredi ozbiljno razmotriti. Sa DOR-om, vreme je ograničavajući faktor, i svaki mesec donosi potencijalni dalji pad rezerve. Razgovarajte sa specijalistom što pre - ne u smislu panike, već u smislu informisanog planiranja.</p>
+<h3>Koliko VTO pokušaja treba da uradim pre nego što odustanem?</h3>
+<p>Ne postoji univerzalan odgovor. Zavisi od starosti, stepena DOR-a, prethodnog odgovora na stimulaciju, emocionalne i finansijske izdržljivosti para i individualne procene lekara. Generalno, ako nakon 3–4 prilagođena ciklusa nema odgovora ili nema kvalitetnih embriona, diskusija o alternativama postaje važna. Ali to nije rigidno pravilo - neke žene zatrudne iz petog ili šestog pokušaja.</p>
+<h3>Da li postoji lek koji može da poveća broj folikula?</h3>
+<p>Ne u bukvalnom smislu. Nijedan lek ne može da „stvori" nove folikule - jer se žena rađa sa svim folikulima koje će ikada imati, i tokom života ih gubi. Ono što lekovi i suplementi mogu da urade jeste da potencijalno poboljšaju kvalitet preostalih folikula i optimizuju odgovor na stimulaciju.</p>
+<h3>Šta ako iz punkcije dobijem samo jednu jajnu ćeliju - da li ima šanse?</h3>
+<p>Da. Jedna jajna ćelija je jedna šansa. Ako se ta jajna ćelija uspešno oplodi, ako embrion nastavi da se razvija i ako je kvalitetan - šansa za trudnoću postoji. Šansa je statistički niža nego sa više embriona, ali nije nula. Postoje žene koje su ostvarile trudnoću iz jedne jedine jajne ćelije.</p>
+<h3>Da li da menjam kliniku ako nisam dobila dobar odgovor?</h3>
+<p>Promena klinike ima smisla ako: osećate da vaš lekar nije prilagodio protokol vašoj situaciji, ako je komunikacija loša, ako nemate poverenje u tim, ili ako želite drugo mišljenje o strategiji. Ali je važno razumeti da promena klinike neće promeniti vašu ovarijalnu rezervu - medjutim, drugačiji pristup, drugačiji protokol ili iskusniji lekar za DOR mogu napraviti razliku.</p>
+<h3>Koliko košta više VTO ciklusa sa DOR-om?</h3>
+<p>Finansijski aspekt DOR-a je realan i ne treba ga ignorisati. Više ciklusa znači veće troškove - a u kombinaciji sa neizvesnošću ishoda, to može biti izuzetno opterećujuće. Razgovarajte otvoreno sa klinikom o troškovima, razmotriti mini stimulaciju ili modifikovane prirodne cikluse koji su pristupačniji, i istražiti da li postoje programi finansijske podrške ili mogućnosti obročnog plaćanja.</p>
+<h3>Da li je mini stimulacija zaista efikasna ili gubim vreme?</h3>
+<p>Mini stimulacija nije „manja verzija" pravog lečenja - za mnoge žene sa DOR-om, to JESTE optimalan pristup. Studije pokazuju da kod žena sa izrazito smanjenom rezervom, mini stimulacija može dati uporedive rezultate sa konvencionalnom stimulacijom uz manje fizičko i emocionalno opterećenje. Ključna prednost je mogućnost čestog ponavljanja - umesto jednog intenzivnog ciklusa sa pauzom od 2–3 meseca, mogu se raditi uzastopni mini ciklusi, čime se kumulativno prikuplja više jajnih ćelija.</p>
+<h3>Da li da pokušam prirodno začeće pre VTO-a?</h3>
+<p>DOR ne isključuje mogućnost prirodnog začeća - pogotovo ako su jajovodi prohodni i nalaz spermatozoida partnera uredan. Ali treba biti svestan vremenskog faktora: dok pokušavate prirodno, rezerva nastavlja da se smanjuje. Za mladu ženu sa blago smanjenom rezervom, nekoliko meseci prirodnog pokušaja može biti opravdano. Za ženu sa teško smanjenom rezervom ili stariju ženu, odlaganje VTO-a zbog pokušaja prirodnog začeća može značiti gubitak dragocenog vremena. Razgovarajte sa lekarom o tome šta ima smisla u vašoj konkretnoj situaciji.</p>
+<h3>Šta da radim između ciklusa?</h3>
+<p>Između VTO ciklusa: nastavite sa suplementacijom (CoQ10, vitamin D, DHEA ako vam je lekar preporučio), održavajte zdrave životne navike, brinite o svom mentalnom zdravlju (terapija, podrška, aktivnosti koje vas ispunjavaju), i dajte svom telu vremena da se oporavi - ali ne previše, jer vreme je faktor.</p>
+<h2 id="szavršna-poruka">Završna poruka</h2>
+<p>Smanjena ovarijalna rezerva menja strategiju - ali ne nužno i ishod. Ova dijagnoza zahteva prilagođen pristup, pravog lekara, strpljenje i, često, više pokušaja. Zahteva i hrabrost - hrabrost da se suočite sa dijagnozom, da donosite teške odluke, da izdržite neizvesnost, i da tražite pomoć kada vam je potrebna.</p>
+<p>Mnoge žene sa DOR-om ostvaruju trudnoću - sa sopstvenim jajnim ćelijama ili alternativnim putevima. Svaka od tih priča je priča o upornosti, snazi i nadi koja ne odustaje.</p>
+<p>Ali isto tako, ovaj tekst ne bi bio iskren ako ne bi rekao i ovo: ponekad, uprkos svemu, put ne vodi tamo gde smo se nadali. I u tom slučaju, pravo na tugu, pravo na odluku „dovoljno je" i pravo na alternativne puteve do ispunjenog života - sa decom ili bez njih - zaslužuju jednako poštovanje i podršku.</p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst je edukativnog karaktera i ne zamenjuje individualnu medicinsku konsultaciju. Svaka žena sa DOR-om zaslužuje prilagođen pristup koji uvažava njenu jedinstvenu situaciju - starost, stepen smanjenja rezerve, prethodnu istoriju i lične preferencije. Za sve odluke vezane za lečenje, suplementaciju i strategiju, konsultujte svog lekara specijaliste reproduktivne medicine
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Šta je AMH hormon - vrednosti po godinama i značaj za VTO | VTOvodič.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-category:hover { background: var(--color-accent); color: #fff; }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  /* Table styling */
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .article-content th {
+    background: var(--color-bg-warm);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  .article-content td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-ink-light);
+    vertical-align: top;
+  }
+  .article-content tr:nth-child(even) td {
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+    .article-content table { font-size: 0.8rem; }
+    .article-content th, .article-content td { padding: 0.45rem 0.6rem; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+        <a href="vto-uvod">Uvod u VTO</a>
+        <a href="vto-vodic">VTO vodič</a>
+        <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+        <a href="icsi-metoda">ICSI postupak</a>
+        <a href="iui-inseminacija">Inseminacija IUI</a>
+        <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+        <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+        <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+        <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+        <a href="priprema-sperme">Priprema spermatozoida</a>
+        <a href="kultivacija-embriona">Kultivacija embriona</a>
+        <a href="embriotransfer">Embrotransfer</a>
+        <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+        <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Hormoni i dijagnostika</span>
+<h1 class="article-title">Šta je AMH hormon - vrednosti po godinama i značaj za VTO</h1>
+
+    </div>
+
+    <div class="article-toc">
+  <div class="article-toc-title">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sadržaj članka
+  </div>
+  <ol>
+<li><a href="#sšta-je-amh-hormon-i-zašto-se-o-njemu-tol">Šta je AMH hormon i zašto se o njemu toliko govori</a></li>
+<li><a href="#skako-se-amh-test-radi-praktični-aspekti">Kako se AMH test radi - praktični aspekti</a></li>
+<li><a href="#sreferentne-vrednosti-amh-po-godinama">Referentne vrednosti AMH po godinama</a></li>
+<li><a href="#sznačaj-amh-za-vto-postupak">Značaj AMH za VTO postupak</a></li>
+<li><a href="#samh-i-starost-dve-različite-dimenzije-pl">AMH i starost - dve različite dimenzije plodnosti</a></li>
+<li><a href="#samh-kod-posebnih-stanja">AMH kod posebnih stanja</a></li>
+<li><a href="#smitovi-i-zablude-o-amh-hormonu">Mitovi i zablude o AMH hormonu</a></li>
+<li><a href="#semocionalna-dimenzija-amh-rezultata">Emocionalna dimenzija AMH rezultata</a></li>
+<li><a href="#sčesta-pitanja-i-saveti">Česta pitanja i saveti</a></li>
+<li><a href="#szavršna-poruka">Završna poruka</a></li>
+  </ol>
+</div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+<h2 id="sšta-je-amh-hormon-i-zašto-se-o-njemu-tol">1. Šta je AMH hormon i zašto se o njemu toliko govori</h2>
+<p>AMH - skraćenica od Anti-Milerijanovog hormona - jeste hormon koji proizvode takozvane granuloza ćelije (to su ćelije koje okružuju i hrane jajnu ćeliju unutar folikula) malih, rastućih folikula u jajnicima. U reproduktivnoj medicini, AMH se danas najšire koristi kao marker ovarijalne rezerve - jednostavno rečeno, kao pokazatelj koliko jajnih ćelija ženi preostaje u jajnicima.</p>
+<p>Jedna stvar koju je izuzetno važno razumeti od samog početka: <strong>AMH govori o broju jajnih ćelija (kvantitetu), ali ne govori ništa o njihovom kvalitetu.</strong> Ova razlika je ključna i na njoj počiva pravilno razumevanje svakog AMH rezultata.</p>
+<h3>Ovarijalna rezerva - šta je to zapravo?</h3>
+<p>Svaka žena se rađa sa konačnim brojem jajnih ćelija. Za razliku od muškaraca, koji kontinuirano proizvode nove spermatozoide tokom čitavog života, žena dobija sve jajne ćelije koje će ikada imati još pre rođenja - obično između 1 i 2 miliona pri rođenju. Taj broj od tog trenutka samo opada i nikada se ne obnavlja.</p>
+<p>Do puberteta, taj broj se već smanji na otprilike 300.000–400.000 jajnih ćelija. Od tog momenta, sa svakim menstrualnim ciklusom, telo „regrutuje" grupu folikula (malih kesica u jajnicima u kojima se nalaze jajne ćelije) koji počinju da rastu. Od te grupe, obično samo jedan folikul sazri do kraja i oslobodi jajnu ćeliju - to je ovulacija. Ali svi ostali folikuli koji su počeli da rastu u tom ciklusu - a to je obično 15 do 20 njih - propadaju u procesu koji se naziva atrezija (prirodno odumiranje folikula). Dakle, žena ne gubi samo jednu jajnu ćeliju po ciklusu, već čitavu grupu.</p>
+<p>Ovarijalna rezerva je, prema tome, termin koji opisuje koliko je jajnih ćelija preostalo u jajnicima u datom trenutku. Zamislite je kao biološki sat koji nepovratno otkucava.</p>
+<h3>Šta AMH zapravo meri?</h3>
+<p>AMH proizvode mali antralni i preantralni folikuli - to su folikuli koji su tek započeli rast, ali još nisu dostigli stadijum u kome bi jedan od njih mogao da ovulira. Upravo ti mali folikuli predstavljaju „rezervoar" iz koga telo regrutuje folikule za svaki novi menstrualni ciklus.</p>
+<p>Logika je jednostavna: što više tih malih folikula ima u jajnicima, više AMH oni zajedno proizvode i viša je vrednost AMH u krvi. I obrnuto - što je manje folikula, manje AMH se proizvodi.</p>
+<ul>
+<li><strong>Viši AMH</strong> = više malih folikula u jajnicima = veća ovarijalna rezerva</li>
+<li><strong>Niži AMH</strong> = manje malih folikula = smanjena ovarijalna rezerva</li>
+</ul>
+<h3>Zašto je AMH poseban u poređenju sa drugim hormonima?</h3>
+<p>Tradicionalno, ovarijalna rezerva se procenjivala merenjem FSH (folikulostimulirajućeg hormona), LH (luteinizirajućeg hormona) i estradiola. Problem sa ovim hormonima je što se njihove vrednosti značajno menjaju tokom menstrualnog ciklusa - zato se moraju meriti tačno određenog dana, obično 2. ili 3. dana ciklusa.</p>
+<p>AMH je u tom pogledu drugačiji: njegova vrednost je relativno stabilna tokom čitavog menstrualnog ciklusa. To znači da se AMH može izmeriti bilo kog dana ciklusa, bez čekanja na početak menstruacije. Ova praktičnost, zajedno sa visokom informativnošću, učinila ga je najpopularnijim i najpouzdanijim pojedinačnim markerom ovarijalne rezerve u savremenoj reproduktivnoj medicini.</p>
+<h3>AMH i starost - prirodni pad tokom života</h3>
+<p>Ono što mnoge žene ne znaju jeste da AMH počinje da opada znatno pre nego što žena primeti bilo kakve promene u svom menstrualnom ciklusu. Opadanje počinje već u dvadesetim godinama, postepeno se ubrzava nakon 35. godine, i nastavlja da pada sve do menopauze, kada AMH dostiže nemerljive vrednosti.</p>
+<p>Ovo je izuzetno važna informacija jer znači da AMH može da ukaže na smanjenu ovarijalnu rezervu i kod mlađih žena koje imaju potpuno uredne, redovne menstruacije. Uredna menstruacija ne garantuje adekvatnu ovarijalnu rezervu - upravo zato je AMH toliko dragocen podatak.</p>
+<div class="article-highlight"><div class="article-highlight-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Kratka napomena: AMH kod muškaraca</div><p>Iako se u kontekstu vantelesne oplodnje (VTO) AMH gotovo isključivo koristi kao ženski marker ovarijalne rezerve, vredi kratko napomenuti da i muškarci proizvode AMH - u testisima. Kod muškaraca, AMH ima ulogu tokom embrionalnog razvoja (dovodi do povlačenja Milerijanovih kanala, od čega je i dobio ime) i može se koristiti u nekim specifičnim dijagnostičkim situacijama, ali to prevazilazi okvire ovog teksta.</p></div>
+<h2 id="skako-se-amh-test-radi-praktični-aspekti">2. Kako se AMH test radi - praktični aspekti</h2>
+<h3>Vađenje krvi</h3>
+<p>AMH test je jednostavna analiza krvi - vadi se krv iz vene, kao za bilo koju drugu laboratorijsku analizu. Ne zahteva posebnu pripremu: ne mora se raditi na prazan stomak, ne mora se čekati određeni dan menstrualnog ciklusa, i ne zahteva nikakvo prethodno gladovanje ili ograničavanje aktivnosti. Upravo ova jednostavnost je jedna od velikih prednosti AMH testa.</p>
+<h3>Gde se radi?</h3>
+<p>AMH test se radi u specijalizovanim laboratorijama, laboratorijama klinika za vantelesnu oplodnju ili većim biohemijskim laboratorijama. Važno je znati da ne rade sve laboratorije AMH test - pre odlaska na vađenje krvi, proverite da li vaša laboratorija ima tu analizu u ponudi.</p>
+<h3>Koliko brzo stižu rezultati?</h3>
+<p>Rezultati AMH testa obično stižu u roku od 1 do 5 radnih dana, u zavisnosti od laboratorije i toga da li analizu rade na licu mesta ili šalju uzorak u drugu laboratoriju.</p>
+<h3>Jedinice mere - izvor česte konfuzije</h3>
+<p>AMH se izražava u dve različite jedinice, i ovo je čest izvor zabune:</p>
+<ul>
+<li><strong>ng/mL</strong> (nanogrami po mililitru)</li>
+<li><strong>pmol/L</strong> (pikomoli po litru)</li>
+</ul>
+<p>Različite laboratorije koriste različite jedinice. Konverzija je sledeća: <strong>1 ng/mL ≈ 7,14 pmol/L</strong>. Uvek proverite koju jedinicu koristi vaša laboratorija pre nego što počnete da tumačite rezultat - vrednost od 2.0 ng/mL i 2.0 pmol/L su drastično različite stvari.</p>
+
+
+<h3>Pouzdanost rezultata</h3>
+<p>Različiti laboratorijski testovi (takozvani assay-ji - metode kojima se meri koncentracija hormona) mogu dati nešto različite rezultate za isti uzorak krvi. Zato je izuzetno važno tumačiti vaš AMH rezultat u kontekstu referentnog raspona koji je specifičan za laboratoriju koja je uradila analizu, a ne na osnovu opštih tabela sa interneta.</p>
+<h3>Faktori koji mogu privremeno uticati na AMH vrednost</h3>
+<p>Nekoliko faktora može privremeno promeniti AMH vrednost, što može dovesti do pogrešne interpretacije:</p>
+<ul>
+<li><strong>Hormonska kontracepcija</strong>: oralne kontraceptivne pilule, vaginalni prsten i drugi hormonski kontraceptivi mogu sniziti AMH dok se koriste. Vrednost se vraća na bazalnu (pravu) vrednost 2–6 meseci nakon prestanka korišćenja. Zato se preporučuje merenje AMH nakon pauze od kontracepcije za tačniju procenu.</li>
+<li><strong>Operacije na jajnicima</strong>: hirurške intervencije, posebno kod endometrioma (čokoladnih cista) na jajnicima, mogu trajno smanjiti AMH.</li>
+<li><strong>Vitamin D deficit</strong>: nedostatak vitamina D može biti povezan sa nižim AMH vrednostima.</li>
+<li><strong>Gojaznost</strong>: neke studije ukazuju na niže AMH vrednosti kod žena sa visokim indeksom telesne mase (BMI).</li>
+<li><strong>Pušenje</strong>: studije konzistentno pokazuju niži AMH kod pušačica u poređenju sa nepušačicama iste starosti.</li>
+</ul>
+<p>Ako je neki od ovih faktora prisutan, razgovarajte sa lekarom o mogućem uticaju na vaš rezultat.</p>
+<h2 id="sreferentne-vrednosti-amh-po-godinama">3. Referentne vrednosti AMH po godinama</h2>
+<div class="article-highlight"><div class="article-highlight-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Važna napomena pre tabele</div><p>Vrednosti AMH koje slede su orijentacione i predstavljaju statističke proseke za određene starosne grupe. One variraju u zavisnosti od laboratorije, korišćenog testa, populacije iz koje su izvedene i mnogo drugih faktora. <strong>Ne postoji univerzalna „normalna" vrednost AMH</strong> - postoji raspon koji je očekivan za određenu starost.</p></div>
+<p>Vaš rezultat uvek tumačite:</p>
+<ul>
+<li>u kontekstu referentnog raspona konkretne laboratorije koja je uradila analizu</li>
+<li>u kombinaciji sa drugim nalazima (AFC - broj antralnih folikula na ultrazvuku, vaša starost, FSH)</li>
+<li>uz razgovor sa lekarom koji poznaje vašu celokupnu kliničku sliku</li>
+</ul>
+<h3>Orijentacione vrednosti po starosnim grupama (u ng/mL)</h3>
+<table>
+<thead>
+<tr><th>Starosna grupa</th><th>Očekivani raspon</th><th>Prosečna vrednost</th></tr>
+</thead>
+<tbody>
+<tr><td>20–25 godina</td><td>2,0–6,8 ng/mL</td><td>oko 3,5–4,0 ng/mL</td></tr>
+<tr><td>25–30 godina</td><td>1,5–6,0 ng/mL</td><td>oko 3,0–3,5 ng/mL</td></tr>
+<tr><td>30–35 godina</td><td>1,0–5,0 ng/mL</td><td>oko 2,0–2,5 ng/mL</td></tr>
+<tr><td>35–38 godina</td><td>0,5–3,5 ng/mL</td><td>oko 1,5–2,0 ng/mL</td></tr>
+<tr><td>38–40 godina</td><td>0,3–2,5 ng/mL</td><td>oko 1,0–1,5 ng/mL</td></tr>
+<tr><td>40–42 godine</td><td>0,1–1,5 ng/mL</td><td>oko 0,5–1,0 ng/mL</td></tr>
+<tr><td>42–45 godina</td><td>0,05–1,0 ng/mL</td><td>ispod 0,5 ng/mL</td></tr>
+<tr><td>Iznad 45 godina</td><td>najčešće ispod 0,1 ng/mL ili nemerljivo</td><td>-</td></tr>
+</tbody>
+</table>
+
+<p><em>Napomena: Ako vaša laboratorija daje rezultate u pmol/L, pomnožite gore navedene vrednosti sa 7,14 da biste dobili približni ekvivalent (npr. 2,0 ng/mL ≈ 14,3 pmol/L).</em></p>
+<h3>Opšta kategorizacija AMH - nezavisno od starosti</h3>
+<table>
+<thead>
+<tr><th>Kategorija</th><th>Vrednost AMH</th><th>Šta to znači u praksi</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Visok AMH</strong></td><td>iznad 3,5–4,0 ng/mL</td><td>Velika ovarijalna rezerva. Može ukazivati na PCOS (sindrom policističnih jajnika). Tokom VTO stimulacije postoji veći rizik od OHSS-a (sindroma ovarijalne hiperstimulacije - stanja u kome jajnici previše reaguju na lekove).</td></tr>
+<tr><td><strong>Normalan AMH</strong></td><td>1,0–3,5 ng/mL</td><td>Očekivana ovarijalna rezerva za reproduktivno doba. Obično se očekuje dobar odgovor na stimulaciju u VTO postupku.</td></tr>
+<tr><td><strong>Snižen AMH</strong></td><td>0,5–1,0 ng/mL</td><td>Smanjena ovarijalna rezerva. Moguć slabiji odgovor na stimulaciju - lekar prilagođava protokol.</td></tr>
+<tr><td><strong>Nizak AMH</strong></td><td>ispod 0,5 ng/mL</td><td>Značajno smanjena rezerva. Očekivan mali broj jajnih ćelija na punkciji. Potreban individualizovan pristup.</td></tr>
+<tr><td><strong>Veoma nizak / nemerljiv AMH</strong></td><td>ispod 0,1 ng/mL</td><td>Izrazito smanjena rezerva. Najteža kategorija za VTO, ali - i ovo je važno - ne nemoguća.</td></tr>
+</tbody>
+</table>
+
+<div class="article-highlight"><div class="article-highlight-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Ključna poruka</div><p>Ove vrednosti su statistički proseci, a individualna varijabilnost je ogromna. Žena sa AMH od 0,8 ng/mL može imati bolji odgovor na stimulaciju od žene sa AMH od 2,5 ng/mL - jer na odgovor utiče mnogo faktora, ne samo AMH. Jednako tako, AMH ne meri kvalitet jajnih ćelija niti garantuje ishod lečenja. Jedan broj nikada ne definiše vaše šanse.</p></div>
+<h2 id="sznačaj-amh-za-vto-postupak">4. Značaj AMH za VTO postupak</h2>
+<p>AMH je za reproduktivne lekare izuzetno važan alat jer im pomaže da predvide kako će jajnici reagovati na stimulaciju i da na osnovu toga prilagode čitav pristup. Evo kako AMH utiče na ključne aspekte VTO postupka.</p>
+<h3>Predikcija odgovora jajnika na stimulaciju</h3>
+<p>Tokom VTO postupka, žena prima lekove (gonadotropine - hormone koji podstiču jajnike da razviju više folikula istovremeno) kako bi se dobilo više jajnih ćelija na punkciji. AMH pomaže lekaru da predvidi koliko će jajnici reagovati na te lekove:</p>
+<ul>
+<li><strong>Visok AMH</strong> → očekuje se jak odgovor → veći broj folikula i jajnih ćelija. Lekar bira nižu početnu dozu gonadotropina da smanji rizik od hiperstimulacije.</li>
+<li><strong>Normalan AMH</strong> → očekuje se optimalan odgovor → standardne doze, najmanji rizik od komplikacija.</li>
+<li><strong>Nizak AMH</strong> → očekuje se slab odgovor → lekar može izabrati višu dozu ili prilagođeniji protokol, ili se pripremiti na manji broj jajnih ćelija na punkciji.</li>
+</ul>
+<p>Važno je naglasiti: AMH ne predviđa odgovor sa stopostotnom tačnošću. To je orijentir koji pomaže u planiranju, ali ne garancija.</p>
+<h3>Izbor protokola stimulacije</h3>
+<p>Na osnovu AMH vrednosti (zajedno sa drugim nalazima), lekar bira protokol stimulacije koji je najprikladniji:</p>
+<ul>
+<li><strong>Visok AMH ili PCOS</strong>: najčešće antagonistički protokol sa nižim dozama lekova. Može se koristiti takozvani GnRH agonist trigger (poseban način „okidanja" ovulacije koji smanjuje rizik od OHSS-a) umesto klasičnog hCG triggera.</li>
+<li><strong>Normalan AMH</strong>: standardni antagonistički protokol ili dugi protokol - lekar bira na osnovu ukupne kliničke slike.</li>
+<li><strong>Nizak AMH</strong>: ovde postoji više mogućih pristupa - konvencionalne visoke doze gonadotropina, mini stimulacija (blaga stimulacija sa nižim dozama lekova, koja je nežnija za organizam), modifikovani prirodni ciklus (praćenje jednog prirodnog folikula uz minimalnu stimulaciju), ili DuoStim (dvostruka stimulacija u jednom menstrualnom ciklusu - stimulacija u folikularnoj i lutealnoj fazi istog ciklusa kako bi se dobilo više jajnih ćelija). Lekar bira pristup na osnovu celokupne kliničke slike, prethodnog odgovora na stimulaciju i vaših preferencija.</li>
+</ul>
+<h3>Predviđanje broja jajnih ćelija na punkciji</h3>
+<p>AMH relativno dobro korelira sa brojem dobijenih jajnih ćelija na punkciji - generalno, viši AMH znači više jajnih ćelija u proseku. Međutim, ovde treba imati na umu jednu ohrabrujuću činjenicu: svaka jajna ćelija je šansa, i potrebna je samo jedna kvalitetna jajna ćelija da bi nastao embrion i trudnoća. Broj nije sve.</p>
+<h3>Procena rizika od OHSS-a</h3>
+<p>OHSS (sindrom ovarijalne hiperstimulacije) je potencijalno ozbiljna komplikacija VTO stimulacije u kojoj jajnici previše reaguju na lekove, što može dovesti do nakupljanja tečnosti u trbuhu, otoka jajnika i, u retkim slučajevima, ozbiljnijih zdravstvenih problema. Žene sa visokim AMH (posebno iznad 3,5–5,0 ng/mL) imaju značajno viši rizik od OHSS-a. Lekar koristi AMH da unapred prilagodi protokol i smanji taj rizik - korišćenjem nižih doza lekova, izbora specifičnog triggera ovulacije ili freeze-all strategije (zamrzavanje svih embriona bez transfera u tom ciklusu, čime se telo štedi od dodatnog opterećenja).</p>
+<h3>Savetovanje para o realističnim očekivanjima</h3>
+<p>Na osnovu AMH (u kombinaciji sa starošću i brojem antralnih folikula na ultrazvuku), lekar može dati realniju procenu - koliko se jajnih ćelija može očekivati na punkciji, koliko ciklusa stimulacije može biti potrebno da se dobije dovoljan broj embriona, i da li je potrebno razmotriti alternativne pristupe.</p>
+<h3>AMH i odluka o hitnosti</h3>
+<p>Snižen ili padajući AMH kod mlađe žene šalje jasan signal: vreme radi protiv nje i ne treba odlagati lečenje. Svaki mesec odlaganja znači potencijalno dalji pad rezerve. S druge strane, normalan AMH kod starije žene jeste ohrabrujuće jer ukazuje na to da rezerva još postoji - ali starost i dalje ostaje najvažniji faktor za kvalitet jajnih ćelija, što nas dovodi do sledeće izuzetno važne teme.</p>
+<h2 id="samh-i-starost-dve-različite-dimenzije-pl">5. AMH i starost - dve različite dimenzije plodnosti</h2>
+<p>Ovo je možda najvažnija lekcija čitavog teksta, i nešto što svaka žena i par moraju da razumeju: <strong>AMH meri kvantitet (broj), a starost određuje kvalitet.</strong></p>
+<h3>Ilustracija: pesak u peščanom satu</h3>
+<p>Zamislite da je vaša ovarijalna rezerva kao pesak u peščanom satu. AMH vam govori otprilike koliko peska je preostalo u gornjem delu sata - da li je sat još pun, na pola, ili pri kraju. Ali AMH vam ne govori ništa o kvalitetu tog peska - da li su zrna čvrsta i pravilna ili su počela da se krune i raspadaju.</p>
+<p>Za kvalitet peska presudna je vaša starost.</p>
+<p>Zato lekar uvek gleda oba podatka zajedno - i koliko peska imate (AMH) i kakav je pesak (starost).</p>
+<h3>Šta je kvalitet jajne ćelije i zašto zavisi od starosti?</h3>
+<p>Kvalitet jajne ćelije se u najvećoj meri odnosi na njenu hromozomsku ispravnost - da li jajna ćelija ima tačan broj hromozoma (takva ćelija se naziva euploidna) ili ima hromozomski višak ili manjak (aneuploidna). Hromozomski abnormalni embrioni su najčešći uzrok neuspešne implantacije, ranih pobačaja i nekih genetskih stanja.</p>
+<p>Procenat hromozomski normalnih jajnih ćelija dominantno zavisi od starosti žene, a ne od AMH vrednosti. Razlog je biološki: jajne ćelije „stare" zajedno sa ženom jer su prisutne od njenog rođenja. Tokom života dolazi do akumulacije hromozomskih grešaka, starenja mitohondrija (energetskih centrala ćelije) i smanjenja energetskog kapaciteta ćelije - sve to smanjuje šanse da jajna ćelija bude genetski zdrava.</p>
+<p>Zato se u reproduktivnoj medicini govori o „mladoj" i „staroj" jajnoj ćeliji - mlađa žena ima „mlađe" jajne ćelije sa manjom verovatnoćom hromozomskih grešaka, a starija žena ima „starije" jajne ćelije sa većom verovatnoćom abnormalnosti.</p>
+<h3>Primeri koji ilustruju razliku</h3>
+<p><strong>Primer 1: Mlada žena sa niskim AMH</strong></p>
+<p>Žena od 30 godina sa AMH od 0,5 ng/mL. Njen AMH ukazuje na smanjenu ovarijalnu rezervu - očekuje se manji broj jajnih ćelija na punkciji. Međutim, one jajne ćelije koje se dobiju imaju veću šansu da budu genetski zdrave jer je žena mlada. Šanse su, dakle, bolje nego što sam broj (AMH) sugeriše.</p><br>
+<p><strong>Primer 2: Starija žena sa normalnim AMH</strong></p>
+<p>Žena od 42 godine sa AMH od 2,0 ng/mL. Njen AMH ukazuje na normalnu ovarijalnu rezervu - očekuje se solidan broj jajnih ćelija. Međutim, veliki procenat tih jajnih ćelija će verovatno biti hromozomski abnormalan jer starost utiče na kvalitet. Šanse su niže nego što sam AMH sugeriše.</p><br>
+<p><strong>Primer 3: Starija žena sa niskim AMH - najizazovniji scenario</strong></p>
+<p>Žena od 42 godine sa AMH od 0,3 ng/mL. Očekuje se mali broj jajnih ćelija, a od tih malobrojnih ćelija, manji procenat će biti genetski zdrav. Ovo je najteži scenario koji zahteva iskreno savetovanje o očekivanjima, ali i o alternativama.</p><br>
+<p><strong>Primer 4: Mlada žena sa visokim AMH - najpovoljniji scenario</strong></p>
+<p>Žena od 28 godina sa AMH od 5,0 ng/mL. Očekuje se veliki broj jajnih ćelija, a s obzirom na mlađu starost, veliki procenat njih ima šansu da bude genetski zdrav. Ovo je najpovoljniji scenario, uz napomenu da visok AMH nosi i povišen rizik od OHSS-a tokom stimulacije, pa je potreban oprez u doziranju lekova.</p><br>
+<h3>Zaključak</h3>
+<p>AMH i starost se uvek tumače zajedno - nikada jedno bez drugog. Nijedan od ova dva podatka sam za sebe ne daje kompletnu sliku.</p>
+<h2 id="samh-kod-posebnih-stanja">6. AMH kod posebnih stanja</h2>
+<h3>AMH i PCOS (sindrom policističnih jajnika)</h3>
+<p>PCOS je jedno od najčešćih hormonskih poremećaja kod žena reproduktivnog doba. Žene sa PCOS-om često imaju izrazito visok AMH - ponekad iznad 5–10 ng/mL, pa i više. Razlog je jednostavan: PCOS je karakterisan velikim brojem malih antralnih folikula u jajnicima, a svi ti folikuli zajedno proizvode veliku količinu AMH.</p>
+<p>Međutim, visok AMH kod PCOS-a ne znači superiornu plodnost - naprotiv. PCOS je često praćen anovulacijom (izostankom ovulacije - jajnici imaju mnogo folikula, ali nijedan ne sazri do kraja i ne oslobodi jajnu ćeliju), što paradoksalno otežava začeće.</p>
+<p>U kontekstu VTO postupka, visok AMH kod PCOS-a znači jak odgovor na stimulaciju i visok rizik od OHSS-a. Lekar koristi ovu informaciju za prilagođavanje protokola: bira niže doze gonadotropina, antagonistički protokol, agonist trigger (umesto standardnog hCG triggera) i, ako je potrebno, freeze-all strategiju (zamrzavanje svih embriona u tom ciklusu, a transfer u narednom, kada se jajnici oporave).</p>
+<p>Vredi napomenuti da se u novijim kliničkim smernicama visok AMH razmatra kao potencijalni dijagnostički kriterijum za PCOS - umesto ili pored klasičnog ultrazvučnog nalaza policističnih jajnika.</p>
+<h3>AMH i endometrioza</h3>
+<p>Endometrioza je stanje u kome tkivo slično sluznici materice (endometrijumu) raste izvan materice - najčešće na jajnicima, jajovodima i potrbušnici. Žene sa endometriozom, posebno one koje imaju endometriome (takozvane „čokoladne ciste" - ciste na jajnicima ispunjene starom krvlju), mogu imati snižen AMH.</p>
+<p>Dodatno, hirurško uklanjanje endometrioma može dalje smanjiti AMH jer se sa cistom neizbežno uklanja i deo zdravog tkiva jajnika u kome se nalaze folikuli. Ovo je važna informacija za žene sa endometriozom koje planiraju trudnoću - odluka o hirurškom lečenju endometrioma treba da uzme u obzir i potencijalni uticaj na ovarijalnu rezervu.</p>
+<h3>Operacije na jajnicima</h3>
+<p>Svaka hirurška intervencija na jajniku - bilo da se radi o uklanjanju ciste (cistektomija), drilingu jajnika kod PCOS-a (tehnika kojom se prave mali otvori na površini jajnika radi podsticanja ovulacije) ili uklanjanju jednog jajnika - može smanjiti ovarijalnu rezervu i sniziti AMH. Stepen smanjenja zavisi od obima operacije i količine uklonjenog ili oštećenog tkiva.</p>
+<h3>Hemioterapija i radioterapija - onkofertilitet</h3>
+<p>Lečenje malignih bolesti hemioterapijom ili radioterapijom može imati dramatičan uticaj na jajnike. Mnogi hemioterapeutski lekovi su gonadotoksični - toksični za reproduktivne ćelije - i mogu dovesti do značajnog ili potpunog uništenja ovarijalne rezerve. Merenje AMH pre i posle onkološkog lečenja je važno za procenu preostale rezerve i planiranje daljih reproduktivnih opcija. O značaju merenja AMH pre onkološkog lečenja i mogućnosti zamrzavanja jajnih ćelija ili tkiva jajnika biće više reči u poglavlju o planiranju porodice.</p>
+<h3>Pušenje</h3>
+<p>Studije konzistentno pokazuju da pušačice imaju u proseku niži AMH od nepušačica iste starosti. Pušenje ubrzava gubitak ovarijalne rezerve - toksini iz cigareta direktno oštećuju folikule u jajnicima. Ovo je još jedan razlog zašto se ženama koje planiraju trudnoću savetuje prestanak pušenja.</p>
+<h3>Gojaznost</h3>
+<p>Neke studije ukazuju na niži AMH kod žena sa visokim indeksom telesne mase (BMI). Mehanizam nije potpuno razjašnjen - moguće objašnjenje uključuje diluciju (razblaženje hormona u većem volumenu krvi) ili direktan uticaj povećane telesne mase na folikulogenezu (proces razvoja folikula u jajnicima).</p>
+<h3>Vitamin D</h3>
+<p>Deficit vitamina D je povezan sa nižim AMH vrednostima u nekim studijama. Suplementacija vitaminom D može dovesti do blagog porasta AMH, mada podaci iz istraživanja nisu potpuno konzistentni. Svakako, održavanje adekvatnog nivoa vitamina D ima brojne zdravstvene koristi i preporučuje se generalno.</p>
+<h2 id="smitovi-i-zablude-o-amh-hormonu">7. Mitovi i zablude o AMH hormonu</h2>
+<p>Oko AMH hormona postoji ogromna količina dezinformacija, nepotrebne panike i pogrešnih tumačenja, posebno na internet forumima i društvenim mrežama. Evo najčešćih mitova i stvarnih činjenica.</p>
+
+<div class="myth-card"><div class="myth-claim"><span class="myth-icon">🚫</span>Mit 1: „Nizak AMH znači da ne mogu da zatrudnim"</div><div class="myth-truth"><strong>Netačno.</strong> AMH govori o ovarijalnoj rezervi (broju jajnih ćelija), ne o plodnosti per se (sam po sebi). Žene sa niskim AMH zatrudne i prirodnim putem i kroz VTO - ali im može trebati više pokušaja ili prilagođen pristup. Nizak AMH znači da je na raspolaganju manji broj jajnih ćelija, ali svaka od tih ćelija može biti ta koja će dovesti do trudnoće.</div></div>
+
+<div class="myth-card"><div class="myth-claim"><span class="myth-icon">🚫</span>Mit 2: „AMH predviđa kvalitet jajnih ćelija"</div><div class="myth-truth"><strong>Netačno.</strong> AMH ne govori apsolutno ništa o kvalitetu jajnih ćelija. Kvalitet - procenat hromozomski normalnih (euploidnih) ćelija - prevashodno zavisi od starosti žene. Mlada žena sa niskim AMH može imati manje, ali kvalitetnije jajne ćelije od starije žene sa normalnim AMH.</div></div>
+
+<div class="myth-card"><div class="myth-claim"><span class="myth-icon">🚫</span>Mit 3: „Visok AMH garantuje laku trudnoću"</div><div class="myth-truth"><strong>Netačno.</strong> Visok AMH kod žena sa PCOS-om može biti praćen anovulacijom (izostankom ovulacije) i značajnim teškoćama sa začećem. Visok AMH znači samo da folikula ima u velikom broju - ne znači da će ovulacija i trudnoća nastupiti lako i bez problema.</div></div>
+
+<div class="myth-card"><div class="myth-claim"><span class="myth-icon">🚫</span>Mit 4: „AMH se može povećati lekovima ili suplementima"</div><div class="myth-truth"><strong>U suštini netačno.</strong> Ne postoji dokazan lek ili suplement koji zaista povećava ovarijalnu rezervu - broj jajnih ćelija je biološki fiksan i nepovratno opada. DHEA (dehidroepiandrosteron - hormon nadbubrežne žlezde) i CoQ10 (koenzim Q10 - antioksidans) se ponekad koriste u kontekstu pripreme za VTO, ali njihov efekat na sam nivo AMH je minimalan ili nepostojeći. Oni mogu potencijalno uticati na kvalitet jajnih ćelija (što AMH ne meri), mada su podaci iz studija ograničeni i ne potpuno konzistentni.</div></div>
+
+<div class="myth-card"><div class="myth-claim"><span class="myth-icon">🚫</span>Mit 5: „Ako mi je AMH normalan, mogu da odlažem trudnoću bez brige"</div><div class="myth-truth"><strong>Opasno pogrešno.</strong> AMH može biti normalan danas i značajno pasti za 1–2 godine, posebno nakon 35. godine. AMH se meri u jednom trenutku i predstavlja „snimak" stanja rezerve u tom momentu. Osim toga, kvalitet jajnih ćelija opada sa starošću potpuno nezavisno od AMH - čak i ako je AMH konstantan, kvalitet jajnih ćelija se pogoršava sa svakom godinom života.</div></div>
+
+<div class="myth-card"><div class="myth-claim"><span class="myth-icon">🚫</span>Mit 6: „AMH od 0,1 znači da je nemoguće zatrudneti"</div><div class="myth-truth"><strong>Netačno.</strong> Čak i sa veoma niskim AMH moguće je dobiti jajne ćelije na punkciji i ostvariti trudnoću, mada su šanse statistički niže i može biti potrebno više pokušaja ili ciklusa stimulacije. Ono što je nemoguće je garantovati ishod - ali to važi za svaku AMH vrednost.</div></div>
+
+<div class="myth-card"><div class="myth-claim"><span class="myth-icon">🚫</span>Mit 7: „Jedan AMH rezultat je dovoljan za zauvek"</div><div class="myth-truth"><strong>Netačno.</strong> AMH se menja tokom vremena - uglavnom opada, i to nekada brže nego što se očekuje. Zato se preporučuje periodična kontrola AMH, posebno ako se planiranje porodice odlaže.</div></div>
+<div class="myth-card"><div class="myth-claim"><span class="myth-icon">🚫</span>Mit 8: „AMH test je dovoljan da proceni moju plodnost"</div><div class="myth-truth"><strong>Netačno.</strong> Plodnost je izuzetno kompleksna i zavisi od mnogo faktora: prohodnost jajovoda, redovnost ovulacije, kvalitet sperme partnera, starost, stanje materice, imunološki faktori i mnogi drugi. AMH je samo jedan deo te slagalice - veoma informativan deo, ali ipak samo deo.</div></div>
+<h2 id="semocionalna-dimenzija-amh-rezultata">8. Emocionalna dimenzija AMH rezultata</h2>
+<p>AMH je jedan od onih medicinskih nalaza koji mogu izazvati intenzivne emocionalne reakcije. Ovo poglavlje je tu da vam kaže: vaše reakcije su normalne i razumljive, ali je važno da ih stavite u pravi kontekst.</p>
+<h3>Šok od niskog AMH</h3>
+<p>Mnoge žene - posebno mlade žene koje dobiju neočekivano nizak AMH - doživljavaju rezultat gotovo kao presudu. Javlja se osećaj da vreme ističe, panika, osećaj gubitka kontrole nad reproduktivnim životom. Neke žene osećaju ljutnju, tugu, strah. Neke se povlače u sebe, neke kompulsivno pretražuju internet tražeći odgovore.</p>
+<p>Sve ove reakcije su potpuno normalne i razumljive. Dobiti informaciju da je nešto u vezi sa vašim telom i vašim planovima za budućnost drugačije nego što ste očekivali - to je veliko emocionalno opterećenje.</p>
+<p>Ali ono što je važno zapamtiti: nizak AMH nije presuda. To je informacija - informacija koja vam omogućava da donesete informisane odluke i da se obratite pravim stručnjacima na vreme. Mnoge žene sa niskim AMH ostvare trudnoću. Znanje je moć, ne kazna.</p>
+<h3>Lažna sigurnost od visokog AMH</h3>
+<p>Na drugom kraju spektra, neke žene sa visokim AMH pretpostavljaju da mogu neograničeno da odlažu trudnoću jer „imaju dovoljno jajnih ćelija". Ovo je opasno razmišljanje jer AMH ne meri kvalitet, a starost nezaustavljivo utiče na jajne ćelije. Visok AMH u 38. godini ne može da zaustavi biološki sat kvaliteta - to znači da jajnih ćelija ima, ali da li su one genetski zdrave, to je sasvim drugo pitanje.</p>
+<h3>Opsesija brojevima</h3>
+<p>U eri interneta, lako je upasti u zamku kompulsivnog guglanja: „AMH 0,8 šanse za trudnoću", „AMH 1,2 da li je normalno", poređenje sa drugim ženama na forumima, preteranu anksioznost. AMH je broj koji pomaže lekaru da donese kliničku odluku - on nije apsolutni prediktor vaše sudbine. Svaka žena je individualna, i statistički proseci ne definišu individualan ishod.</p>
+<h3>Krivica i samookrivljavanje</h3>
+<p>„Da li sam nešto uradila pogrešno?" „Da li su pilule uništile moju rezervu?" „Da li je stres kriv?" - ova pitanja su česta i potpuno razumljiva. Ali istina je da je ovarijalna rezerva u najvećoj meri genetski predodređena. Vi niste krivi za svoj AMH. Životni faktori kao što su pušenje, operacije na jajnicima ili hemioterapija mogu uticati na rezervu, ali bazalni ritam opadanja je u velikoj meri zapisan u vašim genima.</p>
+<h3>Proaktivan pristup umesto očajanja</h3>
+<p>Nizak AMH nije razlog za očajanje - on je signal za akciju. Konsultacija sa specijalistom reproduktivne medicine, razmatranje opcija (VTO, zamrzavanje jajnih ćelija, ranije planiranje porodice) - sve su to koraci koji su mogući i koji imaju smisla. Bolje je znati i delovati nego ne znati.</p>
+<h3>Potreba za podrškom</h3>
+<p>Ako vam je AMH rezultat teško pao, evo šta preporučujemo:</p>
+<ul>
+<li>Razgovarajte sa lekarom specijalistom koji će staviti vaš rezultat u pravi kontekst - u kombinaciji sa vašom starošću, AFC-om, istorijom i drugim nalazima, slika je gotovo uvek kompletnija i češće ohrabrujuća nego što sam broj sugeriše.</li>
+<li>Razmotrite psihološku podršku - psiholog ili savetnik specijalizovan za reproduktivnu problematiku može pomoći u obradi emocija.</li>
+<li>Budite oprezni sa internet forumima kao primarnim izvorom informacija i tumačenja. Forumi su prepuni anegdota, a anegdote nisu nauka. Svaka žena je drugačija.</li>
+</ul>
+
+<h2 id="sčesta-pitanja-i-saveti">9. Česta pitanja i saveti</h2>
+<h3>„Moj AMH je nizak - da li ima nade?"</h3>
+<p>Da. Nizak AMH ne znači nemogućnost trudnoće. Mnoge žene sa niskim AMH ostvaruju trudnoću - i prirodnim putem i kroz VTO. Nizak AMH znači da je na raspolaganju manji broj jajnih ćelija, što može zahtevati prilagođen pristup i više strpljenja, ali svaka jajna ćelija je šansa. Razgovarajte sa specijalistom o tome koji je najbolji plan za vašu konkretnu situaciju.</p>
+<h3>„Koliko često treba ponavljati AMH test?"</h3>
+<p>Ako aktivno planirate trudnoću ili ste u VTO postupku, lekar će vam reći kada je potrebna kontrola. Ako proaktivno pratite svoju ovarijalnu rezervu bez hitnog plana za trudnoću, merenje jednom godišnje ili na svakih 6–12 meseci je razuman interval - posebno nakon 30. godine ili ako imate faktore rizika za smanjenu rezervu.</p>
+<h3>„Da li DHEA ili CoQ10 pomažu da se AMH poveća?"</h3>
+<p>DHEA (dehidroepiandrosteron) i CoQ10 (koenzim Q10) su suplementi koji se ponekad koriste u pripremi za VTO. Njihov efekat na sam nivo AMH je minimalan ili nepostojeći - oni ne mogu da „vrate" izgubljene folikule. Međutim, postoje podaci koji sugerišu da mogu pozitivno uticati na kvalitet jajnih ćelija (što AMH ne meri), mada su dokazi ograničeni. Ne uzimajte ih na svoju ruku - razgovarajte sa lekarom.</p>
+<h3>„Da li je AMH od 1,2 normalan za mojih 33 godine?"</h3>
+<p>AMH od 1,2 ng/mL u 33. godini je u okviru normalnog raspona (prosek za starosnu grupu 30–35 je oko 2,0–2,5, ali raspon ide od 1,0 do 5,0 ng/mL). To je vrednost koja ukazuje na adekvatnu ovarijalnu rezervu. Međutim, uvek proverite referentni raspon vaše laboratorije i konsultujte lekara - kontekst je sve.</p>
+<h3>„Zašto moja prijateljica sa nižim AMH zatrudnela a ja sa višim nisam?"</h3>
+<p>Zato što AMH ne meri plodnost u celini - meri samo jedan aspekt (broj jajnih ćelija). Plodnost zavisi od mnoštva faktora: kvaliteta jajnih ćelija, kvaliteta sperme, prohodnosti jajovoda, ovulacije, stanja materice, genetske kompatibilnosti partnera i mnogo toga što se ne može svesti na jedan broj. Vaša prijateljica je možda imala manje jajnih ćelija, ali su drugi faktori bili povoljniji. Poređenje sa drugim ženama na osnovu AMH je neinformativno i štetno za mentalno zdravlje.</p>
+<h3>„Da li AMH utiče na šansu za prirodnu trudnoću ili samo za VTO?"</h3>
+<p>AMH je najkorisniji u kontekstu VTO-a jer pomaže u planiranju stimulacije. Za prirodno začeće, AMH je manje direktno relevantan - ženi je za prirodnu trudnoću potrebna samo jedna kvalitetna jajna ćelija i jedna ovulacija. Studije pokazuju da žene sa niskim AMH koje redovno ovuliraju imaju slične šanse za prirodnu trudnoću kao žene sa normalnim AMH, barem u kraćem vremenskom roku. Međutim, nizak AMH može značiti da je „prozor" za prirodnu trudnoću kraći jer rezerva brže nestaje.</p>
+<h3>„Šta ako mi laboratorija daje rezultat u pmol/L a svi na internetu pišu u ng/mL?"</h3>
+<p>Koristite formulu za konverziju: <strong>vrednost u pmol/L podelite sa 7,14</strong> da biste dobili približnu vrednost u ng/mL. Na primer, 14 pmol/L ÷ 7,14 ≈ 2,0 ng/mL. Ili obrnuto - pomnožite ng/mL sa 7,14 da biste dobili pmol/L. Ali idealno - tumačite rezultat prema referentnom rasponu vaše laboratorije, ne prema tabelama sa interneta.</p>
+<h3>„Da li treba da merim AMH ako ne planiram VTO?"</h3>
+<p>AMH nije samo za žene koje idu na VTO. Merenje AMH ima smisla za svaku ženu koja želi da zna koliku ovarijalnu rezervu ima - bilo da planira trudnoću uskoro, razmišlja o zamrzavanju jajnih ćelija, ili jednostavno želi da donese informisanu odluku o tome kada da započne formiranje porodice. Posebno se preporučuje ženama sa porodičnom istorijom rane menopauze, endometriozom, ili onima starije od 30 godina koje još ne planiraju trudnoću.</p>
+<h3>„Moj ginekolog kaže da mi je AMH u redu, ali na internetu piše da je nizak - kome da verujem?"</h3>
+<p>Verujte svom lekaru. Lekar tumači vaš AMH u kontekstu vaše starosti, AFC-a (broja antralnih folikula), kliničke istorije i referentnog raspona laboratorije koja je uradila analizu. Tabele na internetu su generalizovane, potiču iz različitih populacija i koriste različite testove. Vaš lekar vas poznaje - internet vas ne poznaje.</p>
+<h3>Saveti za pravilno tumačenje AMH rezultata</h3>
+<ul>
+<li><strong>Uvek tumačite AMH sa lekarom</strong>, ne sa Guglom ili forumom. Lekar vidi celokupnu sliku.</li>
+<li><strong>Posmatrajte AMH u kontekstu</strong>: vaša starost, AFC na ultrazvuku, FSH, klinička istorija - svi ovi podaci zajedno daju pouzdaniju sliku od AMH samog.</li>
+<li><strong>Pitajte lekara konkretno</strong>: „Šta ovo znači za moje šanse?" - nemojte se zadovoljiti samo brojem bez objašnjenja.</li>
+<li><strong>Koristite referentni raspon vaše laboratorije</strong>, ne opšte tabele sa interneta.</li>
+<li><strong>Ne paničite zbog jednog rezultata</strong> - ako je rezultat neočekivano nizak, razmotrite ponavljanje testa u drugoj laboratoriji ili nakon korekcije faktora koji mogu uticati na vrednost (npr. nakon pauze od kontracepcije).</li>
+<li><strong>Ne poredite se sa drugim ženama</strong> - svaka žena je biološki jedinstvena.</li>
+</ul>
+<h2 id="szavršna-poruka">Završna poruka</h2>
+<p>AMH je izuzetno koristan alat koji vam i vašem lekaru daje važnu informaciju o stanju vaše ovarijalne rezerve. Ali on je upravo to - alat. Jedan deo slagalice, ne čitava slagalica.</p>
+<p>Nikada ne dozvolite da jedan broj definiše vaše šanse, vaše nade ili vaš put ka roditeljstvu. AMH vam govori koliko jajnih ćelija približno imate na raspolaganju - ne govori koliko su te ćelije kvalitetne, ne predviđa da li ćete zatrudneti, i ne određuje vašu sudbinu.</p>
+<p>Uvek ga tumačite sa lekarom koji vidi celokupnu sliku: vaš AMH, vašu starost, vaš AFC, vašu istoriju, vaše zdravlje, zdravlje vašeg partnera - sve te informacije zajedno, a nikada jedna izolovano, grade plan koji je pravi za vas.</p>
+<p>Ako vas je vaš AMH rezultat uplašio - nemojte ostati sami sa tim strahom. Obratite se specijalistu. Postavite pitanja. Tražite objašnjenje. I zapamtite: znanje je moć, ne kazna. Bolje je znati i delovati nego ne znati i čekati.</p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>
