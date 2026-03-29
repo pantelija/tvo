@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testovi trombofilije - zašto se rade pre VTO postupka | VTOvodič.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-category:hover { background: var(--color-accent); color: #fff; }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  /* Table styling */
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .article-content th {
+    background: var(--color-bg-warm);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  .article-content td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-ink-light);
+    vertical-align: top;
+  }
+  .article-content tr:nth-child(even) td {
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+    .article-content table { font-size: 0.8rem; }
+    .article-content th, .article-content td { padding: 0.45rem 0.6rem; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+        <a href="vto-uvod">Uvod u VTO</a>
+        <a href="vto-vodic">VTO vodič</a>
+        <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+        <a href="icsi-metoda">ICSI postupak</a>
+        <a href="iui-inseminacija">Inseminacija IUI</a>
+        <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+        <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+        <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+        <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+        <a href="priprema-sperme">Priprema spermatozoida</a>
+        <a href="kultivacija-embriona">Kultivacija embriona</a>
+        <a href="embriotransfer">Embrotransfer</a>
+        <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+        <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Vodič kroz VTO</span>
+<h1 class="article-title">Testovi trombofilije - zašto se rade pre VTO postupka</h1>
+
+    </div>
+
+    <div class="article-toc">
+  <div class="article-toc-title">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sadržaj članka
+  </div>
+  <ol>
+<li><a href="#sšta-je-trombofilija-osnove-koje-treba-ra">Šta je trombofilija - osnove koje treba razumeti</a></li>
+<li><a href="#skako-funkcioniše-zgrušavanje-krvi-fiziol">Kako funkcioniše zgrušavanje krvi</a></li>
+<li><a href="#szašto-se-testovi-trombofilije-rade-pre-v">Zašto se testovi trombofilije rade pre VTO postupka</a></li>
+<li><a href="#sšta-trombofilija-panel-uključuje-konkret">Šta trombofilija panel uključuje - konkretni testovi</a></li>
+<li><a href="#skome-se-testovi-trombofilije-preporučuju">Kome se testovi trombofilije preporučuju pre VTO-a</a></li>
+<li><a href="#sterapijske-opcije-šta-se-radi-kada-je-tr">Terapijske opcije - šta se radi kada je trombofilija potvrđena</a></li>
+<li><a href="#smitovi-i-zablude-o-trombofiliji-i-vto-u">Mitovi i zablude o trombofiliji i VTO-u</a></li>
+<li><a href="#sčesta-pitanja-i-praktični-saveti">Česta pitanja i praktični saveti</a></li>
+<li><a href="#szaključak">Zaključak</a></li>
+  </ol>
+</div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+<h2 id="sšta-je-trombofilija-osnove-koje-treba-ra">1. Šta je trombofilija - osnove koje treba razumeti</h2>
+<p>Trombofilija je stanje povećane sklonosti krvi ka stvaranju krvnih ugrušaka (trombova). Nije reč o bolesti u klasičnom smislu - trombofilija je predispozicija, nešto poput sklonosti ili tendencije. Mnoge osobe sa trombofilijom žive čitav život bez ikakvih zdravstvenih problema i nikada ne saznaju da je imaju.</p>
+<p>Trombofilija može biti <strong>nasledna (genetska)</strong> - prisutna od rođenja, nasleđena od jednog ili oba roditelja - ili <strong>stečena</strong> - razvijena tokom života pod uticajem različitih faktora, najčešće autoimunih procesa.</p>
+<p>Ono što je ključno razumeti: sama po sebi, trombofilija u većini slučajeva ne izaziva probleme. Međutim, u određenim okolnostima - trudnoća, hormonska terapija, operacije, duža nepokretnost - rizik od komplikacija može biti povećan. Upravo zato reproduktivni lekari ovu temu shvataju ozbiljno.</p>
+<p>Trudnoća je, sama po sebi, stanje pojačane koagulabilnosti krvi (sklonosti ka zgrušavanju). To je zapravo prirodan mehanizam - telo se priprema da smanji krvarenje tokom porođaja. Kada na to fiziološko stanje dodate trombofiliju, rizik se dodatno uvećava - i to je razlog zbog koga lekari koji se bave potpomognutom oplodnjom žele da znaju da li kod vas postoji ovakva predispozicija pre nego što započnu postupak.</p>
+<h2 id="skako-funkcioniše-zgrušavanje-krvi-fiziol">2. Kako funkcioniše zgrušavanje krvi - fiziologija koagulacije</h2>
+<p>Da bi trombofilija bila razumljiva, potrebno je osnovni razumevanje toga kako krv funkcioniše kada je u pitanju zgrušavanje. Ovaj sistem se zove <strong>hemostaza</strong> - i njegovu suštinu možete zamisliti kao savršeno izbalansiranu vagu.</p>
+<h3>Hemostaza - sistem koji zaustavlja krvarenje</h3>
+<p>Krv u vašem telu mora biti u stalnoj ravnoteži: dovoljno tečna da nesmetano cirkuliše kroz krvne sudove, ali istovremeno sposobna da brzo stvori ugrušak kada je krvni sud oštećen - na primer, kada se posečete ili povredite. Bez ove sposobnosti, svaka mala povreda bi dovela do opasnog krvarenja.</p>
+<h3>Koagulacijska kaskada - "domino efekat" koji stvara ugrušak</h3>
+<p>Kada se krvni sud ošteti, pokreće se niz hemijskih reakcija koje uključuju posebne proteine - <strong>faktore koagulacije</strong>. Ovi proteini se aktiviraju jedan za drugim, u tačno određenom redosledu, poput domino pločica: pad jedne pločice pokreće sledeću, sve dok na kraju ne nastane <strong>fibrinski ugrušak</strong> - mrežasta struktura od proteina fibrina koja zatvara ranu i zaustavlja krvarenje.</p>
+<h3>Antikoagulantni sistem - kočnice</h3>
+<p>Istovremeno sa sistemom koji stvara ugruške, postoje i proteini čija je funkcija da sprečavaju prekomerno zgrušavanje. Najvažniji su <strong>antitrombin</strong>, <strong>protein C</strong> i <strong>protein S</strong>. Oni su „kočnice" koagulacijskog sistema - obezbeđuju da se ugrušci ne stvaraju nekontrolisano, tamo gde nisu potrebni. Bez ovih kočnica, krv bi se zgrušavala unutar krvnih sudova i blokirala normalan protok.</p>
+<h3>Fibrinoliza - sistem čišćenja</h3>
+<p>Nakon što je ugrušak obavio svoju funkciju i rana počela da zarasta, aktivira se <strong>fibrinoliza</strong> - sistem koji razgrađuje ugruške. Na taj način se sprečava da krvni sudovi ostanu trajno začepljeni.</p>
+<h3>Trombofilija = poremećaj ravnoteže</h3>
+<p>Zamislite sistem zgrušavanja krvi kao vagu - na jednoj strani su proteini koji stvaraju ugruške (prokoagulantni faktori), a na drugoj proteini koji ih sprečavaju (antikoagulantni faktori - antitrombin, protein C, protein S). Kod zdrave osobe vaga je u ravnoteži. Kod trombofilije, vaga je blago nagnuta na stranu stvaranja ugrušaka.</p>
+<p>Ovo pomeranje ravnoteže može nastati na dva načina:</p>
+<ul>
+<li><strong>„Kočnice" su preslabe</strong> - nedostatak antitrombina, proteina C ili proteina S znači da sistem koji sprečava prekomerno zgrušavanje ne funkcioniše dovoljno efikasno.</li>
+<li><strong>„Gas" je prejak</strong> - višak prokoagulantnih faktora ili mutacije koje čine te faktore otpornijim na inaktivaciju (poput Faktor V Leiden mutacije) znače da sistem za stvaranje ugrušaka radi intenzivnije nego što bi trebalo.</li>
+</ul>
+<p>Važno je naglasiti: to što je vaga blago nagnuta ne znači da ćete nužno dobiti ugrušak. Znači da vas lekar želi pažljivije pratiti i, ako je potrebno, dati vam lek koji pomaže da se vaga vrati u ravnotežu.</p>
+<h2 id="szašto-se-testovi-trombofilije-rade-pre-v">3. Zašto se testovi trombofilije rade pre VTO postupka</h2>
+<p>Postoji nekoliko važnih razloga zbog kojih reproduktivni lekari smatraju da je testiranje na trombofiliju relevantno u kontekstu vantelesne oplodnje (VTO).</p>
+<h3>VTO stimulacija povećava rizik od tromboze</h3>
+<p>Hormonska stimulacija jajnika, koja je sastavni deo VTO postupka, dovodi do povišenog nivoa estrogena (estradiola) u krvi. Visok estradiol dodatno pojačava sklonost krvi ka zgrušavanju, koja već postoji u bazalnom stanju. Poseban rizik predstavlja <strong>sindrom ovarijalne hiperstimulacije (OHSS)</strong> - komplikacija VTO stimulacije koja dramatično povećava rizik od tromboze kroz mehanizme hemokoncentracije (zgušnjavanje krvi), dehidratacije i venskog zastoja.</p>
+<h3>Trudnoća je prirodno protrombotično stanje</h3>
+<p>Fiziološke promene tokom trudnoće - povišeni faktori koagulacije, smanjena fibrinoliza (sposobnost razgradnje ugrušaka), pritisak rastuće materice na vene karlice - povećavaju rizik od tromboembolijskih događaja (nastanka i pomeranja krvnog ugruška) <strong>5–10 puta</strong> u poređenju sa netrudnim stanjem. Ovo je normalan deo trudnoće, ali kod žena sa trombofilijom taj već povišeni rizik se dodatno uvećava.</p>
+<h3>Mogući uticaj na implantaciju embriona</h3>
+<p>Neke forme trombofilije su povezane sa poremećajem mikrocirkulacije (protoka krvi kroz najmanje krvne sudove) u endometrijumu (sluznici materice) i posteljici. Ovo može otežati implantaciju embriona i rani razvoj trudnoće. Iako dokazi nisu jednako jaki za sve tipove trombofilije, ovo je jedan od razloga zašto se testiranje razmatra i kod žena sa ponovljenim neuspelim implantacijama.</p>
+<h3>Trombofilija kao mogući uzrok gubitaka trudnoće</h3>
+<p>Ovo je posebno važan aspekt. Neke trombofilije, a naročito <strong>antifosfolipidni sindrom (APS)</strong> - jedina trombofilija za koju postoje čvrsti naučni dokazi da direktno uzrokuje gubitke trudnoće - mogu biti razlog ponovljenih pobačaja. Za APS postoji i dokazano efikasna terapija, što čini testiranje posebno smislenim.</p>
+<h3>Prevencija komplikacija u trudnoći</h3>
+<p>Stanja poput preeklampsije (visok krvni pritisak u trudnoći sa oštećenjem organa), zastoja u rastu ploda (IUGR - intrauterina restrikcija rasta), abrupcije placente (prevremeno odvajanje posteljice) i intrauterine smrti ploda - neke studije povezuju sa trombofilijama, mada su dokazi različitog kvaliteta za različite tipove trombofilija.</p>
+<h3>Individualizacija terapije</h3>
+<p>Na osnovu rezultata trombofilija panela, lekar može doneti informisanu odluku o tome da li je potrebna antikoagulantna terapija (najčešće niskomolekularni heparin - lek koji smanjuje zgrušavanje krvi) tokom VTO ciklusa i/ili tokom trudnoće. Bez tih rezultata, lekar nema informaciju na osnovu koje bi mogao da prilagodi pristup specifično vama.</p>
+
+<h2 id="sšta-trombofilija-panel-uključuje-konkret">4. Šta trombofilija panel uključuje - konkretni testovi</h2>
+<p>Kada lekar naruči „trombofilija panel", to podrazumeva skup laboratorijskih testova koji ispituju prisustvo različitih naslednih i stečenih trombofilija. Sadržaj panela može varirati od klinike do klinike, ali najčešće uključuje sledeće analize.</p>
+<h3>Standardni trombofilija panel u kontekstu VTO-a</h3>
+<p><strong>Genetski testovi (PCR iz krvi - molekularna analiza DNK):</strong></p>
+<ul>
+<li>Faktor V Leiden mutacija</li>
+<li>Protrombinska mutacija G20210A</li>
+<li>MTHFR C677T i A1298C mutacije (kontroverzno - ne preporučuju sva stručna društva, ali mnoge klinike u Srbiji i regionu još uvek rutinski rade)</li>
+</ul>
+<p><strong>Funkcionalni testovi (mere aktivnost proteina u krvi):</strong></p>
+<ul>
+<li>Antitrombin - aktivnost antitrombina</li>
+<li>Protein C - aktivnost proteina C</li>
+<li>Slobodni protein S - funkcionalni ili imunološki test</li>
+</ul>
+<p><strong>Testovi na antifosfolipidna antitela:</strong></p>
+<ul>
+<li>Lupus antikoagulant (LA) - funkcionalni koagulacijski test</li>
+<li>Antikardiolipinska antitela (aCL) - IgG i IgM klasa, ELISA test</li>
+<li>Anti-beta-2-glikoprotein I antitela (anti-β2GPI) - IgG i IgM klasa, ELISA test</li>
+</ul>
+<p><strong>Biohemijska analiza:</strong></p>
+<ul>
+<li>Homocistein - nivo u krvi</li>
+</ul>
+<h3>Prošireni panel (po posebnoj indikaciji)</h3>
+<p>Neke klinike ili hematolozi mogu naručiti i dodatne testove, najčešće u specifičnim situacijama:</p>
+<ul>
+<li><strong>PAI-1 4G/5G polimorfizam</strong> (polimorfizam u genu za inhibitor aktivatora plazminogena) - kontroverzno, mnogi stručnjaci ne smatraju klinički značajnim</li>
+<li><strong>Faktor VIII</strong> - povišen nivo faktora VIII je nezavisni faktor rizika za trombozu</li>
+<li><strong>Lipoprotein(a) - Lp(a)</strong> - faktor rizika za trombozu i aterosklerozu</li>
+<li><strong>D-dimer</strong> - marker aktivne koagulacije (korisniji za praćenje akutne tromboze nego za skrining)</li>
+<li><strong>ANA (antinuklearna antitela)</strong> - skrining za autoimune bolesti</li>
+</ul>
+<div class="article-highlight"><div class="article-highlight-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Važna napomena o vrstama testova</div><p>Razumevanje razlike između genetskih i funkcionalnih testova je praktično veoma korisno:</p></div>
+<p><strong>Genetski testovi</strong> (FVL, protrombinska mutacija, MTHFR) se rade <strong>jednom u životu</strong>. Rezultat se nikada ne menja jer je genetski uslovljen - vaša DNK je ista danas kao i pre deset godina i biće ista za deset godina. Nema potrebe za ponavljanjem ovih testova.</p>
+<p><strong>Funkcionalni testovi</strong> (antitrombin, protein C, protein S, lupus antikoagulant) <strong>mogu varirati</strong> u zavisnosti od trenutnih okolnosti - akutna bolest, lekovi, trudnoća, estrogenska terapija, inflamacija (zapaljenje). Zato se moraju raditi u odgovarajućim uslovima, a ponekad je potrebno i ponavljanje da bi se potvrdio rezultat.</p>
+<p><strong>Antifosfolipidna antitela</strong> imaju posebno pravilo: moraju biti pozitivna <strong>u dva merenja u razmaku od najmanje 12 nedelja</strong> da bi se potvrdila dijagnoza antifosfolipidnog sindroma. Jedno pozitivno merenje nije dovoljno jer antitela mogu biti prolazno pozitivna iz raznih razloga (infekcija, stres, lekovi).</p>
+<h2 id="skome-se-testovi-trombofilije-preporučuju">5. Kome se testovi trombofilije preporučuju pre VTO-a</h2>
+<h3>Stroge indikacije - većina stručnih društava se slaže</h3>
+<p>Testiranje na trombofiliju se snažno preporučuje u sledećim situacijama:</p>
+<ul>
+<li><strong>Lična istorija tromboembolijskih događaja</strong> - duboka venska tromboza (DVT), plućna embolija, moždani udar, tromboza retinalnih vena (vena oka)</li>
+<li><strong>Ponovljeni gubitci trudnoće</strong> - dva ili više spontana pobačaja, posebno kasni gubitci (nakon 10. nedelje gestacije)</li>
+<li><strong>Intrauterina smrt ploda</strong> u prethodnoj trudnoći</li>
+<li><strong>Teška preeklampsija ili HELLP sindrom</strong> u prethodnoj trudnoći, posebno ako su nastupili pre 34. nedelje</li>
+<li><strong>Teški zastoj u rastu ploda (IUGR)</strong> u prethodnoj trudnoći</li>
+<li><strong>Abrupcija placente</strong> u prethodnoj trudnoći</li>
+<li><strong>Porodična istorija</strong> - trombofilija ili tromboembolijski događaji kod bliskih srodnika (roditelji, braća, sestre) pre 50. godine života</li>
+</ul>
+<h3>Relativne indikacije - praksa varira</h3>
+<p>Kod nekih situacija, mišljenja se razlikuju među klinikama i stručnjacima:</p>
+<ul>
+<li>Ponovljeni neuspeli VTO ciklusi (RIF - recurrent implantation failure), posebno kada su embrioni bili kvalitetni a implantacija nije nastupila</li>
+<li>Pre prvog VTO ciklusa kod žena starijih od 35–40 godina</li>
+<li>Gojaznost (BMI iznad 30) u kombinaciji sa VTO postupkom</li>
+<li>Planirani ciklus sa visokim rizikom od OHSS-a (visok AMH, sindrom policističnih jajnika - PCOS)</li>
+<li>Planirana imobilizacija ili duga putovanja tokom ili nakon stimulacije</li>
+</ul>
+<h2 id="sterapijske-opcije-šta-se-radi-kada-je-tr">6. Terapijske opcije - šta se radi kada je trombofilija potvrđena</h2>
+<h3>Niskomolekularni heparin (LMWH) - osnovna terapija</h3>
+<p>Niskomolekularni heparin je lek koji smanjuje sposobnost krvi da se zgrušava. Najčešće korišćeni preparati su <strong>enoksaparin (Clexane)</strong>, <strong>dalteparin (Fragmin)</strong> i <strong>nadroparin (Fraxiparine)</strong>.</p>
+<p><strong>Način primene:</strong> potkožne injekcije, najčešće jednom dnevno. Ako ste prošli VTO stimulaciju, već ste upoznati sa potkožnim injekcijama gonadotropina - tehnika davanja LMWH je veoma slična. Injekcija se daje u predeo stomaka (abdomen), u potkožno masno tkivo.</p>
+<p><strong>Doze:</strong> lekar određuje da li je potrebna profilaktička (niža) doza za prevenciju ili terapijska (viša) doza za lečenje aktivne tromboze, na osnovu konkretnog nalaza i kliničke situacije.</p>
+<p><strong>Kada se započinje:</strong> zavisi od indikacije - može biti od početka stimulacije, od embriotransfera, od pozitivnog testa na trudnoću, ili od specifičnog momenta u trudnoći.</p>
+<p><strong>Koliko dugo se daje:</strong> najčešće tokom cele trudnoće + <strong>6 nedelja postpartalno</strong> (period nakon porođaja). Ovaj postpartalni period je ključan jer je rizik od tromboze najviši upravo u nedeljama nakon porođaja.</p>
+<p><strong>Bezbednost:</strong> LMWH ne prolazi placentnu barijeru - <strong>bezbedan je za plod</strong>. Postoji dugogodišnje kliničko iskustvo sa korišćenjem LMWH u trudnoći i smatra se sigurnim lekom za primenu tokom čitave trudnoće.</p>
+
+<h2 id="smitovi-i-zablude-o-trombofiliji-i-vto-u">7. Mitovi i zablude o trombofiliji i VTO-u</h2>
+<p>Oblast trombofilije je, nažalost, opterećena brojnim mitovima i dezinformacijama koje kruže internetom i forumima. Evo najčešćih:</p>
+
+
+<div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Trombofilija znači da ću sigurno dobiti ugrušak.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Trombofilija je predispozicija, ne sudbina. Većina nosioca trombofilije nikada ne doživi trombotički događaj tokom čitavog života.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> MTHFR mutacija je opasna trombofilija.</div>
+        <div class="myth-truth"><strong>Ovo je jedno od najvećih preterivanja u svetu reproduktivne medicine.</strong> MTHFR je čest polimorfizam (genetska varijacija) sa minimalnim kliničkim značajem u većini slučajeva, posebno u heterozigotnoj formi. Prisutna je kod trećine populacije - i ogromna većina tih ljudi živi potpuno zdravo.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako imam trombofiliju, ne mogu imati zdravu trudnoću.</div>
+        <div class="myth-truth"><strong>Apsolutno netačno.</strong> Uz odgovarajuće praćenje i, kada je potrebno, terapiju, ogromna većina žena sa trombofilijom ima normalne trudnoće i rađa zdrave bebe.</div>
+      </div>
+
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Svi bi trebalo da rade trombofilija panel pre VTO-a.</div>
+        <div class="myth-truth"><strong>Debatabilno.</strong> Međunarodne preporuke zagovaraju selektivno testiranje, iako mnoge klinike u regionu testiraju rutinski. Razgovarajte sa lekarom o tome šta je najsmislenije u vašoj situaciji.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Negativan trombofilija panel znači da ne mogu dobiti ugrušak.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Postoje i drugi faktori rizika za trombozu - gojaznost, pušenje, nepokretnost, OHSS - koji nisu povezani sa naslednom trombofilijom.</div>
+      </div>
+
+
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Trombofilija je razlog svih mojih neuspelih VTO pokušaja.</div>
+        <div class="myth-truth"><strong>Moguće, ali ne nužno.</strong> Trombofilija je samo jedan od mnogih mogućih faktora koji utiču na implantaciju i razvoj trudnoće - kvalitet embriona, receptivnost endometrijuma, hormonski status i mnogi drugi činioci igraju jednako važnu ulogu.</div>
+      </div>
+<h2 id="sčesta-pitanja-i-praktični-saveti">8. Česta pitanja i praktični saveti</h2>
+<h3>Da li moram da radim trombofilija testove ako nikada nisam imala tromb?</h3>
+<p>Ne nužno. Testiranje se preporučuje na osnovu specifičnih indikacija (ponovljeni gubici trudnoće, komplikacije, porodična istorija) ili prema politici vaše klinike. Razgovarajte sa lekarom o tome da li postoji indikacija u vašem slučaju. Mnoge žene koje su imale tromboembolijski događaj imale su trombofiliju a da nikada pre toga nisu imale probleme - ali to ne znači da svaka žena bez simptoma mora biti testirana.</p>
+<h3>Da li moj partner treba da se testira?</h3>
+<p>Generalno ne - trombofilija paneli se rade kod žene jer se tiču rizika u trudnoći i tokom VTO stimulacije. Međutim, ako je u pitanju genetsko savetovanje (npr. ako ste vi homozigot za FVL i želite da znate rizik za dete), genetičar može preporučiti testiranje partnera.</p>
+<h3>Da li trombofilija utiče na kvalitet jajnih ćelija ili embriona?</h3>
+<p>Ne postoje dokazi da trombofilija direktno utiče na kvalitet jajnih ćelija ili embriona. Njen potencijalni uticaj je na mikrocirkulaciju u endometrijumu i posteljici - dakle, na proces implantacije i ranog razvoja trudnoće, ne na sam kvalitet gameta (jajnih ćelija i spermatozoida).</p>
+<h3>Da li mogu da letim avionom ako imam trombofiliju?</h3>
+<p>Da, ali uz mere opreza, posebno na dugim letovima (preko 4 sata). Preporuke: redovno ustajanje i hodanje, vežbe za noge tokom leta, adekvatna hidratacija, kompresivne čarape, izbegavanje alkohola i sedativa. Ako imate ozbiljniju formu trombofilije i planirate duži let - konsultujte hematologa o eventualnoj potrebi za profilaktičkom dozom LMWH pre leta.</p>
+<h3>Šta da radim ako sam homozigot za MTHFR - da li da paničim?</h3>
+<p>Ne. Homozigotna MTHFR C677T mutacija je prisutna kod 10–15% opšte populacije. Sama po sebi nije opasna trombofilija. Ono što je važno je nivo homocisteina - ako je normalan, mutacija nema klinički značaj. Ako je homocistein povišen - to se lako koriguje folnom kiselinom u visokoj dozi (5 mg) i vitaminima B grupe. Ponovite merenje homocisteina nakon 2–3 meseca da se potvrdi korekcija.</p>
+<h3>Praktični saveti za žene kojima je propisana antikoagulantna terapija</h3>
+<p><strong>Kako davati injekcije:</strong> uhvatite nabor kože na stomaku (van područja pupka), ubodite iglu pod uglom od 90°, lagano pritisnite klip, sačekajte par sekundi pre vađenja igle. Ne masirajte mesto uboda nakon injekcije - to povećava nastanak modrica.</p>
+<p><strong>Kako smanjiti modrice:</strong> rotirajte mesto uboda (leva strana stomaka, desna strana, iznad pupka, ispod pupka), ne masirajte nakon injekcije, primenite hladan oblog (led u krpi) na 5 minuta nakon injekcije.</p>
+<p><strong>Ako zaboravite dozu:</strong> primenite je čim se setite, osim ako je već blizu vreme sledeće doze. Nikada ne dajte duplu dozu. Konsultujte lekara ako niste sigurni.</p>
+<h2 id="szaključak">Zaključak</h2>
+<p>Trombofilija je ozbiljna tema koja zaslužuje pažnju - ali <strong>ne zaslužuje paniku</strong>. Razumevanje šta trombofilija jeste (predispozicija, ne bolest), šta vaš konkretni nalaz znači u kontekstu vaše ukupne istorije, i koje su vam opcije za prevenciju i terapiju - sve to vam daje kontrolu u procesu koji se često doživljava kao neizvestan.</p>
+<p>Ključne poruke za kraj:</p>
+<p>Trombofilija je predispozicija, ne dijagnoza koja automatski znači komplikacije. Većina žena sa trombofilijom, uz odgovarajuće praćenje i eventualnu terapiju, ima normalne trudnoće i zdrave bebe.</p>
+<p>Kontekst je sve - isti nalaz može imati potpuno različito kliničko značenje kod dve različite žene. Zato je tumačenje od strane stručnjaka (hematologa i reproduktivnog lekara) neophodno.</p>
+<p>Razgovarajte sa lekarom, ne sa Guglom. Pitajte konkretna pitanja, tražite objašnjenja, budite aktivni učesnik u svom lečenju.</p>
+<p>Ne dozvolite da vas pozitivan nalaz na trombofiliju parališe - dozvolite da vas informiše i usmeri ka ciljanoj zaštiti. To je upravo razlog zašto se ovi testovi i rade: da biste vi i vaš lekar imali informaciju koja vam pomaže da kroz VTO postupak i trudnoću prođete što sigurnije.</p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

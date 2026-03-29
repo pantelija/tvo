@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSH i LH hormoni - šta nam govore o rezervi jajnika u kontekstu VTO postupka | VTOvodič.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-category:hover { background: var(--color-accent); color: #fff; }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  /* Table styling */
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .article-content th {
+    background: var(--color-bg-warm);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  .article-content td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-ink-light);
+    vertical-align: top;
+  }
+  .article-content tr:nth-child(even) td {
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+    .article-content table { font-size: 0.8rem; }
+    .article-content th, .article-content td { padding: 0.45rem 0.6rem; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+        <a href="vto-uvod">Uvod u VTO</a>
+        <a href="vto-vodic">VTO vodič</a>
+        <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+        <a href="icsi-metoda">ICSI postupak</a>
+        <a href="iui-inseminacija">Inseminacija IUI</a>
+        <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+        <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+        <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+        <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+        <a href="priprema-sperme">Priprema spermatozoida</a>
+        <a href="kultivacija-embriona">Kultivacija embriona</a>
+        <a href="embriotransfer">Embrotransfer</a>
+        <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+        <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Hormoni i dijagnostika</span>
+<h1 class="article-title">FSH i LH hormoni - šta nam govore o rezervi jajnika u kontekstu VTO postupka</h1>
+
+    </div>
+
+    <div class="article-toc">
+  <div class="article-toc-title">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sadržaj članka
+  </div>
+  <ol>
+<li><a href="#sšta-su-fsh-i-lh-hormoni">Šta su FSH i LH hormoni?</a></li>
+<li><a href="#sbiologija-fsh-hormona-gas-pedala-za-jajn">Biologija FSH hormona</a></li>
+<li><a href="#sbiologija-lh-hormona-prekidač-za-ovulaci">Biologija LH hormona</a></li>
+<li><a href="#skako-se-fsh-i-lh-mere-praktični-aspekti">Kako se FSH i LH mere</a></li>
+<li><a href="#skako-fsh-i-lh-utiču-na-planiranje-vto-pr">Kako FSH i LH utiču na planiranje VTO protokola</a></li>
+<li><a href="#skako-se-fsh-i-lh-menjaju-tokom-života-že">Kako se FSH i LH menjaju tokom života žene</a></li>
+<li><a href="#sfsh-i-lh-naspram-amh-direktno-poređenje">FSH i LH naspram AMH - direktno poređenje</a></li>
+<li><a href="#smitovi-i-zablude-o-fsh-i-lh-hormonima">Mitovi i zablude o FSH i LH hormonima</a></li>
+<li><a href="#semocionalni-aspekti-dobijanja-rezultata-">Emocionalni aspekti dobijanja rezultata FSH i LH</a></li>
+<li><a href="#sčesta-pitanja-i-praktični-saveti">Česta pitanja i praktični saveti</a></li>
+<li><a href="#srečnik-najvažnijih-pojmova">Rečnik najvažnijih pojmova</a></li>
+<li><a href="#szavršna-poruka">Završna poruka</a></li>
+  </ol>
+</div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+<h2 id="sšta-su-fsh-i-lh-hormoni">1. Šta su FSH i LH hormoni?</h2>
+<p>Kada počnete dijagnostičku obradu u vezi sa plodnošću, među prvim nalazima koje ćete dobiti biće upravo FSH i LH. Pre nego što pogledamo brojeve, hajde da razumemo šta su zapravo ovi hormoni i zašto su toliko važni.</p>
+<p><strong>FSH</strong> - folikulostimulirajući hormon - i <strong>LH</strong> - luteinizirajući hormon - su hormoni koje proizvodi <strong>hipofiza</strong>, mala žlezda veličine zrna graška smeštena na bazi mozga. Hipofiza je nešto poput „kontrolnog centra" koji šalje hemijske signale raznim organima u telu, a među njima i jajnicima.</p>
+<p>FSH i LH pripadaju grupi hormona koji se zovu <strong>gonadotropini</strong> - doslovno „pokretači gonada (polnih žlezda)". Njihov posao je da upravljaju radom jajnika: pokreću rast folikula (malih kesa u jajnicima u kojima sazrevaju jajne ćelije), stimulišu sazrevanje jajnih ćelija i pokreću ovulaciju (oslobađanje zrele jajne ćelije iz folikula).</p>
+<h3>Dvosmerna komunikacija između mozga i jajnika</h3>
+<p>Ono što je posebno važno razumeti jeste da FSH i LH nisu jednosmerna poruka mozga. Radi se o neprekidnoj dvosmernoj komunikaciji:</p>
+<ul>
+<li><strong>Mozak šalje signale jajnicima</strong> - hipotalamus (deo mozga koji je nadređen hipofizi) luči hormon koji se zove GnRH (gonadotropin-oslobađajući hormon), koji govori hipofizi da proizvede FSH i LH. Hipofiza zatim šalje FSH i LH u krv, a oni stižu do jajnika.</li>
+<li><strong>Jajnici odgovaraju</strong> - pod uticajem FSH i LH, jajnici proizvode sopstvene hormone: estradiol, progesteron, inhibin B i AMH (antimilerov hormon). Ovi hormoni putuju nazad do mozga i govore hipofizi da li treba da pojača ili smanji lučenje FSH i LH.</li>
+</ul>
+<p>Ova dvosmerna komunikacija naziva se <strong>hipotalamo-hipofizno-ovarijalna osa</strong> - i ona je osnov celokupnog menstrualnog ciklusa i reproduktivne funkcije. Zamislite je kao konstantan telefonski razgovor između mozga i jajnika: mozak pita „kako ide dole?", jajnici odgovaraju, mozak prilagođava signale - i tako iz meseca u mesec.</p>
+<h3>Zašto su FSH i LH važni u kontekstu plodnosti i VTO-a?</h3>
+<p>FSH i LH su jedni od prvih hormona koji se mere u dijagnostičkoj obradi žene sa problemom neplodnosti. Zajedno sa AMH (antimilerovim hormonom) i ultrazvučnim pregledom jajnika na kojem se broje mali folikuli (takozvani AFC - antral follicle count, broj antralnih folikula), ovi hormoni čine osnovni hormonski profil na osnovu koga lekar procenjuje stanje ovarijalne rezerve i planira pristup lečenju.</p>
+<p>Za razliku od AMH, koji je relativno nov marker u kliničkoj praksi (šira upotreba od sredine 2000-ih godina), FSH i LH se koriste decenijama i još uvek su nezaobilazni deo dijagnostike. Lekar koji planira VTO ciklus nikada ne započinje bez poznavanja bazalnih vrednosti ovih hormona.</p>
+<p>Ono što FSH i LH čini posebno dragocenim jeste da ne govore samo o rezervi jajnika - oni govore o celokupnoj funkciji reproduktivne ose. Drugim rečima, mogu ukazati na probleme koji nisu samo u jajnicima, već i u mozgu (hipofizi) ili hipotalamusu. AMH vam kaže koliko folikula imate; FSH i LH vam kažu kako ceo sistem komunicira.</p>
+<h2 id="sbiologija-fsh-hormona-gas-pedala-za-jajn">2. Biologija FSH hormona - „gas pedala" za jajnike</h2>
+<h3>Šta FSH radi u normalnom menstrualnom ciklusu</h3>
+<p>Da bismo razumeli šta nam FSH govori, moramo prvo razumeti šta on zapravo radi u telu svake žene, svakog meseca.</p>
+<p>Na početku svakog menstrualnog ciklusa (u takozvanoj <strong>folikularnoj fazi</strong> - periodu od prvog dana menstruacije do ovulacije), hipofiza pojačava lučenje FSH. Ovaj hormon je signal jajnicima: „Vreme je da pokrenemo novi ciklus!" FSH stimuliše grupu malih antralnih folikula (folikula koji su dovoljno veliki da se vide na ultrazvuku) da počnu da rastu.</p>
+<p>Kako folikuli rastu pod uticajem FSH, počinju da proizvode <strong>estradiol</strong> - glavni ženski polni hormon. Rastući estradiol šalje signal nazad hipofizi: „Primili smo poruku, folikuli rastu, možete da smanjite FSH." Ovo se zove <strong>negativna povratna sprega</strong> - mehanizam kojim telo reguliše koliko folikula će nastaviti da raste. Zamislite to kao termostat u stanu: kada se stan zagreje dovoljno, termostat isključuje grejanje. Kada estradiol poraste dovoljno, hipofiza smanjuje FSH.</p>
+<p>U tom procesu selekcije, jedan folikul postaje <strong>dominantan</strong> - on je najveći, ima najviše receptora za FSH i nastavlja da raste čak i kada FSH počne da opada. Ostali folikuli zaostaju i propadaju (proces koji se zove <strong>atrezija</strong>). Na kraju, samo taj jedan dominantni folikul oslobodi zrelu jajnu ćeliju prilikom ovulacije.</p>
+<p><strong>Analogija:</strong> FSH je „gas pedala" za jajnike - hipofiza ga šalje da pokrene rast folikula svakog meseca. Koliko jako mora da pritisne tu pedalu, zavisi od toga koliko dobro jajnici reaguju.</p>
+<h3>Šta bazalni FSH govori o ovarijalnoj rezervi</h3>
+<p><strong>Bazalni FSH</strong> se meri na <strong>dan 2–3 menstrualnog ciklusa</strong> - a prvi dan ciklusa je prvi dan pune menstruacije. U tom momentu, FSH bi trebalo da bude na svojoj najnižoj tački, pre nego što počne da raste da pokrene novi ciklus. To je „mirna" polazna tačka reproduktivne ose.</p>
+<p>Evo kako bazalni FSH otkriva stanje ovarijalne rezerve:</p>
+<p><strong>Kod žene sa dobrom ovarijalnom rezervom:</strong> jajnici imaju mnogo folikula koji proizvode dovoljno inhibina B (hormona koji proizvode mali folikuli) i estradiola. Ovi hormoni govore hipofizi: „Sve je u redu, imamo dovoljno folikula, ne morate da se trudite." Hipofiza ne mora jako da „gura" jer jajnici lako odgovaraju. Rezultat: bazalni FSH je nizak.</p>
+<p><strong>Kod žene sa smanjenom ovarijalnom rezervom:</strong> jajnici imaju manje folikula, proizvode manje inhibina B i estradiola. Hipofiza ne dobija dovoljne signale da uspori - pa mora da pojača lučenje FSH da bi uopšte pokrenula rast folikula. Rezultat: bazalni FSH je povišen.</p>
+<p><strong>Analogija:</strong> Zamislite da je FSH jačina kojom morate da pritisnete gas pedalu da bi auto krenuo. Ako je motor jak (dobra rezerva), blagi pritisak je dovoljan - auto lagano kreće (nizak FSH). Ako je motor oslabio (smanjena rezerva), morate da gazite do poda (visok FSH). Auto će možda krenuti, ali je jasno da motor nije u najboljoj formi.</p>
+<h3>Referentne vrednosti bazalnog FSH</h3>
+<p>Evo orijentacionog pregleda šta znače pojedine vrednosti bazalnog FSH:</p>
+<ul>
+<li><strong>Ispod 10 mIU/mL</strong> - normalan bazalni FSH kod većine laboratorija. Ukazuje na adekvatnu ovarijalnu rezervu.</li>
+<li><strong>10–15 mIU/mL</strong> - granično povišen FSH. Ovo je zona neizvesnosti koja ukazuje na moguće početno smanjenje rezerve. Zahteva tumačenje u kontekstu starosti žene, vrednosti AMH i broja antralnih folikula.</li>
+<li><strong>15–20 mIU/mL</strong> - povišen FSH. Ukazuje na značajno smanjenu ovarijalnu rezervu. Očekivan je slabiji odgovor na stimulaciju u VTO postupku.</li>
+<li><strong>Iznad 20 mIU/mL</strong> - visoko povišen FSH. Značajno smanjena rezerva sa malim izgledima za dobar odgovor na stimulaciju sopstvenim jajnim ćelijama.</li>
+<li><strong>Iznad 40 mIU/mL</strong> - ukazuje na ovarijalnu insuficijenciju (iscrpljenost jajnika) ili preuranjenu menopauzu. Jajnici više praktično ne reaguju na stimulaciju hipofize.</li>
+</ul>
+<p><strong>Važna napomena:</strong> referentni rasponi se razlikuju od laboratorije do laboratorije. Uvek tumačite svoje rezultate prema rasponu koji je navedena na nalazu konkretne laboratorije u kojoj ste radili analizu.</p>
+<h3>Ograničenja FSH kao markera ovarijalne rezerve</h3>
+<p>Koliko god FSH bio koristan, važno je poznavati i njegova ograničenja:</p>
+<p><strong>FSH varira od ciklusa do ciklusa.</strong> Jedan povišen FSH ne mora da znači trajno smanjenu rezervu - može biti prolazno odstupanje usled stresa, bolesti ili drugih faktora. Zato se preporučuje ponavljanje u drugom ciklusu ako je nalaz graničan.</p>
+<p><strong>FSH se može „maskirati" estradiolom.</strong> Ako je bazalni estradiol istovremeno povišen (iznad 60–80 pg/mL na dan 2–3), on može veštački snižavati FSH. Kako? Negativna povratna sprega radi - estradiol govori hipofizi da smanji FSH. Zato se bazalni FSH uvek tumači zajedno sa bazalnim estradiolom. FSH od 8 uz estradiol od 30 pg/mL je sasvim drugačija slika od FSH od 8 uz estradiol od 90 pg/mL - u drugom slučaju, FSH bi verovatno bio viši da estradiol ne drži hipofizu „utišanom".</p>
+<p><strong>FSH ne meri kvalitet jajnih ćelija</strong> - baš kao ni AMH. Oba markera govore o količini (koliko folikula i jajnih ćelija možemo očekivati), ali kvalitet jajnih ćelija primarno zavisi od starosti žene i ne može se izmeriti hormonskim analizama.</p>
+<p><strong>AMH je pouzdaniji i stabilniji marker ovarijalne rezerve od FSH</strong> - ali FSH daje dodatne informacije o funkcionisanju celokupne reproduktivne ose koje AMH ne može da pruži.</p>
+<h2 id="sbiologija-lh-hormona-prekidač-za-ovulaci">3. Biologija LH hormona - „prekidač za ovulaciju"</h2>
+<h3>Šta LH radi u normalnom menstrualnom ciklusu</h3>
+<p>LH ima više uloga tokom menstrualnog ciklusa, ali je najpoznatiji po jednom dramatičnom momentu - LH naletu koji pokreće ovulaciju.</p>
+<p><strong>U folikularnoj fazi</strong> (prva polovina ciklusa): LH je prisutan u niskim koncentracijama i radi tiho u pozadini. Zajedno sa FSH, pomaže rast folikula, ali na drugačiji način. LH stimuliše <strong>teka ćelije</strong> (spoljašnji sloj ćelija oko folikula) da proizvode <strong>androgene</strong> - muške polne hormone koji su prisutni i kod žena u malim količinama. Ti androgeni zatim ulaze u <strong>granuloza ćelije</strong> (unutrašnji sloj ćelija folikula) gde se, pod uticajem FSH, pretvaraju u estradiol. Dakle, FSH i LH sarađuju kao tim: LH obezbeđuje „sirovinu" (androgene), a FSH pomaže njenu pretvorbu u estradiol.</p>
+<p><strong>LH nalet (LH surge):</strong> Ovo je kulminacija prve polovine ciklusa. Kada dominantni folikul i nivo estradiola dostignu kritičan nivo, dešava se nešto fascinantno - umesto negativne povratne sprege (gde estradiol koči hipofizu), dolazi do <strong>pozitivne povratne sprege</strong>: visok estradiol sada stimuliše hipofizu da naglo pojača lučenje LH. Ovaj LH nalet traje 24–48 sati i predstavlja signal za ovulaciju - dominantni folikul puca i oslobađa zrelu jajnu ćeliju otprilike 36 sati nakon početka LH naleta. Na ovom principu rade i kućni testovi za ovulaciju - oni detektuju naglo povišenje LH u urinu.</p>
+<p><strong>U lutealnoj fazi</strong> (druga polovina ciklusa, nakon ovulacije): LH podržava <strong>žuto telo</strong> (corpus luteum - struktura koja ostaje u jajniku nakon ovulacije) da proizvodi progesteron. Progesteron je hormon neophodan za pripremu endometrijuma (sluznice materice) za implantaciju embriona.</p>
+<p><strong>Analogija:</strong> Ako je FSH „gas pedala" koji pokreće rast folikula, LH je „prekidač za ovulaciju" - ali ima i druge važne uloge tokom celog ciklusa, od podrške rastu folikula do održavanja žutog tela.</p>
+<h3>Šta bazalni LH govori u kontekstu dijagnostike</h3>
+<p>Normalan bazalni LH iznosi <strong>2–10 mIU/mL</strong> na dan 2–3 ciklusa.</p>
+<p>LH se ne koristi primarno kao marker ovarijalne rezerve - to je uloga AMH i FSH. Međutim, LH daje dragocene informacije o funkcionisanju reproduktivne ose i pomaže u dijagnostici specifičnih stanja.</p>
+<h3>FSH/LH odnos (ratio) - dijagnostički značaj</h3>
+<p>Odnos između FSH i LH na dan 2–3 ciklusa može reći mnogo:</p>
+<p><strong>Normalan odnos:</strong> otprilike 1:1, ili FSH blago viši od LH u ranoj folikularnoj fazi. Ovo ukazuje na normalno funkcionisanje reproduktivne ose.</p>
+<p><strong>Obrnut odnos - LH viši od FSH:</strong> Ovo može ukazivati na <strong>PCOS</strong> (sindrom policističnih jajnika). Kod PCOS-a hipofiza često luči nesrazmerno mnogo LH u odnosu na FSH. LH/FSH odnos iznad 2:1 ili 3:1 bio je ranije dijagnostički kriterijum za PCOS - sada se manje koristi kao zaseban kriterijum, ali je i dalje klinički informativan.</p>
+<p><strong>Oba hormona veoma niska (FSH i LH ispod 2 mIU/mL):</strong> Ovo može ukazivati na <strong>hipogonadotropni hipogonadizam</strong> - stanje u kojem hipofiza ili hipotalamus ne šalju dovoljno signala jajnicima. Uzroci mogu biti: ekstreman stres, anoreksija ili izrazito niska telesna težina, preintenzivan fizički trening, tumori hipofize, Kalmanov sindrom (genetsko stanje) ili Šihanov sindrom (oštećenje hipofize nakon porođaja). Ovo je potpuno drugačija dijagnoza od smanjene ovarijalne rezerve - ovde su jajnici zdravi, ali ne dobijaju signal.</p>
+<p><strong>Oba hormona visoka (FSH iznad 20, LH iznad 15–20):</strong> Ukazuje na <strong>ovarijalnu insuficijenciju</strong> - jajnici ne reaguju na signale mozga, pa mozak pojačava oba hormona pokušavajući da „probudi" jajnike.</p>
+<h2 id="skako-se-fsh-i-lh-mere-praktični-aspekti">4. Kako se FSH i LH mere - praktični aspekti</h2>
+<h3>Bazalne vrednosti na dan 2–3 ciklusa</h3>
+<p>FSH i LH se mere iz krvi uzete iz vene, obično ujutru, na <strong>dan 2 ili 3 menstrualnog ciklusa</strong>. Prvi dan ciklusa se računa kao prvi dan pune menstruacije (ne spotting ili mrljanje, već pravi tok).</p>
+<p><strong>Zašto baš dan 2–3?</strong> U tom momentu su hormoni na svojoj bazalnoj (polaznoj) tački, pre nego što folikularni rast počne da ih menja. To je „mirna" slika reproduktivne ose - nešto poput merenja krvnog pritiska u mirovanju, a ne nakon trčanja.</p>
+<p><strong>Šta se obično meri istovremeno:</strong></p>
+<p>Obavezna kombinacija za pravilno tumačenje je FSH, LH i estradiol (E2) - ova tri hormona se uvek gledaju zajedno. Često se dodaju i prolaktin, TSH (hormon štitaste žlezde), testosteron i DHEAS (ako se sumnja na PCOS), kao i progesteron (da se potvrdi da je žena zaista u ranoj folikularnoj fazi).</p>
+<p><strong>Ako žena nema menstruaciju (amenoreja):</strong> Lekar može dati progesteron da izazove krvarenje, pa zatim meriti hormone na dan 2–3 izazvanog ciklusa. Alternativno, hormoni se mogu meriti „nasumično", uz svest da su vrednosti u tom slučaju manje pouzdane za procenu rezerve.</p>
+<h3>FSH i LH tokom VTO ciklusa - monitoring</h3>
+<p><strong>Tokom stimulacije:</strong> LH se prati da bi se na vreme detektovao prevremeni LH nalet - ako LH naglo poraste tokom stimulacije, postoji rizik da folikuli spontano ovuliraju pre planirane punkcije, što bi značilo gubitak jajnih ćelija. Uvođenje GnRH antagonista na vreme sprečava ovo.</p>
+<p><strong>Na dan triggera:</strong> LH i progesteron se mere da bi se potvrdilo da nije došlo do prevremene luteinizacije (preranog prelaska u drugu fazu ciklusa).</p>
+<p><strong>FSH se tokom stimulacije ne meri</strong> - jer se daju egzogene injekcije FSH, merenje sopstvenog FSH u tom kontekstu nema smisla. To bi bilo kao merenje koliko kiše pada dok polijevate baštu crevoм.</p>
+<h3>Razlike između laboratorija</h3>
+<p>Kao i kod AMH, različite laboratorije mogu dati nešto različite rezultate. Uvek tumačite nalaze prema referentnom rasponu koji je navedena na nalazu konkretne laboratorije. Najčešće korišćene jedinice mere su mIU/mL ili IU/L - u praksi su to ekvivalentne vrednosti.</p>
+<h2 id="skako-fsh-i-lh-utiču-na-planiranje-vto-pr">5. Kako FSH i LH utiču na planiranje VTO protokola</h2>
+<p>Bazalne vrednosti FSH i LH nisu samo dijagnostički podatak - one direktno oblikuju pristup lečenju. Evo kako lekar koristi ove informacije.</p>
+<h3>Izbor početne doze gonadotropina</h3>
+<p><strong>Visok bazalni FSH + nizak AMH + nizak AFC</strong> (profil smanjene rezerve): Lekar zna da jajnici slabije reaguju na stimulaciju. Može izabrati višu početnu dozu gonadotropina ili prilagođeni protokol (mini stimulacija, DuoStim).</p>
+<p><strong>Nizak FSH + visok AMH + visok AFC</strong> (PCOS profil): Lekar zna da su jajnici hipersenzitivni i da postoji rizik od preterane reakcije. Bira nižu početnu dozu i antagonistički protokol, sa svim merama opreza protiv OHSS-a.</p>
+<p><strong>Normalan FSH + normalan AMH</strong> (normalan profil): Standardni protokol sa standardnom dozom.</p>
+<h3>Izbor tipa gonadotropina</h3>
+<p>Ne daju se uvek isti lekovi. Lekar bira na osnovu hormonskog profila:</p>
+<h3>Izbor triggera</h3>
+<p><strong>Standardni hCG trigger:</strong> Hormon hCG simulira LH nalet jer hCG i LH imaju sličnu strukturu i vezuju se za isti receptor na ćelijama folikula. Ovaj „lažni" LH nalet pokreće završno sazrevanje jajnih ćelija 36 sati pre punkcije.</p>
+<p><strong>GnRH agonist trigger:</strong> Umesto da se da spolja, ovaj lek izaziva endogeni LH nalet - natera hipofizu da naglo oslobodi sopstveni LH. Koristi se u antagonističkom protokolu kao alternativa hCG triggeru, posebno kod žena sa rizikom od OHSS-a.</p>
+<p><strong>Dual trigger</strong> (kombinacija hCG + GnRH agonist): koristi se u specifičnim situacijama za optimizaciju sazrevanja jajnih ćelija.</p>
+<h3>Monitoring LH tokom stimulacije</h3>
+<p><strong>Prevremeni LH nalet:</strong> Ako LH naglo poraste tokom stimulacije, postoji rizik od spontane ovulacije pre planirane punkcije. GnRH antagonist se uvodi da to spreči.</p>
+<p><strong>Prenizak LH tokom stimulacije:</strong> Kod nekih žena LH pada previše nisko tokom antagonističkog protokola. To može negativno uticati na kvalitet jajnih ćelija i proizvodnju estradiola. Lekar može dodati LH suplement (recombinantni LH ili niske doze hCG).</p>
+<h2 id="skako-se-fsh-i-lh-menjaju-tokom-života-že">6. Kako se FSH i LH menjaju tokom života žene</h2>
+<p>FSH i LH pričaju priču o reproduktivnom životu žene - od prvog do poslednjeg dana.</p>
+<p><strong>Detinjstvo:</strong> FSH i LH su veoma niski. Reproduktivna osa je „uspavana" - hipotalamus još ne šalje signale za reprodukciju.</p>
+<p><strong>Pubertet:</strong> Hipotalamus počinje da luči GnRH, hipofiza odgovara rastom FSH i LH, jajnici se aktiviraju - počinje menstrualni ciklus. To je „buđenje" cele reproduktivne ose.</p>
+<p><strong>Reproduktivni period (20–35 godina):</strong> FSH i LH ciklično variraju - niski na početku ciklusa, LH nalet sredinom ciklusa, bazalni FSH obično ispod 8–10 mIU/mL. Ovo je period kada je reproduktivna osa u punoj snazi.</p>
+<p><strong>Kasni reproduktivni period (35–45 godina):</strong> Bazalni FSH postepeno raste jer ovarijalna rezerva opada. Jajnici „slabije čuju" signale hipofize, pa hipofiza pojačava FSH da kompenzuje. Zanimljivo je da ciklusi mogu biti i dalje redovni čak i kada FSH počne da raste - redovna menstruacija ne garantuje dobru ovarijalnu rezervu.</p>
+<p><strong>Perimenopauza (obično 45–51 godina):</strong> FSH značajno raste, ciklusi postaju neredovni - prvo kraći, pa duži, sa preskakanjem menstruacija. LH takođe raste, a estradiol dramatično fluktuira iz meseca u mesec.</p>
+<p><strong>Menopauza (prosečno oko 51. godine):</strong> FSH je trajno iznad 30–40 mIU/mL, LH je povišen, estradiol je nizak. Jajnici su prestali da reaguju na signale mozga.</p>
+<p><strong>Preuranjena ovarijalna insuficijencija (POI):</strong> Isti hormonski profil kao menopauza, ali pre 40. godine života. Zahteva posebnu dijagnostičku obradu i razgovor o opcijama.</p>
+<h2 id="sfsh-i-lh-naspram-amh-direktno-poređenje">7. FSH i LH naspram AMH - direktno poređenje</h2>
+<p>Pošto se i FSH i AMH koriste za procenu ovarijalne rezerve, korisno je razumeti njihove razlike:</p>
+<h3>AMH (antimilerov hormon)</h3>
+<p>AMH je direktan marker ovarijalne rezerve - meri supstancu koju proizvode sami folikuli u jajnicima. Stabilan je tokom menstrualnog ciklusa i može se meriti bilo kog dana - tajming nije kritičan. Ne zavisi od nivoa estradiola, tako da ne može biti „maskiran" kao FSH. Bolji je prediktor broja jajnih ćelija koje se mogu dobiti na punkciji. S druge strane, skuplji je test i nije uvek dostupan u svim laboratorijama.</p>
+<h3>Bazalni FSH</h3>
+<p>FSH je indirektan marker - meri reakciju mozga na stanje jajnika, a ne stanje samih jajnika. Mora se meriti striktno na dan 2–3 ciklusa - tajming je kritičan za tačno tumačenje. Može biti maskiran povišenim estradiolom, pa se uvek tumači zajedno sa E2. Varira od ciklusa do ciklusa, što znači da jedan nalaz nije uvek dovoljan. Njegova prednost je da je jeftiniji, šire dostupan i decenijama u kliničkoj upotrebi.</p>
+<h3>Idealan pristup</h3>
+<p>Meriti i AMH i bazalni FSH (+ estradiol + AFC) - zajedno daju najpotpuniju sliku ovarijalne rezerve. Ni jedan marker sam za sebe ne pruža kompletnu informaciju.</p>
+<p>Kada se ovi markeri razilaze - na primer, normalan AMH ali povišen FSH - to zahteva posebnu pažnju. Preporučuje se ponavljanje nalaza i tumačenje sa lekarom u kontekstu starosti i celokupne kliničke slike.</p>
+<h2 id="smitovi-i-zablude-o-fsh-i-lh-hormonima">8. Mitovi i zablude o FSH i LH hormonima</h2>
+<p>Oko FSH i LH kruži mnogo pogrešnih informacija, posebno na internetu i forumima. Hajde da raščistimo najčešće zablude.</p><div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Visok FSH znači da ne mogu da zatrudnim.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Visok FSH ukazuje na smanjenu ovarijalnu rezervu, ali ne isključuje trudnoću. Posebno ako je žena mlada - kvalitet jajnih ćelija može biti dobar čak i kada je njihov broj smanjen.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako mi je FSH normalan, ovarijalna rezerva mi je sigurno u redu.</div>
+        <div class="myth-truth"><strong>Ne nužno.</strong> FSH može biti normalan dok AMH i AFC već pokazuju pad. FSH je takozvani „kasni marker" - on raste tek kada je rezerva već značajno smanjena. Normalan FSH ne isključuje početni pad rezerve.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> FSH je pouzdaniji od AMH jer se koristi duže.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Dužina upotrebe ne znači bolju pouzdanost. AMH je stabilniji, manje varira i ne zavisi od dana ciklusa ni od estradiola. FSH daje dodatne korisne informacije, ali AMH je superiorniji marker rezerve.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Visok LH uvek znači PCOS.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> LH može biti povišen i iz drugih razloga. PCOS se dijagnostikuje na osnovu više kriterijuma (takozvani Roterdamski kriterijumi koji uključuju neredovne cikluse, kliničke ili laboratorijske znake viška androgena i policistični izgled jajnika na ultrazvuku) - ne samo na osnovu jednog hormona.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> FSH od 12 je katastrofa.</div>
+        <div class="myth-truth"><strong>Preterivanje.</strong> FSH od 12 mIU/mL je granično povišen i zahteva dalju evaluaciju (AMH, AFC, ponavljanje u drugom ciklusu), ali sam po sebi ne znači kraj plodnosti.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Mogu da snizim FSH suplementima i time poboljšam plodnost.</div>
+        <div class="myth-truth"><strong>Ovo je pogrešno razumevanje uzročno-posledične veze.</strong> FSH je glasnik - on samo prenosi poruku o stanju jajnika. Snižavanje FSH bez lečenja uzroka je kozmetička promena - kao da skinete baterije sa detektora dima i mislite da ste ugasili požar. Problem je smanjena rezerva, a ne sam FSH.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> FSH i LH su jedini hormoni koji su bitni.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> AMH, estradiol, progesteron, prolaktin, TSH, inhibin B - svi su deo slagalice. Nijedan hormon se ne tumači izolovano. Reproduktivna endokrinologija je upravo zato kompleksna - jer zahteva sagledavanje celokupne slike.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Bazalni FSH od 6 na dan 5 ciklusa je uredan.</div>
+        <div class="myth-truth"><strong>Moguća greška u tumačenju.</strong> Bazalni FSH mora biti meren na dan 2–3 da bi bio validan za procenu ovarijalne rezerve. Na dan 5, folikularni rast već menja hormonsku sliku - FSH može biti lažno niži jer je folikul već počeo da luči estradiol koji suprimira hipofizu.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Mlada žena ne može imati visok FSH.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Preuranjena ovarijalna insuficijencija (POI) pogađa i žene u dvadesetim godinama. Starost ne garantuje normalnu rezervu.</div>
+      </div>
+<h2 id="semocionalni-aspekti-dobijanja-rezultata-">9. Emocionalni aspekti dobijanja rezultata FSH i LH</h2>
+<p>Dobijanje hormonskih nalaza je emocionalno iskustvo, i to je potpuno normalno. Evo šta mnoge žene osećaju i zašto - uz praktične savete.</p>
+<p><strong>Konfuzija zbog mnoštva brojeva.</strong> Za razliku od AMH koji je jedan broj, bazalni hormonski panel uključuje FSH, LH, estradiol, ponekad progesteron, prolaktin, TSH - i mnogi parovi se osećaju zbunjeno mnoštvom cifara. Ne znaju šta je važno, šta je manje važno i kako se sve to uklapa.</p>
+<p><strong>Guglanje referentnih vrednosti.</strong> Gotovo svaka žena odmah pretražuje na internetu „FSH 11 da li je to normalno" - i pronalazi kontradiktorne informacije. Neki izvori kažu da je uredan, drugi da je povišen, treći da zavisi od laboratorije. Ova protivrečnost izaziva dodatnu anksioznost.</p>
+<p><strong>Panika od „graničnih" vrednosti.</strong> FSH koji je blago iznad norme (na primer 10–12 mIU/mL) često izaziva neproporcionalno veliku paniku. Žena ne razume da je to granična zona koja zahteva dalju evaluaciju, a ne konačna dijagnoza.</p>
+<p><strong>Poređenje sa AMH.</strong> Žene koje imaju normalan AMH ali povišen FSH (ili obrnuto) su posebno zbunjene - „Koji nalaz da verujem? Da li sam u redu ili ne?" Ovo neslaganje markera je čest izvor frustracije i neizvesnosti.</p>
+<p><strong>Praktičan savet:</strong> Uvek tumačite nalaze sa lekarom reproduktivne medicine - ne sa internet pretragom, ne sa forumom, ne sa prijateljicom koja je „isto prolazila VTO". Lekar vidi celokupnu sliku: vašu starost, AMH, AFC, FSH, LH, estradiol, medicinsku istoriju - i samo u tom kontekstu brojevi dobijaju pravo značenje. Jedan izolovani broj, izvučen iz konteksta, ne govori gotovo ništa.</p>
+<h2 id="sčesta-pitanja-i-praktični-saveti">10. Česta pitanja i praktični saveti</h2>
+<h3>Najčešća pitanja pacijentkinja</h3>
+<p><strong>„Zašto mi je lekar tražio FSH ako sam već radila AMH?"</strong></p>
+<p>Zato što FSH i AMH govore o različitim aspektima reproduktivnog zdravlja. AMH meri koliko folikula imate (direktan marker rezerve). FSH meri kako vaš mozak reaguje na stanje jajnika (indirektan marker). Zajedno daju potpuniju sliku. Pored toga, FSH može ukazati na probleme u hipofizi ili hipotalamusu koje AMH ne može da detektuje.</p><br>
+<p><strong>„Da li FSH od 10 znači da moram odmah na VTO?"</strong></p>
+<p>Ne nužno. FSH od 10 mIU/mL je na gornjoj granici normalnog opsega. Lekar će sagledati celokupnu sliku - vaš AMH, AFC, starost, trajanje pokušavanja - pre nego što preporuči bilo kakav korak. Kod nekih žena to je potpuno benignan nalaz; kod drugih može ukazivati na potrebu za bržim delovanjem.</p><br>
+<p><strong>„Da li FSH varira iz meseca u mesec?"</strong></p>
+<p>Da. FSH može varirati od ciklusa do ciklusa pod uticajem raznih faktora - stresa, bolesti, promene telesne težine, pa čak i slučajne biološke varijacije. Zato jedan granični rezultat nije dovoljan za dijagnozu - lekar će najčešće tražiti ponavljanje u drugom ciklusu.</p><br>
+<p><strong>„Zašto mi je FSH bio normalan pre godinu dana a sada je povišen?"</strong></p>
+<p>Ovarijalna rezerva prirodno opada s vremenom. Kod nekih žena taj pad je postepen, kod drugih može biti brži. Takođe, FSH je „kasni marker" - može biti normalan dok rezerva postepeno opada, pa onda relativno naglo porasti kada rezerva padne ispod određenog praga. To ne znači da se nešto dramatično promenilo za godinu dana - moguće je da je pad bio u toku i ranije, ali ga FSH nije „uhvatio".</p><br>
+<p><strong>„Da li vežbanje i ishrana mogu da snize FSH?"</strong></p>
+<p>Zdrav način života (uravnotežena ishrana, umereno vežbanje, upravljanje stresom) može pozitivno uticati na opšte hormonsko zdravlje. Međutim, ne postoje naučni dokazi da bilo koji suplement ili dijeta može značajno promeniti bazalni FSH ili preokrenuti smanjenje ovarijalne rezerve. FSH je glasnik, ne problem.</p><br>
+<p><strong>„Šta znači ako mi je LH viši od FSH?"</strong></p>
+<p>Obrnut odnos LH i FSH (LH viši od FSH na dan 2–3 ciklusa) može ukazivati na PCOS. Međutim, ovaj nalaz sam po sebi nije dovoljan za dijagnozu. Lekar će uzeti u obzir ultrazvučni nalaz jajnika, regularnost ciklusa, nivo androgena i celokupnu kliničku sliku.</p><br><br>
+<p><strong>„Da li moram da ponavljam FSH svaki ciklus?"</strong></p>
+<p>Ne obavezno. Ako su vrednosti bile jasno normalne ili jasno abnormalne, ponavljanje nije uvek potrebno. Ponavljanje se preporučuje kada je nalaz granično povišen (10–15 mIU/mL) - da se vidi da li je to trajno stanje ili prolazna varijacija.</p><br>
+<p><strong>„Da li hormonska kontracepcija utiče na FSH?"</strong></p>
+<p>Da. Hormonska kontracepcija (pilula, plasteri, prsteni) suprimira sopstveno lučenje FSH i LH. Dok ste na kontracepciji, bazalni FSH ne odražava stvarno stanje ovarijalne rezerve. Potrebno je prekinuti kontracepciju i sačekati barem 1–2 spontana ciklusa pre merenja bazalnih hormona da bi rezultati bili validni.</p><br>
+<p><strong>„Šta znači FSH od 25 za ženu od 28 godina?"</strong></p>
+<p>FSH od 25 mIU/mL u bilo kojoj dobi ukazuje na značajno smanjenu ovarijalnu rezervu. Za ženu od 28 godina, to je posebno zabrinjavajuće i zahteva hitnu evaluaciju na moguću preuranjenu ovarijalnu insuficijenciju (POI). Važno je ponoviti nalaz u drugom ciklusu, uraditi AMH i AFC, i konsultovati se sa specijalistom za reproduktivnu medicinu. Starost ne isključuje smanjenu rezervu.</p><br>
+<p><strong>„Ako mi je FSH visok, da li imam šanse za VTO?"</strong></p>
+<p>Visok FSH ne znači automatski da VTO nema šanse. Šanse zavise od mnogih faktora - starosti, AMH, AFC, vrednosti FSH (da li je 12 ili 35 - velika razlika), opšteg zdravlja. Mnoge žene sa umereno povišenim FSH uspešno prolaze VTO, ponekad sa prilagođenim protokolima. Za žene sa veoma visokim FSH (iznad 25–40), opcije su ograničenije, ali i dalje postoje - od prilagođenih protokola do donacije jajnih ćelija.</p>
+<h3>Kratki pregledni okvir: bazalni FSH i šta ukazuje</h3>
+<table>
+<thead>
+<tr><th>Vrednost bazalnog FSH</th><th>Šta ukazuje</th></tr>
+</thead>
+<tbody>
+<tr><td>Ispod 10 mIU/mL</td><td>Normalna ovarijalna rezerva</td></tr>
+<tr><td>10–15 mIU/mL</td><td>Granično povišen - moguć početak smanjenja rezerve, zahteva dalju evaluaciju</td></tr>
+<tr><td>15–20 mIU/mL</td><td>Značajno smanjena ovarijalna rezerva - očekivan slabiji odgovor na stimulaciju</td></tr>
+<tr><td>Iznad 20 mIU/mL</td><td>Veoma smanjena rezerva - mali izgledi za dobar odgovor na stimulaciju</td></tr>
+<tr><td>Iznad 40 mIU/mL</td><td>Ovarijalna insuficijencija / preuranjena menopauza</td></tr>
+</tbody>
+</table>
+
+<p><em>Napomena: vrednosti su orijentacione. Uvek tumačite prema rasponu vaše laboratorije i u kontekstu starosti, AMH, AFC i estradiola.</em></p>
+<h2 id="srečnik-najvažnijih-pojmova">Rečnik najvažnijih pojmova</h2>
+<p><strong>AFC (Antral Follicle Count)</strong> - broj antralnih folikula, broj malih folikula vidljivih na ultrazvuku jajnika na početku ciklusa; direktan marker ovarijalne rezerve.</p>
+<p><strong>AMH (antimilerov hormon)</strong> - hormon koji proizvode granuloza ćelije malih folikula u jajnicima; direktan i stabilan marker ovarijalne rezerve.</p>
+<p><strong>Amenoreja</strong> - izostanak menstruacije.</p>
+<p><strong>Androgeni</strong> - „muški" polni hormoni (testosteron, DHEAS) koji su u malim količinama prisutni i kod žena; u jajnicima služe kao „sirovina" za proizvodnju estradiola.</p>
+<p><strong>Anovulacija</strong> - izostanak ovulacije u menstrualnom ciklusu.</p>
+<p><strong>Antagonistički protokol</strong> - VTO protokol u kojem se GnRH antagonist koristi za sprečavanje prevremenog LH naleta tokom stimulacije.</p>
+<p><strong>Atrezija</strong> - propadanje folikula koji nisu postali dominantni; prirodan proces selekcije.</p>
+<p><strong>Bazalni hormoni</strong> - vrednosti hormona merene na dan 2–3 menstrualnog ciklusa, kada su na polaznom (najnižem) nivou.</p>
+<p><strong>Dugi protokol</strong> - VTO protokol u kojem se GnRH agonist koristi za kompletnu supresiju hipofize pre početka stimulacije.</p>
+<p><strong>DuoStim</strong> - protokol dvostruke stimulacije u jednom menstrualnom ciklusu.</p>
+<p><strong>Estradiol (E2)</strong> - glavni ženski polni hormon; proizvode ga folikuli u jajnicima pod uticajem FSH.</p>
+<p><strong>Folikularna faza</strong> - prva polovina menstrualnog ciklusa, od prvog dana menstruacije do ovulacije.</p>
+<p><strong>FSH (folikulostimulirajući hormon)</strong> - hormon hipofize koji stimuliše rast folikula u jajnicima.</p>
+<p><strong>GnRH (gonadotropin-oslobađajući hormon)</strong> - hormon hipotalamusa koji govori hipofizi da luči FSH i LH.</p>
+<p><strong>Gonadotropini</strong> - hormoni koji stimulišu gonade (polne žlezde); FSH i LH su gonadotropini.</p>
+<p><strong>Granuloza ćelije</strong> - ćelije unutrašnjeg sloja folikula; proizvode estradiol pod uticajem FSH.</p>
+<p><strong>Hipofiza</strong> - mala žlezda na bazi mozga; „kontrolni centar" koji proizvodi FSH, LH, prolaktin i druge hormone.</p>
+<p><strong>Hipotalamus</strong> - deo mozga nadređen hipofizi; reguliše lučenje hormona hipofize putem GnRH.</p>
+<p><strong>Hipotalamo-hipofizno-ovarijalna osa</strong> - sistem dvosmerne komunikacije između hipotalamusa, hipofize i jajnika koji reguliše menstrualni ciklus.</p>
+<p><strong>Hipogonadotropni hipogonadizam</strong> - stanje u kojem su FSH i LH niski jer hipofiza/hipotalamus ne šalju dovoljno signala jajnicima.</p>
+<p><strong>HMG (humani menopauzalni gonadotropin)</strong> - lek za stimulaciju koji sadrži FSH i LH; ekstrahuje se iz urina postmenopauzalnih žena; komercijalni naziv Menopur.</p>
+<p><strong>Inhibin B</strong> - hormon koji proizvode mali folikuli; učestvuje u negativnoj povratnoj sprezi sa FSH.</p>
+<p><strong>Klomifen citrat</strong> - lek koji indirektno pojačava sopstveni FSH blokiranjem estrogenskih receptora u mozgu.</p>
+<p><strong>Korpus luteum (žuto telo)</strong> - struktura u jajniku koja nastaje nakon ovulacije; proizvodi progesteron.</p>
+<p><strong>Letrozol</strong> - lek koji indirektno pojačava sopstveni FSH blokiranjem enzima aromataze.</p>
+<p><strong>LH (luteinizirajući hormon)</strong> - hormon hipofize koji pokreće ovulaciju (LH nalet) i podržava žuto telo.</p>
+<p><strong>LH nalet (LH surge)</strong> - naglo povišenje LH sredinom ciklusa koje pokreće ovulaciju.</p>
+<p><strong>Lutealna faza</strong> - druga polovina menstrualnog ciklusa, od ovulacije do početka sledeće menstruacije.</p>
+<p><strong>Negativna povratna sprega</strong> - mehanizam kojim hormoni jajnika (estradiol, inhibin B) govore hipofizi da smanji lučenje FSH.</p>
+<p><strong>OHSS (sindrom ovarijalne hiperstimulacije)</strong> - komplikacija VTO stimulacije u kojoj jajnici prekomerno reaguju na gonadotropine.</p>
+<p><strong>Oligomenoreja</strong> - retke, neredovne menstruacije.</p>
+<p><strong>Ovarijalna insuficijencija</strong> - stanje u kojem jajnici ne reaguju na stimulaciju hipofize; FSH i LH su visoki.</p>
+<p><strong>PCOS (sindrom policističnih jajnika)</strong> - hormonski poremećaj sa neredovnom ovulacijom, viškom androgena i policističnim jajnicima.</p>
+<p><strong>POI (Premature Ovarian Insufficiency)</strong> - preuranjena ovarijalna insuficijencija; gubitak funkcije jajnika pre 40. godine.</p>
+<p><strong>Pozitivna povratna sprega</strong> - mehanizam kojim visok estradiol sredinom ciklusa stimuliše hipofizu da naglo poveća LH (izaziva LH nalet).</p>
+<p><strong>Progesteron</strong> - hormon žutog tela; priprema endometrijum za implantaciju embriona.</p>
+<p><strong>Prolaktin</strong> - hormon hipofize; kada je povišen, može suprimirati FSH i LH.</p>
+<p><strong>Recombinantni hormon</strong> - hormon proizveden biotehnološkim putem (genetskim inženjeringom), identičan prirodnom.</p>
+<p><strong>Teka ćelije</strong> - ćelije spoljašnjeg sloja folikula; proizvode androgene pod uticajem LH.</p>
+<p><strong>TSH (tireostimulirajući hormon)</strong> - hormon hipofize koji reguliše rad štitaste žlezde; indirektno može uticati na FSH i LH.</p>
+<h2 id="szavršna-poruka">Završna poruka</h2>
+<p>FSH i LH su hormoni koji vam mogu reći mnogo o tome kako vaša reproduktivna osa funkcioniše. Ali ključna stvar koju treba zapamtiti jeste: nijedan hormon se ne tumači izolovano. Vaš lekar ne gleda samo FSH - on gleda FSH u kontekstu vašeg LH, estradiola, AMH, broja antralnih folikula, vaše starosti i celokupne medicinske istorije. Tek kada se svi ti delovi slagalice sklope, slika postaje jasna.</p>
+<p>Ako su vam hormonski rezultati izazvali zabrinutost, to je razumljivo i potpuno normalno. Brojevi na papiru mogu delovati zastrašujuće, posebno kada ih čitate bez konteksta. Ali zapamtite: rezultati su polazna tačka za razgovor sa lekarom, a ne presuda. Čak i kada brojevi nisu idealni, postoje prilagođeni pristup i strategije koje vam reproduktivna medicina može ponuditi.</p>
+<p>Vaš VTO put je jedinstven - i upravo zato postoji tim stručnjaka koji će ga prilagoditi baš vama.</p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>

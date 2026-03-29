@@ -1,0 +1,1262 @@
+ class="article-toc"><!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spermogram - kako se radi i kako se tumače rezultati | VTOvodič.rs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-ink: #1a1a1a;
+    --color-ink-light: #4a4a4a;
+    --color-ink-muted: #7a7a7a;
+    --color-bg: #faf8f5;
+    --color-bg-warm: #f3efe9;
+    --color-accent: #b4533e;
+    --color-accent-hover: #963f2d;
+    --color-accent-light: #f8eeeb;
+    --color-border: #e2ddd6;
+    --color-border-light: #ece8e2;
+    --color-teal: #2a7d6e;
+    --color-teal-light: #eaf5f2;
+    --color-gold: #c4940a;
+    --color-gold-light: #fdf7e7;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-width: 768px;
+    --header-height: 64px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.65;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: relative;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-suffix {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-tld {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-ink-muted);
+    margin-left: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+  }
+
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0 0.85rem;
+    height: 100%;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover { color: var(--color-accent); }
+
+  .nav-link svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s;
+    opacity: 0.4;
+  }
+
+  .nav-item:hover .nav-link svg { transform: rotate(180deg); opacity: 1; }
+  .nav-item:hover .nav-link { color: var(--color-accent); }
+
+  /* Dropdown menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 0.6rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    padding: 0.4rem 1.25rem;
+    transition: all 0.15s;
+  }
+
+  .dropdown-menu a:hover { color: var(--color-accent); background: var(--color-bg); }
+
+  /* Mobile hamburger */
+  .mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    transition: all 0.2s;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--color-bg-warm); }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    width: 18px;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .hamburger-icon span:nth-child(2) { width: 13px; }
+
+  /* Mobile nav panel */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-nav-overlay.active { opacity: 1; }
+
+  .mobile-nav-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .mobile-nav-overlay.active .mobile-nav-panel { transform: translateX(0); }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-ink-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .mobile-nav-body { padding: 0.5rem 0; }
+
+  .mobile-nav-section { padding: 0.75rem 1.25rem; }
+
+  .mobile-nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-nav-section a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav-divider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: 0.25rem 1.25rem;
+  }
+
+  /* ===== MAIN LAYOUT - single column ===== */
+  .page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  /* ===== ARTICLE ===== */
+  .article-meta {
+    margin-bottom: 2rem;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.3em 0.75em;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-category:hover { background: var(--color-accent); color: #fff; }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .article-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== ARTICLE CONTENT ===== */
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-ink-light);
+    letter-spacing: -0.006em;
+  }
+
+  .article-content > * + * { margin-top: 1.2rem; }
+
+  .article-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+  }
+
+  .article-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .article-content p { margin-top: 1rem; }
+
+  .article-content strong { color: var(--color-ink); font-weight: 600; }
+
+  .article-content em { font-style: italic; }
+
+  .article-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 83, 62, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .article-content a:hover { text-decoration-color: var(--color-accent); }
+
+  /* Unordered lists */
+  .article-content ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .article-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  /* Ordered lists */
+  .article-content ol {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .article-content ol li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+    counter-increment: steps;
+  }
+
+  .article-content ol li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Blockquote */
+  .article-content blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-gold-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .article-content blockquote p { margin-top: 0; }
+  .article-content blockquote p + p { margin-top: 0.75rem; }
+
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .article-cta {
+    margin: 2.5rem 0;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, var(--color-accent-light), #fdf5f2);
+    border: 1px solid rgba(180, 83, 62, 0.15);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .article-cta-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-cta-text {
+    font-size: 0.92rem;
+    color: var(--color-ink-light);
+    margin-bottom: 1.15rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  .article-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--color-accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .article-cta-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(180,83,62,0.25); }
+
+  /* Table of contents within article */
+  .article-toc {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .article-toc-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .article-toc ol {
+    counter-reset: toc;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+  }
+
+  .article-toc ol li {
+    position: relative;
+    counter-increment: toc;
+    padding-left: 1.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .article-toc ol li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  .article-toc a {
+    font-size: 0.88rem;
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .article-toc a:hover { color: var(--color-accent); }
+
+  /* Article tags */
+  .article-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .article-tags-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .article-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-light);
+    background: var(--color-bg-warm);
+    padding: 0.25em 0.65em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .article-tag:hover { border-color: var(--color-border); color: var(--color-accent); }
+
+  /* Disclaimer */
+  .article-disclaimer {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    font-style: italic;
+    line-height: 1.55;
+    border-left: 3px solid var(--color-border);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--color-ink);
+    color: rgba(255,255,255,0.7);
+    margin-top: 0;
+  }
+
+  .footer-main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer-main .logo {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-main .logo .logo-mark { color: var(--color-accent); }
+  .footer-main .logo .logo-suffix { color: #fff; }
+  .footer-main .logo .logo-tld { color: rgba(255,255,255,0.4); }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 860px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-toggle { display: flex; }
+
+    .header-inner { padding: 0 1.25rem; }
+
+    .page-layout {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .article-title { font-size: 1.9rem; }
+    .article-subtitle { font-size: 1.05rem; }
+
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .article-title { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ===== CUSTOM ARTICLE ELEMENTS ===== */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 0.88rem; color: var(--color-ink-muted); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.86rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  .empathy-box { margin: 2rem 0; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fdf8f5, #faf5f0); border-radius: 10px; border: 1px solid rgba(180,83,62,0.1); position: relative; overflow: hidden; }
+  .empathy-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-accent); opacity: 0.5; }
+  .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
+  .empathy-box p + p { margin-top: 0.6rem; }
+
+  /* Table styling */
+  .article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .article-content th {
+    background: var(--color-bg-warm);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  .article-content td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-ink-light);
+    vertical-align: top;
+  }
+  .article-content tr:nth-child(even) td {
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+    .article-content table { font-size: 0.8rem; }
+    .article-content th, .article-content td { padding: 0.45rem 0.6rem; }
+  }
+
+</style>
+
+</head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9C6TCKB');</script>
+<!-- End Google Tag Manager -->
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9C6TCKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <div class="nav-item">
+        <a href="vto-uvod" class="nav-link">VTO osnove <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="vto-uvod">Uvod u VTO</a>
+          <a href="vto-vodic">VTO vodič</a>
+          <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+          <a href="icsi-metoda">ICSI postupak</a>
+          <a href="iui-inseminacija">Inseminacija IUI</a>
+          <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Postupak <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <div class="dropdown-menu">
+          <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+          <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+          <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+          <a href="priprema-sperme">Priprema spermatozoida</a>
+          <a href="kultivacija-embriona">Kultivacija embriona</a>
+          <a href="embriotransfer">Embrotransfer</a>
+          <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+          <a href="beta-hcg">Beta hCG test</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="o-nama" class="nav-link">O nama</a>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-toggle" onclick="toggleMobileNav()">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+      Meni
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <a href="#" class="logo">
+        <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+      </a>
+      <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">VTO osnove</div>
+        <a href="vto-uvod">Uvod u VTO</a>
+        <a href="vto-vodic">VTO vodič</a>
+        <a href="ivf-klasicna-metoda">Klasični VTO postupak</a>
+        <a href="icsi-metoda">ICSI postupak</a>
+        <a href="iui-inseminacija">Inseminacija IUI</a>
+        <a href="fet-vodic">FET zamrznuti embriotransfer</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Postupak</div>
+        <a href="stimulacija-jajnika-vto">Stimulacija jajnika</a>
+        <a href="monitoring-stimulacije">Praćenje stimulacije</a>
+        <a href="aspiracija-jajnih-celija">Aspiracija jajnih ćelija</a>
+        <a href="priprema-sperme">Priprema spermatozoida</a>
+        <a href="kultivacija-embriona">Kultivacija embriona</a>
+        <a href="embriotransfer">Embrotransfer</a>
+        <a href="zamrzavanje-embriona">Zamrzavanje embriona</a>
+        <a href="beta-hcg">Beta hCG test</a>
+      </div>
+      <div class="mobile-nav-divider"></div>
+      <div class="mobile-nav-section">
+        <a href="o-nama" style="font-weight:600;">O nama</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===== MAIN LAYOUT - single column ===== -->
+<main class="page-layout">
+
+  <article>
+    <div class="article-meta">
+      <span class="article-category">Muška plodnost</span>
+<h1 class="article-title">Spermogram - kako se radi i kako se tumače rezultati</h1>
+
+    </div>
+
+    <div class="article-toc">
+  <div class="article-toc-title">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Sadržaj članka
+  </div>
+  <ol>
+<li><a href="#sšta-je-spermogram-i-zašto-je-toliko-važa">Šta je spermogram i zašto je toliko važan</a></li>
+<li><a href="#sgde-se-spermogram-nalazi-u-procesu-dijag">Gde se spermogram nalazi u procesu dijagnostike i lečenja neplodnosti</a></li>
+<li><a href="#skako-se-uzorak-daje-priprema-praktični-a">Kako se uzorak daje - priprema, praktični aspekti i psihološka dimenzija</a></li>
+<li><a href="#sšta-se-dešava-sa-uzorkom-u-laboratoriji">Šta se dešava sa uzorkom u laboratoriji</a></li>
+<li><a href="#sreferentne-vrednosti-prema-who-kriteriju">Referentne vrednosti prema WHO kriterijumima</a></li>
+<li><a href="#sdijagnostički-termini-šta-znače-nazivi-k">Dijagnostički termini - šta znače nazivi koje čujete od lekara</a></li>
+<li><a href="#szašto-je-potrebno-ponoviti-spermogram">Zašto je potrebno ponoviti spermogram</a></li>
+<li><a href="#skako-rezultat-spermograma-utiče-na-izbor">Kako rezultat spermograma utiče na izbor metode lečenja</a></li>
+<li><a href="#sdodatni-testovi-napredna-dijagnostika-po">Dodatni testovi - napredna dijagnostika pored standardnog spermograma</a></li>
+<li><a href="#sfaktori-koji-utiču-na-kvalitet-sperme-št">Faktori koji utiču na kvalitet sperme - šta možete, a šta ne možete da kontrolišete</a></li>
+<li><a href="#svarikokela-najčešći-lečivi-uzrok-muškog-">Varikokela - najčešći lečivi uzrok muškog infertiliteta</a></li>
+<li><a href="#semocionalna-dimenzija-spermograma-i-mušk">Emocionalna dimenzija spermograma i muškog faktora neplodnosti</a></li>
+<li><a href="#smitovi-i-zablude-o-spermogramu-i-muškoj-">Mitovi i zablude o spermogramu i muškoj plodnosti</a></li>
+<li><a href="#sčesta-pitanja-i-praktični-saveti">Česta pitanja i praktični saveti</a></li>
+  </ol>
+</div>
+
+    <!-- Article body -->
+    <div class="article-content">
+
+<h2 id="sšta-je-spermogram-i-zašto-je-toliko-važa">1. Šta je spermogram i zašto je toliko važan</h2>
+<p>Spermogram (poznat i kao spermiogram, analiza semene tečnosti ili analiza ejakulata) je osnovni laboratorijski test kojim se procenjuje kvalitet i količina spermatozoida (muških polnih ćelija) i semene tečnosti. Jednostavno rečeno - to je pregled koji pokazuje koliko spermatozoida imate, koliko su pokretni, kako izgledaju i kakva je tečnost u kojoj se nalaze.</p>
+<p>Spermogram je prvi i najvažniji dijagnostički korak u proceni muške plodnosti. Ono što je za ženu AMH (anti-Milerov hormon) i ultrazvuk jajnika - polazna tačka od koje kreće celokupna dijagnostika i planiranje lečenja - to je za muškarca spermogram. Bez njega, nijedan lekar ne može da donese informisanu odluku o daljem toku lečenja.</p>
+<p>Zašto je to bitno za vas? Zato što je muški faktor prisutan u gotovo 40–50% svih slučajeva neplodnosti - bilo kao samostalan uzrok, bilo u kombinaciji sa ženskim faktorom. To znači da je kod skoro svakog drugog para koji ne može da začne dete deo problema na muškoj strani. Upravo zato je spermogram obavezan deo obrade svakog para koji se suočava sa problemom neplodnosti. Ne radi se o formalnosti - radi se o testu koji može da promeni celokupan pravac lečenja.</p>
+<h2 id="sgde-se-spermogram-nalazi-u-procesu-dijag">2. Gde se spermogram nalazi u procesu dijagnostike i lečenja neplodnosti</h2>
+<p>Spermogram je jedan od prvih testova koji se radi u obradi para koji ne može da začne dete. Obično se radi istovremeno sa dijagnostičkom obradom žene - dok ona radi hormonske analize, ultrazvuk i druge preglede, muškarac daje uzorak za spermogram. Logika je jasna: nema smisla planirati lečenje dok ne znate šta se dešava na obe strane.</p>
+<p>Na osnovu rezultata spermograma lekar donosi odluke koje direktno utiču na dalji tok lečenja. Ako je spermogram uredan, a problem je na ženskoj strani, pristup će biti jedan. Ako spermogram pokaže odstupanja, to menja celokupan plan. Konkretno, lekar na osnovu spermograma odlučuje da li je dovoljno pokušati sa IUI (intrauterina inseminacija - postupak u kome se pripremljeni spermatozoidi ubacuju direktno u matericu), da li je potreban klasičan IVF (vantelesna oplodnja - oplođenje jajnih ćelija spermom u laboratoriji), ili je neophodan ICSI (intracitoplazmatska injekcija spermatozoida - embriolog bira jedan spermatozoid i ubacuje ga direktno u jajnu ćeliju mikroiglom).</p>
+<p>Rezultat spermograma igra ključnu ulogu i na sam dan punkcije jajnih ćelija. Embriolog (biolog koji radi u laboratoriji klinike za vantelesnu oplodnju) na osnovu kvaliteta sperme odlučuje kako će pristupiti oplođenju - da li će pustiti spermatozoide da sami oplode jajne ćelije (klasični IVF) ili će svaki spermatozoid ručno ubaciti u jajnu ćeliju (ICSI). Na dan punkcije se radi analiza svežeg uzorka pre obrade, ali dijagnostički spermogram urađen unapred je osnov za celokupno planiranje.</p>
+<h2 id="skako-se-uzorak-daje-priprema-praktični-a">3. Kako se uzorak daje - priprema, praktični aspekti i psihološka dimenzija</h2>
+<h3>Apstinencija pre davanja uzorka</h3>
+<p>Pre davanja uzorka za spermogram preporučuje se seksualna apstinencija od 2 do 5 dana, najčešće 3 do 4 dana. Ni prekratka ni predugačka apstinencija nije dobra.</p>
+<p>Zašto? Prekratka apstinencija (manje od 2 dana) može dati manji volumen ejakulata i nižu koncentraciju spermatozoida - jednostavno, telo nije imalo dovoljno vremena da napuni zalihe. Sa druge strane, predugačka apstinencija (više od 5–7 dana) može povećati ukupan volumen, ali pokretljivost spermatozoida opada, a raste procenat mrtvih i oštećenih ćelija - spermatozoidi koji predugo čekaju u epididimisu (kanalčiću pored testisa gde se čuvaju zreli spermatozoidi) postepeno gube kvalitet.</p>
+<p>Važno je znati da apstinencija uključuje sve oblike ejakulacije - ne samo seksualne odnose, već i masturbaciju. Cilj je da od poslednje ejakulacije do davanja uzorka prođe tih 2 do 5 dana.</p>
+<h3>Priprema pre davanja uzorka</h3>
+<p>Nekoliko dana pre spermograma poželjno je obratiti pažnju na sledeće stvari:</p>
+<p>Izbegavajte alkohol i prekomerno piće 2–3 dana pre testa. Ne morate biti u potpunoj apstinenciji ako je u pitanju čaša vina, ali opijanje može uticati na rezultat.</p>
+<p>Izbegavajte saune, vruće kupke i džakuzije najmanje nedelju dana pre analize. Visoka temperatura direktno šteti spermatozoidima - testisi su evolutivno smešteni van tela upravo zato što im treba niža temperatura za normalnu funkciju.</p>
+<p>Izbegavajte intenzivne fizičke napore dan pre testa. Maratonski trening ili veoma iscrpljujuća aktivnost može privremeno uticati na kvalitet sperme.</p>
+<p>Prijavite lekaru sve lekove koje uzimate. Neki lekovi mogu značajno uticati na rezultate spermograma - antibiotici, hormoni, anabolički steroidi, finasterid (lek za gubitak kose), SSRI antidepresivi i hemioterapija su samo neki od njih. Lekar treba da zna šta uzimate da bi pravilno protumačio nalaz.</p>
+<p>Ako ste u poslednjih 2–3 meseca bili bolesni sa visokom temperaturom, obavezno to napomenite lekaru. Spermatogeneza (proces nastanka spermatozoida od matičnih ćelija do zrelih ćelija) traje oko 72 dana, pa se efekat bolesti, stresa ili visoke temperature na kvalitet sperme vidi sa zakašnjenjem - nalaz koji danas dobijete odražava stanje od pre dva do tri meseca.</p>
+<h3>Način prikupljanja uzorka</h3>
+<p>Uzorak se daje masturbacijom u sterilnu plastičnu posudu. To je najčešći i preporučeni metod. Postoje dve opcije za mesto davanja uzorka:</p>
+<p><strong>Davanje uzorka u klinici</strong> podrazumeva posebnu prostoriju obezbeđenu za privatnost. Obično je opremljena bravom, ponekad vizuelnim materijalom za stimulaciju, kaučem ili stolicom, i ima sanitarni čvor za pranje ruku pre davanja uzorka. Prednost davanja uzorka u klinici je što uzorak odmah stiže u laboratoriju - nema rizika od nepravilnog transporta, promene temperature ili kašnjenja.</p>
+<p><strong>Davanje uzorka kod kuće</strong> moguće je u nekim laboratorijama i klinikama. Uzorak se mora dostaviti u laboratoriju u roku od 30 do 60 minuta od davanja. Posudu treba držati na telesnoj temperaturi tokom transporta - na primer, u unutrašnjem džepu jakne, uz telo. Uzorak ne sme biti izložen ni visokim ni niskim temperaturama. Prednost je veća opuštenost i privatnost, a mana je rizik od nepravilnog transporta koji može uticati na rezultate.</p>
+<p>Za muškarce koji ne mogu da daju uzorak masturbacijom, postoji alternativa - specijalni nelateksni prezervativi bez spermicida (takozvani seminal collection device) koji se koriste tokom odnosa. Ova opcija se retko koristi u praksi, ali je dostupna.</p>
+<p>Što se tiče higijene - temeljno operite ruke i genitalije pre davanja uzorka. Ne koristite lubrikante jer je većina lubrikanta toksična za spermatozoide. Takođe ne koristite sapun kao zamenu za lubrikant.</p>
+<p>Jedno izuzetno važno pravilo: celokupan ejakulat mora da završi u posudi. Ako se deo uzorka promaši ili prospe, obavezno prijavite to laboratoriji. Ovo nije sitnica - nepotpun uzorak direktno utiče na tumačenje volumena i koncentracije, i može dovesti do lažno loših rezultata.</p>
+<h3>Psihološki aspekti davanja uzorka - o čemu se retko govori</h3>
+<p>Ovo je tema o kojoj se retko govori otvoreno, ali je izuzetno važna jer mnogi muškarci prolaze kroz isto iskustvo.</p>
+<p>Trema i anksioznost pri davanju uzorka su normalne i česte. Davanje uzorka "na zahtev", u kliničkom okruženju, sa svešću da rezultat ima medicinsku važnost i da od njega zavise odluke o lečenju - to je stresna situacija. Nemojte sebi zamerati ako vam nije lako.</p>
+<p>Situaciona erektilna disfunkcija - nemogućnost postizanja erekcije ili ejakulacije u klinici - je čest problem o kome se muškarci stide da govore, a dešava se kod značajnog procenta muškaraca koji daju uzorak. Ovo nema nikakve veze sa vašom seksualnom funkcijom u normalnim okolnostima. To je reakcija na stres, pritisak i neprirodnost situacije.</p>
+<p>Šta raditi ako ne uspe? Prijavite to osoblju bez ikakve nelagode - osoblje klinike je apsolutno naviklo na to i profesionalno će reagovati. Uzmite pauzu, opustite se, pokušajte ponovo. Ako ni tada ne ide, dogovorite davanje uzorka kod kuće. U retkim slučajevima moguća je i medicinska pomoć.</p>
+<p>Mnogi muškarci prilikom davanja uzorka za spermogram osećaju nemoć i sram. U kulturi u kojoj se muškost često poistovećuje sa plodnošću, analiza sperme može da se doživi kao situacija u kojoj se "meri muškost". Strah od loših rezultata, osećaj da ste "na ispitu" - sve je to razumljivo i ljudski.</p>
+<p>Ali važno je da znate: ovo je medicinski test kao svaki drugi. Nije merilo vaše vrednosti, muškosti ni seksualnosti. Isto kao što krvna slika ne govori ništa o vašem karakteru, spermogram ne govori ništa o vama kao osobi.</p>
+<h2 id="sšta-se-dešava-sa-uzorkom-u-laboratoriji">4. Šta se dešava sa uzorkom u laboratoriji</h2>
+<p>Kada uzorak stigne u laboratoriju, analiza prolazi kroz nekoliko faza.</p>
+<h3>Likvefakcija (razređivanje)</h3>
+<p>Ejakulat je odmah nakon davanja u gel formi - to je normalno. Uzorak se ostavlja na sobnoj temperaturi 20 do 30 minuta dok se ne pretvori u tečno stanje (likvefakcija). Tek nakon toga može da se analizira. Ako se uzorak ne razredi za 60 minuta, beleži se kao produžena likvefakcija, što može uticati na pokretljivost spermatozoida jer im gelasta konzistencija otežava kretanje.</p>
+<h3>Makroskopska analiza (procena golim okom)</h3>
+<p>U ovoj fazi laborant procenjuje ono što se može videti bez mikroskopa:</p>
+<p><strong>Volumen</strong> - meri se ukupna zapremina ejakulata u mililitrima. Premali volumen može ukazivati na razne probleme, od nepotpunog uzorka do opstrukcije semenih puteva.</p>
+<p><strong>Boja</strong> - normalna boja je sivkasto-beličasta do blago žućkasta. Izrazito žuta boja može ukazivati na infekciju ili dugačku apstinenciju, crvenkasta ili braonkasta na prisustvo krvi u ejakulatu (hemospermija), što zahteva dalju evaluaciju.</p>
+<p><strong>Konzistencija (viskoznost)</strong> - nakon likvefakcije uzorak treba da bude ujednačeno tečan. Povišena viskoznost (kada je uzorak i dalje "lepljiv" i gust) može ometati pokretljivost spermatozoida.</p>
+<p><strong>pH vrednost</strong> - normalno je 7,2 do 8,0, što znači da je ejakulat blago bazne reakcije. Meri se pH trakom. Odstupanja mogu ukazivati na infekcije ili probleme sa akcesornim žlezdama (prostatom i semenim vezikulama).</p>
+<h3>Mikroskopska analiza - srce spermograma</h3>
+<p>Ovo je najvažniji deo analize, gde se pod mikroskopom (ili kompjuterizovanim sistemom) procenjuju ključni parametri spermatozoida.</p>
+<p><strong>Koncentracija spermatozoida</strong> pokazuje koliko spermatozoida ima u jednom mililitru ejakulata. Broji se u specijalnim komorama za brojanje (Makler komora, Neubauer komora) ili kompjuterizovanim sistemom poznatim kao CASA (Computer-Assisted Sperm Analysis - kompjuterski potpomognuta analiza sperme).</p>
+<p><strong>Ukupan broj spermatozoida</strong> dobija se množenjem koncentracije sa volumenom ejakulata. Na primer, ako je koncentracija 20 miliona po mililitru, a volumen 3 mL, ukupan broj je 60 miliona.</p>
+<p><strong>Pokretljivost (motilitet)</strong> je jedan od najvažnijih parametara - pokazuje koliki procenat spermatozoida se kreće i kako se kreću. Pokretljivost se deli u tri kategorije:</p>
+<ul>
+<li>Progresivna pokretljivost (PR - progressive motility): spermatozoidi koji plivaju napred, pravolinijski ili u velikim krugovima. Ovo su "korisni" spermatozoidi - oni koji imaju šansu da stignu do jajne ćelije i oplode je.</li>
+<li>Neprogresivna pokretljivost (NP - non-progressive motility): spermatozoidi koji se kreću ali ne napreduju - vrte se u mestu, osciliraju, ne idu napred. Oni su živi i aktivni, ali nemaju sposobnost da stignu do cilja.</li>
+<li>Nepokretni (IM - immotile): spermatozoidi koji se uopšte ne kreću. Mogu biti živi ili mrtvi - to se utvrđuje dodatnim testom vitalnosti.</li>
+</ul>
+<p><strong>Morfologija (oblik i izgled spermatozoida)</strong> je procenat spermatozoida koji imaju normalan oblik. Procenjuje se po takozvanim strogim Kruger kriterijumima (poznatim i kao Tygerberg klasifikacija), koji su veoma rigorozni. Normalan spermatozoid mora da ima:</p>
+<ul>
+<li>Glavu: ovalnu, glatku, pravilne veličine, sa akrozomom (enzimska "kapa" na vrhu glave koja omogućava prodor u jajnu ćeliju) koji zauzima 40–70% površine glave</li>
+<li>Vrat i srednji deo: tanak, pravilne dužine, bez zadebljanja</li>
+<li>Rep: dug, tanak, pravilno usmeren, bez preloma ili duplih repova</li>
+</ul>
+<p>Svako odstupanje od ove stroge definicije - prevelika ili premala glava, okrugla glava, dva repa, savijeni repovi, bez akrozoma - klasifikuje spermatozoid kao abnormalan. Važno je razumeti da su Kruger kriterijumi izuzetno strogi i da čak i kod potpuno plodnih muškaraca procenat normalnih oblika retko prelazi 10–15%.</p>
+<p><strong>Vitalnost</strong> se radi kada je pokretljivost veoma niska - cilj je utvrditi da li su nepokretni spermatozoidi živi ili mrtvi. Koriste se posebni testovi (eozin-nigrozin test ili hipoosmotski test). Ovo je važno jer živ, ali nepokretan spermatozoid može da se koristi u ICSI proceduri.</p>
+<p><strong>Leukociti (bele krvne ćelije)</strong> - njihovo prisustvo u ejakulatu se beleži. Povišen broj leukocita (iznad 1 milion po mililitru) naziva se leukocitospermija i može ukazivati na infekciju ili upalu (inflamaciju) u reproduktivnom traktu.</p>
+<p><strong>Aglutinacija</strong> je slepljivanje spermatozoida - kada se spermatozoidi lepe jedni za druge, umesto da slobodno plivaju. Ovo može ukazivati na prisustvo antitela protiv spermatozoida (antisperm antibodies).</p>
+<p><strong>Okrugle ćelije</strong> - u ejakulatu se mogu naći okrugle ćelije koje mogu biti nezreli spermatozoidi (rani oblici u razvoju koji nisu stigli da sazru) ili leukociti. Razlikovanje ovih ćelija je važno jer imaju potpuno različit klinički značaj.</p>
+<h2 id="sreferentne-vrednosti-prema-who-kriteriju">5. Referentne vrednosti prema WHO kriterijumima</h2>
+<p>Ovo je deo koji parovi najintenzivnije traže - konkretni brojevi i šta oni znače.</p>
+<div class="article-highlight"><div class="article-highlight-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Važna napomena pre vrednosti</div><p>Svetska zdravstvena organizacija (WHO) je 2021. godine objavila šesto izdanje priručnika za analizu semene tečnosti (WHO Laboratory Manual, 6th edition) sa ažuriranim referentnim vrednostima. Ove referentne vrednosti predstavljaju 5. percentil - to znači da je to vrednost ispod koje se nalazi samo 5% muškaraca koji su dokazano plodni (čije partnerke su zatrudnele u roku od 12 meseci). Drugim rečima, vrednost ispod referentne ne znači automatski neplodnost, ali ukazuje na potencijalno snižen fertilitni potencijal koji zahteva dalju procenu.</p></div>
+<h3>WHO referentne vrednosti</h3>
+<p>S obzirom na to da su mnoge laboratorije u tranziciji između petog (2010) i šestog (2021) izdanja, navedene su obe verzije vrednosti. Proverite sa svojom laboratorijom koji referentni opseg koriste.</p>
+<p><strong>Volumen ejakulata:</strong> 5. izdanje ≥1,5 mL; 6. izdanje ≥1,4 mL</p>
+<p><strong>pH vrednost:</strong> ≥7,2</p>
+<p><strong>Koncentracija spermatozoida:</strong> 5. izdanje ≥15 miliona/mL; 6. izdanje ≥16 miliona/mL</p>
+<p><strong>Ukupan broj spermatozoida po ejakulatu:</strong> ≥39 miliona (oba izdanja)</p>
+<p><strong>Ukupna pokretljivost (PR + NP):</strong> 5. izdanje ≥40%; 6. izdanje ≥42%</p>
+<p><strong>Progresivna pokretljivost (PR):</strong> 5. izdanje ≥32%; 6. izdanje ≥30%</p>
+<p><strong>Morfologija (normalni oblici po strogim Kruger kriterijumima):</strong> ≥4% (oba izdanja)</p>
+<p><strong>Vitalnost:</strong> 5. izdanje ≥58% živih; 6. izdanje ≥54%</p>
+<p><strong>Leukociti:</strong> <1,0 milion/mL</p>
+<h3>Šta ove vrednosti znače u praksi</h3>
+<p><strong>Vrednosti iznad referentnih</strong> znače da je nalaz u granicama normale. Ali - i ovo je izuzetno važno - normalan spermogram ne garantuje plodnost. Spermogram ne meri sve aspekte funkcije spermatozoida, kao što su integritet DNK, sposobnost vezivanja za jajnu ćeliju ili proces kapacitacije (biohemijske promene kroz koje spermatozoid prolazi u ženskom reproduktivnom traktu da bi mogao da oplodi jajnu ćeliju).</p>
+<p><strong>Vrednosti ispod referentnih</strong> ne znače automatski neplodnost. Znače da postoji statistički veća verovatnoća da je potrebno duže vreme za začeće ili da je potrebna medicinska pomoć. Mnogi muškarci sa vrednostima ispod referentnih su uspešno postali očevi - bilo prirodnim putem, bilo uz pomoć reproduktivne medicine.</p>
+<p><strong>Granične vrednosti</strong> su često najteži deo za tumačenje. Blago ispod referentne vrednosti ne mora da bude klinički značajno, posebno ako su svi ostali parametri uredni. Zato je tumačenje spermograma posao za lekara - ne za Google.</p>
+<h2 id="sdijagnostički-termini-šta-znače-nazivi-k">6. Dijagnostički termini - šta znače nazivi koje čujete od lekara</h2>
+<p>Ovo su termini koje ćete čuti od urologa ili lekara u klinici za vantelesnu oplodnju, i koje ćete verovatno pretraživati na internetu. Ovde ih objašnjavamo jasno i bez katastrofiziranja.</p>
+<p><strong>Normozoospermija</strong> - svi parametri su u granicama normale. Uredan nalaz.</p>
+<p><strong>Oligozoospermija</strong> - smanjena koncentracija spermatozoida (ispod 15–16 miliona po mililitru). Deli se na stepene:</p>
+<ul>
+<li>Blaga: 10–15 miliona/mL</li>
+<li>Umerena: 5–10 miliona/mL</li>
+<li>Teška: ispod 5 miliona/mL</li>
+<li>Kritična ili kriptozoospermija: izuzetno mali broj spermatozoida - pronađeni tek nakon centrifugiranja uzorka (kada se uzorak "zavrti" u centrifugi da bi se spermatozoidi koncentrisali na dno epruvete)</li>
+</ul>
+<p><strong>Astenozoospermija</strong> - smanjena pokretljivost spermatozoida (progresivna pokretljivost ispod 30–32%). Može biti blaga, umerena ili teška, u zavisnosti od stepena sniženja. Potpuna astenozoospermija (kada se nijedan spermatozoid ne kreće) je izuzetno retka i zahteva obaveznu proveru vitalnosti - da se utvrdi da li su spermatozoidi živi ali nepokretni.</p>
+<p><strong>Teratozoospermija</strong> - smanjen procenat normalno oblikovanih spermatozoida (ispod 4% po strogim Kruger kriterijumima). Ovo je najčešće odstupanje na spermogramu. Čak i kod plodnih muškaraca procenat normalnih oblika retko prelazi 10–15%, pa izolovana blaga teratozoospermija (na primer 3%) najčešće nije klinički značajna.</p>
+<p><strong>Oligoastenoteratozoospermija (OAT sindrom)</strong> - kombinacija sve tri abnormalnosti: smanjena koncentracija, smanjena pokretljivost i smanjen procenat normalnih oblika. Ovo je najčešći nalaz kod muškog faktora infertiliteta. Može biti blag, umeren ili težak.</p>
+<p>Zamislite da vam je urolog rekao da imate "oligoastenoteratozoospermiju" - zvuči zastrašujuće, ali kada rastavimo reč: "oligo" znači da imate manje spermatozoida nego prosek, "asteno" znači da se kreću sporije, a "terato" znači da manje od 4% ima savršen oblik po strogim kriterijumima. U praksi, to najčešće znači da umesto klasičnog IVF-a embriolog koristi ICSI - bira jedan zdrav spermatozoid i ubacuje ga direktno u jajnu ćeliju. Čak i sa ovom dijagnozom, potreban je samo jedan dobar spermatozoid po jajnoj ćeliji - a vi ih imate na hiljade.</p>
+<p><strong>Azoospermija</strong> - potpuno odsustvo spermatozoida u ejakulatu. Ovo je najozbiljniji nalaz i zahteva obaveznu dalju obradu. Deli se na dva tipa:</p>
+<ul>
+<li>Opstruktivna azoospermija (OA): spermatozoidi se normalno proizvode u testisima, ali ne mogu da prođu kroz kanale koji ih vode napolje. Uzroci mogu biti urođeno odsustvo semevoda - vas deferensa (stanje poznato kao CBAVD, koje je čest nalaz kod nosilaca mutacije gena za cističnu fibrozu), stanje nakon vazektomije (hirurške sterilizacije), posledice infekcija ili povreda. Prognoza je obično dobra jer se spermatozoidi mogu hirurški dobiti iz testisa ili epididimisa.</li>
+<li>Neopstruktivna azoospermija (NOA): problem je u samoj proizvodnji spermatozoida u testisima. Uzroci uključuju genetske faktore (Klinefelter sindrom - prisustvo dodatnog X hromozoma, mikrodelecije Y hromozoma), hormonske poremećaje, nespuštene testise u detinjstvu (kriptoorhizam), tešku varikokelu ili nepoznat uzrok (idiopatska neopstruktivna azoospermija). Prognoza je neizvesnija, ali posebne hirurške tehnike mogu pronaći spermatozoide u tkivu testisa kod značajnog procenta muškaraca.</li>
+</ul>
+<p><strong>Aspermija</strong> - odsustvo ejakulata. Razlikuje se od azoospermije (gde ejakulat postoji ali u njemu nema spermatozoida). Aspermija može nastati zbog retrogradne ejakulacije (ejakulat odlazi u mokraćnu bešiku umesto napolje) ili anejakulacije (potpuno odsustvo ejakulacije).</p>
+<p><strong>Hipospermija</strong> - smanjen volumen ejakulata (ispod 1,4–1,5 mL). Mogući uzroci su: nepotpuno prikupljen uzorak (prosut deo), kratka apstinencija pre testa, retrogradna ejakulacija, opstrukcija semenih puteva ili hipogonadizam (smanjena funkcija testisa sa niskim nivoom hormona).</p>
+<p><strong>Leukocitospermija</strong> - povišen broj belih krvnih ćelija u ejakulatu (iznad 1 milion/mL). Ukazuje na moguću infekciju ili upalu u reproduktivnom traktu - prostati, epididimisu ili semenskim vezikulama. Zahteva dalju obradu i najčešće lečenje antibioticima.</p>
+<p>Važno je razumeti da su svi ovi termini deskriptivni - opisuju šta je nađeno u ejakulatu, ali ne govore zašto. Uzrok se utvrđuje daljom dijagnostikom.</p>
+<h2 id="szašto-je-potrebno-ponoviti-spermogram">7. Zašto je potrebno ponoviti spermogram</h2>
+<p>Jedno od najvažnijih pravila u andrologiji: jedan spermogram nije dovoljan za donošenje zaključaka.</p>
+<p>Kvalitet sperme značajno varira kod istog muškarca od uzorka do uzorka. Razlike od 20–30% u koncentraciji i pokretljivosti između dva uzorka datih u različitim terminima su sasvim uobičajene - i to bez ikakvog medicinskog razloga, jednostavno kao prirodna biološka varijabilnost.</p>
+<p>Preporuka Svetske zdravstvene organizacije je jasna: ako je prvi spermogram abnormalan, treba ga ponoviti nakon 2 do 3 meseca. Zašto toliko dugo? Zato što jedan pun ciklus spermatogeneze traje oko 72 dana - ponavljanjem nakon tog perioda dobija se uzorak koji predstavlja potpuno novu "generaciju" spermatozoida.</p>
+<p>Brojni faktori mogu privremeno narušiti rezultat: bolest sa temperaturom u poslednjih 3 meseca, jak stres, nedovoljna ili predugačka apstinencija pre davanja uzorka, neadekvatno prikupljanje uzorka (prosut deo, korišćen lubrikant), alkohol, lekovi, izloženost toploti.</p>
+<p>Praktična poruka: jedan loš spermogram nije dijagnoza. To je signal za ponavljanje i dalju evaluaciju - ne za paniku. Nemojte na osnovu jednog nalaza guglati najgore scenarije u dva ujutru. Ponovite analizu, pokažite nalaze urologu ili andrologu, i tada donosite zaključke.</p>
+<h2 id="skako-rezultat-spermograma-utiče-na-izbor">8. Kako rezultat spermograma utiče na izbor metode lečenja</h2>
+<p>Evo konkretnih scenarija koji ilustruju kako spermogram oblikuje plan lečenja:</p>
+<p><strong>Normalan spermogram uz ženski faktor neplodnosti:</strong> klasični IVF je najčešće dovoljan. Spermatozoidi se stavljaju zajedno sa jajnim ćelijama u laboratorijsku posudu i oplođenje se dešava spontano. ICSI je opcija ali obično nije neophodan.</p>
+<p><strong>Blago narušeni parametri (blaga oligoastenoteratozoospermija):</strong> IUI (intrauterina inseminacija) može biti prva opcija, pod uslovom da su jajovodi kod žene prohodni i da je ženski faktor minimalan. Ako IUI ne uspe nakon nekoliko pokušaja, prelazi se na IVF ili ICSI.</p>
+<p><strong>Umereno do teško narušeni parametri:</strong> ICSI je metoda izbora. Embriolog bira jedan pokretan spermatozoid za svaku jajnu ćeliju i ubacuje ga direktno. Potreban je samo jedan zdrav spermatozoid po jajnoj ćeliji - a čak i kod teško narušenih spermograma obično se nalazi dovoljan broj.</p>
+<p><strong>Kriptozoospermija (izuzetno mali broj spermatozoida):</strong> ICSI sa pažljivim traženjem spermatozoida u uzorku. Često se preporučuje zamrzavanje uzorka sperme unapred kao rezerva (kriobanka) - za slučaj da na dan punkcije uzorak bude potpuno bez spermatozoida.</p>
+<p><strong>Opstruktivna azoospermija:</strong> hirurško dobijanje spermatozoida iz epididimisa (MESA - mikro-epididimalna aspiracija spermatozoida) ili testisa (TESA - aspiracija spermatozoida iz testisa) u kombinaciji sa ICSI. Prognoza je obično dobra jer se spermatozoidi proizvode normalno, samo ne mogu da izađu kroz prirodne puteve.</p>
+<p><strong>Neopstruktivna azoospermija:</strong> micro-TESE (mikrodisekcija testisa) - pažljivo hirurško pretraživanje tkiva testisa pod mikroskopom u potrazi za džepovima spermatogeneze. Pronalaženje spermatozoida je moguće u 30–60% slučajeva. Pronađeni spermatozoidi se koriste za ICSI.</p>
+<p><strong>Potpuno odsustvo spermatozoida bez mogućnosti hirurškog dobijanja:</strong> razmatranje donacije sperme. Ovo je emocionalno veoma teška, ali medicinski i etički legitimna opcija koja je pomogla mnogim parovima da ostvare roditeljstvo.</p>
+<p>Ključna poruka: čak i sa veoma lošim spermogramom postoje opcije. Reproduktivna medicina danas ima rešenja za gotovo sve scenarije muškog faktora neplodnosti. Situacija u kojoj "ništa ne može da se uradi" je izuzetno retka.</p>
+<h2 id="sdodatni-testovi-napredna-dijagnostika-po">9. Dodatni testovi - napredna dijagnostika pored standardnog spermograma</h2>
+<p>Standardni spermogram je polazna tačka, ali nekad nije dovoljan. Evo testova koji idu korak dalje.</p>
+<h3>Test fragmentacije DNK spermatozoida (DFI - DNA Fragmentation Index)</h3>
+<p>Ovaj test meri procenat spermatozoida čija je DNK (genetski materijal u jezgru ćelije) oštećena, odnosno fragmentisana. Standardni spermogram ne meri ovo - spermatozoid može da izgleda savršeno, da se kreće odlično, ali da nosi oštećen genetski materijal. Visoka fragmentacija DNK može uticati na oplođenje, razvoj embriona i stopu pobačaja, čak i kada su klasični parametri spermograma potpuno uredni.</p>
+<p>Vrednosti: DFI ispod 15% smatra se niskim rizikom, 15–30% umerenim rizikom, a iznad 30% visokim rizikom.</p>
+<p>Ovaj test se preporučuje kod neobjašnjenog infertiliteta sa urednim spermogramom, kod ponovljenih neuspelih IVF/ICSI ciklusa, ponovljenih pobačaja, lošeg razvoja embriona u laboratoriji, kod starijih muškaraca i kod dijagnostikovane varikokele.</p>
+<p>Dobra vest: fragmentacija DNK može da se smanji - lečenjem varikokele, uzimanjem antioksidanasa, čestom ejakulacijom (kraća apstinencija), prestankom pušenja i smanjenjem telesne težine.</p>
+<h3>MAR test / IBT test (testovi za antitela protiv spermatozoida)</h3>
+<p>MAR test (Mixed Antiglobulin Reaction) i IBT (Immunobead test) mere prisustvo antitela protiv spermatozoida na njihovoj površini. Telo ponekad greškom prepoznaje sopstvene spermatozoide kao strane i napada ih antitelima. Ova antitela mogu ometati pokretljivost spermatozoida, njihov prodor kroz cervikalnu sluz i vezivanje za jajnu ćeliju.</p>
+<p>Rezultat je pozitivan ako više od 50% spermatozoida nosi antitela na površini. Preporučuje se kada se na spermogramu vidi aglutinacija (slepljivanje), kod muškaraca koji su imali vazektomiju pa zatim reanastomozu (spajanje prethodno presečenih semevoda), nakon povreda testisa ili infekcija reproduktivnog trakta.</p>
+<h3>CASA analiza (Computer-Assisted Sperm Analysis)</h3>
+<p>CASA je kompjuterizovana analiza pokretljivosti koja je objektivnija i detaljnija od manuelne procene pod mikroskopom. Softver prati svaki spermatozoid i meri parametre poput brzine, linearnosti putanje, amplitude bočnog pomeranja glave i druge kinetičke parametre. Prednosti su objektivnost i ponovljivost - dva različita laboranta gledajući isti uzorak pod mikroskopom mogu dati različitu procenu, dok CASA daje isti rezultat svaki put. Dostupna je u specijalizovanim laboratorijama i klinikama za vantelesnu oplodnju.</p>
+<h3>Oksidativni stres test (ROS - Reactive Oxygen Species)</h3>
+<p>Ovaj test meri nivo slobodnih radikala u ejakulatu. Slobodni radikali (reaktivne kiseonične vrste) su molekuli koji u povišenim koncentracijama oštećuju ćelije - uključujući spermatozoide. Povišen oksidativni stres može da ošteti membranu i DNK spermatozoida. Preporučuje se kod neobjašnjenog infertiliteta, visoke fragmentacije DNK i leukocitospermije.</p>
+<h3>Hormonska analiza</h3>
+<p>Hormoni koji se obično proveravaju uključuju FSH (folikulostimulirajući hormon), LH (luteinizirajući hormon), testosteron, prolaktin, estradiol i TSH (hormon štitaste žlezde). Hormonska analiza se radi kod azoospermije, teške oligozoospermije ili kada postoji klinička sumnja na hormonski poremećaj.</p>
+<p>Šta govore hormoni? Pre svega, pomažu da se razlikuje problem u testisima (primarni hipogonadizam - testisi ne funkcionišu kako treba, FSH je visok jer mozak pokušava da ih "natera" da rade) od problema u mozgu, odnosno hipotalamusu ili hipofizi (sekundarni hipogonadizam - mozak ne šalje dovoljno signala testisima, FSH i LH su niski).</p>
+<h3>Genetska testiranja</h3>
+<p><strong>Kariogram (analiza hromozoma)</strong> se radi kod teške oligozoospermije i azoospermije. Može otkriti Klinefelter sindrom (47,XXY - prisustvo dodatnog X hromozoma, jedan od najčešćih genetskih uzroka muške neplodnosti) i druge hromozomske anomalije.</p>
+<p><strong>Mikrodelecije Y hromozoma</strong> - analiza AZF regiona (AZFa, AZFb, AZFc) na Y hromozomu. Delecije u ovim regionima mogu biti uzrok teške oligozoospermije i neopstruktivne azoospermije. Tip delecije ima i prognostički značaj: AZFc delecija ima najbolju prognozu za pronalaženje spermatozoida micro-TESE-om, dok AZFa i AZFb delecije imaju izuzetno lošu prognozu.</p>
+<p><strong>Testiranje CFTR gena (gen za cističnu fibrozu)</strong> se radi kod kongenitalnog bilateralnog odsustva vas deferensa (CBAVD) - urođenog stanja u kome muškarac nema semevode, što dovodi do opstruktivne azoospermije. Ovo testiranje je važno i za partnerku, jer ako su oba partnera nosioci CFTR mutacije, postoji rizik za cističnu fibrozu kod potomstva.</p>
+<h3>Ultrazvuk testisa i skrotuma</h3>
+<p>Ultrazvučni pregled procenjuje veličinu testisa, prisustvo varikokele, cisti, tumora ili hidrokele (nakupljanja tečnosti oko testisa). Transrektalni ultrazvuk (TRUS) se radi kod sumnje na opstrukciju semenih puteva ili patologiju prostate i semenih vezikula.</p>
+<h3>Post-ejakulatorni urin</h3>
+<p>Analiza urina neposredno nakon ejakulacije radi se kada se sumnja na retrogradnu ejakulaciju - stanje kod koga ejakulat umesto napolje odlazi u mokraćnu bešiku. Prisustvo spermatozoida u urinu nakon ejakulacije potvrđuje dijagnozu.</p>
+<h2 id="sfaktori-koji-utiču-na-kvalitet-sperme-št">10. Faktori koji utiču na kvalitet sperme - šta možete, a šta ne možete da kontrolišete</h2>
+<h3>Faktori koji se ne mogu kontrolisati</h3>
+<p><strong>Genetika</strong> - hromozomske anomalije, mikrodelecije Y hromozoma, CFTR mutacije i druge genetske varijante utiču na spermatogenezu na načine na koje ne možete da utičete promenom životnih navika.</p>
+<p><strong>Starost</strong> - kvalitet sperme postepeno opada nakon 40. godine. Povećava se fragmentacija DNK, smanjuju se koncentracija i pokretljivost, raste procenat genetskih grešaka u spermatozoidima. Ovaj pad je manje dramatičan nego kod žena (kod kojih plodnost naglo opada nakon 35. godine), ali je klinički relevantan. Stariji očevi imaju i nešto veći rizik od određenih genetskih stanja kod potomstva.</p>
+<p><strong>Preleželе bolesti i stanja</strong> - nespušteni testisi (kriptoorhizam) u detinjstvu, zaušnjaci sa zapaljenjem testisa (orhitis) u pubertetu, povrede testisa - sve to može da ostavi trajne posledice na spermatogenezu.</p>
+<p><strong>Urođene anomalije</strong> - urođeno odsustvo semevoda (vas deferensa) ili varikokela (koja je delimično lečiva) spadaju u faktore na koje nije moglo da se utiče prevencijom.</p>
+<h3>Faktori koji se mogu kontrolisati</h3>
+<p>Ovde je prostor u kome muškarac može konkretno da doprinese - i to nije malo.</p>
+<p><strong>Pušenje</strong> direktno oštećuje DNK spermatozoida, smanjuje koncentraciju, pokretljivost i procenat normalnih oblika. Prestanak pušenja je jedna od najvažnijih i najkonkretnijih stvari koje muškarac može da uradi za svoju plodnost.</p>
+<p><strong>Alkohol</strong> - prekomerna konzumacija snižava nivo testosterona i narušava spermatogenezu. Tokom pripreme za vantelesnu oplodnju preporučuje se umerena konzumacija ili potpuna apstinencija.</p>
+<p><strong>Temperatura</strong> - testisi moraju da budu 2–3°C hladniji od telesne temperature za normalnu proizvodnju spermatozoida. Zato je važno izbegavati saune, vruće kupke, duga sedenja u toploj kupaonici, tesnu sintetičku odeću, dugotrajno sedenje bez pauza i držanje laptopa na krilu.</p>
+<p><strong>Telesna težina</strong> - gojaznost je povezana sa nižim nivoom testosterona, višim estrogenom i lošijim parametrima spermograma. Masno tkivo konvertuje testosteron u estrogen, što remeti hormonski balans. Gubitak telesne težine može dovesti do merljivog poboljšanja nalaza.</p>
+<p><strong>Stres</strong> - hronični stres utiče na hormonski balans (kortizol, hormon stresa, suprimira testosteron) i može narušiti kvalitet sperme. Tehnike upravljanja stresom, kvalitetan san i psihička higijena nisu samo "meke" preporuke - imaju biološku osnovu.</p>
+<p><strong>Ishrana</strong> - mediteranski tip ishrane (povrće, voće, riba, maslinovo ulje, integralne žitarice) se povezuje sa boljim parametrima sperme. Antioksidansi (vitamin C, vitamin E, selen, cink, folna kiselina, koenzim Q10, L-karnitin, likopen) se često preporučuju kao suplementacija. Dokazi su mešoviti - ne očekujte čuda, ali većina reproduktivnih stručnjaka smatra da antioksidansi mogu da pomognu, posebno kod umereno narušenih nalaza.</p>
+<p><strong>Fizička aktivnost</strong> - umeren, redovan trening je koristan. Ekstreman i iscrpljujući trening (maratoni, višesatni treninzi, prekomerni trening bez adekvatnog oporavka) može negativno uticati na spermatogenezu.</p>
+<p><strong>Droge i anabolički steroidi</strong> - kanabis smanjuje pokretljivost spermatozoida. Anabolički steroidi su posebno opasni: mogu potpuno ugasiti proizvodnju spermatozoida jer mozak, prepoznajući visok nivo sintetičkog testosterona, prestaje da šalje signal testisima da rade. Posledica može biti azoospermija indukovana steroidima. Oporavak nakon prestanka može trajati mesecima, a u nekim slučajevima biti nepotpun ili čak trajan.</p>
+<p><strong>Lekovi</strong> - finasterid (lek za gubitak kose), SSRI antidepresivi, blokatori kalcijumskih kanala, sulfasalazin (lek za zapaljenska oboljenja creva) i drugi lekovi mogu uticati na kvalitet sperme. Ne prekidajte nikakav lek na svoju ruku - razgovarajte sa lekarom o alternativama.</p>
+<p><strong>Izloženost toksinima</strong> - pesticidi, teški metali (olovo, živa), organski rastvarači i radijacija mogu oštetiti spermatogenezu. Muškarci koji su profesionalno izloženi ovim faktorima treba da o tome informišu lekara.</p>
+<h3>Vremenski okvir za poboljšanje</h3>
+<p>Spermatogeneza traje oko 72–74 dana, plus 10–14 dana za transport spermatozoida kroz epididimis do ejakulacije. To znači da se efekat bilo kakve promene životnih navika vidi na spermogramu tek 2,5 do 3 meseca nakon promene. Strpljenje je neophodno - ako ste prestali da pušite, smršali 10 kilograma i počeli da se zdravije hranite, spermogram koji radite mesec dana kasnije još uvek odražava "staro" stanje. Novi rezultat videćete tek za tri meseca.</p>
+<h2 id="svarikokela-najčešći-lečivi-uzrok-muškog-">11. Varikokela - najčešći lečivi uzrok muškog infertiliteta</h2>
+<p>Varikokela je proširenje vena u skrotumu (kožnoj vrećici u kojoj se nalaze testisi), slično proširenim venama na nogama. Najčešće se javlja na levoj strani, zbog anatomskih specifičnosti venskog odliva sa te strane.</p>
+<p>Koliko je česta? Varikokela je prisutna kod oko 15% svih muškaraca u opštoj populaciji, ali kod muškaraca sa primarnim infertilitetom (koji nikada nisu postigli trudnoću) taj procenat raste na 35–40%.</p>
+<p>Kako utiče na spermu? Proširene vene dovode do povišene temperature u skrotumu, oksidativnog stresa i poremećene cirkulacije - sve to narušava spermatogenezu. Efekat je obično postepen i kumulativan.</p>
+<p>Dijagnoza se postavlja fizičkim pregledom kod urologa (palpacija - pipanje skrotuma, posebno u stojećem položaju i prilikom napinjanja) i potvrđuje ultrazvukom skrotuma sa Dopler pregledom koji pokazuje refluks krvi u proširenim venama.</p>
+<p>Lečenje je hirurško - varikocelektomija, pri čemu je mikrohirurška tehnika (operacija pod operativnim mikroskopom) zlatni standard jer daje najbolje rezultate uz najmanje komplikacija.</p>
+<p>Efekat na spermogram: poboljšanje parametara se beleži kod 60–70% operisanih muškaraca, ali je potrebno strpljenje - rezultati su vidljivi 3 do 6 meseci nakon operacije, u skladu sa trajanjem ciklusa spermatogeneze.</p>
+<p>U kontekstu vantelesne oplodnje postoji česta dilema: da li operisati varikokelu pre VTO postupka (što znači čekanje od 3 do 6 meseci na efekat operacije) ili ići direktno na VTO (posebno ICSI)? Odluka zavisi od više faktora: starosti partnerke (ako je žena starija, vreme je dragoceno i čekanje može biti rizično), težine nalaza na spermogramu, stava para i preporuke lekara. Ovo je odluka koja se donosi individualno, u razgovoru sa urologom i lekarom reproduktivne medicine.</p>
+<h2 id="semocionalna-dimenzija-spermograma-i-mušk">12. Emocionalna dimenzija spermograma i muškog faktora neplodnosti</h2>
+<p>Ovo je deo teksta koji se retko nalazi u medicinskim člancima - ali bi trebalo da se nalazi u svim.</p>
+<h3>Stigma i tabu</h3>
+<p>U mnogim kulturama, uključujući srpsku, muška neplodnost je i dalje tabu tema. Muškarci često osećaju da loš spermogram znači da "nisu pravi muškarci". Plodnost se izjednačava sa muškošću, seksualnošću i virilnošću - što je pogrešno, ali duboko ukorenjeno u kolektivnoj svesti. Mnogi muškarci izbegavaju ili odlažu spermogram upravo zbog ovog straha - i time gube dragoceno vreme u dijagnostici.</p>
+<h3>Krivica i samookrivljavanje</h3>
+<p>"Da li sam ja razlog što ne možemo da imamo decu?" - ovo pitanje nosi ogroman teret. Kada se pokaže da je muški faktor dominantan, muškarci često nose krivicu u tišini. Osećaju krivicu prema partnerki - "ona prolazi kroz sve te procedure, stimulacije, punkcije, a problem je kod mene." Ova krivica, ako se ne adresira, može da naruši i partnerski odnos i mentalno zdravlje.</p>
+<h3>Osećaj marginalizovanosti u procesu lečenja</h3>
+<p>Većina postupaka vantelesne oplodnje fizički se fokusira na ženu - stimulacija jajnika, punkcije, embriotransfer. Muškarac se često oseća kao sporedni učesnik čija jedina uloga je da "da uzorak". Ovaj osećaj marginalizovanosti može pojačati frustraciju, emocionalno povlačenje i udaljenost od partnerke upravo u periodu kada je međusobna podrška najvažnija.</p>
+<h3>Komunikacija sa partnerkom</h3>
+<p>Mnogi muškarci se zatvaraju i ne govore o tome kako se osećaju. Partnerka može tu tišinu pogrešno da protumači kao nezainteresovanost ili ravnodušnost. Otvorena komunikacija o strahovima, krivici i osećanjima - koliko god bila neprijatna - ključna je za očuvanje partnerskog odnosa tokom procesa lečenja neplodnosti.</p>
+<h3>Podrška</h3>
+<p>Razgovor sa urologom ili andrologom koji razume emocionalne aspekte muškog infertiliteta može da pomogne. Psihološka podrška - bilo individualna, bilo partnerska terapija - nije znak slabosti, već pametan korak. Onlajn grupe podrške za muškarce sa problemom neplodnosti su sve dostupnije i mogu biti prostor gde se muškarci osećaju manje usamljeno u ovom iskustvu.</p>
+<p>Muški faktor infertiliteta je medicinski problem. Nije karakterna mana. Nije izbor. Nije krivica. I zaslužuje istu pažnju, empatiju i podršku kao bilo koji drugi zdravstveni izazov.</p>
+<h2 id="smitovi-i-zablude-o-spermogramu-i-muškoj-">13. Mitovi i zablude o spermogramu i muškoj plodnosti</h2>
+<div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako mogu da imam erekciju i ejakulaciju, sperma mi je sigurno u redu.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Erektilna funkcija i kvalitet sperme su potpuno nezavisni procesi. Muškarac može imati savršenu seksualnu funkciju, a spermu bez ijednog spermatozoida - i obrnuto.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Spermogram je nepromenljiv - jednom loš, uvek loš.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Spermatozoidi se obnavljaju otprilike svakih 3 meseca. Kvalitet sperme može značajno da se promeni pod uticajem životnih navika, lekova, operacije varikokele ili jednostavno protoka vremena.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Normalan spermogram garantuje plodnost.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Standardni spermogram meri koncentraciju, pokretljivost i morfologiju - ali ne meri integritet DNK, sposobnost vezivanja za jajnu ćeliju, kapacitaciju ni mnoge druge aspekte funkcije spermatozoida koji su važni za oplođenje.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Morfologija od 3% znači da 97% spermatozoida je nenormalno i da ne možemo imati dete.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Strogi Kruger kriterijumi su izuzetno rigorozni - i klasifikuju kao „abnormalan" svaki spermatozoid koji ima i najmanje odstupanje od idealnog oblika. Vrednost od 3–4% je blizu referentne granice, i izolovana blaga teratozoospermija retko utiče na ishod lečenja.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Suplementi mogu dramatično popraviti spermogram.</div>
+        <div class="myth-truth"><strong>Preterano optimistično.</strong> Antioksidansi i suplementi mogu blago poboljšati parametre, ali neće pretvoriti težak OAT sindrom u normozoospermiju. Shvatite ih kao deo slagalice, ne kao magično rešenje.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Muškarac ne stari reproduktivno.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Kvalitet sperme opada posle 40. godine - raste fragmentacija DNK, povećava se rizik od genetskih anomalija kod potomaka. Pad je sporiji i manje dramatičan nego kod žena, ali je realan i dokumentovan.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako žena zatrudni, znači da je sperma u redu.</div>
+        <div class="myth-truth"><strong>Ne nužno.</strong> Trudnoća je moguća i sa suboptimalnom spermom, ali rizici za embrione (loš razvoj, zastoj) i trudnoću (pobačaj) mogu postojati uprkos postignutom začeću.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Steroid ciklus neće trajno oštetiti spermu.</div>
+        <div class="myth-truth"><strong>Rizično i potencijalno netačno.</strong> Anabolički steroidi mogu izazvati prolongiranu azoospermiju - potpun prestanak proizvodnje spermatozoida. Oporavak nakon prestanka može trajati mesecima ili čak godinama, a u nekim slučajevima biti nepotpun.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Muškarac ne treba da menja životne navike jer je problem začeća uglavnom kod žene.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Muški faktor je prisutan u gotovo polovini slučajeva neplodnosti. Promena životnih navika kod muškarca može da napravi razliku - ne uvek dramatičnu, ali ponekad dovoljnu da pomeri stvari u pravom smeru.</div>
+      </div>
+<h2 id="sčesta-pitanja-i-praktični-saveti">14. Česta pitanja i praktični saveti</h2>
+<h3>Koliko često treba ponavljati spermogram?</h3>
+<p>Ako je prvi nalaz uredan, obično nije potrebno ponavljanje osim ako ne postoji klinička indikacija. Ako je nalaz abnormalan, preporučuje se ponavljanje nakon 2–3 meseca. U toku pripreme za VTO, lekar može tražiti i češće kontrole u zavisnosti od situacije.</p>
+<h3>Da li laptop na krilu zaista utiče na spermu?</h3>
+<p>Da, postoje studije koje pokazuju da dugotrajno držanje laptopa na krilu podiže temperaturu skrotuma, što može negativno uticati na spermatogenezu. Koristite sto ili podlogu.</p>
+<h3>Da li bokserice ili slip gaćice utiču na plodnost?</h3>
+<p>Ovo je jedna od najčešćih nedoumica. Studije sugerišu da tesne slip gaćice mogu blago podići temperaturu skrotuma u poređenju sa labavijim bokericama. Razlika nije dramatična, ali ako se spremate za spermogram ili VTO, šire donje rublje je razumniji izbor.</p>
+<h3>Da li bicikl utiče na spermu?</h3>
+<p>Dugotrajno bicikliranje (više od 5 sati nedeljno, posebno na uskim trkačkim sedištima) može da poveća temperaturu i izvrši pritisak na perinealnu regiju, što prema nekim studijama može negativno uticati na parametre sperme. Rekreativno bicikliranje u umerenom obimu obično nije problem.</p>
+<h3>Da li mobilni telefon u džepu oštećuje spermatozoide?</h3>
+<p>Studije na ovu temu daju mešovite rezultate. Neki istraživači su našli vezu između nošenja telefona u prednjem džepu pantalona i smanjene pokretljivosti spermatozoida, dok drugi nisu potvrdili ovaj nalaz. Ako želite da budete na sigurnoj strani - nosite telefon u jakni ili torbi, posebno tokom pripreme za VTO.</p>
+<h3>Koliko dugo traje da se sperma poboljša nakon prestanka pušenja?</h3>
+<p>S obzirom na to da ciklus spermatogeneze traje oko 3 meseca, prvi pozitivni efekti prestanka pušenja na spermogram mogu se očekivati 3 do 6 meseci nakon poslednje cigarete. Što duže ne pušite, to je efekat bolji.</p>
+<h3>Da li steroidi za teretanu utiču na plodnost?</h3>
+<p>Apsolutno. Anabolički steroidi su jedan od najčešćih uzroka azoospermije kod mladih muškaraca. Egzogeni testosteron i njegovi derivati "gase" signale iz mozga (hipofize) koji su neophodni za proizvodnju spermatozoida. Oporavak nakon prestanka uzimanja može trajati od 3 meseca do više od godinu dana, a u nekim slučajevima do oporavka uopšte ne dođe.</p>
+<h3>Da li mogu da poboljšam morfologiju?</h3>
+<p>Morfologija je parametar na koji je najteže uticati. Ona je u velikoj meri genetski determinisana. Međutim, opšte poboljšanje životnih navika (prestanak pušenja, antioksidansi, smanjenje težine, izbegavanje toksina) može dovesti do blagog poboljšanja. Važno je razumeti da je izolovana blaga teratozoospermija retko razlog za zabrinutost.</p>
+<h3>Šta ako mi se spermogram pogoršao od prošlog puta?</h3>
+<p>Pogoršanje spermograma može biti posledica normalnih bioloških oscilacija (varijabilnost između uzoraka), privremenih faktora (bolest, stres, lekovi, toplota) ili napredovanja nekog osnovnog stanja. Jedan pogoršan nalaz nije razlog za paniku - pokažite ga lekaru, ponovite za 2–3 meseca i pratite trend.</p>
+<h3>Da li treba da radim spermogram ako smo već imali dete?</h3>
+<p>Da, ako imate problema sa začećem drugog deteta. Sekundarni infertilitet (nemogućnost začeća nakon prethodno uspešne trudnoće) je realna pojava. Kvalitet sperme se menja sa vremenom, mogu se pojaviti nove varikokele, steći nove navike ili razviti novi zdravstveni problemi.</p>
+<h3>Razlike između laboratorija - zašto isti uzorak može dati različite rezultate</h3>
+<p>Analiza spermograma ima subjektivnu komponentu - posebno procena pokretljivosti i morfologije pod mikroskopom zavisi od iskustva laboranta. Laboratorije koriste različitu opremu, različite referentne okvire (WHO 5. ili 6. izdanje) i imaju različit nivo stručnosti. Zato je preporuka da se spermogram radi u specijalizovanoj laboratoriji klinike za vantelesnu oplodnju, gde se ove analize rade svakodnevno u velikom broju. Ako rezultate radite u dve različite laboratorije i dobijete različite brojeve - to ne znači nužno da se vaša sperma promenila, već da postoje razlike u metodologiji procene.</p>
+<h3>Kome se obratiti nakon abnormalnog nalaza</h3>
+<p>Idealan lekar za tumačenje i dalju obradu abnormalnog spermograma je urolog ili androlog specijalizovan za reproduktivnu medicinu. Opšti urolog može da pomogne, ali specijalista za mušku reprodukciju ima dublje znanje o specifičnostima muškog infertiliteta i o tome kako nalaz utiče na odluke u procesu lečenja neplodnosti.</p>
+<h3>Praktična čeklista za muškarce koji se pripremaju za spermogram</h3>
+<ol>
+<li>Obezbedite 2–5 dana seksualne apstinencije (uključujući masturbaciju) - idealno 3–4 dana</li>
+<li>Izbegavajte alkohol i prekomerno piće 2–3 dana pre testa</li>
+<li>Izbegavajte saune, vruće kupke i đakuzije nedelju dana pre</li>
+<li>Izbegavajte intenzivan trening dan pre</li>
+<li>Ne koristite lubrikante pri davanju uzorka</li>
+<li>Temeljno operite ruke i genitalije pre davanja uzorka</li>
+<li>Sakupite celokupan ejakulat u posudu - ako se deo prospe, prijavite laboratoriji</li>
+<li>Ako dajete uzorak kod kuće, dostavite ga u laboratoriju u roku od 30–60 minuta, na telesnoj temperaturi</li>
+<li>Prijavite lekaru sve lekove koje koristite</li>
+<li>Napomenite ako ste bili bolesni sa temperaturom u poslednjih 3 meseca</li>
+<li>Ne paničite zbog jednog nalaza - spermogram se ponavlja</li>
+</ol>
+
+<p><em>Spermogram je medicinski test, a ne presuda. Bez obzira na rezultat, postoje opcije. Informišite se, razgovarajte sa stručnjacima i ne dozvolite da vas brojevi definišu.</em></p>
+
+      <!-- Disclaimer -->
+      <div class="article-disclaimer">
+        Ovaj tekst ima isključivo edukativni karakter i ne zamenjuje stručni medicinski savet. Za sve odluke u vezi sa lečenjem, obratite se svom lekaru.
+      </div>
+
+    </div>
+  </article>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#" class="logo">
+      <span class="logo-mark">VTO</span><span class="logo-tld">.rs</span>
+    </a>
+    <p class="footer-brand-desc">Edukativni portal i direktorijum klinika za vantelesnu oplodnju u Srbiji. Sve informacije na jednom mestu - od prvog koraka do ostvarenja trudnoće.</p>
+    <div class="footer-links">
+      <a href="uslovi-koriscenja">Uslovi korišćenja</a>
+      <a href="politika-privatnosti">Politika privatnosti</a>
+      <a href="odricanje-od-odgovornosti">Odricanje od odgovornosti</a>
+      <a href="o-nama">O nama</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-copy">&copy; 2026 VTO.rs - Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMobileNav() {
+    const overlay = document.getElementById('mobileNav');
+    if (overlay.style.display === 'block') {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 350);
+      document.body.style.overflow = '';
+    } else {
+      overlay.style.display = 'block';
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  document.getElementById('mobileNav').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileNav();
+  });
+</script>
+</body>
+</html>
