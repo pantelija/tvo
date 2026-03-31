@@ -736,6 +736,65 @@
   .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
   .empathy-box p + p { margin-top: 0.6rem; }
 
+  /* Timeline */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  /* Symptom grid */
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  /* Do / Don't columns */
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  /* Myth busting cards */
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 1rem; color: var(--color-ink-light); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.9rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  /* Quick FAQ */
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+  }
+
 </style>
 
 </head>
@@ -882,6 +941,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p><strong>Nakon embriotransfera</strong> sledi period koji se često naziva <a href="dvonedeljna-pauza-vto">„two-week wait"</a> - dve nedelje čekanja do krvnog testa na trudnoću. To je vreme u kome se embrion, ako je sve u redu, implantira i počinje da luči hormon trudnoće (<a href="beta-hcg">beta hCG</a>). Za mnoge parove, upravo je taj period emocionalno najzahtevniji deo celokupnog puta.</p>
 
+      <div class="article-highlight">
+        <div class="article-highlight-label">Ključna informacija</div>
+        <p>Embriotransfer je bezbolan, ambulantni zahvat koji traje 5–15 minuta i ne zahteva anesteziju. To je poslednji korak pre dvonedeljnog čekanja na rezultat testa na trudnoću (beta hCG). Iako je tehnički najjednostavniji deo VTO postupka, za mnoge parove je emocionalno najintenzivniji.</p>
+      </div>
+
       <h2 id="s2">Priprema pre embriotransfera</h2>
 
       <h3>Šta treba da znate uoči zahvata</h3>
@@ -909,6 +973,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Istraživanja su pokazala da transfer jednog embriona visokog kvaliteta, naročito u stadijumu blastociste, daje izuzetno dobre stope trudnoće - a preostali kvalitetni embrioni mogu se <a href="zamrzavanje-embriona">zamrznuti za buduće pokušaje</a>. Na taj način se ukupna kumulativna stopa uspeha ne smanjuje, ali se rizik od komplikacija značajno snižava.</p>
 
       <p>U nekim slučajevima - na primer, kod starijih pacijentkinja ili nakon više neuspelih pokušaja - lekar može preporučiti transfer dva embriona. Ovu odluku uvek donosi stručni tim u dogovoru sa parom, uzimajući u obzir celokupnu kliničku sliku.</p>
+
+      <div class="article-highlight">
+        <div class="article-highlight-label">Savremeni standard</div>
+        <p>Transfer jednog embriona (eSET) uz zamrzavanje preostalih embriona danas se smatra zlatnim standardom. Ovaj pristup daje jednako dobre kumulativne stope uspeha kao transfer dva embriona, ali sa značajno nižim rizikom od višeplodne trudnoće i pratećih komplikacija.</p>
+      </div>
 
       <h3>Dan transfera - Day 3 ili Day 5?</h3>
 
@@ -945,6 +1014,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3>Koliko traje zahvat</h3>
 
       <p>Ceo embriotransfer traje obično između pet i petnaest minuta, uključujući pripremu i pozicioniranje. Sam momenat vraćanja embriona traje svega nekoliko sekundi. Mnoge pacijentkinje su iznenađene koliko je sve brzo i jednostavno - ceo postupak je kraći od jednog pregleda kod zubara.</p>
+
+      <div class="timeline">
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Korak 1</div>
+            <div class="timeline-ttl">Dolazak i priprema</div>
+            <div class="timeline-desc">Presvlačite se u bolnički mantil. Osoblje proverava identitet i dokumentaciju. Embriolog vas informiše o stanju vaših embriona - njihovom broju, kvalitetu i razvojnom stadijumu.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Korak 2</div>
+            <div class="timeline-ttl">Ultrazvuk i pozicioniranje katetera</div>
+            <div class="timeline-desc">Postavljate se u ginekološki položaj. Lekar stavlja ultrazvučnu sondu na stomak (zato je važna puna bešika) i pažljivo uvodi tanak kateter kroz grlić materice.</div>
+          </div>
+        </div>
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Korak 3</div>
+            <div class="timeline-ttl">Vraćanje embriona</div>
+            <div class="timeline-desc">Embriolog donosi embrion u kateteru. Lekar nežno pritisne klip i embrion se oslobađa u materičnu šupljinu. Na ekranu vidite sićušnu svetlu tačku - to je vaš embrion na svom mestu.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Korak 4</div>
+            <div class="timeline-ttl">Provera katetera</div>
+            <div class="timeline-desc">Kateter se izvlači i predaje embriologu koji ga pod mikroskopom pregleda da potvrdi da je embrion uspešno isporučen. Ceo postupak je gotov za 5–15 minuta.</div>
+          </div>
+        </div>
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Korak 5</div>
+            <div class="timeline-ttl">Kratak odmor i odlazak kući</div>
+            <div class="timeline-desc">Ostajete da ležite 10–60 minuta (zavisi od klinike), dobijate uputstva o terapiji i ponašanju, i odlazite kući. Počinje dvonedeljno čekanje.</div>
+          </div>
+        </div>
+      </div>
 
       <h2 id="s5">Šta pacijentkinja oseća tokom zahvata</h2>
 
@@ -1000,7 +1126,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li>Pušenja, alkohola i preteranih količina kofeina</li>
       </ul>
 
+      <div class="do-dont">
+        <div class="do-col">
+          <div class="do-col-title">Dozvoljeno i preporučeno</div>
+          <ul>
+            <li>Normalne svakodnevne aktivnosti i šetnja</li>
+            <li>Vraćanje na posao sutradan (ako nije fizički zahtevan)</li>
+            <li>Uravnotežena ishrana bogata proteinima i povrćem</li>
+            <li>Dovoljno tečnosti - voda, čajevi, supe</li>
+            <li>Progesteron striktno po uputstvu lekara</li>
+          </ul>
+        </div>
+        <div class="dont-col">
+          <div class="dont-col-title">Izbegavati</div>
+          <ul>
+            <li>Intenzivan fizički napor i teretana</li>
+            <li>Vrela kupka, sauna i jaka toplota</li>
+            <li>Podizanje teških predmeta</li>
+            <li>Pušenje, alkohol, preterane količine kofeina</li>
+            <li>Seksualni odnosi do testa (konsultujte lekara)</li>
+          </ul>
+        </div>
+      </div>
+
       <p><strong>Razbijanje mitova.</strong> Ne morate ležati dve nedelje. Kijanje, kašljanje, smejanje ili odlazak u toalet neće „izbaciti" embrion iz materice - embrion je mikroskopski mali i okružen sluzokoži koja ga drži na mestu. Gravitacija nema nikakav uticaj na implantaciju. Svakodnevne aktivnosti su ne samo dozvoljene, već i poželjne jer normalan protok krvi i umereno kretanje doprinose dobrom stanju organizma.</p>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Mora se ležati dve nedelje nakon embriotransfera</div>
+        <div class="myth-truth"><strong>Istina:</strong> Istraživanja pokazuju da mirovanje nakon transfera ne povećava šanse za uspeh. Umerena aktivnost je ne samo bezbedna, već i poželjna jer održava normalan protok krvi.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Kijanje, kašljanje ili odlazak u toalet mogu izbaciti embrion</div>
+        <div class="myth-truth"><strong>Istina:</strong> Embrion je mikroskopski mali i nalazi se u zatvorenoj materičnoj šupljini. Gravitacija i fizički pokreti nemaju nikakav uticaj na implantaciju - poput kapljice vode između dva stakla koja ne može pasti.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako ne osećam nikakve simptome, transfer nije uspeo</div>
+        <div class="myth-truth"><strong>Istina:</strong> Mnoge žene koje su ostvarile trudnoću nakon VTO-a nisu imale nikakve rane simptome. Odsustvo simptoma u periodu čekanja je potpuno normalno i ne govori ništa o ishodu.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Kućni test na trudnoću je pouzdan odmah nakon transfera</div>
+        <div class="myth-truth"><strong>Istina:</strong> Kućni testovi mogu dati lažno negativan (prenizak hCG) ili lažno pozitivan rezultat (rezidualni hCG od trigger injekcije). Jedino krvni beta hCG test nakon 10–14 dana daje pouzdan odgovor.</div>
+      </div>
 
       <h2 id="s7">Rizici i komplikacije</h2>
 
@@ -1018,6 +1184,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p><strong>Višeplodna trudnoća</strong> je rizik kada se vraća više od jednog embriona. Upravo zbog toga se sve više preporučuje transfer jednog embriona, kao što je ranije objašnjeno.</p>
 
+      <h3>Normalni simptomi vs. simptomi koji zahtevaju javljanje lekaru</h3>
+
+      <div class="symptom-grid">
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">~</div>
+          <div class="symptom-label"><strong>Blago mrljanje (spotting)</strong> - najčešće od mehaničkog nadraživanja grlića materice tokom uvođenja katetera. Potpuno bezopasno.</div>
+        </div>
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">~</div>
+          <div class="symptom-label"><strong>Lagani grčevi ili pritisak u donjem stomaku</strong> - posledica zahvata ili progesteronske terapije. Prolaze za kratko vreme.</div>
+        </div>
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">~</div>
+          <div class="symptom-label"><strong>Nadutost, osetljivost grudi, umor</strong> - uobičajeni efekti progesteronske podrške. Nisu pokazatelj ishoda transfera.</div>
+        </div>
+      </div>
+
+      <div class="symptom-grid">
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div class="symptom-label"><strong>Obilno vaginalno krvarenje</strong> - intenziteta sličnog menstruaciji ili jače. Zahteva hitnu konsultaciju sa lekarom.</div>
+        </div>
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div class="symptom-label"><strong>Jaki, probadajući bolovi u stomaku</strong> - koji ne prolaze ili se pogoršavaju. Mogu ukazivati na ektopičnu trudnoću ili OHSS.</div>
+        </div>
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div class="symptom-label"><strong>Izrazita nadutost sa otežanim disanjem ili povišena temperatura</strong> - mogući znaci OHSS-a ili infekcije. Ne čekajte - javite se klinici odmah.</div>
+        </div>
+      </div>
+
       <h2 id="s8">Posebne situacije i varijacije</h2>
 
       <h3>Sveži transfer vs. transfer odmrznutih embriona (FET)</h3>
@@ -1031,6 +1229,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Sam postupak FET embriotransfera identičan je svežem transferu - jedina razlika je u pripremi koja mu prethodi (prirodni ciklus ili pripremljen endometrijum hormonima) i u tome što embriolog pre zahvata odmrzava embrion i procenjuje da li je preživeo proces zamrzavanja i odmrzavanja.</p>
 
       <p>Stope uspeha FET postupka su danas uporedive sa stopama svežeg transfera, a u nekim studijama čak i više.</p>
+
+      <div class="article-highlight">
+        <div class="article-highlight-label">Dobro je znati</div>
+        <p>FET postupak postaje sve popularniji pristup. Prednosti uključuju smanjeni rizik od OHSS-a, mogućnost genetskog testiranja embriona pre transfera (PGT), i činjenicu da je endometrijum u „prirodnijem" stanju bez uticaja stimulacijskih lekova. Sam postupak transfera je identičan svežem transferu.</p>
+      </div>
 
       <h3>Priprema endometrijuma</h3>
 
@@ -1066,6 +1269,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p><strong>„Da li smem da putujem nakon transfera?"</strong><br>Kraća putovanja automobilom ili čak letom su generalno bezbedna. Izbegavajte izuzetno duge i naporne puteve odmah nakon transfera, ali nema medicinskog razloga da izbegavate normalno kretanje.</p>
 
+      <div class="quick-faq">
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li smem da se vratim na posao sutradan?</div>
+          <div class="quick-faq-note">Osim ako posao nije fizički zahtevan</div></div>
+          <div class="quick-faq-badge badge-yes">Da</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li smem da putujem avionom?</div>
+          <div class="quick-faq-note">Kraća putovanja su bezbedna</div></div>
+          <div class="quick-faq-badge badge-yes">Da</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li smem u saunu ili vruću kupku?</div></div>
+          <div class="quick-faq-badge badge-no">Ne</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li smem da vežbam intenzivno?</div></div>
+          <div class="quick-faq-badge badge-no">Ne</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li smem da imam seksualne odnose?</div>
+          <div class="quick-faq-note">Preporuke se razlikuju - konsultujte lekara</div></div>
+          <div class="quick-faq-badge badge-ask">Pitajte lekara</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li da radim kućni test na trudnoću pre beta hCG?</div>
+          <div class="quick-faq-note">Može dati lažne rezultate - sačekajte krvni test</div></div>
+          <div class="quick-faq-badge badge-no">Ne</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li smeju antibiotici ili Ibuprofen?</div>
+          <div class="quick-faq-note">Ne uzimajte ništa bez saglasnosti lekara</div></div>
+          <div class="quick-faq-badge badge-ask">Pitajte lekara</div>
+        </div>
+      </div>
+
       <h3>Emocionalni aspekti embriotransfera</h3>
 
       <p>Embriotransfer je za mnoge parove emocionalno najintenzivniji trenutak celokupnog VTO puta. To je momenat kada se sve nada i sav trud - meseci priprema, injekcije, pregledi, čekanje - slivaju u jednu tačku. Sasvim je prirodno osećati mešavinu nade, uzbuđenja, straha i ranjivosti.</p>
@@ -1075,6 +1314,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p><strong>Uloga partnera na dan transfera.</strong> Prisustvo partnera na dan transfera može biti izuzetno značajno. Partner ne mora da govori „prave" stvari - samo prisustvo, držanje za ruku i zajedničko proživljavanje tog trenutka imaju ogromnu vrednost.</p>
 
       <p><strong>Pritisak okoline.</strong> Mnogi parovi se suočavaju sa pritiscima okoline - pitanjima porodice i prijatelja, komentarima, savetima. U redu je postaviti granice i deliti informacije samo onoliko koliko vam je prijatno.</p>
+
+      <h3>Kako partner može pomoći na dan transfera i tokom čekanja</h3>
+
+      <div class="partner-tip">
+        <div class="partner-tip-icon">1</div>
+        <div class="partner-tip-text"><strong>Budite prisutni na dan transfera.</strong> Držanje za ruku i zajedničko proživljavanje tog trenutka ima ogromnu vrednost - ne morate govoriti „prave" stvari, samo prisustvo je dovoljno.</div>
+      </div>
+      <div class="partner-tip">
+        <div class="partner-tip-icon">2</div>
+        <div class="partner-tip-text"><strong>Preuzmite praktične obaveze.</strong> Organizujte prevoz kući, pripremite udobno mesto za odmor, pobrinite se za obroke u danima nakon transfera. Male geste mnogo znače.</div>
+      </div>
+      <div class="partner-tip">
+        <div class="partner-tip-icon">3</div>
+        <div class="partner-tip-text"><strong>Ne minimizirajte emocije.</strong> Izbegavajte fraze poput „opusti se" ili „nemoj da brineš". Umesto toga, potvrdite da su sve emocije validne: „Razumem da ti je teško, tu sam."</div>
+      </div>
+      <div class="partner-tip">
+        <div class="partner-tip-icon">4</div>
+        <div class="partner-tip-text"><strong>Zaštitite zajednički prostor od pritiska okoline.</strong> Dogovorite se unapred ko će kome i šta reći. Partner može preuzeti ulogu „filtera" za pitanja porodice i prijatelja.</div>
+      </div>
+      <div class="partner-tip">
+        <div class="partner-tip-icon">5</div>
+        <div class="partner-tip-text"><strong>Planirajte nešto lepo za period čekanja.</strong> Zajednička šetnja, film, kuvanje omiljenog jela - bilo šta što odvlači pažnju i donosi radost. Dvonedeljni period ne mora biti samo čekanje.</div>
+      </div>
 
       <h3>Šta ako transfer ne uspe</h3>
 
