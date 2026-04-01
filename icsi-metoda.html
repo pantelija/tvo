@@ -730,6 +730,60 @@
   .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
   .empathy-box p + p { margin-top: 0.6rem; }
 
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  .myth-card { margin: 1rem 0; border-radius: 8px; border: 1px solid var(--color-border-light); overflow: hidden; }
+  .myth-claim { padding: 0.85rem 1.1rem; background: var(--color-bg-warm); font-size: 1rem; color: var(--color-ink-light); display: flex; align-items: flex-start; gap: 0.65rem; text-decoration: line-through; text-decoration-color: rgba(180,83,62,0.4); line-height: 1.5; }
+  .myth-icon { flex-shrink: 0; font-size: 0.8rem; margin-top: 0.15rem; }
+  .myth-truth { padding: 0.85rem 1.1rem; background: #fff; font-size: 0.9rem; color: var(--color-ink-light); line-height: 1.55; border-top: 1px solid var(--color-border-light); }
+  .myth-truth strong { color: var(--color-teal); font-weight: 600; }
+
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+  }
+
 </style>
 
 </head>
@@ -873,6 +927,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>ICSI je prvi put uspešno primenjen <strong>1992. godine u Briselu</strong>, u timu belgijskog naučnika Đanpiera Palerma (Gianpiero Palermo) na Slobodnom univerzitetu u Briselu. Od tada je metoda prošla kroz decenije usavršavanja i danas predstavlja rutinski deo rada gotovo svake klinike za vantelesno oplođenje širom sveta.</p>
 
+      <div class="article-highlight">
+        <div class="article-highlight-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Ključna činjenica
+        </div>
+        <p>ICSI se danas koristi u preko 70% svih IVF ciklusa širom sveta. U mnogim klinikama postao je standardni pristup oplođenju, čak i kada muški faktor infertiliteta nije jedini razlog za postupak.</p>
+      </div>
+
       <!-- ========== SECTION 2 ========== -->
       <h2 id="s2">ICSI i klasičan IVF - u čemu je razlika?</h2>
 
@@ -892,6 +954,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
 
       <p>Važno je naglasiti da ICSI <strong>ne zamenjuje</strong> IVF - on je njegov sastavni deo, posebna tehnika koja se primenjuje unutar IVF postupka kada za to postoji medicinska indikacija.</p>
+
+      <div class="article-highlight">
+        <div class="article-highlight-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Ukratko
+        </div>
+        <p>Klasičan IVF: spermatozoidi sami pronalaze jajnu ćeliju u laboratorijskoj posudi. ICSI: embriolog bira jedan spermatozoid i ubacuje ga direktno u jajnu ćeliju. Svi ostali koraci postupka - stimulacija, punkcija, kultivacija, transfer - identični su.</p>
+      </div>
 
       <!-- ========== SECTION 3 ========== -->
       <h2 id="s3">Kome je ICSI namenjen? Indikacije za primenu</h2>
@@ -943,6 +1013,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 id="s4">ICSI postupak korak po korak</h2>
 
       <p>Celokupan ICSI postupak se odvija u nekoliko jasno definisanih faza. Svaka od njih je jednako važna za konačan ishod.</p>
+
+      <div class="timeline">
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">10–14 dana</div>
+            <div class="timeline-ttl">Stimulacija jajnika</div>
+            <div class="timeline-desc">Hormonska terapija potkožnim injekcijama za razvoj više folikula. Redovne ultrazvučne kontrole i vađenje krvi na svaka 2–3 dana.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">34–36h nakon trigera</div>
+            <div class="timeline-ttl">Aspiracija jajnih ćelija (punkcija)</div>
+            <div class="timeline-desc">Prikupljanje jajnih ćelija pod blagom sedacijom. Postupak traje 15–30 minuta. Partner istovremeno daje uzorak sperme.</div>
+          </div>
+        </div>
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Isti dan</div>
+            <div class="timeline-ttl">Priprema sperme i mikroinjekcija (ICSI)</div>
+            <div class="timeline-desc">Embriolog bira po jedan spermatozoid za svaku zrelu jajnu ćeliju i mikropipetom ga ubacuje direktno u citoplazmu. Srce celokupnog postupka.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Dan 1–6 nakon ICSI-ja</div>
+            <div class="timeline-ttl">Kultivacija embriona</div>
+            <div class="timeline-desc">Embrioni rastu u inkubatoru pod kontrolisanim uslovima. Provera oplođenja nakon 16–18h, praćenje razvoja do stadijuma blastociste (dan 5–6).</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Dan 3 ili dan 5</div>
+            <div class="timeline-ttl">Embriotransfer</div>
+            <div class="timeline-desc">Bezbolan postupak bez anestezije - embriolog i lekar kateterom postavljaju embrion u matericu. Traje svega nekoliko minuta.</div>
+          </div>
+        </div>
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">10–14 dana nakon transfera</div>
+            <div class="timeline-ttl">Beta hCG test</div>
+            <div class="timeline-desc">Vađenje krvi koje daje konačan odgovor o trudnoći. Preostali kvalitetni embrioni mogu se zamrznuti za buduće pokušaje.</div>
+          </div>
+        </div>
+      </div>
 
       <h3>Korak 1: Stimulacija jajnika</h3>
 
@@ -1021,6 +1160,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>ICSI tehnika postiže <strong>stopu oplođenja od 70 do 85%</strong> - što znači da će od, recimo, 10 zrelih jajnih ćelija kojima je izvršena mikroinjekcija, u proseku 7 do 8 biti uspešno oplođeno. Ovo je značajno visok procenat i predstavlja jednu od najvećih prednosti ICSI-ja.</p>
 
+      <div class="article-highlight">
+        <div class="article-highlight-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Važna razlika
+        </div>
+        <p>Stopa oplođenja (70–85%) i stopa trudnoće (40–50% po transferu kod žena mlađih od 35) nisu ista stvar. Visoka stopa oplođenja znači da će većina jajnih ćelija biti oplođena, ali ne svaki embrion dovodi do trudnoće. Obe cifre su ohrabrujuće, ali je važno razumeti razliku.</p>
+      </div>
+
       <p>Međutim, stopa oplođenja i stopa trudnoće nisu isto. Stopa kliničke trudnoće po ciklusu varira i u proseku iznosi <strong>40 do 50% po transferu</strong> kod žena mlađih od 35 godina, dok sa godinama opada.</p>
 
       <h3>Od čega zavisi uspeh?</h3>
@@ -1046,6 +1193,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>OHSS (<em>Ovarian Hyperstimulation Syndrome</em>) je stanje u kome jajnici preterano reaguju na hormonsku stimulaciju. Jajnici se uvećavaju, a tečnost može da se nakuplja u stomaku. Blagi oblici (nadutost, nelagodnost) su relativno česti i prolaze sami. Teški oblici su <strong>retki</strong> (javljaju se u manje od 2% slučajeva) i zahtevaju medicinsko praćenje, ponekad i hospitalizaciju. Savremeni protokoli stimulacije značajno su smanjili učestalost ovog stanja.</p>
 
+      <div class="symptom-grid">
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">✓</div>
+          <div><strong>Blaga nadutost i nelagodnost u stomaku</strong> - čest i očekivan odgovor na stimulaciju, prolazi sam za nekoliko dana</div>
+        </div>
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">✓</div>
+          <div><strong>Bolovi slični menstrualnim</strong> - normalna reakcija nakon punkcije, tretira se uobičajenim analgeticima</div>
+        </div>
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">✓</div>
+          <div><strong>Blago povećanje telesne težine</strong> - zadržavanje tečnosti tokom stimulacije je uobičajeno</div>
+        </div>
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div><strong>Jaka bol u stomaku, izražena nadutost, mučnina ili povraćanje</strong> - javite se lekaru, može ukazivati na umereni ili teški oblik OHSS-a</div>
+        </div>
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div><strong>Otežano disanje, smanjena količina urina, naglo povećanje težine</strong> - hitno se javite klinici, znaci teškog OHSS-a koji zahteva medicinsku intervenciju</div>
+        </div>
+      </div>
+
       <h3>Višeplodna trudnoća</h3>
 
       <p>Ako se u matericu vrati više od jednog embriona, postoji mogućnost blizanačke ili, ređe, trojke trudnoće. Višeplodna trudnoća nosi povećan rizik za prevremeni porođaj i komplikacije. Upravo zato se danas sve više praktikuje transfer jednog embriona, čime se ovaj rizik svodi na minimum.</p>
@@ -1057,6 +1227,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3>Emocionalni i psihološki aspekti</h3>
 
       <p>Ovo je aspekt o kome se nedovoljno govori, a koji je izuzetno važan. Postupak vantelesnog oplođenja - sa svim čekanjima, nadanjima, neizvesnostima i mogućim razočaranjima - predstavlja značajno emocionalno opterećenje. Hormoni koji se koriste u stimulaciji mogu dodatno uticati na raspoloženje. Osećanja anksioznosti, tuge, frustracije, pa čak i krivice potpuno su normalna i ne treba ih potiskivati.</p>
+
+      <h3>Česti mitovi o ICSI postupku</h3>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> ICSI garantuje oplođenje i trudnoću.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Iako ICSI značajno povećava šanse za oplođenje (70–85%), nijedna medicinska tehnika ne daje garanciju. Svaki biološki proces nosi određenu nepredvidivost koju ni najsavršenija tehnika ne može eliminisati.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Deca začeta ICSI-jem imaju više zdravstvenih problema.</div>
+        <div class="myth-truth"><strong>Nepotvrđeno.</strong> Dugogodišnje studije pokazuju da su deca začeta ICSI-jem jednako zdrava kao i prirodno začeta deca. Blago povećan rizik od anomalija verovatno je povezan sa uzrocima neplodnosti roditelja, a ne sa samom tehnikom.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> ICSI se radi samo kada je problem kod muškarca.</div>
+        <div class="myth-truth"><strong>Delimično tačno, ali ne potpuno.</strong> Muški faktor infertiliteta jeste najčešća indikacija, ali ICSI se koristi i kod neobjašnjenog infertiliteta, prethodnog neuspeha klasičnog IVF-a, zamrznutih gameta i PGT testiranja embriona.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Postupak mikroinjekcije je bolan za pacijentkinju.</div>
+        <div class="myth-truth"><strong>Netačno.</strong> Mikroinjekcija se odvija potpuno u laboratoriji, na jajnim ćelijama izvan tela. Pacijentkinja nema nikakav kontakt sa ovim delom postupka - ne oseća apsolutno ništa tokom same ICSI procedure.</div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-claim"><span class="myth-icon">🚫</span> Ako prvi ICSI ciklus ne uspe, nema smisla pokušavati ponovo.</div>
+        <div class="myth-truth"><strong>Pogrešno.</strong> Kumulativna stopa uspeha značajno raste sa svakim pokušajem. Svaki ciklus daje nove informacije na osnovu kojih lekar prilagođava pristup. Većina parova ostvari trudnoću unutar 1 do 3 ciklusa.</div>
+      </div>
 
       <!-- ========== SECTION 7 ========== -->
       <h2 id="s7">Česta pitanja i dodatni saveti</h2>
@@ -1083,6 +1280,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><strong>Smanjenje stresa</strong> - tehnike opuštanja, mindfulness, razgovor sa partnerom ili psihologom</li>
       </ul>
 
+      <div class="do-dont">
+        <div class="do-col">
+          <div class="do-col-title">✓ Preporučuje se</div>
+          <ul>
+            <li>Započeti sa folnom kiselinom 3 meseca unapred</li>
+            <li>Umerena fizička aktivnost: šetnja, joga, plivanje</li>
+            <li>Uravnotežena ishrana bogata antioksidansima</li>
+            <li>Otvorena komunikacija sa partnerom</li>
+            <li>Postavljanje pitanja svom lekaru - nema glupih pitanja</li>
+          </ul>
+        </div>
+        <div class="dont-col">
+          <div class="dont-col-title">✗ Izbegavati</div>
+          <ul>
+            <li>Pušenje (oba partnera, minimum 3 meseca pre)</li>
+            <li>Preterani unos kofeina (više od 1–2 šolje dnevno)</li>
+            <li>Alkohol u periodu stimulacije i nakon transfera</li>
+            <li>Intenzivne fizičke aktivnosti tokom stimulacije</li>
+            <li>Prekomerno guglanje i upoređivanje sa tuđim iskustvima</li>
+          </ul>
+        </div>
+      </div>
+
       <h3>„Deca začeta ICSI-jem - da li su zdrava?"</h3>
 
       <p>Ovo je pitanje koje brine mnoge parove. Dugogodišnje praćenje dece začete ICSI postupkom širom sveta pokazuje da su ona <strong>jednako zdrava</strong> kao deca začeta prirodnim putem. Učestalost urođenih anomalija kod ICSI trudnoća blago je veća u odnosu na opštu populaciju, ali istraživanja ukazuju da je to verovatno povezano sa samim uzrocima neplodnosti kod roditelja, a ne sa tehnikom ICSI-ja.</p>
@@ -1091,11 +1311,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>Troškovi variraju u zavisnosti od klinike, zemlje, broja potrebnih lekova i dodatnih procedura (zamrzavanje embriona, PGT, hirurško dobijanje spermatozoida). U Srbiji, jedan ciklus IVF/ICSI postupka može koštati od nekoliko stotina do nekoliko hiljada evra, u zavisnosti od protokola. Važno je informisati se i o mogućnostima finansiranja koje nudi Republički fond za zdravstveno osiguranje (RFZO), koji u Srbiji pokriva određeni broj pokušaja vantelesnog oplođenja za parove koji ispunjavaju uslove.</p>
 
+      <h3>Brzi pregled - najčešća pitanja</h3>
+
+      <div class="quick-faq">
+        <div class="quick-faq-item">
+          <div class="quick-faq-q">
+            Da li mogu normalno da radim tokom stimulacije?
+            <div class="quick-faq-note">Većina žena nastavlja da radi, uz izbegavanje teškog fizičkog napora.</div>
+          </div>
+          <div class="quick-faq-badge badge-yes">Da</div>
+        </div>
+        <div class="quick-faq-item">
+          <div class="quick-faq-q">
+            Da li partner mora biti prisutan na dan punkcije?
+            <div class="quick-faq-note">Uzorak sperme se daje istog dana, osim ako je prethodno zamrznut.</div>
+          </div>
+          <div class="quick-faq-badge badge-yes">Da</div>
+        </div>
+        <div class="quick-faq-item">
+          <div class="quick-faq-q">
+            Da li mogu da biram pol deteta kroz ICSI?
+            <div class="quick-faq-note">Selekcija pola iz nemedicinskih razloga nije dozvoljena zakonom u Srbiji.</div>
+          </div>
+          <div class="quick-faq-badge badge-no">Ne</div>
+        </div>
+        <div class="quick-faq-item">
+          <div class="quick-faq-q">
+            Da li je potrebna posebna dijeta tokom postupka?
+            <div class="quick-faq-note">Nema striktne dijete, ali uravnotežena ishrana bogata proteinima i folnom kiselinom pomaže.</div>
+          </div>
+          <div class="quick-faq-badge badge-ask">Pitajte lekara</div>
+        </div>
+        <div class="quick-faq-item">
+          <div class="quick-faq-q">
+            Da li RFZO pokriva ICSI u Srbiji?
+            <div class="quick-faq-note">RFZO pokriva određeni broj VTO pokušaja za parove koji ispunjavaju uslove - raspitajte se o aktuelnim kriterijumima.</div>
+          </div>
+          <div class="quick-faq-badge badge-ask">Pitajte lekara</div>
+        </div>
+        <div class="quick-faq-item">
+          <div class="quick-faq-q">
+            Da li zamrznuti embrioni imaju manje šanse za uspeh?
+            <div class="quick-faq-note">Savremene tehnike zamrzavanja (vitrifikacija) daju odlične rezultate, uporedive sa svežim embrionima.</div>
+          </div>
+          <div class="quick-faq-badge badge-no">Ne</div>
+        </div>
+      </div>
+
       <h3>Psihološka podrška - nije luksuz, već potreba</h3>
 
       <p>Lečenje neplodnosti može biti jedan od najstresnijih perioda u životu para. Neizvesnost ishoda, fizičke tegobe, finansijski pritisak i uticaj na partnerski odnos mogu biti veoma teški. Mnoge klinike danas nude <strong>psihološko savetovanje</strong> kao deo tretmana, i preporučujemo da ga iskoristite - razgovor sa stručnjakom koji razume specifičnosti ovog procesa može napraviti ogromnu razliku.</p>
 
       <p>Jednako je važna <strong>međusobna podrška partnera</strong>. Otvorena komunikacija o strahovima, očekivanjima i granicama pomaže da se ovaj put prođe zajedno, bez obzira na ishod.</p>
+
+      <blockquote>
+        <p>Ne morate imati sve odgovore niti kontrolisati sve. Ovaj put zahteva hrabrost - i sama odluka da krenete na njega već govori o vašoj snazi. Dozvolite sebi da budete i uplašeni i hrabri u isto vreme.</p>
+      </blockquote>
 
       <!-- Closing -->
       <div class="empathy-box" style="margin-top: 3rem;">
