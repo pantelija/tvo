@@ -718,6 +718,91 @@
   .empathy-box p { font-size: 0.95rem; color: var(--color-ink); line-height: 1.65; font-style: italic; margin: 0; }
   .empathy-box p + p { margin-top: 0.6rem; }
 
+  /* Key takeaway / highlight box */
+  .article-highlight {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    border: 1px solid rgba(42, 125, 110, 0.15);
+  }
+  .article-highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+  .article-highlight p {
+    font-size: 0.95rem;
+    color: var(--color-ink-light);
+    margin-top: 0;
+    line-height: 1.6;
+  }
+
+  /* Timeline */
+  .timeline { margin: 2rem 0; }
+  .timeline-step { display: flex; gap: 1.1rem; position: relative; }
+  .timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 40px; }
+  .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; }
+  .timeline-step.pulse .timeline-dot { background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-light); }
+  .timeline-line { width: 2px; flex: 1; background: var(--color-border-light); min-height: 1.5rem; }
+  .timeline-step:last-child .timeline-line { display: none; }
+  .timeline-content { padding-bottom: 1.75rem; flex: 1; }
+  .timeline-step:last-child .timeline-content { padding-bottom: 0; }
+  .timeline-day { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .timeline-ttl { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.6; }
+
+  /* Symptom grid */
+  .symptom-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+  .symptom-card { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.55; }
+  .symptom-card-ok { background: var(--color-bg-warm); border: 1px solid var(--color-border-light); color: var(--color-ink-light); }
+  .symptom-card-alert { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+  .symptom-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 0.1rem; font-weight: 700; }
+  .symptom-icon-ok { background: var(--color-border); color: var(--color-ink-muted); }
+  .symptom-icon-alert { background: #fca5a5; color: #7f1d1d; }
+
+  /* Do / Don't columns */
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .do-col, .dont-col { border-radius: 8px; padding: 1rem 1.1rem; }
+  .do-col { background: var(--color-teal-light); border: 1px solid rgba(42,125,110,0.15); }
+  .dont-col { background: #fef2f2; border: 1px solid #fecaca; }
+  .do-col-title, .dont-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+  .do-col-title { color: var(--color-teal); }
+  .dont-col-title { color: #b91c1c; }
+  .do-col ul, .dont-col ul { list-style: none; padding: 0; margin: 0; }
+  .do-col li, .dont-col li { font-size: 0.84rem; line-height: 1.5; margin-bottom: 0.45rem; padding-left: 0; position: relative; }
+  .do-col li::before { content: '\2713  '; color: var(--color-teal); font-weight: 700; }
+  .dont-col li::before { content: '\2717  '; color: #b91c1c; font-weight: 700; }
+
+  /* Quick FAQ */
+  .quick-faq { margin: 1.5rem 0; }
+  .quick-faq-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .quick-faq-item:last-child { border-bottom: none; }
+  .quick-faq-q { flex: 1; font-size: 0.88rem; color: var(--color-ink); font-weight: 500; line-height: 1.45; }
+  .quick-faq-badge { flex-shrink: 0; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2em 0.6em; border-radius: 4px; margin-top: 0.15rem; }
+  .badge-yes { background: var(--color-teal-light); color: var(--color-teal); }
+  .badge-no { background: #fef2f2; color: #b91c1c; }
+  .badge-ask { background: var(--color-gold-light); color: var(--color-gold); }
+  .quick-faq-note { font-size: 0.78rem; color: var(--color-ink-muted); margin-top: 0.2rem; font-weight: 400; line-height: 1.4; }
+
+  /* Partner tips */
+  .partner-tip { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border-light); }
+  .partner-tip:last-child { border-bottom: none; }
+  .partner-tip-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px; background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; margin-top: 0.1rem; }
+  .partner-tip-text { font-size: 0.88rem; color: var(--color-ink-light); line-height: 1.55; }
+  .partner-tip-text strong { color: var(--color-ink); }
+
+  @media (max-width: 600px) {
+    .do-dont { grid-template-columns: 1fr; }
+    .timeline-rail { width: 32px; }
+  }
+
 </style>
 
 </head>
@@ -858,6 +943,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>Upravo tu nastupa <strong>stimulacija jajnika</strong>, poznata i kao kontrolisana ovarijalna hiperstimulacija. Reč je o hormonski podržanom procesu u kome se pomoću svakodnevnih injekcija hormonskih lekova vaši jajnici podstiču da umesto jednog folikula istovremeno razviju više folikula, a samim tim i više zrelih jajnih ćelija. Umesto da telo "odabere" samo jednu, mi pomažemo da sve one jajne ćelije koje su ionako započele rast tog meseca dobiju šansu da sazreju. Na taj način embriologu dajemo više materijala za rad, a vama - veće šanse za uspešan ishod VTO postupka.</p>
 
+      <div class="article-highlight">
+        <div class="article-highlight-label">Ključna informacija</div>
+        <p>Stimulacija jajnika ne troši vašu rezervu jajnih ćelija. Svaki mesec, grupa folikula prirodno započne rast, ali samo jedan sazri - ostali propadnu. Stimulacija „spasava" upravo te folikule koji bi ionako bili izgubljeni, dajući im šansu da sazreju. Vaša rezerva za buduće cikluse ostaje netaknuta.</p>
+      </div>
+
       <!-- ========== SECTION 2 ========== -->
       <h2 id="s2">Kako stimulacija funkcioniše - korak po korak</h2>
 
@@ -937,6 +1027,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p><strong>Tajming trigger injekcije je kritičan.</strong> Ona se daje tačno 36 sati pre zakazane punkcije, najčešće kasno uveče (na primer, u 22:00 ili 23:00 za punkciju zakazanu za 10:00 ili 11:00 narednog jutra). Preciznost je izuzetno važna - preuranjeno ili zakašnjelo davanje može dovesti do toga da jajne ćelije budu nezrele ili da dođe do spontane ovulacije pre punkcije. Klinika će vam dati tačno vreme primene i detaljno uputstvo.</p>
 
+      <div class="article-highlight">
+        <div class="article-highlight-label">Važno zapamtiti</div>
+        <p>Trigger injekcija se daje u tačno određeno vreme - najčešće kasno uveče, tačno 36 sati pre zakazane punkcije. Stavite alarm, zapišite vreme, i pripremite injekciju unapred. Čak i kašnjenje od sat vremena može uticati na ishod. Ako imate bilo kakvu nedoumicu oko primene, odmah pozovite kliniku.</p>
+      </div>
+
       <h3>Punkcija folikula - sledeći korak nakon stimulacije</h3>
 
       <p>Otprilike 36 sati nakon trigger injekcije sledi <a href="aspiracija-jajnih-celija"><strong>punkcija (aspiracija) folikula</strong></a> - kratak zahvat pod blagom sedacijom ili kratkom anestezijom u kome lekar kroz vaginu, pod ultrazvučnom kontrolom, tankom iglom ulazi u svaki folikul i aspirira folikularnu tečnost zajedno sa jajnom ćelijom. Zahvat obično traje 15–30 minuta, a vi se nakon toga oporavljate sat-dva u klinici.</p>
@@ -968,6 +1063,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>Ukupno, od prvog dana menstruacije do punkcije obično prođe oko <strong>dve nedelje</strong> u kratkom protokolu.</p>
 
+      <div class="timeline">
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Dan 1–3 ciklusa</div>
+            <div class="timeline-ttl">Bazalni pregled i početak stimulacije</div>
+            <div class="timeline-desc">Ultrazvuk, hormoni iz krvi, brojanje antralnih folikula. Počinjete sa svakodnevnim injekcijama gonadotropina (FSH/HMG), obično uveče.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Dan 5–6</div>
+            <div class="timeline-ttl">Prva ultrazvučna kontrola</div>
+            <div class="timeline-desc">Lekar proverava koliko folikula raste i da li je doza adekvatna. U kratkom protokolu, uvodi se GnRH antagonist za prevenciju prevremene ovulacije.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Dan 7–10</div>
+            <div class="timeline-ttl">Intenzivno praćenje</div>
+            <div class="timeline-desc">Kontrole svakih 1–2 dana. Folikuli rastu, lekar prilagođava dozu. Možete osećati nadutost i punoću u stomaku - to je normalan znak da jajnici reaguju.</div>
+          </div>
+        </div>
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Dan 10–13</div>
+            <div class="timeline-ttl">Trigger injekcija</div>
+            <div class="timeline-desc">Folikuli dostižu zrelu veličinu (17–22 mm). Daje se trigger injekcija kasno uveče - tačno 36 sati pre punkcije. Preciznost u tajmingu je kritična.</div>
+          </div>
+        </div>
+        <div class="timeline-step pulse">
+          <div class="timeline-rail">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-day">Dan 12–15</div>
+            <div class="timeline-ttl">Punkcija folikula</div>
+            <div class="timeline-desc">Kratak zahvat pod sedacijom (15–30 min). Lekar aspirira jajne ćelije iz folikula. Oporavak traje sat-dva u klinici. Stimulacija je završena.</div>
+          </div>
+        </div>
+      </div>
+
       <!-- ========== SECTION 4 ========== -->
       <h2 id="s4">Prilagođavanje stimulacije različitim pacijentkinjama</h2>
 
@@ -989,6 +1141,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>U nekim slučajevima lekar može predložiti VTO u prirodnom ciklusu (bez ikakve stimulacije - prati se rast jednog prirodno dominantnog folikula) ili u modifikovanom prirodnom ciklusu (minimalna stimulacija niskim dozama lekova). Ovi pristupi se razmatraju kod žena koje ne reaguju na klasičnu stimulaciju, kod kojih postoji medicinski razlog za izbegavanje punih doza hormona, ili kod žena koje iz ličnih razloga žele minimalnu hormonsku intervenciju. Broj dobijenih jajnih ćelija je manji (najčešće 1–3), ali je postupak fizički manje zahtevan.</p>
 
+      <div class="article-highlight">
+        <div class="article-highlight-label">Individualni pristup</div>
+        <p>Ne postoji univerzalan protokol stimulacije koji odgovara svima. Vaš lekar prilagođava lekove, doze i pristup na osnovu vaših godina, ovarijalne rezerve, telesne mase i prethodnih odgovora na stimulaciju. Manji broj folikula ne znači nužno lošiji ishod - kvalitet jajnih ćelija je jednako važan kao i njihov broj.</p>
+      </div>
+
       <!-- ========== SECTION 5 ========== -->
       <h2 id="s5">Mogući neželjeni efekti i komplikacije</h2>
 
@@ -1007,6 +1164,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
 
       <p>Ovi simptomi su privremeni i nestaju ubrzo nakon punkcije, kako se nivo hormona vraća u normalu.</p>
+
+      <div class="symptom-grid">
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">~</div>
+          <div class="symptom-label"><strong>Nadutost i osećaj punoće</strong> - najčešća tegoba. Uvećani jajnici zauzimaju više prostora u karlici. Prolazi nakon punkcije.</div>
+        </div>
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">~</div>
+          <div class="symptom-label"><strong>Blaga napetost u donjem stomaku</strong> - posebno pri naglim pokretima. Normalan znak da jajnici reaguju na lekove.</div>
+        </div>
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">~</div>
+          <div class="symptom-label"><strong>Promene raspoloženja, plačljivost</strong> - hormonske oscilacije su normalne. Ovo nije vaša „slabost" - ovo je biohemija.</div>
+        </div>
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">~</div>
+          <div class="symptom-label"><strong>Glavobolja i umor</strong> - kod nekih pacijentkinja, obično blagi i prolazni.</div>
+        </div>
+        <div class="symptom-card symptom-card-ok">
+          <div class="symptom-icon symptom-icon-ok">~</div>
+          <div class="symptom-label"><strong>Male modrice na mestu uboda</strong> - potpuno normalne i nestaju za nekoliko dana.</div>
+        </div>
+      </div>
+
+      <h3>Simptomi koji zahtevaju hitno javljanje lekaru</h3>
+
+      <div class="symptom-grid">
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div class="symptom-label"><strong>Izrazita nadutost sa bolom i mučninom</strong> - mogući znak OHSS-a. Posebno ako je praćena povraćanjem ili smanjenjem mokrenja.</div>
+        </div>
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div class="symptom-label"><strong>Otežano disanje ili naglo povećanje težine</strong> - više od 1 kg dnevno može ukazivati na nakupljanje tečnosti. Zahteva hitnu konsultaciju.</div>
+        </div>
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div class="symptom-label"><strong>Nagli, intenzivan bol na jednoj strani stomaka</strong> - mogući znak torzije jajnika. Zahteva hitnu medicinsku intervenciju.</div>
+        </div>
+        <div class="symptom-card symptom-card-alert">
+          <div class="symptom-icon symptom-icon-alert">!</div>
+          <div class="symptom-label"><strong>Povišena temperatura ili obilno krvarenje</strong> - mogu ukazivati na infekciju ili drugu komplikaciju. Ne čekajte - javite se odmah.</div>
+        </div>
+      </div>
 
       <h3>Sindrom ovarijalne hiperstimulacije (OHSS)</h3>
 
@@ -1034,6 +1235,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3>Da li mogu da radim tokom stimulacije?</h3>
 
       <p>U većini slučajeva - da. Prvih dana stimulacije većina žena se oseća potpuno normalno i može nastaviti sa svakodnevnim aktivnostima, uključujući posao. Kako stimulacija napreduje i jajnici rastu, možete osetiti veću nelagodnost, zamor ili nadutost, pa je dobro da prilagodite tempo. Izbegavajte intenzivan fizički trening, trčanje, skakanje i podizanje teških predmeta - uvećani jajnici su osetljiviji. Lagana šetnja, joga niskog intenziteta i svakodnevne aktivnosti su sasvim u redu. Ako vaš posao zahteva fizički napor, razmislite o kraćem bolovanju ili prilagođavanju radnih zadataka u poslednjim danima stimulacije.</p>
+
+      <div class="do-dont">
+        <div class="do-col">
+          <div class="do-col-title">Bezbedno tokom stimulacije</div>
+          <ul>
+            <li>Normalne svakodnevne aktivnosti i posao</li>
+            <li>Lagana šetnja i joga niskog intenziteta</li>
+            <li>Uravnotežena ishrana bogata proteinima</li>
+            <li>Dovoljno tečnosti (posebno voda)</li>
+            <li>Vožnja automobilom do klinike i nazad</li>
+          </ul>
+        </div>
+        <div class="dont-col">
+          <div class="dont-col-title">Izbegavati tokom stimulacije</div>
+          <ul>
+            <li>Intenzivan trening, trčanje, skakanje</li>
+            <li>Podizanje teških predmeta</li>
+            <li>Nagli pokreti i torzija tela</li>
+            <li>Sauna, vruća kupka, đakuzi</li>
+            <li>Alkohol i pušenje</li>
+          </ul>
+        </div>
+      </div>
 
       <h3>Šta ako imam mali broj folikula?</h3>
 
@@ -1070,15 +1294,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>Otkazivanje ciklusa je razočaravajuće, ali je uvek u najboljem interesu vašeg zdravlja. Lekar će vam objasniti razlog i predložiti plan za sledeći pokušaj - najčešće sa prilagođenim protokolom ili dozama. Otkazan ciklus ne umanjuje vaše ukupne šanse za uspeh; naprotiv, omogućava lekaru da bolje prilagodi pristup u sledećem pokušaju.</p>
 
+      <div class="quick-faq">
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li injekcije bole?</div>
+          <div class="quick-faq-note">Iglice su tanke poput insulinskih - blag ubod koji traje sekund</div></div>
+          <div class="quick-faq-badge badge-no">Minimalno</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li mogu da radim tokom stimulacije?</div>
+          <div class="quick-faq-note">Osim fizički zahtevnih poslova u poslednjim danima</div></div>
+          <div class="quick-faq-badge badge-yes">Da</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li stimulacija troši moje jajne ćelije i ubrzava menopauzu?</div></div>
+          <div class="quick-faq-badge badge-no">Ne</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li je stimulacija ista za IVF i ICSI?</div>
+          <div class="quick-faq-note">Razlika je samo u laboratorijskoj fazi oplođenja</div></div>
+          <div class="quick-faq-badge badge-yes">Da</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li smem da pijem alkohol tokom stimulacije?</div></div>
+          <div class="quick-faq-badge badge-no">Ne</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li mali broj folikula znači neuspeh?</div>
+          <div class="quick-faq-note">Kvalitet je jednako važan kao i broj - i jedna ćelija može biti dovoljna</div></div>
+          <div class="quick-faq-badge badge-no">Ne nužno</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Šta ako se ciklus otkaže?</div>
+          <div class="quick-faq-note">Lekar prilagođava pristup u sledećem pokušaju - nije kraj puta</div></div>
+          <div class="quick-faq-badge badge-ask">Razgovarajte sa lekarom</div>
+        </div>
+        <div class="quick-faq-item">
+          <div><div class="quick-faq-q">Da li mogu sama da dam sebi injekciju?</div>
+          <div class="quick-faq-note">Većina žena savlada tehniku nakon 1–2 primene uz obuku sestre</div></div>
+          <div class="quick-faq-badge badge-yes">Da</div>
+        </div>
+      </div>
+
       <h3>Uloga partnera tokom stimulacije</h3>
 
       <p>Partner igra važnu ulogu tokom stimulacije, čak i kada nema direktan medicinski zadatak. Praktična podrška (pomoć sa injekcijama, vožnja do klinike, preuzimanje kućnih obaveza) jednako je vredna kao i emocionalna prisutnost. Razumevanje da vaša partnerka prolazi kroz fizički i emocionalno zahtevan period, strpljenje u trenucima kada je razdražljiva ili uplašena, i jednostavno pitanje „Kako se osećaš?" - sve to čini veliku razliku.</p>
+
+      <div class="partner-tip">
+        <div class="partner-tip-icon">1</div>
+        <div class="partner-tip-text"><strong>Pomozite sa injekcijama.</strong> Pripremite lek, podsetite na vreme primene, ili sami dajte injekciju. Mnogi parovi kažu da im je ovo postao zajednički ritual koji je ojačao vezu.</div>
+      </div>
+      <div class="partner-tip">
+        <div class="partner-tip-icon">2</div>
+        <div class="partner-tip-text"><strong>Vozite do klinike.</strong> Jutarnje kontrole su česte (svakih 2–3 dana). Preuzimanje vožnje i čekanja u klinici je konkretna podrška koja mnogo znači.</div>
+      </div>
+      <div class="partner-tip">
+        <div class="partner-tip-icon">3</div>
+        <div class="partner-tip-text"><strong>Preuzmite kućne obaveze.</strong> Posebno u poslednjim danima stimulacije, kada je partnerka umorna i naduta. Kuvanje, pranje, sitni poslovi - sve pomaže.</div>
+      </div>
+      <div class="partner-tip">
+        <div class="partner-tip-icon">4</div>
+        <div class="partner-tip-text"><strong>Ne minimizirajte njene emocije.</strong> Hormonske oscilacije su realne i intenzivne. Umesto „Smiri se" pokušajte sa „Razumem da ti je teško. Šta ti treba?"</div>
+      </div>
+      <div class="partner-tip">
+        <div class="partner-tip-icon">5</div>
+        <div class="partner-tip-text"><strong>Budite strpljivi sa promenama raspoloženja.</strong> Plačljivost, razdražljivost ili anksioznost nisu izbor - to je efekat hormona. Vaše prisustvo i razumevanje su najvažniji lek.</div>
+      </div>
 
       <h3>Umesto zaključka</h3>
 
       <p>Stimulacija jajnika je prvi veliki korak u VTO procesu i za mnoge žene predstavlja period punih novih informacija, neizvesnosti i emocija. Razumevanje toga šta vas čeka - korak po korak, dan po dan - može značajno smanjiti anksioznost i pomoći vam da se osećate spremnije i sigurnije.</p>
 
       <p>Svaka stimulacija je individualna. Vaš lekar i medicinski tim su tu da prilagode protokol upravo vama, prate svaki korak i odgovore na sva pitanja. Nemojte se ustručavati da pitate - ne postoji glupo pitanje kada je u pitanju vaše zdravlje i vaš put ka roditeljstvu.</p>
+
+      <div class="empathy-box">
+        <p>Stimulacija jajnika je prvi veliki korak na VTO putu - i za mnoge žene najintenzivniji period punih novih informacija i emocija. Dajte sebi dozvolu da osećate strah, zamor ili frustraciju. To ne znači da niste dovoljno jaki - znači da ste ljudski. I zapamtite: svaka injekcija, svaka kontrola, svaki dan bliže vas cilju.</p>
+      </div>
 
       <!-- Tags -->
       <!-- <div class="article-tags">
