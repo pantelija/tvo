@@ -204,4 +204,28 @@
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
+    <url>
+    <loc>https://www.vto.rs/blastocista</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.vto.rs/kvalitet-embriona-ocenjivanje</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.vto.rs/tesa-tese-microtese-mesa</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.vto.rs/transfer-3-ili-5-dana-vto</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
