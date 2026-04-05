@@ -228,4 +228,46 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.vto.rs/varikokela</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/uloga-progesterona</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/pregled-lekova-vto</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/pgt-preimplantaciono-genetsko-testiranje</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/macs-magnetna-selekcija-spermatozoida</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/kratki-vs-dugi-protokol-stimulacije</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/biohemijska-trudnoca</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
