@@ -270,4 +270,16 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+    <url>
+    <loc>https://www.vto.rs/fizicki-uzroci-muske-neplodnosti</loc>
+    <lastmod>2026-04-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vto.rs/miomi-materice-i-uticaj-na-trudnocu</loc>
+    <lastmod>2026-04-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
