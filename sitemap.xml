@@ -282,4 +282,28 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+    <url>
+    <loc>https://www.vto.rs/krvarenje-u-ranoj-trudnoci</loc>
+    <lastmod>2026-04-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.vto.rs/genetski-uzroci-muskog-infertiliteta</loc>
+    <lastmod>2026-04-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.vto.rs/koliko-embriona-transferovati-jedan-ili-vise</loc>
+    <lastmod>2026-04-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.vto.rs/hidrosalpinks</loc>
+    <lastmod>2026-04-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
